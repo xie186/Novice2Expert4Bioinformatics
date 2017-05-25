@@ -1,0 +1,16 @@
+# Producing simple graphs
+
+## Producing simple graphs using R
+
+
+### Line Charts
+
+### Bar Charts
+
+### Histograms
+
+### Pie Charts
+
+### Dotcharts
+
+### Misc 

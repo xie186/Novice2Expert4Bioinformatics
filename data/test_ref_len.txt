@@ -1,0 +1,4 @@
+Chrom	Length
+chr1	36
+chr2	41
+chr3	41

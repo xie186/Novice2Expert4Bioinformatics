@@ -1,0 +1,5 @@
+# Shell
+
+What is Linux Shell ?
+
+http://www.freeos.com/guides/lsst/

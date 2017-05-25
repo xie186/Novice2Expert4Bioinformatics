@@ -1,0 +1,110 @@
+# Connecting to Linux
+
+## User interfaces
+
+As an operating systemsm, Linux comes with two types of user interfaces: Graphical User Interface (GUI) and command line interface (shell).
+
+GUI means there will be window, buttons, menus, etc. The most popular system with GUI is Windows system (Figure \@ref(fig:windowsGUI)).
+
+(ref:windowsGUI) Windows GUI. 
+
+```{r windowsGUI, fig.cap='(ref:windowsGUI)', outwidth="100%", echo=FALSE}
+knitr::include_graphics("figures/windows_gui.png")
+```
+
+Command line interfaces means that you need to type the command line yourself. Usually the results will be displayed as text (Figure \@ref(fig:linuxTerminalExam2)). 
+
+(ref:linuxTerminalExam2) An example of Linux terminal.
+
+```{r linuxTerminalExam2, fig.cap='(ref:linuxTerminalExam2)', outwidth="100%", echo=FALSE}
+knitr::include_graphics("figures/linux_terminal_exam2.png")
+```
+
+In Bioinformatics analysis, usually you won't operate directly on the physical machine of the Linux server. Usually you need to connect to the Linux server via a tool, like Putty, Mobaxterm, etc. 
+
+## How to connect
+
+If you want to connect to a Linux server, what you need to know first is:
+
+1) IP address of your Linux server;
+
+2) User name and password of your account;
+
+If you are a Mac OS X user, you can connect to a Linux server by using Terminal, a console program included with the operating system. 
+
+For Windows users, I would recommend MobaXterm for remote connection. MobatXterm is an excellent toolbox for remote connection from Windows system. It comes with an X11 server and provides many networking tools and tabbed SSH. It has all the essential UNIX commands in a single portable executable file.
+
+Here I show one example of what you should do When you first open Mobaxterm. You need to follow the numbers in Figure \@ref(fig:mobaxtermInit): click `Session`; then click `SSH`; type the IP or name address of the remote host, check `Specify username` if you need; click `OK`. 
+
+(ref:mobaxtermInit) First open of Mobaxterm.
+
+```{r mobaxtermInit, fig.cap='(ref:mobaxtermInit)', outwidth="100%", echo=FALSE}
+knitr::include_graphics("figures/mobaxterm_init.png")
+```
+
+Then you need to type the password. It's OK that you don't see anything when you're typing (Figure \@ref(fig:mobaxtermSavepswd)). Then click `Enter` on the keyboard.For the first time of log-in, you'll be asked to whether to save the password or not. If you say click `Yes`, you won't need to type the password again next time. 
+
+(ref:mobaxtermSavepswd) Type password and save it in Mobaxterm.
+
+```{r mobaxtermSavepswd, fig.cap='(ref:mobaxtermSavepswd)', outwidth="100%", echo=FALSE}
+knitr::include_graphics("figures/mobaxterm_savepassword.png")
+```
+
+If you can find a Linux server, it'll be very good. If NOT, here I provided a guest account for you. Here are the user name and password:
+
+```
+IP address: 198.211.107.37
+User name: guest4bioinfo
+Password: nobigfile
+```
+
+As you can tell from the password, please do NOT upload BIG files (bigger than 2 MB).
+
+## Transferring files between local computer and Linux server
+
+### Use GUI tools
+
+#### Filezilla
+
+#### WinSCP
+
+### Use command lines
+
+rsync compares the files at each end and transfers only the changed parts of changed files. When you transfer files the first timeo it behaves pretty much like scp, but for a second transfer, where most files are unchanged, it will push a lot less data than scp. It's also a convenient way to restart failed transfers - you just reissue the same command and it will pick up where it left off the time before, whereas scp will start again from scratch.
+
+#### Copying Files with `scp` 
+
+The command `scp` is short for secure copy. It can be used to copy files between hosts on a network. It uses ssh(1) for data transfer, and uses the same authentication and provides the same security as ssh(1).`Scp` will ask for passwords or passphrases if they are needed for authentication.
+
+File names may contain a user and host specification to indicate that the file is to be copied to/from that host. Local file names can be made explicit using absolute or relative pathnames to avoid scp treating file names containing ‘:’ as host specifiers. Copies between two remote hosts are also permitted.
+
+```{sh eval=FALSE}
+# Copy the file test.pl on 104.236.136.149 to the current directory.
+scp guest4bioinfor@104.236.136.149:~/test.pl ./
+```
+
+To copy files from a server to a client, you need to know where the files are located on the server. For example, to copy a single file `~/test.pl` from the server with IP address of 104.236.136.149 to the current directory. 
+
+```{sh eval=FALSE}
+# Copy the file test.pl in the current directory to  104.236.136.149
+scp ./test.pl guest4bioinfor@104.236.136.149:~/
+```
+
+To copy files from a client to a server, you need to know where the files you want to put on the server. For example, to copy a single file `test.pl` from the current folder to the HOME folder of the server with IP address of 104.236.136.149. 
+
+If you want to copy an entire directory recursively, you can use `-r` argument. See the example below: 
+
+```{sh eval=FALSE}
+# Copy the file test.pl in the current directory to  104.236.136.149
+scp -r guest4bioinfor@104.236.136.149:~/bioinfo/ ./
+```
+
+#### Transferring Files with `rsync`
+
+
+
+
+
+
+
+

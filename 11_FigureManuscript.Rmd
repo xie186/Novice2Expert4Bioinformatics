@@ -1,0 +1,7 @@
+# Preparation of figures for manuscript
+
+Inkscape is an open source software which can be used to arrange, crop, and annotate your images; bring in graphs and charts; draw diagrams; and export the final figure in whatever format the journal wants. 
+
+## 
+
+

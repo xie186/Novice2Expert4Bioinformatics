@@ -1,0 +1,54 @@
+# First Perl Program
+
+
+Scripting languages, like Perl, are very commonly used in bioinformatics. As a generous scripting language, Perl have many advantages: easy to use, free for all operating systems like Linux, designed for working with text files (tab-delimited files). It’s one of the most popular language in bioinformatics. Moreover there are many scripts and modules available. Additionally, there are a lot of resource on Internet. 
+http://stan.cropsci.uiuc.edu/courses/cpsc565/Lecture_3.ppt
+
+Example: @DeitelPerl
+
+## First Program
+
+As all other programming books, we begin with a “Hello world” program. 
+
+```{perl code=readLines("code_perl/hello_bioinfor.pl"), eval=FALSE}
+```
+
+```{r cache=FALSE, echo=FALSE}
+knitr::read_chunk("code_perl/hello_bioinfor.pl")
+```
+
+This program show how to display a line a text in Perl. It have several features. We go through each line in detail. 
+
+Line 1 is what we call shebang line. This line starts with shebang construct (`#!`). `/usr/bin/perl` indicates the path of the Perl interpreter. 
+
+Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (“” or ‘’).
+
+```{sh comment=NA}
+perl code_perl/hello_bioinfor.pl
+```
+
+```{sh comment=NA}
+ls -l code_perl/hello_bioinfor.pl
+code_perl/hello_bioinfor.pl
+```
+
+```{sh comment=NA}
+chmod 755 code_perl/hello_bioinfor.pl
+code_perl/hello_bioinfor.pl
+```
+
+```{r cache=FALSE, echo=FALSE}
+knitr::read_chunk("code_perl/hello_bioinfo.pl")
+```
+
+```{sh comment=NA, error=TRUE}
+ls -l code_perl/hello_bioinfo.pl
+code_perl/hello_bioinfo.pl
+
+```
+
+After we press ENTER on the keyboard, the program will execute and display the output in Figure 5.1 if the program is syntactically correct. 
+However the characters `\n` are not displayed. Here backslash `\` is a start of an escape sequence. It changes the meaning of the character after it. The backslash `\` and `n` together (`\n`) form an escape sequence and signify a newline. Other examples are `\t` (tab) or `\$` (= print an actual dollar sign, normally a dollar sign has a special meaning). We’ll see more escape sequences in 7.1. 
+You can try to remove `\n` in the program to see what will happen. This will give you a more understanding of the program. 
+
+

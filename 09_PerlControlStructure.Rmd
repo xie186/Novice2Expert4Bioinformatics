@@ -1,0 +1,26 @@
+# Control structure
+
+....
+Perl is an iterative language in which control flows from the first statement in the program to the last statement unless something interrupts. Some of the things that can interrupt this linear flow are conditional branches and loop structures. Perl offers approximately a dozen such constructs, which are described below. The basic form will be shown for each followed by a partial example.
+....
+
+## `while` loop
+
+
+
+## `for` loop
+
+## `foreach` loop
+
+## Statement if-else
+
+```{perl code=readLines("code_perl/state_if.pl"), comment=NA}
+```
+
+
+
+## Operator `last` and `next`
+
+## Operator `redo`
+
+
