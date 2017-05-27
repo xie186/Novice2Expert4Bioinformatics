@@ -34,6 +34,40 @@ knitr::kable(tab, caption = '(ref:textEditorLinuxVi3modes)', booktabs = TRUE)
 ```{r code=readLines("code_R/example4viEditor.R")}
 ```
 
+### Shell scipt
+
+https://wikis.utexas.edu/display/bioiteam/Example+BWA+alignment+script
+
+
+
+## How to exit VIM
+  
+https://stackoverflow.com/questions/11828270/how-to-exit-the-vim-editor
+
+
+
+ ## split Vim window to view multiple files at once?
+ 
+ ### 
+ 
+ ```
+ 
+ ```
+ 
+ ### 
+
+https://stackoverflow.com/questions/1269603/to-switch-from-vertical-split-to-horizontal-split-fast-in-vim
+
+https://vi.stackexchange.com/questions/64/is-it-possible-to-split-vim-window-to-view-multiple-files-at-once
+
+https://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim
+
+https://unix.stackexchange.com/questions/93144/exit-vim-more-quickly
+
+
+https://stackoverflow.com/questions/53664/how-to-effectively-work-with-multiple-files-in-vim?rq=1
+
+
 
 
 

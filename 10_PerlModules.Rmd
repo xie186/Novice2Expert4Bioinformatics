@@ -1,0 +1,44 @@
+# Perl modules
+
+## What is a Perl module
+
+Perl modules are a set of related functions in a library file. They are specifically designed to be reusable by other modules or programs. There are more than 100,000 modules ready for you to use on the Comprehensive Perl Archive Network.
+
+Most Perl modules are written in Perl, some use XS (they are written in C) so require a C compiler. Modules may have dependencies on other modules (almost always on CPAN) and cannot be installed without them (or without a specific version of them). Many modules on CPAN now require a recent version of Perl (version 5.8 or above).
+
+The reason that we need to use Perl module is Perl module can largely reduce our coding work. 
+
+
+## How to install a Perl module
+
+Here I'll only show you how to install Perl modules in Linux. In Linux, the easiest way to install a Perl Module is to use `cpanm`.
+
+
+
+## How to use a Perl module
+
+Here we'll only discuss how to install Perl module in Linux system. The easies way I think is to use `cpanm`. 
+
+Here is how you can do this. First go to webpage and download the `cpanm` source code.
+
+```
+## Web link:https://raw.githubusercontent.com/miyagawa/cpanminus/master/cpanm
+
+chmod 755 cpanm
+
+./cpanm Excel::Writer::XLSX
+./cpanm --local-lib=~/perl5 Excel::Writer::XLSX && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+
+```
+
+
+
+
+
+
+## How to use BioPerl module
+
+## How to write a module
+
+
+

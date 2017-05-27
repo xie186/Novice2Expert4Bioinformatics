@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2017.5.24)  25 MAY 2017 00:05
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2017.5.24)  27 MAY 2017 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -857,7 +857,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 62.
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1324,18 +1324,26 @@ Underfull \vbox (badness 3291) has occurred while \output is active []
 ] [26]
 File: bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf" > [27] [28
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf" > [27]
+Overfull \hbox (5.89499pt too wide) in paragraph at lines 1231--1232
+[][]$[][][][][] [] [] [] [][] [] [][][][][][][][][][][][][] [] [][][] [] [][][]
+[][][][][][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][]$[] 
+ []
 
-]
+[28]
 Chapter 6.
-[29] [30]
+[29
+
+] [30]
 Chapter 7.
 [31
 
 ]
 File: images/tip.png Graphic file (type QTm)
 <use  "images/tip.png" > [32]
-Overfull \hbox (95.49498pt too wide) in paragraph at lines 1466--1466
+Overfull \hbox (95.49498pt too wide) in paragraph at lines 1494--1494
 []\EU1/lmtt/m/n/10 Global symbol "$dna_lenght2" requires explicit package name 
 at code_perl/var_assign_strict_warnings.pl line 17.[] 
  []
@@ -1345,7 +1353,7 @@ at code_perl/var_assign_strict_warnings.pl line 17.[]
 ]
 Chapter 8.
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1489.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1517.
 
 [35] [36]
 Chapter 9.
@@ -1361,14 +1369,14 @@ Underfull \vbox (badness 3029) has occurred while \output is active []
 ]
 File: figures/fasta_pyl10_ara.png Graphic file (type QTm)
 <use  "figures/fasta_pyl10_ara.png" > [40]
-Overfull \hbox (5.04698pt too wide) in paragraph at lines 1744--1746
+Overfull \hbox (5.04698pt too wide) in paragraph at lines 1772--1774
 []\EU1/lmr/m/n/10 In the first cycle of the \EU1/lmtt/m/n/10 while \EU1/lmr/m/n
 /10 loop, the first chunk is \EU1/lmtt/m/n/10 >chr1\nACGCTAGCTAGTCAGTCGATCGT\nC
 GTAGCTAGCTAG\n>\EU1/lmr/m/n/10 . 
  []
 
 
-Overfull \hbox (22.08699pt too wide) in paragraph at lines 1777--1779
+Overfull \hbox (22.08699pt too wide) in paragraph at lines 1805--1807
 []\EU1/lmr/m/n/10 In the second cycles of the \EU1/lmtt/m/n/10 while \EU1/lmr/m
 /n/10 loop, the chunk is \EU1/lmtt/m/n/10 chr2\nCTGCGGGCTAAATCGATCGATCG\nGTACGT
 ACGAGCTAGCTA\n>\EU1/lmr/m/n/10 . 
@@ -1380,6 +1388,12 @@ File: figures/fasta_string.png Graphic file (type QTm)
 
 ]
 Chapter 11.
+
+Overfull \hbox (30.74498pt too wide) in paragraph at lines 2060--2060
+[]\EU1/lmtt/m/n/10 ./cpanm --local-lib=~/perl5 Excel::Writer::XLSX && eval $(pe
+rl -I ~/perl5/lib/perl5/ -Mlocal::lib)[] 
+ []
+
 [47] [48
 
 ]
@@ -1388,39 +1402,47 @@ Chapter 12.
 
 ]
 Chapter 13.
-File: bookdown-demo_files/figure-latex/foo-1.pdf Graphic file (type QTm)
-<use  "bookdown-demo_files/figure-latex/foo-1.pdf" > [51] [52]
+[51] [52
+
+]
 Chapter 14.
+File: bookdown-demo_files/figure-latex/foo-1.pdf Graphic file (type QTm)
+<use  "bookdown-demo_files/figure-latex/foo-1.pdf" > [53] [54]
+Chapter 15.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[53
-
-] [54]
-Chapter 15.
 [55
 
-] [56
+] [56]
+Chapter 16.
+[57
+
+] [58
 
 ]
-Chapter 16.
-(./bookdown-demo.bbl [57] [58
+Chapter 17.
+[59] [60
+
+]
+Chapter 18.
+(./bookdown-demo.bbl [61] [62
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2153.
-[59]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2153.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2241.
+[63]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2241.
 (./bookdown-demo.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2153.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2153.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2241.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2241.
  ) 
 Here is how much of TeX's memory you used:
- 25532 strings out of 495708
- 480176 string characters out of 3188823
- 544003 words of memory out of 3000000
- 28344 multiletter control sequences out of 15000+200000
+ 25548 strings out of 495708
+ 480497 string characters out of 3188823
+ 544524 words of memory out of 3000000
+ 28360 multiletter control sequences out of 15000+200000
  16415 words of font info for 51 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  52i,8n,68p,810b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bookdown-demo.pdf (59 pages).
+Output written on bookdown-demo.pdf (63 pages).

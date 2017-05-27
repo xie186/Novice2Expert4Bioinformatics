@@ -1,0 +1,22 @@
+
+# Python 
+
+
+
+
+## os 
+
+## 
+
+
+### How to write python script to a command line program 
+
+
+http://omgenomics.com/python-command-line-program/
+
+
+### Python module: pysam
+
+### Python module: pybedtools
+
+
