@@ -29,5 +29,12 @@ knitr::include_graphics("figures/Linus_Torvalds_GitHub.png")
 
 For analysis of NGS data, a large amount of software were developed for using under Linux environment. Among them, a large proportion can be only used under Linux environment. 
 
+* Easy to build simple pipelines 
+  (awk, bash, piping, bash redirection, texttools) 
+* Simple to install and use software development tools
+* Multiple versions of a program can be installed by the user himself and switched on/off with sourcing some scripts without being administrator
+* A lot of good scientific software is written in a non portable way for linux/unix (almost all short read aligners, samtools). This makes it necessary to use Unix for genomics.
+* Ability to perform analyses on computer clusters (important for big/long computational jobs)
+
 
 

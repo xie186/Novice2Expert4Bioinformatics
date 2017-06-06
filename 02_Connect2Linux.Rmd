@@ -62,15 +62,23 @@ As you can tell from the password, please do NOT upload BIG files (bigger than 2
 
 ## Transferring files between local computer and Linux server
 
-### Use GUI tools
-
-#### Filezilla
-
-#### WinSCP
+To transfer files between local computer and Linux sever, there are two options: 1) GUI application and 2) command line.
 
 ### Use command lines
 
 rsync compares the files at each end and transfers only the changed parts of changed files. When you transfer files the first timeo it behaves pretty much like scp, but for a second transfer, where most files are unchanged, it will push a lot less data than scp. It's also a convenient way to restart failed transfers - you just reissue the same command and it will pick up where it left off the time before, whereas scp will start again from scratch.
+
+* Open FileZilla and then click `File` -> `Site Manager`.
+
+GUI means there will be window, buttons, menus, etc. The most popular system with GUI is Windows system (Figure \@ref(fig:filezilla_screenshot1)).
+
+(ref:filezilla_screenshot1) FileZilla application. 
+
+```{r filezilla_screenshot1, fig.cap='(ref:windowsGUI)', outwidth="100%", echo=FALSE}
+knitr::include_graphics("figures/filezilla_screenshot1.png")
+```
+
+
 
 #### Copying Files with `scp` 
 
@@ -99,7 +107,6 @@ If you want to copy an entire directory recursively, you can use `-r` argument. 
 scp -r guest4bioinfor@104.236.136.149:~/bioinfo/ ./
 ```
 
-#### Transferring Files with `rsync`
 
 
 

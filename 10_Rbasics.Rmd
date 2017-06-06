@@ -1,0 +1,22 @@
+
+
+
+The name `R` is partly based on the (first) names of the first two R authors (Robert Gentleman and Ross Ihaka). 
+
+
+
+
+Convert string to a variable name
+https://stackoverflow.com/questions/6034655/convert-string-to-a-variable-name
+
+```
+assign("x", 5)
+
+x
+[1] 5
+```
+
+
+
+https://cran.r-project.org/doc/FAQ/R-FAQ.html#Why-is-R-named-R_003f
+

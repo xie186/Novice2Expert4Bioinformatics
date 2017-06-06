@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2017.5.24)  27 MAY 2017 12:16
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013) (format=xelatex 2017.5.24)  6 JUN 2017 01:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -857,7 +857,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 64.
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -886,17 +886,16 @@ File: figures/mobaxterm_init.png Graphic file (type QTm)
 <use  "figures/mobaxterm_init.png" >
 File: figures/mobaxterm_savepassword.png Graphic file (type QTm)
 <use  "figures/mobaxterm_savepassword.png" > [11]
+File: figures/filezilla_screenshot1.png Graphic file (type QTm)
+<use  "figures/filezilla_screenshot1.png" >
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 469.
-
-Underfull \vbox (badness 1107) has occurred while \output is active []
-
-[12] [13] [14
-
-]
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 505.
+[12] [13] [14]
 Chapter 3.
 File: figures/LinuxPathTree.png Graphic file (type QTm)
-<use  "figures/LinuxPathTree.png" > [15]
+<use  "figures/LinuxPathTree.png" > [15
+
+]
 Missing character: There is no 慐 in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no 桴 in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no 匬 in font [lmroman10-regular]:mapping=tex-text!
@@ -981,7 +980,7 @@ Missing character: There is no 彮 in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no 慮 in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no 敭 in font [lmroman10-regular]:mapping=tex-text!
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 629.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 662.
 File: figures/linuxCMDpwd.png Graphic file (type QTm)
 <use  "figures/linuxCMDpwd.png" >
 File: figures/linuxCMDls.png Graphic file (type QTm)
@@ -989,12 +988,6 @@ File: figures/linuxCMDls.png Graphic file (type QTm)
 File: figures/linuxAutoCompletion.png Graphic file (type QTm)
 <use  "figures/linuxAutoCompletion.png" > [21] [22]
 Chapter 4.
-[23
-
-]
-File: images/tip.png Graphic file (type QTm)
-<use  "images/tip.png" > [24]
-Chapter 5.
 File: figures/workingModeVi.png Graphic file (type QTm)
 <use  "figures/workingModeVi.png" >
 Missing character: There is no 楶 in font [lmroman10-regular]:mapping=tex-text!
@@ -1312,137 +1305,207 @@ Missing character: There is no 敭 in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no ⱳ in font [lmroman10-regular]:mapping=tex-text!
 Missing character: There is no ਬ in font [lmroman10-regular]:mapping=tex-text!
 
-Overfull \hbox (616.02502pt too wide) in paragraph at lines 1170--1177
+Overfull \hbox (616.02502pt too wide) in paragraph at lines 1124--1131
  [][] 
  []
 
 
 Underfull \vbox (badness 3291) has occurred while \output is active []
 
-[25
+[23
 
-] [26]
-File: bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (typ
+] [24]
+File: bookdown-demo_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file (typ
 e QTm)
-<use  "bookdown-demo_files/figure-latex/unnamed-chunk-21-1.pdf" > [27]
-Overfull \hbox (5.89499pt too wide) in paragraph at lines 1231--1232
+<use  "bookdown-demo_files/figure-latex/unnamed-chunk-19-1.pdf" > [25]
+Overfull \hbox (5.89499pt too wide) in paragraph at lines 1185--1186
 [][]$[][][][][] [] [] [] [][] [] [][][][][][][][][][][][][] [] [][][] [] [][][]
 [][][][][][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 [][][][][][][][][][]$[] 
  []
 
-[28]
-Chapter 6.
-[29
-
-] [30]
-Chapter 7.
-[31
+[26]
+Chapter 5.
+[27
 
 ]
 File: images/tip.png Graphic file (type QTm)
-<use  "images/tip.png" > [32]
-Overfull \hbox (95.49498pt too wide) in paragraph at lines 1494--1494
+<use  "images/tip.png" >
+Overfull \hbox (16.74498pt too wide) in paragraph at lines 1319--1319
+[]\EU1/lmtt/m/n/10 wget https://downloads.sourceforge.net/project/bio-bwa/bwaki
+t/bwakit-0.7.15_x64-linux.tar.bz2[] 
+ []
+
+[28]
+Overfull \hbox (60.63995pt too wide) in paragraph at lines 1326--1328
+\EU1/lmr/m/n/10 Linux: []$[][][][][] [] [] [] [][][] [] [][][][][][][] [] [][][
+] [] [][][][][] [] [] [] [][][][][][][][][][][][][][][][] [] [][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
+ []
+
+[29] [30
+
+]
+Chapter 6.
+[31] [32]
+Chapter 7.
+[33
+
+]
+File: images/tip.png Graphic file (type QTm)
+<use  "images/tip.png" > [34]
+Overfull \hbox (95.49498pt too wide) in paragraph at lines 1588--1588
 []\EU1/lmtt/m/n/10 Global symbol "$dna_lenght2" requires explicit package name 
 at code_perl/var_assign_strict_warnings.pl line 17.[] 
  []
 
-[33] [34
+[35] [36
 
 ]
 Chapter 8.
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1517.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1611.
 
-[35] [36]
+[37] [38]
 Chapter 9.
-[37
+[39
 
-] [38]
+] [40]
 Chapter 10.
 
 Underfull \vbox (badness 3029) has occurred while \output is active []
 
-[39
+[41
 
 ]
 File: figures/fasta_pyl10_ara.png Graphic file (type QTm)
-<use  "figures/fasta_pyl10_ara.png" > [40]
-Overfull \hbox (5.04698pt too wide) in paragraph at lines 1772--1774
+<use  "figures/fasta_pyl10_ara.png" > [42]
+Overfull \hbox (5.04698pt too wide) in paragraph at lines 1866--1868
 []\EU1/lmr/m/n/10 In the first cycle of the \EU1/lmtt/m/n/10 while \EU1/lmr/m/n
 /10 loop, the first chunk is \EU1/lmtt/m/n/10 >chr1\nACGCTAGCTAGTCAGTCGATCGT\nC
 GTAGCTAGCTAG\n>\EU1/lmr/m/n/10 . 
  []
 
 
-Overfull \hbox (22.08699pt too wide) in paragraph at lines 1805--1807
+Overfull \hbox (22.08699pt too wide) in paragraph at lines 1899--1901
 []\EU1/lmr/m/n/10 In the second cycles of the \EU1/lmtt/m/n/10 while \EU1/lmr/m
 /n/10 loop, the chunk is \EU1/lmtt/m/n/10 chr2\nCTGCGGGCTAAATCGATCGATCG\nGTACGT
 ACGAGCTAGCTA\n>\EU1/lmr/m/n/10 . 
  []
 
-[41]
+[43]
 File: figures/fasta_string.png Graphic file (type QTm)
-<use  "figures/fasta_string.png" > [42] [43] [44] [45] [46
+<use  "figures/fasta_string.png" > [44] [45] [46] [47] [48
 
 ]
 Chapter 11.
+File: images/tip.png Graphic file (type QTm)
+<use  "images/tip.png" >
 
-Overfull \hbox (30.74498pt too wide) in paragraph at lines 2060--2060
-[]\EU1/lmtt/m/n/10 ./cpanm --local-lib=~/perl5 Excel::Writer::XLSX && eval $(pe
-rl -I ~/perl5/lib/perl5/ -Mlocal::lib)[] 
+Package natbib Warning: Citation `INC' on page 49 undefined on input line 2181.
+
+
+
+Package natbib Warning: Citation `INC' on page 49 undefined on input line 2181.
+
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 2160--2186
+\EU1/lmr/m/n/10 Fetching []$[][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [
+][][][][][][] [] [][] [] [] [] [][] [] [][][][][][][][] [] [][][][][][][][][][]
+ [] [][][][][][] [] [][][] [] [][]$[] … OK ==>
  []
 
-[47] [48
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 2160--2186
+\EU1/lmr/m/n/10 Fetching []$[][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [
+][][][][][][] [] [][] [] [] [] [][] [] [][][][][] [] [][][][][][][][][][][][][]
+[][][][][][] [] [][][][][][] [] [][][] [] [][]$[] …
+ []
+
+
+Underfull \hbox (badness 2469) in paragraph at lines 2160--2186
+\EU1/lmr/m/n/10 OK ==> Found dependencies: ExtUtils::MakeMaker –> Working on Ex
+tUtils::MakeMaker
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2160--2186
+\EU1/lmr/m/n/10 Fetching []$[][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [
+][][][][][][] [] [][] [] [] [] [][] [] [][][][][][] [] [][][][][][][][][][][][]
+[][][][][][][][][][] [] [][] [] [][][] [] [][]$[] …
+ []
+
+
+Underfull \hbox (badness 3375) in paragraph at lines 2160--2186
+\EU1/lmr/m/n/10 contains: FatPacked::26160008=HASH(0x18f2b88) /usr/local/lib64/
+perl5 /usr/local/share/perl5
+ []
+
+
+Overfull \vbox (0.63145pt too high) detected at line 2186
+ []
+
+[49]
+Overfull \hbox (29.38498pt too wide) in paragraph at lines 2197--2199
+[]\EU1/lmr/m/n/10 Convert string to a variable name []$[][][][][] [] [] [] [][]
+[][][][][][][][][][][] [] [][][] [] [][][][][][][][][] [] [][][][][][][] [] [][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[] 
+ []
+
+[50]
 Chapter 12.
-[49] [50
+[51
+
+] [52
 
 ]
 Chapter 13.
-[51] [52
+[53] [54
 
 ]
 Chapter 14.
 File: bookdown-demo_files/figure-latex/foo-1.pdf Graphic file (type QTm)
-<use  "bookdown-demo_files/figure-latex/foo-1.pdf" > [53] [54]
+<use  "bookdown-demo_files/figure-latex/foo-1.pdf" > [55] [56]
 Chapter 15.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[55
-
-] [56]
-Chapter 16.
 [57
 
-] [58
+] [58]
+Chapter 16.
+[59
+
+] [60
 
 ]
 Chapter 17.
-[59] [60
+[61] [62
 
 ]
 Chapter 18.
-(./bookdown-demo.bbl [61] [62
+(./bookdown-demo.bbl [63] [64
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2241.
-[63]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2241.
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2384.
+[65]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2384.
 (./bookdown-demo.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2241.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2241.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2384.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2384.
  ) 
 Here is how much of TeX's memory you used:
- 25548 strings out of 495708
- 480497 string characters out of 3188823
- 544524 words of memory out of 3000000
- 28360 multiletter control sequences out of 15000+200000
+ 25553 strings out of 495708
+ 480587 string characters out of 3188823
+ 547737 words of memory out of 3000000
+ 28364 multiletter control sequences out of 15000+200000
  16415 words of font info for 51 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  52i,8n,68p,810b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on bookdown-demo.pdf (63 pages).
+Output written on bookdown-demo.pdf (65 pages).
