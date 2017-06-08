@@ -1,0 +1,3 @@
+# Where to start?
+
+There are many ways to start to talk about Bioinformatics analysis. Here we'll go from whether there is a reference genome or not. For a project we're working one, it has to be 
