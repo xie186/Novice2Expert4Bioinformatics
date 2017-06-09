@@ -1,0 +1,24 @@
+# BS-seq 
+
+## What is BS-seq
+
+## 
+
+## How to analyze BS-seq data
+
+### 
+
+
+
+
+
+
+
+
+
+
+
+MINI REVIEW: Statistical methods for detecting differentially methylated loci and regions
+
+Strategies for analyzing bisulfite sequencing data
+
