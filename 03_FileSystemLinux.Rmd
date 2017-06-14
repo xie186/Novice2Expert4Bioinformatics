@@ -121,13 +121,23 @@ The command `mv` is short for move (or rename) files.
 
 Here is one common example of `mv`. 
 
-```{sh eval=TRUE}
+```{sh eval=FALSE}
+
+mv file1 directory1/
 
 ```
 
 #### Move multiple files into a directory
 
+```{sh eval=FALSE}
+mv file1 file2 file3 target_direcotry/
+```
+
 #### Move a directory
+
+```{sh eval=FALSE}
+mv dir1
+```
 
 #### Rename a file or a directory
 
@@ -151,7 +161,6 @@ Multiple directories can be specified when calling `mkdir`.
 ```{sh eval=FALSE}
 mkdir directory1 directory2
 ```
-
 
 ## Viewing text files in Linux
 

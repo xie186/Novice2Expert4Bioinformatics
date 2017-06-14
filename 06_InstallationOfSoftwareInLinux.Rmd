@@ -1,18 +1,12 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-# Installation of Linux software in Linux
 
-
+# Install Bioinformatics software in Linux
 
 ## Installation from source code
 
 Nearly all of the Bioinformatics softwares will be downloaded as a compressed files. So the first thing you need to do is to uncompress the file. Then the source codes will be included in a folder. You can `cd` to the folder and `ls` the files/directories. Mostly you will find either a file named `README` or `INSTALL` or both. If you read this file to know how to install the software. 
 
 
-### Installation of `bwa`
+### Install `bwa`
 
 ```{sh eval=FALSE}
 wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2
@@ -69,13 +63,13 @@ would install into bin and share/man subdirectories under /tmp/staging/opt.
 
 ```
 
+### Align reads to genome using `bwa` and store the alignment results in SAM/BAM files
 
 ```
 ./bwa index ref.fa
 ./bwa mem ref.fa read-se.fq.gz | gzip -3 > aln-se.sam.gz
 ./bwa mem ref.fa read1.fq read2.fq | gzip -3 > aln-pe.sam.gz
 ```
-
 
 ## Installing a precompiled binary (executable)
 
