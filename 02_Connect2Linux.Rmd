@@ -30,7 +30,7 @@ If you want to connect to a Linux server, what you need to know first is:
 
 2) User name and password of your account;
 
-If you are a Mac OS X user, you can connect to a Linux server by using Terminal, a console program included with the operating system. 
+If you are a Mac OS X user, you can connect to a Linux server by using `Terminal`, a console program included with the operating system. 
 
 For Windows users, I would recommend MobaXterm for remote connection. MobatXterm is an excellent toolbox for remote connection from Windows system. It comes with an X11 server and provides many networking tools and tabbed SSH. It has all the essential UNIX commands in a single portable executable file.
 
@@ -60,13 +60,36 @@ Password: nobigfile
 
 As you can tell from the password, please do NOT upload BIG files (bigger than 2 MB).
 
+### Set up Linux Lab Environment
+
+One way to get access to a Linux system is to take advantage of Red Hat Enterprise Linux delivered by Amazon EC2 (Elastic Compute Cloud). Red Hat and Amazon Web Services collaborate to provide official Red Hat Enterprise Linux licensed images through Amazon’s on-demand public cloud service at free or low cost.
+
+The guided exercises and labs for this course were written assuming that you will set up an account with Amazon Web Services and use it to start a single, simple system running Red Hat Enterprise Linux 7. You will connect to that system securely over the internet and use it to practice commands.
+
+At the time of writing, Amazon Web Services provides an AWS Free Tier offering, which gives new users free access to certain sizes of cloud instances and operating environments (including Red Hat Enterprise Linux 7) for up to 750 hours per month, for 12 months.
+
+
+```{block2, note-text-linuxRedHat, type='rmdtip'}
+
+**Install `samtools` without root previledges**
+
+If you are not eligible for AWS Free Tier or have used up your free tier eligibility, a t2.micro-sized instance (cloud computer) running the same software, is currently estimated to cost between US$0.072 and US$0.08 per hour of compute time, depending on the data center in which the instance is started.
+
+To conserve compute time and any costs, make sure you shut down your cloud instance when you are not using it, and terminate (delete) it when you are completely finished with it.
+
+```
+
+
+
+
+
+
+
 ## Transferring files between local computer and Linux server
 
 To transfer files between local computer and Linux sever, there are two options: 1) GUI application and 2) command line.
 
-### Use command lines
 
-rsync compares the files at each end and transfers only the changed parts of changed files. When you transfer files the first timeo it behaves pretty much like scp, but for a second transfer, where most files are unchanged, it will push a lot less data than scp. It's also a convenient way to restart failed transfers - you just reissue the same command and it will pick up where it left off the time before, whereas scp will start again from scratch.
 
 * Open FileZilla and then click `File` -> `Site Manager`.
 
@@ -79,6 +102,15 @@ knitr::include_graphics("figures/filezilla_screenshot1.png")
 ```
 
 
+### Use command line tools
+
+`rsync` compares the files at each end and transfers only the changed parts of changed files. When you transfer files the first timeo it behaves pretty much like scp, but for a second transfer, where most files are unchanged, it will push a lot less data than scp. It's also a convenient way to restart failed transfers - you just reissue the same command and it will pick up where it left off the time before, whereas scp will start again from scratch.
+
+#### Copy files using `rsync` 
+
+```
+
+```
 
 #### Copying Files with `scp` 
 
@@ -87,29 +119,31 @@ The command `scp` is short for secure copy. It can be used to copy files between
 File names may contain a user and host specification to indicate that the file is to be copied to/from that host. Local file names can be made explicit using absolute or relative pathnames to avoid scp treating file names containing ‘:’ as host specifiers. Copies between two remote hosts are also permitted.
 
 ```{sh eval=FALSE}
-# Copy the file test.pl on 104.236.136.149 to the current directory.
-scp guest4bioinfor@104.236.136.149:~/test.pl ./
+# Copy the file test.pl on 198.211.107.37 to the current directory.
+scp guest4bioinfor@198.211.107.37:~/test.pl ./
 ```
 
-To copy files from a server to a client, you need to know where the files are located on the server. For example, to copy a single file `~/test.pl` from the server with IP address of 104.236.136.149 to the current directory. 
+To copy files from a server to a client, you need to know where the files are located on the server. For example, to copy a single file `~/test.pl` from the server with IP address of 198.211.107.37 to the current directory. 
 
 ```{sh eval=FALSE}
-# Copy the file test.pl in the current directory to  104.236.136.149
-scp ./test.pl guest4bioinfor@104.236.136.149:~/
+# Copy the file test.pl in the current directory to  198.211.107.37
+scp ./test.pl guest4bioinfor@198.211.107.37:~/
 ```
 
-To copy files from a client to a server, you need to know where the files you want to put on the server. For example, to copy a single file `test.pl` from the current folder to the HOME folder of the server with IP address of 104.236.136.149. 
+To copy files from a client to a server, you need to know where the files you want to put on the server. For example, to copy a single file `test.pl` from the current folder to the HOME folder of the server with IP address of 198.211.107.37. 
 
 If you want to copy an entire directory recursively, you can use `-r` argument. See the example below: 
 
 ```{sh eval=FALSE}
-# Copy the file test.pl in the current directory to  104.236.136.149
-scp -r guest4bioinfor@104.236.136.149:~/bioinfo/ ./
+# Copy the file test.pl in the current directory to  198.211.107.37
+scp -r guest4bioinfor@198.211.107.37:~/bioinfo/ ./
 ```
 
 
 
+Reference:
 
+RH066x Fundamentals of Red Hat Enterprise Linux on edX
 
 
 

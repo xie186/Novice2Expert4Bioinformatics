@@ -18,15 +18,6 @@ As vi uses a lot of combination of keystrokes, it may be not easy for newbies to
 knitr::include_graphics("figures/workingModeVi.png")
 ```
 
-Here I showed the details of three modes in Table \@ref(tab:textEditorLinuxVi3modes)
-
-(ref:textEditorLinuxVi3modes) Details of three modes of vi.
-
-```{r textEditorLinuxVi3modes, echo=FALSE}
-tab<-read.csv("tables/textEditorLinuxVi3modes.csv", fileEncoding="UCS-2LE")
-knitr::kable(tab, caption = '(ref:textEditorLinuxVi3modes)', booktabs = TRUE)
-```
-
 ## An example for using editor R
 
 

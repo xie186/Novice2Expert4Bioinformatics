@@ -46,7 +46,7 @@ In June 2014, I graduated from China Agricultural University. One of my collabor
 
 ## Acknowledgement {-}
 
-First, I'd like to thank my family (my wife, my parents and my daguther). Without them, I wouldn't have the time and the confident to write this book.
+First, I'd like to thank my family (my wife, our parents and my two daguthers: Angela and Sarah). Without them, I wouldn't have the time and the confidence to write this book.
 
 Then I'd thank the author of bookdown (@R-bookdown). For a long time I tried to have a nice platform that can help me write this book. Finally, I found bookdown is the best one for me. 
 

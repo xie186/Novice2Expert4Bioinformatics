@@ -2,7 +2,7 @@
 
 ## Path
 
-To understand Linux file system, you can image it as a tree structure (Figure \@ref(fig:linuxTreeStruc)). 
+To understand Linux file system, you can image it as a tree structure (Figure \@ref(fig:linuxTreeStruc)).  
 
 (ref:linuxTreeStruc) Tree structure of Linux system. 
 
@@ -12,7 +12,7 @@ knitr::include_graphics("figures/LinuxPathTree.png")
 
 In Linux, a path is a unique location of a file or a directory in the file system. 
 
-For convenience, the Linux file system is usually thought of in a tree structure. On a standard Linux system you will find the layout generally follows the scheme presented below.
+For convenience, Linux file system is usually thought of in a tree structure. On a standard Linux system you will find the layout generally follows the scheme presented below.
 
 The tree of the file system starts at the trunk or slash, indicated by a forward slash (/). This directory, containing all underlying directories and files, is also called the root directory or "the root" of the file system.
 
@@ -35,32 +35,20 @@ Here are some examples:
 ```
 * __Relative path__
 
-### Path shortcuts
+Relative path is a path related to the present working directory.
 
-In Linux, there are three commonly used path shortpaths (Table \@ref(tab:linuxPathShortcuts)).
-
-(ref:linuxPathShortcuts) Shortcuts of path.
-
-```{r linuxPathShortcuts, echo=FALSE}
-tab<-read.csv("tables/linuxPathShortcuts.csv", fileEncoding="UCS-2LE")
-knitr::kable(tab, caption = '(ref:linuxPathShortcuts)', booktabs = TRUE)
+```
+data/sample1/
+../doc/
 ```
 
-```{sh comment=NA}
-pwd
-cd ../
-pwd
-cd ./
-pwd
-```
 
-Each directory has two entries in it at the start, with names . (a link to itself) and .. (a link to its parent directory). The exception, of course, is the root directory, where the .. directory also refers to the root directory.
 
-## Surfing in Linux file system
+##Surfing in Linux file system
 
 Once we enter into a Linux file system, we need to 1) know where we are; 2) how to get where we want; 3) how to know what files or directories we have in a particular path. 
 
-###	Command `pwd`
+###Command `pwd`
 
 In order to know where we are, we need to use `pwd` command. The command `pwd` is short for “print name of current/working directory”. It will return the full path of current directory.
 
@@ -103,6 +91,47 @@ Unlike `pwd`, when you use `cd` you usually need to provide the path (either abs
 If we didn’t provide any path information, we will change to home directory by default.
 
 
+##Path shortcuts
+
+In Linux, there are three commonly used path shortpaths (Table \@ref(tab:linuxPathShortcuts)).
+
+(ref:linuxPathShortcuts) Shortcuts of path.
+
+```{r linuxPathShortcuts, echo=FALSE}
+tab<-read.table("tables/linuxPathShortcuts.tsv",header=T, sep="\t")
+knitr::kable(tab, caption = '(ref:linuxPathShortcuts)', padding = 2, align='c')
+```
+
+Here are some examples:
+
+```{sh comment=NA}
+### 
+cd ~
+pwd
+ls
+
+```
+
+```{sh comment=NA}
+
+##
+
+ls ./
+
+```
+
+```{sh comment=NA}
+
+## 
+pwd
+cd ../
+pwd
+cd ./
+pwd
+
+```
+
+Each directory has two entries in it at the start, with names . (a link to itself) and .. (a link to its parent directory). The exception, of course, is the root directory, where the .. directory also refers to the root directory.
 
 ## Manipulations of files and directories
 
@@ -111,7 +140,6 @@ In Linux, manipulations of files and directories are the most frequent work. In 
 ### Command `cp`
 
 In Linux, command `cp` can help you copy files and directories into a target directory. 
-
 
 ###	Command `mv`
 
