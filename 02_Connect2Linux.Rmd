@@ -139,13 +139,18 @@ If you want to copy an entire directory recursively, you can use `-r` argument. 
 scp -r guest4bioinfor@198.211.107.37:~/bioinfo/ ./
 ```
 
+### Download files 
 
+```
+wget <url>
+```
+
+Resume 
+
+```
+wget -c <url>  
+```
 
 Reference:
 
 RH066x Fundamentals of Red Hat Enterprise Linux on edX
-
-
-
-
-
