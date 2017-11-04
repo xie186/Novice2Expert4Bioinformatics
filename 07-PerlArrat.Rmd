@@ -1,6 +1,56 @@
-# First Perl Program
+# Arrays in Perl
+
+## Array index
 
 
+
+## Sort Arrays in Perl
+
+
+### Sort alphebetically
+
+
+
+### Sort numerically
+
+
+To sort an array numerically, we use `spaceship operator: <=>`. 
+
+
+```{perl}
+my @genome_coor = (100, 300, 200, 500);
+my @sorted_coor = sort {$a <=> $b} @genome_coor;
+
+print "Array before sorted: ", "@genome_coor", "\n";
+print "Array after sorted: ", "@sorted_coor", "\n";
+```
+
+Similarly, array can be also sorted numerically in decreasing order. 
+
+```{perl}
+my @genome_coor = (100, 300, 200, 500);
+## {$a <=> $b} is modified as {$b <=> $a} 
+my @sorted_coor = sort {$b <=> $a} @genome_coor;  
+
+print "Array before sorted: ", "@genome_coor", "\n";
+print "Array after sorted: ", "@sorted_coor", "\n";
+```
+
+#### Practical exersise 
+
+
+
+
+https://perlmaven.com/sorting-arrays-in-perl
+
+
+
+
+
+```
+////////////////////////////////
+
+```
 Scripting languages, like Perl, are very commonly used in bioinformatics. As a generous scripting language, Perl have many advantages: easy to use, free for all operating systems like Linux, designed for working with text files (tab-delimited files). It’s one of the most popular language in bioinformatics. Moreover there are many scripts and modules available. Additionally, there are a lot of resource on Internet. 
 http://stan.cropsci.uiuc.edu/courses/cpsc565/Lecture_3.ppt
 
@@ -51,12 +101,4 @@ After we press ENTER on the keyboard, the program will execute and display the o
 However the characters `\n` are not displayed. Here backslash `\` is a start of an escape sequence. It changes the meaning of the character after it. The backslash `\` and `n` together (`\n`) form an escape sequence and signify a newline. Other examples are `\t` (tab) or `\$` (= print an actual dollar sign, normally a dollar sign has a special meaning). We’ll see more escape sequences in 7.1. 
 You can try to remove `\n` in the program to see what will happen. This will give you a more understanding of the program. 
 
-
-
-
-### How to read extract a set of sequences from the reference genome
-
-```{r}
-
-```
 

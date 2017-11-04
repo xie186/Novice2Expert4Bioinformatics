@@ -99,7 +99,7 @@ In Linux, there are three commonly used path shortpaths (Table \@ref(tab:linuxPa
 
 ```{r linuxPathShortcuts, echo=FALSE}
 tab<-read.table("tables/linuxPathShortcuts.tsv",header=T, sep="\t")
-knitr::kable(tab, caption = '(ref:linuxPathShortcuts)', padding = 2, align='c')
+knitr::kable(tab, caption = '(ref:linuxPathShortcuts)', align='c')
 ```
 
 Here are some examples:
@@ -189,6 +189,34 @@ Multiple directories can be specified when calling `mkdir`.
 ```{sh eval=FALSE}
 mkdir directory1 directory2
 ```
+
+#### How to create a  
+
+```
+mkdir -p foo/bar/baz
+```
+
+> How to defining complex directory trees with one command
+```
+mkdir -p project/{software,results,doc/{html,info,pdf},scripts}
+```
+This will create a direcotry trees as shown below:
+
+```
+$ tree project/
+project/
+├── doc
+│   ├── html
+│   ├── info
+│   └── pdf
+├── results
+├── scripts
+└── software
+
+7 directories, 0 files
+```
+
+The command line above will directories `foo`, `foo/bar`, and `foo/bar/baz` if they don't exist.
 
 ## Viewing text files in Linux
 
@@ -332,3 +360,15 @@ Here is an example of STDERR
 ```{sh error=TRUE}
 ls NOTAFILE
 ```
+
+
+## Auto-completion
+
+A	handy	autocomplete	feature	also	exists.	Type	one	or	more	letters,	press	the	Tab
+key	twice,	and	then	a	list	of	functions	starting	with	these	letters	appears.	For
+example:	type	so,	press	the	Tab	key	twice,	and	then	you	get	the	list	as:	sort	sort!
+sortby	sortby!	sortcols	sortperm	sortrows.
+
+
+
+
