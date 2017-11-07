@@ -4,3 +4,49 @@ pwd
 git add .
 #1509765210
 git add -all .
+#1509765216
+git add --all .
+#1509765223
+git commit -m "add mkdir -l"
+#1509765225
+git commit -m "add mkdir -p"
+#1509765238
+vi .git/info/exclude 
+#1509765247
+ echo 3B72FA16 && /usr/bin/env && echo 5B538EF7
+#1509765253
+vi .git/info/exclude 
+#1509765275
+ echo 3B72FA16 && /usr/bin/env && echo 5B538EF7
+#1509765286
+vi .git/info/exclude 
+#1509765290
+pwd
+#1509765299
+git push origin master
+#1509765306
+ echo 3B72FA16 && /usr/bin/env && echo 5B538EF7
+#1510092766
+ls images/vi_new_fiel.png 
+#1510092769
+ echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16
+#1510092809
+mv images/vi_new_fiel.png images/vi_new_file.png
+#1510092812
+ echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16
+#1510094289
+ls
+#1510094291
+ls images/
+#1510094294
+ echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16
+#1510094517
+ls
+#1510094519
+vi test.pl
+#1510094534
+ echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16
+#1510094614
+vi test.pl
+#1510094620
+ echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16

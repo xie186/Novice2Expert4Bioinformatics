@@ -1,0 +1,10 @@
+--- 
+title: "From Novice to Expert in Bioinformatics"
+subtitle: "Linux, Perl and R for Bioinformatics"
+author: "Shaojun Xie"
+translator: "解少俊"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]

@@ -42,9 +42,16 @@ data/sample1/
 ../doc/
 ```
 
+If you want to get the __absolute path__ based on __relative path__, you can use `readlink` with parameter `-f`: 
+
+```{sh}
+pwd
+readlink -f ../
+```
 
 
-##Surfing in Linux file system
+
+##Surfing in Linux file system 
 
 Once we enter into a Linux file system, we need to 1) know where we are; 2) how to get where we want; 3) how to know what files or directories we have in a particular path. 
 
@@ -370,5 +377,21 @@ example:	type	so,	press	the	Tab	key	twice,	and	then	you	get	the	list	as:	sort	so
 sortby	sortby!	sortcols	sortperm	sortrows.
 
 
+## Advanced topic
 
+### Linux `md5sum` Command
+
+`md5sum` is used to verify the integrity of files, as virtually any change to a file will cause its MD5 hash to change. Most commonly, md5sum is used to verify that a file has not changed as a result of a faulty file transfer, a disk error or non-malicious meddling. The md5sum program is included in most Unix-like operating systems.
+
+
+```{sh}
+echo "The MD5 value of index.Rmd is: "
+md5sum index.Rmd
+cp index.Rmd index.Rmd_bak
+echo "The MD5 value of index.Rmd_bak is: "
+md5sum index.Rmd_bak 
+echo "The MD5 value of new index.Rmd_bak is: "
+head index.Rmd > index.Rmd_bak
+md5sum index.Rmd_bak 
+```
 

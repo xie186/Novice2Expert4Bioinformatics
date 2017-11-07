@@ -2,6 +2,7 @@
 title: "From Novice to Expert in Bioinformatics"
 subtitle: "Linux, Perl and R for Bioinformatics"
 author: "Shaojun Xie"
+translator: "解少俊"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -9,7 +10,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: xie186/Novice2Expert4Bioinformatics
 description: "This is a book for people who wants to learn basic knowledges about Bioinformatics"
 cover-image: images/cover.jpg
 ---
@@ -58,3 +59,10 @@ Last but not the least, there are many people in my life. I'd like to thank them
 
 * The opinions expressed in this book represent my own and not those of my current or previous employers.
 
+
+
+https://www.justanswer.com/immigration-law/5f14g-someone-write-book-staying-h1b-h4-f1-visa-earn.html
+
+Hello, welcome to JustAnswer, my name isXXXXX you for this opportunity to answer your questions.
+Royalty payments are not considered unlawful employment. It is the sale of an intellectual property and as such is not considered providing goods or services in violation of the employment laws.
+Judith
