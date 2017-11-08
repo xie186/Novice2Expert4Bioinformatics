@@ -1,8 +1,0 @@
-# Good resouces to learn Bioinformatics
-
-
-## References:
-
-https://www.bioinformatics.babraham.ac.uk/training.html
-
-

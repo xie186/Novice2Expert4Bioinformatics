@@ -1,4 +1,0 @@
-# Data analysis of RNA-seq
-
-
-
