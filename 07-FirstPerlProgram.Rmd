@@ -2,9 +2,6 @@
 
 
 Scripting languages, like Perl, are very commonly used in bioinformatics. As a generous scripting language, Perl have many advantages: easy to use, free for all operating systems like Linux, designed for working with text files (tab-delimited files). It’s one of the most popular language in bioinformatics. Moreover there are many scripts and modules available. Additionally, there are a lot of resource on Internet. 
-http://stan.cropsci.uiuc.edu/courses/cpsc565/Lecture_3.ppt
-
-Example: @DeitelPerl
 
 ## First Program
 

@@ -50,3 +50,45 @@ vi test.pl
 vi test.pl
 #1510094620
  echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16
+#1510094657
+git add .
+#1510094665
+git commit -m "Update book vi "
+#1510094672
+git push origin master
+#1510094679
+ echo 3B1DBD64 && /usr/bin/env && echo 9A7E5A16
+#2017-11-08 Wed 03:27:41
+xie186 has entered /home/xie186/bookdown/novice2expert4bioinformatics from /home/xie186/bookdown
+#1510111661
+cd novice2expert4bioinformatics/
+#1510111662
+ls
+#1510111663
+pwd
+#1510111664
+ls
+#1510111672
+git remote
+#1510111742
+git git remote -v
+#1510111744
+git remote -v
+#1510111784
+git remote set-url --add --push https://github.com/xie186/Novice2Expert4Bioinformatics.git
+#1510111809
+git remote set-url --add --push remote https://github.com/xie186/Novice2Expert4Bioinformatics.git
+#1510111822
+git remote set-url --add --push master https://github.com/xie186/Novice2Expert4Bioinformatics.git
+#1510111864
+git remote set-url --add https://github.com/xie186/Novice2Expert4Bioinformatics.git
+#1510111881
+git remote set-url --add master https://github.com/xie186/Novice2Expert4Bioinformatics.git
+#1510111932
+git remote set-url --add origin  https://github.com/xie186/Novice2Expert4Bioinformatics.git
+#1510111937
+git remote -v
+#1510111946
+git add .
+#1510111952
+git add -all .
