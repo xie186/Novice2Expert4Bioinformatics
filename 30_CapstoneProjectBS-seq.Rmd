@@ -1,0 +1,53 @@
+# Practical data analysis on WGBS
+
+We are going to use the data in this [link](https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905). 
+
+In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: `EV strain 1`, 
+
+We are going to use the data from these three samples to illustrate how to analyze WGBS data (Figure \@ref(fig:wgbs_bg)). 
+
+
+```{r wgbs_bg, fig.cap='Study background of WGBS data', outwidth="100%", echo=FALSE}
+knitr::include_graphics("https://iiif.elifesciences.org/lax:06205%2Felife-06205-fig1-v4.tif/full/1500,/0/default.jpg")
+```
+
+Let's walk through these workflow step-by-step. 
+
+## Donwload the data
+
+First we need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file). 
+
+### Reference
+
+Reference link: http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index
+
+```
+wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
+
+```
+
+### Now let's download the WGBS data
+
+Based on the GEO [link](https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905) here, we can use the command lines below to download the `sra` files. 
+
+(ref:wgbs_sample) Sample list for WGBS data
+
+
+```{r wgbs_sample, echo=FALSE}
+tab<-read.table("data/WGBS_sample_information.txt", header=T, sep=",")
+knitr::kable(tab, caption = '(ref:wgbs_sample)', align='c')
+```
+
+```
+wget -O EV1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR191/SRR1916129/SRR1916129.sra
+wget -O 3bstrain1.sra  ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR191/SRR1916134/SRR1916134.sra
+wget -O set1_rep1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR191/SRR1916142/SRR1916142.sra
+
+```
+
+## Convert `sra` files to `fastq` files
+
+```
+
+```

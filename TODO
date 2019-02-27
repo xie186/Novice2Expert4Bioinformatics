@@ -1,0 +1,29 @@
+
+find
+grep
+awk
+
+cut
+sort
+uniq
+
+
+R graph
+ggplot
+
+
+## Linux administrator
+
+
+
+Perl advanced topic
+
+```{block2, note-text, type='rmdtip'}
+
+**Mutilple lines comments**
+
+The quick-and-dirty method only works well when you don't plan to leave the commented code in the source. If a Pod parser comes along, your multiline comment is going to show up in the Pod translation. A better way hides it from Pod parsers as well.
+
+The =begin directive can mark a section for a particular purpose. If the Pod parser doesn't want to handle it, it just ignores it. Label the comments with comment. End the comment using =end with the same label. You still need the =cut to go back to Perl code from the Pod comment:
+```
+

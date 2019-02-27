@@ -1,0 +1,5 @@
+Path	Shortcuts	Description
+Single dot	.	The current folder
+Double dots	..	The folder above the current folder
+Tilde character	~	Home directory (normally the directory:/home/my_login_name)
+Dash	-	Your last working directory

@@ -1,0 +1,35 @@
+
+## The reason why I didn’t write in Chinese? {-}
+
+The targets of this book are not only Chinese but also reseasrchers from other countries. 
+`
+
+## About me {-}
+
+My name is Shaojun Xie. I’m a husband, a father, a son, a brother and a researcher. I started to work on analyzing next generation sequencing (NGS) data in 2010. When I first heard of NGS, I was an undergraduate student at Huazhong Agricultural University in China.  When I began to do my PhD in China Agricultural University (CAU), more and more researchers around me started to talk about NGS data. At that time, I had no idea about what NGS was. In the first year of my PhD (2009), my wet experiment was not smooth. I thought I need to make some changes. I think Bioinformatics is a cool area. Then I checked online for job advertisements related to bioinformatics to see what the employers need. I figured out that Linux, Perl and R were the most important things needed. After that I started to read the book (Perl: How to program). Also I started to use Ubuntu which is a variant of Linux. I can understand the contents in the book. But I didn’t know what I should do or what I can do with the knowledge I learned from the book. 
+
+A few months later (September in 2010), I joined a new lab and started to analyze RNA-seq data. The results of that work was later published in PNAS. I’m one of the co-first authors. Although I was responsible for parts of the project, it helped me a lot. I learned how to use Perl and R in the data analysis. That project opened the door for me. After that I worked on several other projects. Meanwhile, we had several collaborations with other labs. These different projects broadened my horizon in the area of NGS data analysis. Some of the projects were published in high profile journals, like Genome Research, Plant Cell, etc. 
+
+In June 2014, I graduated from China Agricultural University. One of my collaborators recommended me to another lab. I got a position as a research associate. This position also provided me an opportunity to be a visiting scholar at Purdue University. I got Purdue University in August 2014. I worked on several nice projects. Some of them also got published in nice journals. One year later, I started to look for a job as a Bioinformatician. Bioinformatics Core was just recruiting bioinformaticians at that time. I got an offer and then joined the core in April 2014. Currently I’m a Bioinformatician in Bioinformatics Core at Purdue University. 
+
+## Acknowledgement {-}
+
+First, I'd like to thank my family (my wife, our parents and my two daguthers: Angela and Sarah). Without them, I wouldn't have the time and the confidence to write this book.
+
+I want to thank my current colleages and previous colleages, as well as my superwisors. I learned a lot from them. 
+
+Then I'd thank the author of bookdown (@R-bookdown). For a long time I tried to have a nice platform that can help me write this book. Finally, I found bookdown is the best one for me. 
+
+Last but not the least, there are many people in my life. I'd like to thank them for the help.
+
+## Disclaimer {-}
+
+* The opinions expressed in this book represent my own and not those of my current or previous employers.
+
+
+
+https://www.justanswer.com/immigration-law/5f14g-someone-write-book-staying-h1b-h4-f1-visa-earn.html
+
+Hello, welcome to JustAnswer, my name isXXXXX you for this opportunity to answer your questions.
+Royalty payments are not considered unlawful employment. It is the sale of an intellectual property and as such is not considered providing goods or services in violation of the employment laws.
+Judith

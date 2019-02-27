@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>All things considered for Bioinformatics</title>
+  <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="All things considered for Bioinformatics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
+  <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="All things considered for Bioinformatics" />
+  
+  <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="Shaojun Xie (解少俊)">
+
+
+<meta name="date" content="2019-01-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="references-1.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">From Novice to Expert in Bioinformatics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#who-should-read-this-book"><i class="fa fa-check"></i>Who should read this book?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-read-this-book"><i class="fa fa-check"></i>How to read this book?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="why-linux.html"><a href="why-linux.html"><i class="fa fa-check"></i><b>1</b> Why Linux?</a><ul>
+<li class="chapter" data-level="1.1" data-path="why-linux.html"><a href="why-linux.html#what-is-linux"><i class="fa fa-check"></i><b>1.1</b> What is Linux</a></li>
+<li class="chapter" data-level="1.2" data-path="why-linux.html"><a href="why-linux.html#linux-for-bioinformatics"><i class="fa fa-check"></i><b>1.2</b> Linux for bioinformatics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html"><i class="fa fa-check"></i><b>2</b> Connecting to Linux</a><ul>
+<li class="chapter" data-level="2.1" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#user-interfaces"><i class="fa fa-check"></i><b>2.1</b> User interfaces</a></li>
+<li class="chapter" data-level="2.2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#how-to-connect"><i class="fa fa-check"></i><b>2.2</b> How to connect</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#digitalocean-droplet"><i class="fa fa-check"></i><b>2.2.1</b> DigitalOcean droplet</a></li>
+<li class="chapter" data-level="2.2.2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#aws-free-tier-offering"><i class="fa fa-check"></i><b>2.2.2</b> AWS Free Tier offering</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html"><i class="fa fa-check"></i><b>3</b> File system and commands of Linux</a><ul>
+<li class="chapter" data-level="3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#relative-and-absolute-path"><i class="fa fa-check"></i><b>3.1.1</b> Relative and absolute path</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>pwd</code></a></li>
+<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.2.2</b> Comand <code>ls</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>cd</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
+<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.4.1</b> Command <code>cp</code></a></li>
+<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.4.2</b> Command <code>mv</code></a></li>
+<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.4.3</b> Command <code>mkdir</code></a></li>
+<li class="chapter" data-level="3.4.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.4.4</b> Command ‘rm’</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.5.1</b> Command <code>cat</code></a></li>
+<li class="chapter" data-level="3.5.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.5.2</b> Command <code>more</code> and <code>less</code></a></li>
+<li class="chapter" data-level="3.5.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.5.3</b> Command <code>head</code> and <code>tail</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.5.4</b> Auto-completion</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.6.1</b> STDIN</a></li>
+<li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
+<li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.7</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.7.1</b> Linux <code>md5sum</code> Command</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.8</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.8.1</b> <code>cut</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.9</b> Check you job status</a></li>
+<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.10</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.10.1</b> List files bigger than filesize specified</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
+<li class="chapter" data-level="4.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#common-compressed-file-format"><i class="fa fa-check"></i><b>4.1</b> Common compressed file format</a></li>
+<li class="chapter" data-level="4.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#how-to-work-with-different-format"><i class="fa fa-check"></i><b>4.2</b> How to work with different format</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#gz"><i class="fa fa-check"></i><b>4.2.1</b> <code>*.gz</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#tar.gz"><i class="fa fa-check"></i><b>4.2.2</b> <code>*.tar.gz</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#zip"><i class="fa fa-check"></i><b>4.2.3</b> <code>*.zip</code></a></li>
+<li class="chapter" data-level="4.2.4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#tar.bz2"><i class="fa fa-check"></i><b>4.2.4</b> <code>*.tar.bz2</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html"><i class="fa fa-check"></i><b>5</b> Process management in Linux</a><ul>
+<li class="chapter" data-level="5.1" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#top"><i class="fa fa-check"></i><b>5.1</b> <code>top</code></a></li>
+<li class="chapter" data-level="5.2" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#ps"><i class="fa fa-check"></i><b>5.2</b> <code>ps</code></a></li>
+<li class="chapter" data-level="5.3" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#kill"><i class="fa fa-check"></i><b>5.3</b> <code>kill</code></a></li>
+<li class="chapter" data-level="5.4" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#df"><i class="fa fa-check"></i><b>5.4</b> <code>df</code></a></li>
+<li class="chapter" data-level="5.5" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#advanced-topic-free"><i class="fa fa-check"></i><b>5.5</b> Advanced topic <code>free</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="file-transfer.html"><a href="file-transfer.html"><i class="fa fa-check"></i><b>6</b> File transfer</a><ul>
+<li class="chapter" data-level="6.1" data-path="file-transfer.html"><a href="file-transfer.html#transferring-files-between-local-computer-and-linux-server"><i class="fa fa-check"></i><b>6.1</b> Transferring files between local computer and Linux server</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="file-transfer.html"><a href="file-transfer.html#use-command-line-tools"><i class="fa fa-check"></i><b>6.1.1</b> Use command line tools</a></li>
+<li class="chapter" data-level="6.1.2" data-path="file-transfer.html"><a href="file-transfer.html#download-files"><i class="fa fa-check"></i><b>6.1.2</b> Download files</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html"><i class="fa fa-check"></i><b>7</b> Install Bioinformatics software in Linux</a><ul>
+<li class="chapter" data-level="7.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installation-from-source-code"><i class="fa fa-check"></i><b>7.1</b> Installation from source code</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-bwa"><i class="fa fa-check"></i><b>7.1.1</b> Install <code>bwa</code></a></li>
+<li class="chapter" data-level="7.1.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-samtools"><i class="fa fa-check"></i><b>7.1.2</b> Install <code>samtools</code></a></li>
+<li class="chapter" data-level="7.1.3" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#align-reads-to-genome-using-bwa-and-store-the-alignment-results-in-sambam-files"><i class="fa fa-check"></i><b>7.1.3</b> Align reads to genome using <code>bwa</code> and store the alignment results in SAM/BAM files</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installing-a-precompiled-binary-executable"><i class="fa fa-check"></i><b>7.2</b> Installing a precompiled binary (executable)</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-bwa-1"><i class="fa fa-check"></i><b>7.2.1</b> Install <code>bwa</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html"><i class="fa fa-check"></i><b>8</b> Text editor in Linux</a><ul>
+<li class="chapter" data-level="8.1" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#basic-vi-skills"><i class="fa fa-check"></i><b>8.1</b> Basic vi skills</a></li>
+<li class="chapter" data-level="8.2" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#create-new-text-file-with-vi"><i class="fa fa-check"></i><b>8.2</b> Create new text file with <code>vi</code></a></li>
+<li class="chapter" data-level="8.3" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#an-example-for-using-editor-r"><i class="fa fa-check"></i><b>8.3</b> An example for using editor R</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>9</b> First Perl Program</a><ul>
+<li class="chapter" data-level="9.1" data-path="first-perl-program.html"><a href="first-perl-program.html#first-program"><i class="fa fa-check"></i><b>9.1</b> First Program</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>10</b> Varible in Perl</a><ul>
+<li class="chapter" data-level="10.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#scalar-variable"><i class="fa fa-check"></i><b>10.1</b> Scalar variable</a></li>
+<li class="chapter" data-level="10.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>10.2</b> Arithmetic operations in Perl</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#shorthand-operations"><i class="fa fa-check"></i><b>10.2.1</b> Shorthand operations</a></li>
+<li class="chapter" data-level="10.2.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#auto-increment-and-auto-decrement"><i class="fa fa-check"></i><b>10.2.2</b> Auto increment and auto decrement</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-strict-user-warnings-and-my"><i class="fa fa-check"></i><b>10.3</b> <code>use strict</code>; <code>user warnings</code> and <code>my</code></a></li>
+<li class="chapter" data-level="10.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>10.4</b> Array</a></li>
+<li class="chapter" data-level="10.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash"><i class="fa fa-check"></i><b>10.5</b> Hash</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="work-with-arrays-in-perl.html"><a href="work-with-arrays-in-perl.html"><i class="fa fa-check"></i><b>11</b> Work with <code>Arrays</code> in Perl</a><ul>
+<li class="chapter" data-level="11.1" data-path="work-with-arrays-in-perl.html"><a href="work-with-arrays-in-perl.html#init-an-a"><i class="fa fa-check"></i><b>11.1</b> Init an a</a></li>
+<li class="chapter" data-level="11.2" data-path="work-with-arrays-in-perl.html"><a href="work-with-arrays-in-perl.html#array-index"><i class="fa fa-check"></i><b>11.2</b> Array index</a></li>
+<li class="chapter" data-level="11.3" data-path="work-with-arrays-in-perl.html"><a href="work-with-arrays-in-perl.html#sort-arrays-in-perl"><i class="fa fa-check"></i><b>11.3</b> Sort Arrays in Perl</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="work-with-arrays-in-perl.html"><a href="work-with-arrays-in-perl.html#sort-alphebetically"><i class="fa fa-check"></i><b>11.3.1</b> Sort alphebetically</a></li>
+<li class="chapter" data-level="11.3.2" data-path="work-with-arrays-in-perl.html"><a href="work-with-arrays-in-perl.html#sort-numerically"><i class="fa fa-check"></i><b>11.3.2</b> Sort numerically</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>12</b> Control structure</a><ul>
+<li class="chapter" data-level="12.1" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>12.1</b> <code>while</code> loop</a></li>
+<li class="chapter" data-level="12.2" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>12.2</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="12.3" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>12.3</b> <code>foreach</code> loop</a></li>
+<li class="chapter" data-level="12.4" data-path="control-structure.html"><a href="control-structure.html#statement-if-else"><i class="fa fa-check"></i><b>12.4</b> Statement if-else</a></li>
+<li class="chapter" data-level="12.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>12.5</b> Operator <code>last</code> and <code>next</code></a></li>
+<li class="chapter" data-level="12.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>12.6</b> Operator <code>redo</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>13</b> String manipulation</a><ul>
+<li class="chapter" data-level="13.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-concatenation"><i class="fa fa-check"></i><b>13.1</b> String concatenation</a></li>
+<li class="chapter" data-level="13.2" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-extraction"><i class="fa fa-check"></i><b>13.2</b> Substring extraction</a></li>
+<li class="chapter" data-level="13.3" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-search"><i class="fa fa-check"></i><b>13.3</b> Substring search</a></li>
+<li class="chapter" data-level="13.4" data-path="string-manipulation.html"><a href="string-manipulation.html#split-string"><i class="fa fa-check"></i><b>13.4</b> Split String</a></li>
+<li class="chapter" data-level="13.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>13.5</b> Regular expression</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>13.5.1</b> Pattern matching</a></li>
+<li class="chapter" data-level="13.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>13.5.2</b> Pattern substitution</a></li>
+<li class="chapter" data-level="13.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>13.5.3</b> Modifiers to pattern matching and substitution</a></li>
+<li class="chapter" data-level="13.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>13.5.4</b> Greedy or non-greedy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>14</b> Input and output in Perl</a><ul>
+<li class="chapter" data-level="14.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>14.1</b> Input</a><ul>
+<li class="chapter" data-level="14.1.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#standard-input"><i class="fa fa-check"></i><b>14.1.1</b> Standard input</a></li>
+<li class="chapter" data-level="14.1.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input-from-a-file-on-the-disk"><i class="fa fa-check"></i><b>14.1.2</b> Input from a file on the disk</a></li>
+<li class="chapter" data-level="14.1.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#special-variable-_"><i class="fa fa-check"></i><b>14.1.3</b> Special variable <code>$_</code></a></li>
+<li class="chapter" data-level="14.1.4" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#the-input-record-separator"><i class="fa fa-check"></i><b>14.1.4</b> The input record separator: <code>$/</code></a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#output-to-a-file-on-the-disk"><i class="fa fa-check"></i><b>14.2</b> Output to a file on the disk</a></li>
+<li class="chapter" data-level="14.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>14.3</b> Arguments from command line</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>15</b> Practical Perl program</a><ul>
+<li class="chapter" data-level="15.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#extract-sequences-from-genomic-dna-for-some-specific-regions"><i class="fa fa-check"></i><b>15.1</b> Extract sequences from genomic DNA for some specific regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>16</b> Perl modules</a><ul>
+<li class="chapter" data-level="16.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>16.1</b> What is a Perl module</a></li>
+<li class="chapter" data-level="16.2" data-path="perl-modules.html"><a href="perl-modules.html#how-to-install-a-perl-module"><i class="fa fa-check"></i><b>16.2</b> How to install a Perl module</a></li>
+<li class="chapter" data-level="16.3" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-a-perl-module"><i class="fa fa-check"></i><b>16.3</b> How to use a Perl module</a></li>
+<li class="chapter" data-level="16.4" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-bioperl-module"><i class="fa fa-check"></i><b>16.4</b> How to use BioPerl module</a></li>
+<li class="chapter" data-level="16.5" data-path="perl-modules.html"><a href="perl-modules.html#how-to-write-a-module"><i class="fa fa-check"></i><b>16.5</b> How to write a module</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>17</b> R introduction</a><ul>
+<li class="chapter" data-level="17.1" data-path="r-introduction.html"><a href="r-introduction.html#basic-r-function"><i class="fa fa-check"></i><b>17.1</b> Basic R function</a></li>
+<li class="chapter" data-level="17.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>17.2</b> Producing Simple Graphs with R</a><ul>
+<li class="chapter" data-level="17.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>17.2.1</b> Line Charts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html"><i class="fa fa-check"></i><b>18</b> Producing simple graphs</a><ul>
+<li class="chapter" data-level="18.1" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#producing-simple-graphs-using-r"><i class="fa fa-check"></i><b>18.1</b> Producing simple graphs using R</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#line-charts-1"><i class="fa fa-check"></i><b>18.1.1</b> Line Charts</a></li>
+<li class="chapter" data-level="18.1.2" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#bar-charts"><i class="fa fa-check"></i><b>18.1.2</b> Bar Charts</a></li>
+<li class="chapter" data-level="18.1.3" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#histograms"><i class="fa fa-check"></i><b>18.1.3</b> Histograms</a></li>
+<li class="chapter" data-level="18.1.4" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#pie-charts"><i class="fa fa-check"></i><b>18.1.4</b> Pie Charts</a></li>
+<li class="chapter" data-level="18.1.5" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#dotcharts"><i class="fa fa-check"></i><b>18.1.5</b> Dotcharts</a></li>
+<li class="chapter" data-level="18.1.6" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#misc"><i class="fa fa-check"></i><b>18.1.6</b> Misc</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>19</b> <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="19.1" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-1"><i class="fa fa-check"></i><b>19.1</b> ggplot2</a></li>
+<li class="chapter" data-level="19.2" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-practical"><i class="fa fa-check"></i><b>19.2</b> ggplot2 practical</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>20</b> Heatmap Tutorial</a><ul>
+<li class="chapter" data-level="20.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#install-pheatmap-package"><i class="fa fa-check"></i><b>20.1</b> Install <code>pheatmap</code> package</a></li>
+<li class="chapter" data-level="20.2" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#draw-a-heatmap-for-gene-expression-of-rna-seq-data"><i class="fa fa-check"></i><b>20.2</b> Draw a heatmap for gene expression of RNA-seq data</a></li>
+<li class="chapter" data-level="20.3" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#add-the-annotation"><i class="fa fa-check"></i><b>20.3</b> Add the annotation</a></li>
+<li class="chapter" data-level="20.4" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#section"><i class="fa fa-check"></i><b>20.4</b> </a></li>
+<li class="chapter" data-level="20.5" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#transfrom-the-data"><i class="fa fa-check"></i><b>20.5</b> Transfrom the data</a></li>
+<li class="chapter" data-level="20.6" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-add-annotations"><i class="fa fa-check"></i><b>20.6</b> How to add annotations</a></li>
+<li class="chapter" data-level="20.7" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-cut-the-trees"><i class="fa fa-check"></i><b>20.7</b> How to cut the trees</a></li>
+<li class="chapter" data-level="20.8" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-get-the-cluster-information-from-the-heatmap"><i class="fa fa-check"></i><b>20.8</b> How to get the cluster information from the heatmap</a></li>
+<li class="chapter" data-level="20.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#section-1"><i class="fa fa-check"></i><b>20.9</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>21</b> Preparation of figures for manuscript</a><ul>
+<li class="chapter" data-level="21.1" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html#test1"><i class="fa fa-check"></i><b>21.1</b> test1</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>22</b> Introduction to NGS</a><ul>
+<li class="chapter" data-level="22.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>22.1</b> Introduction of Biology for Bioinformatics</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-dna"><i class="fa fa-check"></i><b>22.1.1</b> What is DNA</a></li>
+<li class="chapter" data-level="22.1.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-genome"><i class="fa fa-check"></i><b>22.1.2</b> What is genome</a></li>
+<li class="chapter" data-level="22.1.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#how-to-assemble-a-genome"><i class="fa fa-check"></i><b>22.1.3</b> How to assemble a genome</a></li>
+<li class="chapter" data-level="22.1.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-gene"><i class="fa fa-check"></i><b>22.1.4</b> What is gene</a></li>
+</ul></li>
+<li class="chapter" data-level="22.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-ngs"><i class="fa fa-check"></i><b>22.2</b> What is NGS</a></li>
+<li class="chapter" data-level="22.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#application-of-ngs"><i class="fa fa-check"></i><b>22.3</b> Application of NGS</a></li>
+<li class="chapter" data-level="22.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#section-2"><i class="fa fa-check"></i><b>22.4</b> </a></li>
+<li class="chapter" data-level="22.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>22.5</b> Data file formats to store the genomic information</a><ul>
+<li class="chapter" data-level="22.5.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fasta-file"><i class="fa fa-check"></i><b>22.5.1</b> <code>fasta</code> file</a></li>
+<li class="chapter" data-level="22.5.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gff-file"><i class="fa fa-check"></i><b>22.5.2</b> GFF file</a></li>
+<li class="chapter" data-level="22.5.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gtf-file"><i class="fa fa-check"></i><b>22.5.3</b> GTF file</a></li>
+<li class="chapter" data-level="22.5.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fastq-file"><i class="fa fa-check"></i><b>22.5.4</b> FASTQ file</a></li>
+<li class="chapter" data-level="22.5.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#sambam-file"><i class="fa fa-check"></i><b>22.5.5</b> SAM/BAM file</a></li>
+<li class="chapter" data-level="22.5.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#vcf-file"><i class="fa fa-check"></i><b>22.5.6</b> VCF file</a></li>
+<li class="chapter" data-level="22.5.7" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#bed-format"><i class="fa fa-check"></i><b>22.5.7</b> BED format</a></li>
+<li class="chapter" data-level="22.5.8" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#bedgraph-format"><i class="fa fa-check"></i><b>22.5.8</b> bedGraph format</a></li>
+</ul></li>
+<li class="chapter" data-level="22.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#usefull-links"><i class="fa fa-check"></i><b>22.6</b> Usefull links:</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="bs-seq.html"><a href="bs-seq.html"><i class="fa fa-check"></i><b>23</b> BS-seq</a><ul>
+<li class="chapter" data-level="23.1" data-path="bs-seq.html"><a href="bs-seq.html#section-3"><i class="fa fa-check"></i><b>23.1</b> </a></li>
+<li class="chapter" data-level="23.2" data-path="bs-seq.html"><a href="bs-seq.html#what-is-bs-seq"><i class="fa fa-check"></i><b>23.2</b> What is BS-seq</a></li>
+<li class="chapter" data-level="23.3" data-path="bs-seq.html"><a href="bs-seq.html#section-4"><i class="fa fa-check"></i><b>23.3</b> </a></li>
+<li class="chapter" data-level="23.4" data-path="bs-seq.html"><a href="bs-seq.html#how-to-analyze-bs-seq-data"><i class="fa fa-check"></i><b>23.4</b> How to analyze BS-seq data</a><ul>
+<li class="chapter" data-level="23.4.1" data-path="bs-seq.html"><a href="bs-seq.html#section-5"><i class="fa fa-check"></i><b>23.4.1</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>24</b> Start a project</a><ul>
+<li class="chapter" data-level="24.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>24.1</b> Experimetal design</a><ul>
+<li class="chapter" data-level="24.1.1" data-path="start-a-project.html"><a href="start-a-project.html#how-many-biological-replicates"><i class="fa fa-check"></i><b>24.1.1</b> How many biological replicates</a></li>
+<li class="chapter" data-level="24.1.2" data-path="start-a-project.html"><a href="start-a-project.html#how-big"><i class="fa fa-check"></i><b>24.1.2</b> How big</a></li>
+<li class="chapter" data-level="24.1.3" data-path="start-a-project.html"><a href="start-a-project.html#how-much-data-to-generate"><i class="fa fa-check"></i><b>24.1.3</b> How much data to generate</a></li>
+<li class="chapter" data-level="24.1.4" data-path="start-a-project.html"><a href="start-a-project.html#section-6"><i class="fa fa-check"></i><b>24.1.4</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>25</b> Capstone project:</a><ul>
+<li class="chapter" data-level="25.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction"><i class="fa fa-check"></i><b>25.1</b> Introduction</a></li>
+<li class="chapter" data-level="25.2" data-path="capstone-project.html"><a href="capstone-project.html#method"><i class="fa fa-check"></i><b>25.2</b> Method</a></li>
+<li class="chapter" data-level="25.3" data-path="capstone-project.html"><a href="capstone-project.html#pipelines"><i class="fa fa-check"></i><b>25.3</b> Pipelines</a></li>
+<li class="chapter" data-level="25.4" data-path="capstone-project.html"><a href="capstone-project.html#section-7"><i class="fa fa-check"></i><b>25.4</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html"><i class="fa fa-check"></i><b>26</b> Practical data analysis on WGBS</a><ul>
+<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-the-data"><i class="fa fa-check"></i><b>26.1</b> Donwload the data</a><ul>
+<li class="chapter" data-level="26.1.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#reference"><i class="fa fa-check"></i><b>26.1.1</b> Reference</a></li>
+<li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
+</ul></li>
+<li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="section-8.html"><a href="section-8.html"><i class="fa fa-check"></i><b>27</b> </a><ul>
+<li class="chapter" data-level="27.1" data-path="section-8.html"><a href="section-8.html#including-plots"><i class="fa fa-check"></i><b>27.1</b> Including Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>28</b> Good resouces to learn Bioinformatics</a><ul>
+<li class="chapter" data-level="28.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>28.1</b> References:</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="29" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html"><i class="fa fa-check"></i><b>29</b> Commands for Linux administration (Advanced topic)</a><ul>
+<li class="chapter" data-level="29.1" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html#w"><i class="fa fa-check"></i><b>29.1</b> <code>w</code></a></li>
+<li class="chapter" data-level="29.2" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html#who"><i class="fa fa-check"></i><b>29.2</b> <code>who</code></a></li>
+<li class="chapter" data-level="29.3" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html#uptime"><i class="fa fa-check"></i><b>29.3</b> <code>uptime</code></a></li>
+<li class="chapter" data-level="29.4" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html#whoami"><i class="fa fa-check"></i><b>29.4</b> <code>whoami</code></a></li>
+<li class="chapter" data-level="29.5" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html#ifconfig"><i class="fa fa-check"></i><b>29.5</b> <code>ifconfig</code></a></li>
+<li class="chapter" data-level="29.6" data-path="commands-for-linux-administration-advanced-topic.html"><a href="commands-for-linux-administration-advanced-topic.html#useradd-and-passwd"><i class="fa fa-check"></i><b>29.6</b> <code>useradd</code> and <code>passwd</code></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">All things considered for Bioinformatics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="commands-for-linux-administration-advanced-topic" class="section level1">
+<h1><span class="header-section-number">Chapter 29</span> Commands for Linux administration (Advanced topic)</h1>
+<div id="w" class="section level2">
+<h2><span class="header-section-number">29.1</span> <code>w</code></h2>
+</div>
+<div id="who" class="section level2">
+<h2><span class="header-section-number">29.2</span> <code>who</code></h2>
+</div>
+<div id="uptime" class="section level2">
+<h2><span class="header-section-number">29.3</span> <code>uptime</code></h2>
+<p>In Linux uptime command shows since how long your system is running and the number of users are currently logged in and also displays load average for 1,5 and 15 minutes intervals.</p>
+</div>
+<div id="whoami" class="section level2">
+<h2><span class="header-section-number">29.4</span> <code>whoami</code></h2>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">whoami</span></code></pre></div>
+<pre><code>## xie186</code></pre>
+</div>
+<div id="ifconfig" class="section level2">
+<h2><span class="header-section-number">29.5</span> <code>ifconfig</code></h2>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">ifconfig</span></code></pre></div>
+<pre><code>## eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+##         inet 198.211.107.37  netmask 255.255.255.0  broadcast 198.211.107.255
+##         inet6 fe80::60d2:20ff:fe10:d100  prefixlen 64  scopeid 0x20&lt;link&gt;
+##         ether 62:d2:20:10:d1:00  txqueuelen 1000  (Ethernet)
+##         RX packets 15207465  bytes 2530753192 (2.3 GiB)
+##         RX errors 0  dropped 22  overruns 0  frame 0
+##         TX packets 18581114  bytes 5719148244 (5.3 GiB)
+##         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+## 
+## lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+##         inet 127.0.0.1  netmask 255.0.0.0
+##         inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
+##         loop  txqueuelen 1  (Local Loopback)
+##         RX packets 861127  bytes 302478527 (288.4 MiB)
+##         RX errors 0  dropped 0  overruns 0  frame 0
+##         TX packets 861127  bytes 302478527 (288.4 MiB)
+##         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
+</div>
+<div id="useradd-and-passwd" class="section level2">
+<h2><span class="header-section-number">29.6</span> <code>useradd</code> and <code>passwd</code></h2>
+<pre><code>## Need to have root access
+adduser tabomics 
+</code></pre>
+<pre><code>## add a user to a specified group
+adduser tabomics -g bioinf</code></pre>
+
+<div id="refs" class="references">
+<div>
+<p>Frank McCown. 2006. <em>Producing Simple Graphs with R</em>. Searcy, AR: Harding University. <a href="https://www.harding.edu/fmccown/r/" class="uri">https://www.harding.edu/fmccown/r/</a>.</p>
+</div>
+<div>
+<p>Torvalds, Linus. 2015. “Linux kernel release 4.x.” <a href="https://github.com/torvalds/linux" class="uri">https://github.com/torvalds/linux</a>.</p>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="references-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/xie186/Novice2Expert4Bioinformatics/edit/master/cmd_linux_admin.Rmd",
+"text": "Edit"
+},
+"download": ["bioinfBookXIE186.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

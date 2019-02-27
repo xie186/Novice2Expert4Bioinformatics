@@ -1,0 +1,144 @@
+# Input and output in Perl
+
+## Input
+
+### Standard input
+
+### Input from a file on the disk
+
+```{perl code=readLines("code_perl/open_file.pl"), eval=FALSE}
+```
+
+```{sh comment="##"}
+perl code_perl/open_file.pl
+```
+
+### Special variable `$_`
+
+```{perl code=readLines("code_perl/open_file.pl"), eval=FALSE}
+```
+
+When you are using `while` and `foreach`, the content will be assigned to `$_` if you don't assign it explicitly to any variable. 
+
+For some build-in functions (`chomp`, `length`, `split` and `print`),   
+
+I do NOT suggest you to use `$_` because `$_` will reduce the readerbility of the code. 
+
+
+In Perl, $_ is a powerful 
+In Perl, several functions and operators use this variable as a default, in case no parameter is explicitly used. In general, I'd say you should NOT see $_ in real code. I think the whole point of $_ is that you don't have to write it explicitly.
+
+
+### The input record separator: `$/`
+
+`$/` is the input record separator. By default, `$/` equals newline (`\n`). 
+
+You could actually change the value of `$/`. For example, by assigning the greate-than '>' like this: `$/ = ">"`;. Then every call to the read-line operator `$chunk = <FILEHANDLE>` will read in all the characters up-to and including the first '>'.
+
+We could also assign longer strings to `$/` and then that would be the input record separator.
+
+#### How to process `fasta` file by changing `$/`
+
+FASTA format is a text-based format for representing either nucleotide sequences or peptide sequences, in which base pairs or amino acids are represented using single-letter codes (A, T, G, C, etc.). 
+
+In `fasta` format, each sequence begins with a single-line description, followed by lines of sequence data. The description line is distinguished from the sequence data by a greater-than (">") symbol in the first column.
+
+Here is an example of fasta file (Figure \@ref(fig:fastaPYL)). 
+
+(ref:fastaPYL) Protein sequence of PYL10 in Arabidopsis.
+
+```{r fastaPYL, fig.cap='(ref:fastaPYL)', outwidth="40%", echo=FALSE}
+knitr::include_graphics("figures/fasta_pyl10_ara.png")
+```
+
+
+
+```{perl code=readLines("code_perl/fa_seq_len.pl"), eval=FALSE}
+```
+
+You can consider the content in the fasta file as a string (Figure  \@ref(fig:fastaString)) sperarated by `\n>`. 
+
+We set the input record separator `$/` as `\n>`.  
+
+In the first cycle of the `while` loop, the first chunk is `>chr1\nACGCTAGCTAGTCAGTCGATCGT\nCGTAGCTAGCTAG\n>`. 
+
+You should notice that there is a leading `>` in the first chunk. So you need to use `s/^>//` to remove the leading `>`. 
+
+To remove the trailing `\n>`, you can use `chomp $chunk;`. Then the string is:
+
+```
+chr1\nACGCTAGCTAGTCAGTCGATCGT\nCGTAGCTAGCTAG
+```
+
+The string before first `\n` is the sequence ID. The string after the first `\n` is the sequence. To get the sequnce ID and sequnce and assign to two variables, you can use `split(/\n/, $chunk, 2)`. Here LIMIT is set to 2, it represents the maximum number (here 2) of fields into which the EXPR may be split. 
+
+The goal of this code is to output the sequence IDs and their lengths. Currently the string of the variable (`$seq`) is `ACGCTAGCTAGTCAGTCGATCGT\nCGTAGCTAGCTAG`. To do this, you first need to remove `\n` in the sequence by using `$seq =~ s/\n//g;`. Now the string of the variable (`$seq`) is `ACGCTAGCTAGTCAGTCGATCGTCGTAGCTAGCTAG`. Then built-in function `length` can be used to calculate the length of the sequence. The function `print` is used to output the sequnce ID and the length of the sequence. 
+
+In the second cycles of the `while` loop, the chunk is
+`chr2\nCTGCGGGCTAAATCGATCGATCG\nGTACGTACGAGCTAGCTA\n>`. 
+
+Unlike the first chunk, there is no leading `>` in the second chunk. So the code `s/^>//` will do nothing for the second chunk. 
+
+The following steps is the same as you can do for the first cycle. 
+
+In the third cycle of the `while` loop, you can do the same thing on the third sequence. 
+
+(ref:fastaString) Fasta string. 
+
+```{r fastaString, fig.cap='(ref:fastaString)', outwidth="80%", echo=FALSE}
+knitr::include_graphics("figures/fasta_string.png")
+```
+
+```{sh}
+perl code_perl/fa_seq_len.pl
+```
+
+## Output to a file on the disk
+
+
+```{perl code=readLines("code_perl/fa_seq_len_out.pl"), eval=FALSE}
+```
+
+```{sh comment="##"}
+perl code_perl/fa_seq_len_out.pl
+cat ./data/test_ref_len.txt
+```
+
+## Arguments from command line
+
+Imagine you have 5 fasta files and you want to calculate sequence lengths for all the 5 files, if you modify the file each time you run the code, it will be very tedious. 
+
+Perls provides an array called `@ARGV`. `@ARGV` holds all the arguments from the command line. The first one will be `$ARGV[0]`.
+
+`@ARGV` will automatically hold all the arguments. If no arguments are provided, `@ARGV` will be empty. 
+
+
+The following example shows you how it looks like in real code. 
+
+```{perl code=readLines("code_perl/test_argv.pl"), eval=FALSE}
+```
+
+
+```{sh comment="##"}
+perl code_perl/test_argv.pl test_ref.fa test_ref_len.txt
+```
+
+In the above example, the first argument is `$ARGV[0]` which stores the file name: test_ref.fa. The second one stores the file name: test_ref_len.txt. It's highly recommended to assign the values in `@ARGV` to some variables that the readers (including yourself) can understand the variables based on the names. 
+
+Here I'll show you how to use ARGV using an example. The code below will show you what to do if you want to filter a fasta file based on the sequence length. 
+
+```{perl code=readLines("code_perl/fa_seq_len_out_argv.pl"), eval=FALSE}
+```
+
+For example if you want to remove the sequences that is shorter than 30 bps, you can use the following example. 
+
+```{sh comment="##"}
+printf "Before filtering:\n"
+cat ./data/test_ref2.fa
+perl code_perl/fa_seq_len_out_argv_fil.pl ./data/test_ref2.fa 30 ./data/test_ref2_30.fa
+
+printf "\nAfter filtering: \n"
+cat ./data/test_ref2_30.fa 
+```
+
+If you have multiple files, you can just change the file names in the command line. It's very handy. You can also change the length cutoff in the command line. 

@@ -1,0 +1,11 @@
+## Who should read this book? {-}
+
+I started to do NGS data analysis as a bench researcher. I started from ZERO. I understand how people feel when they were ZERO. So this book is written for researchers who have no prior knowledge of NGS data analysis. You do NOT need any programming background. If you already have some, that’s good. All you need is the strength and the resolution to finish this book. 
+
+For those of you who already have some experience but you still don’t feel comfortable when dealing with the data, this will be for you. In this book, I will write some skills that I have learned, which will accelerate your analysis. 
+
+## How to read this book? {-}
+
+This is not a sci-fiction books. This is a technical book. I highly recommend you to practice when you're reading this book. 
+
+*__Don’t panic!__*

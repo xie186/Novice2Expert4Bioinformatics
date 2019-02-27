@@ -1,0 +1,4 @@
+SRR_number,Sample_name
+SRR1916129,EV1
+SRR1916134,3bstrain1
+SRR1916142,set1rep1

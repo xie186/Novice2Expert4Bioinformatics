@@ -1,0 +1,188 @@
+# Varible in Perl 
+
+Perl provides three kinds of variables: `scalars`, `arrays`, and `hash`(aka `associative arrays`). The initial character of the name identifies the particular type of variable and, hence, its functionality.
+
+| Type   | Character  | Example          | Is a name for:                         |
+|--------|------------|------------------|----------------------------------------|
+| Scalar | $          | $length          | An individual value (number or string) |
+| Array  | @          | \@gene_list       | A list of values, keyed by number      |
+| Hash   | %          | %gene_annotation | A group of values, keyed by string     |
+
+## Scalar variable
+
+In Perl, scalar variables can be used to store mainly two types of data: string and numbers. 
+
+Perl does not differentiate between a number and a string, nor does it differentiate between integers and reals.
+
+In order to tell the computer what to print, we need to use variables. In Perl, the name of a `scalar` variable starts with the dollar sign `$`. You can assign either a number or a string to it. 
+
+
+```{perl .numberLines, code=readLines("code_perl/variable_assign.pl"), eval=FALSE}
+```
+
+
+```{sh}
+perl code_perl/variable_assign.pl
+```
+Here are the explanations of this script. 
+
+```{perl, eval=FALSE}
+# assign two DNA sequences to two variables
+my $dna1 = "CTCGACCAGGACGATGAATGGGCGATGAAAATCT";
+my $dna2 = "CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT";
+```
+
+The first line here is a comment. In Perl, `#` (pound sign) is the comment character. The comments can be used to document the program and improve the readability. During the execution, the comments will be ignored. The second and third lines declare two string scalar variables (`$dna1` and `$dna2`) to store two DNA sequences. 
+
+```{perl, eval=FALSE}
+#Returns the length in characters of the value of EXPR
+my $dna_length1 = length $dna_seq1; 
+my $dna_length2 = length $dna_seq2;
+```
+
+The code above has one comment line and declares two integer scalar variables to store the return values of built-on function `length`. 
+
+Now you can output the variables to see what are stored in them using the following code:
+
+```{perl, eval=FALSE}
+print "The length of first DNA sequence ($dna_seq1) is: $dna_length1\n";
+print "The length of the Second DNA sequence ($dna_seq2) is: $dna_length2\n\n";
+```
+
+This script shows you what string scalar varibles and integer scalr varibles. 
+
+
+## Arithmetic operations in Perl
+
+Most arithmetic operators are binary operators; this means they take two arguments. Unary operators only take one argument. Arithmetic operators are very simple and often transparent.
+
+Here we're mainly going to talk about basic arithmetic opertators including addition (`+`), substraction (`-`), multiplication (`*`), division (`/`) and the modulus operation (%). Modulus (`%`) returns the remainder of a division (`/`) operation. 
+
+```{perl}
+## If we know the lengths of two sequences and we want to calulate the sum of the lengths.
+my $dna_length1 = 100;
+my $dna_length2 = 200;
+my $total_length = $dna_length1 + $dna_length2;
+print "The total length of these two sequences is $total_length \n";
+
+my $length_diff = $dna_length1 - $dna_length2; 
+print "The length difference is $length_diff\n";
+
+my $average_length = $total_length / 2;
+print "The average length of two DNA sequences is $average_length \n";
+```
+
+The code above shows us how to 
+
+```{perl}
+#Imaging the CC content of first DNA sequence is 0.5.
+#How many CC do we have in first DNA?
+my $cg_content = 0.5;
+my $cg_number = $dna_length1 * 0.5;
+
+```
+
+```{perl}
+#Imaging we have a 10 bps DNA sequnces,
+#how many possible DNA sequences do we have?
+my $dna_nucleotide = "ATCG";
+my $dna_nucleo_number = length $dna_nucleotide;
+my $dna_length = 10;
+my $possible_number = $dna_nucleo_number ** $dna_length;
+print "We have $possible_number possibilities.\n";
+```
+
+### Shorthand operations
+
+The expression $x += 3; is the shorthand version of $x = $x + 3;, they have exactly the same result:
+
+```{perl}
+use strict;
+use warnings;
+
+my $dna_length = 10;
+print "DNA length: $dna_length\n";
+
+$dna_length += 3;
+print "DNA length: $dna_length after '\$dna_length += 3'\n";
+
+$dna_length -= 3;  
+print "DNA length: $dna_length after '\$dna_length -= 3'\n";
+```
+
+### Auto increment and auto decrement
+
+`++` and `--` are provided for the auto increment and auto decrement operators. They increase and decrease respectively the value of a scalar variable by 1.
+
+
+```{perl}
+use strict;
+use warnings;
+
+my $dna_length = 10;
+print "DNA length: $dna_length\n";
+
+$dna_length ++;
+print "DNA length: $dna_length after '\$dna_length ++'\n";
+
+$dna_length --;
+print "DNA length: $dna_length after `\$dna_length --`\n";
+```
+
+
+## `use strict`; `user warnings` and `my`
+
+For starters, `use strict;` (and to a lesser extent, `use warnings;`) helps find typos in variable names. Even experienced programmers make such errors. A common case is forgetting to rename an instance of a variable when cleaning up or refactoring code.
+
+Using `use strict; use warnings;` catches many errors sooner than they would be caught otherwise, which makes it easier to find the root causes of the errors. The root cause might be the need for an error or validation check, and that can happen regardless of programmer skill.
+
+What's good about Perl warnings is that they are rarely spurious, so there's next to no cost to using them.
+
+In the script below, `$dna_lenght2` is a typo. If you run this script, it will give you the output without any error message, although it's not the right output. 
+
+```{perl .numberLines, code=readLines("code_perl/var_assign_no_strict_warnings.pl"), eval=FALSE}
+```
+
+Let's try to run this script:
+
+```{sh comment=NA}
+perl code_perl/var_assign_no_strict_warnings.pl
+```
+
+So the script above is supposed to output the length of two DNA sequences and the sum of the lengths. 
+
+```{perl comment=NA, error=TRUE,echo = FALSE}
+#calculate the total length of two DNA sequences
+$tot_length = $dna_length1 + $dna_lenght2;
+```
+
+In the chunk of code above, `$dna_lenght2` is an empty varible without storing any information. By defaut, Perl considers this as ZERO when doing plus operation. Although there was no error message given here, we infact have an incorrect output.
+
+If we add `use strict` and `use warnings`, we need to decare each variable in the script. Let us see what will happen if we have an typo. 
+
+```{perl .numberLines, code=readLines("code_perl/var_assign_strict_warnings.pl"), eval=FALSE}
+```
+
+
+```{sh comment=NA, error=TRUE,echo = FALSE}
+perl code_perl/var_assign_strict_warnings.pl
+```
+
+Now if we run this script, we encounter error mesage and the script can't be sucessfuly excuted. 
+
+```{sh comment=NA, error=TRUE,echo = FALSE}
+## This is not going to be shown
+perl code_perl/var_assign_strict_warnings.pl \
+2> code_perl/var_assign_strict_warnings.err
+## This is not going to be shown
+perl code_perl/wrap_output.pl code_perl/var_assign_strict_warnings.err 60
+```
+
+## Array
+
+
+
+
+## Hash
+
+

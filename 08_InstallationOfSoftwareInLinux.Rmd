@@ -1,0 +1,113 @@
+
+# Install Bioinformatics software in Linux
+
+## Installation from source code
+
+Nearly all of the Bioinformatics softwares will be downloaded as a compressed files. So the first thing you need to do is to uncompress the file. Then the source codes will be included in a folder. You can `cd` to the folder and `ls` the files/directories. Mostly you will find either a file named `README` or `INSTALL` or both. If you read this file to know how to install the software. 
+
+
+### Install `bwa`
+
+```{sh eval=FALSE}
+wget https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2
+tar xjvf bwa-0.7.15.tar.bz2
+cd bwa-0.7.15
+make
+```
+
+### Install `samtools`
+
+Installation of `Samtools` is one of the best representatives of how to instsall a Bioinformatics tool.
+
+```{sh eval=FALSE}
+# Download the source code
+wget https://iweb.dl.sourceforge.net/project/samtools/samtools/1.3.1/samtools-1.3.1.tar.bz2
+# Uncompress the source code
+tar xjvf samtools-1.3.1.tar.bz2
+# Enter the source code directory.
+cd samtools-1.3.1
+# Configure the build system
+./configure
+# Build samtools
+make
+# Become a `root` user for system-wide install:
+su root
+# Install `Samtools`
+make install
+```
+
+```{block2, note-text-samtools, type='rmdtip'}
+
+**Install `samtools` without root previledges**
+
+By default, 'make install' installs samtools and the utilities under
+/usr/local/bin and manual pages under /usr/local/share/man.
+
+You can specify a different location to install Samtools by configuring
+with --prefix=DIR or specify locations for particular parts of HTSlib by
+configuring with --bindir=DIR and so on.  Type './configure --help' for
+the full list of such install directory options.
+
+Alternatively you can specify different locations at install time by
+typing 'make prefix=DIR install' or 'make bindir=DIR install' and so on.
+Consult the list of prefix/exec_prefix/etc variables near the top of the
+Makefile for the full list of such variables that can be overridden.
+
+You can also specify a staging area by typing 'make DESTDIR=DIR install',
+possibly in conjunction with other --prefix or prefix=DIR settings.
+For example,
+
+    make DESTDIR=/tmp/staging prefix=/opt
+
+would install into bin and share/man subdirectories under /tmp/staging/opt.
+
+```
+
+### Align reads to genome using `bwa` and store the alignment results in SAM/BAM files
+
+```
+./bwa index ref.fa
+./bwa mem ref.fa read-se.fq.gz | gzip -3 > aln-se.sam.gz
+./bwa mem ref.fa read1.fq read2.fq | gzip -3 > aln-pe.sam.gz
+```
+
+## Installing a precompiled binary (executable)
+
+For programs that are already compiled (converted from high level source code in a language like C into machine specific code), you are often given some choices and need to determine how to download the version that has the correct CPU architecture for your machine.
+
+### Install `bwa`
+
+```
+wget https://downloads.sourceforge.net/project/bio-bwa/bwakit/bwakit-0.7.15_x64-linux.tar.bz2
+tar xjvf bwakit-0.7.15_x64-linux.tar.bz2
+cd bwa.kit/
+./bwa
+Program: bwa (alignment via Burrows-Wheeler transformation)
+Version: 0.7.15-r1140
+Contact: Heng Li <lh3@sanger.ac.uk>
+
+Usage:   bwa <command> [options]
+
+Command: index         index sequences in the FASTA format
+         mem           BWA-MEM algorithm
+         fastmap       identify super-maximal exact matches
+         pemerge       merge overlapping paired ends (EXPERIMENTAL)
+         aln           gapped/ungapped alignment
+         samse         generate alignment (single ended)
+         sampe         generate alignment (paired ended)
+         bwasw         BWA-SW for long queries
+
+         shm           manage indices in shared memory
+         fa2pac        convert FASTA to PAC format
+         pac2bwt       generate BWT from PAC
+         pac2bwtgen    alternative algorithm for generating BWT
+         bwtupdate     update .bwt to the new format
+         bwt2sa        generate SA from BWT and Occ
+
+Note: To use BWA, you need to first index the genome with `bwa index'.
+      There are three alignment algorithms in BWA: `mem', `bwasw', and
+      `aln/samse/sampe'. If you are not sure which to use, try `bwa mem'
+      first. Please `man ./bwa.1' for the manual.
+
+```
+

@@ -1,0 +1,47 @@
+## Acknow
+about_me_acknowledge.Rmd
+## Linux
+WhyLinux.Rmd
+Connect2Linux.Rmd
+FileSystemLinux.Rmd
+Linux_FilteringOutputandFindingThings.Rmd
+AchivingAndCompressingFiles.Rmd
+procManageLinux.Rmd
+fileTransfer.Rmd
+InstallationOfSoftwareInLinux.Rmd
+TextEditorInLinux.Rmd
+
+## Perl
+FirstPerlProgram.Rmd
+PerlArrat.Rmd
+PerlVariableOperator.Rmd
+PerlControlStructure.Rmd
+StringManipulationRegExp.Rmd
+PerlInputOutput.Rmd
+practicalPerlProgram.Rmd
+PerlModules.Rmd
+
+## R basics
+R_intro.Rmd
+SimpleGraphR.Rmd
+GraphGgplot2.Rmd
+GenerateHeatmap.Rmd
+
+## Figure manuscript
+FigureManuscript.Rmd
+
+## NGS
+IntroNGS.Rmd
+introRNA-seq.Rmd
+introChIP-seq.Rmd
+introBSseq.Rmd
+ExpDesign.Rmd
+
+## CapsoneProject
+CapstoneProjectRNA-seq.Rmd
+CapstoneProjectChIP-seq.Rmd
+CapstoneProjectBS-seq.Rmd
+Good_resource.Rmd
+Reference.Rmd
+#index.Rmd
+#materials.Rmd

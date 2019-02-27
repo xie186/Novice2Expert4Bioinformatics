@@ -1,0 +1,47 @@
+# Heatmap Tutorial
+
+[Data link](https://goo.gl/KLZ7N0)
+
+
+## Install `pheatmap` package
+
+```
+install.packages("pheatmap")
+```
+
+## Draw a heatmap for gene expression of RNA-seq data
+
+```{r}
+library(pheatmap)
+gene_exp <- read.table("data/maize_embryo_specific_gene_Sheet1.tsv", header=T, row.names=1)
+pheatmap(gene_exp)
+
+
+pheatmap(log2(gene_exp + 0.000001), scale="row")
+pheatmap(log2(gene_exp + 0.01), scale="row", show_rownames = T, show_colnames = F)
+pheatmap(log2(gene_exp + 0.01), scale="row", show_rownames = F, show_colnames = T)
+
+
+ 
+```
+
+## Add the annotation
+
+## 
+
+## Transfrom the data
+
+```{r}
+
+pheatmap(log2(gene_exp + 0.01)) 
+
+```
+
+
+## How to add annotations
+
+## How to cut the trees
+
+## How to get the cluster information from the heatmap
+
+## 

@@ -1,0 +1,18 @@
+# SNP analysis
+
+
+
+## Diversification and independent domestication of Asian and European pears
+
+### Data source
+
+1. Sample information
+
+The sample information is provided as [supplemental files](https://goo.gl/o3vMVU) in the paper (\@PearWu2018). 
+
+2. Raw data 
+
+Raw data is deposited in NCBI database under the accession number: [SRP103970](https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP103970)
+
+### 
+

@@ -1,0 +1,78 @@
+---
+title: "Linux for Bioinformatics"
+author: "TabOmics团队@众智领先"
+date: "`r Sys.Date()`"
+output:
+  ioslides_presentation:
+    transition: default
+    widescreen: yes
+  slidy_presentation: default
+  beamer_presentation: default
+#subtitle: ""
+css: styles.css
+---
+
+# Why Linux? 
+
+## Operation system
+
+- Unix was developed by AT&T Bell Labs in the 1960’s
+- Linux is a clone of the operating system Unix
+
+```{r LinusTorvaldsGitHub, fig.cap='Timeline of Operation Milestones', out.width="50%", fig.align='center', echo=FALSE}
+knitr::include_graphics("figures/Linux_timeline40yearsOfOSmilestones.png")
+```
+
+*Note: Mac OS X is also a certified Unix operating system. So most of the Linux skills are applied in Mac OS X. *
+
+```{block2 echo = FALSE}
+In this book we will be using the [R programming language](https://cran.r-project.org/) for all our analysis. You will learn R and statistics simultaneously. However, we assume you have some basic programming skills and knowledge of R syntax. If you don't, your first homework, listed below, is to complete a tutorial. Here we give step-by-step instructions on how to get set up to follow along. 
+```
+
+## 
+
+Maybe it’s hard to understand what Linux or to remember the sentences mentioned above. Just know Linux is an operating system like Windows. This is enough for you to start out.
+
+
+## Why Linux for Bioinformatics
+
+
+* Easy to build simple pipelines 
+  (awk, bash, piping, bash redirection, texttools) 
+* Simple to install and use software development tools
+* Multiple versions of a program can be installed by the user himself and switched on/off with sourcing some scripts without being administrator
+* A lot of good scientific software is written in a non portable way for linux/unix (almost all short read aligners, samtools). This makes it necessary to use Unix for genomics.
+* Ability to perform analyses on computer clusters (important for big/long computational jobs)
+
+
+# How Linux Looks like? 
+
+## Different Linux Distributions
+
+```{r linuxLogo, fig.cap='Different Linux distributions', out.width="80%", fig.align='center', echo=FALSE}
+knitr::include_graphics("figures/Linux_logos-distros.jpg")
+```
+## Two interfaces
+
+- GUI
+- Command line
+
+```{block2 echo = FALSE}
+In Bioinformatics analysis, usually you won't operate directly on the physical machine of the Linux server. Usually you need to connect to the Linux server via a tool, like Putty, Mobaxterm, etc. 
+```
+
+## Linux Resources
+
+- University resources
+- Company resources
+  *Digital Ocean, AWS Free Tier, etc*
+- You own laptop (Mac, Ubuntu in Wondows, etc)
+
+## How to connect
+
+If you want to connect to a Linux server, what you need to know first is:
+
+1) IP address of your Linux server;
+
+2) User name and password of your account;
+

@@ -1,0 +1,125 @@
+# Achiving and compressing files
+
+## Common compressed file format
+
+If you download open source software, like `bwa` and `ViewBS`, you will encouther archived files very often. 
+
+The common compressed file usually have the the suffix of `tar.gz` (equaivalent of `tgz`), `gz`, `zip` and `tar.bz2`. 
+
+For example, if we want to use `bowtie2` in Linux, we need to download the `bowtie2` software. Bowtie2 file for Linux can be downloaded form the link below:
+
+```
+https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.3.1/bowtie2-2.3.3.1-linux-x86_64.zip
+```
+In side the `zip` file, there are files and sub folders. 
+
+The files for `samtools v1.6` are archived in to a file named samtools-1.6.tar.bz2`. From the link below you can download the link:
+
+```
+https://gigenet.dl.sourceforge.net/project/samtools/samtools/1.6/samtools-1.6.tar.bz2
+```
+
+## How to work with different format
+
+### `*.gz`
+
+#### How to check the file
+  
+```
+zcat file.gz |less 
+```
+
+#### How to test if a `gzip` file is valid
+
+```
+gzip -t file.gz
+```
+
+#### How decompress a `*.gz` file
+
+* Decompress a `*.gz` file
+
+```
+mkdir tmp
+cp tmp
+cp ../data/Arabidopsis_thaliana.TAIR10.37.gff3.gz ./
+gunzip Arabidopsis_thaliana.TAIR10.37.gff3.gz
+```
+
+* Decompress a file and keep the original copy
+
+```
+gunzip -c file.gz > file
+```
+
+### `*.tar.gz`
+
+#### How to decompress the `*.tar.gz` file
+
+```
+tar zxvf file.tar.gz
+```
+
+* `z` means (un)z̲ip.
+* `x` means ex̲tract files from the archive.
+* `v` means print the filenames v̲erbosely.
+* `f` means the following argument is a f̱ilename.
+
+#### How to view the content without extract the files
+
+```
+tar -tf file.tar.gz
+```
+
+#### How to create a `*.tar.gz` file
+
+```
+tar zcvf file_new.tar.gz file1 file2 folder1 folder2
+```
+
+#### How to create `*.tar.gz` file
+
+
+### `*.zip`
+
+#### How to unzip a `*.zip` file
+
+```
+unzip file.zip
+```
+
+#### How to create a `*.zip` file
+
+```
+zip file_new.zip file1 file2 folder1 folder2
+```
+
+### `*.tar.bz2`
+
+
+#### How to decompress a `*.tar.bz2` file
+
+```{sh, eval=FALSE}
+mkdir tmp
+cd tmp
+pwd
+ls 
+wget https://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2
+ls
+tar -vxjf bwa-0.7.17.tar.bz2
+
+```
+
+```{sh echo=FALSE, eval=FALSE}
+pwd
+rm -rf tmp
+```
+
+
+
+#### How to create a `*.tar.bz2` file
+
+```
+tar -cvjSf folder.tar.bz2 file1 file2 folder1 folder2
+```
+

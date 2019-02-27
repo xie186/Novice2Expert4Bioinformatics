@@ -1,0 +1,78 @@
+# Process management in Linux
+
+## `top`
+
+The `top` program provides a dynamic real-time view of a running system.
+
+Usually `top` is used with the option `-c`.
+
+```
+top -c
+```
+
+The option `-c` will let `top` to displat the full command path along with the command arguments in the `COMMAND` collumn. 
+
+You can also run `top` interactively. You can run `top` first and then press `c`. If you want to kill a process with `PID` of `186`, you can press `k` and then type `186` to kill the process with `PID` of 186.  
+
+`man top` can help you get the manual of command `top`. 
+
+The following table explains what each column mean. 
+
+| Columns | Description                                                                                                                                     |
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| PID     | Process ID                                                                                                                                      |
+| USER    | Name of the effective user (owner) of the process                                                                                               |
+| PR      | Priority                                                                                                                                        |
+| NI      | Nice value                                                                                                                                      |
+| VIRT    |  Virtual memory size                                                                                                                            |
+| RES     |  Resident memory size                                                                                                                           |
+| SHR     | Shared memory size                                                                                                                              |
+| S       | Process status (which could be one of the following: D (uninteruptible   sleep), R (running), S (sleeping), T (traced or stopped) or Z (zombie) |
+| %CPU    |  The share of cpu time used by the   process since last update                                                                                  |
+| %MEM    |  Share of   physical memory used                                                                                                                |
+| TIME+   | Total cpu time used by the task in hundredths of a second                                                                                       |
+| COMMAND |  Command name or command line (name   + options)                                                                                                |
+
+
+## `ps`
+
+The command `ps` can report a snapshot of the current processes. 
+
+Command `ps` is usually used with the option `-a`, `-u` and `-x`.
+
+```
+ps -aux   ## can also be `ps aux`
+```
+
+You can pipe the output to `less` to make it scrollable.
+
+## `kill`
+
+If you want to kill a process, you can use the command `kill`. 
+
+```
+kill 20140418
+```
+
+## `df`
+
+## Advanced topic `free`
+
+You can use command `free` to display amount of free and used memory in the system. 
+
+```
+free -h
+```
+
+`-h` let you show all output fields automatically scaled  to  shortest  three  digit unit and display the units of print out.  Following units are used.
+
+| Abbreviation | Full Name      |
+|--------------|----------------|
+| B            | Bytes          |
+| K            | Kilobytes (KB) |
+| M            | Megabytes(MB)  |
+| G            | Gigabytes (GB) |
+| T            | Terabytes (TB) |
+
+
+

@@ -1,0 +1,13 @@
+{
+    "path" : "~/bookdown/novice2expert4bioinformatics",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        },
+        {
+            "ascending" : false,
+            "columnIndex" : 4
+        }
+    ]
+}

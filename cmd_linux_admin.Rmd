@@ -1,0 +1,38 @@
+# Commands for Linux administration (Advanced topic)
+
+## `w`
+
+## `who`
+
+## `uptime`
+
+In Linux uptime command shows since how long your system is running and the number of users are currently logged in and also displays load average for 1,5 and 15 minutes intervals.
+
+## `whoami`
+
+```{sh}
+whoami
+```
+
+## `ifconfig`
+
+```{sh}
+ifconfig
+```
+
+## `useradd` and `passwd`
+
+```
+## Need to have root access
+adduser tabomics 
+
+```
+
+```
+## add a user to a specified group
+adduser tabomics -g bioinf
+```
+
+
+
+
