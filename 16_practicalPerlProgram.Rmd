@@ -1,4 +1,4 @@
-#Practical Perl program 
+# Practical Perl program 
 
 ## Extract sequences from genomic DNA for some specific regions
 
@@ -21,4 +21,16 @@ plot(1)  # a scatterplot
 ```
 
 
+## Merge overlap genomic regions
 
+```{perl code=readLines("code_perl/genomic_coordinate_merge.pl"), eval=FALSE}
+```
+
+```{sh}
+cat data/DMR_region.txt
+```
+
+```{sh}
+perl code_perl/genomic_coordinate_merge.pl  data/DMR_region.txt  data/DMR_region_merged.txt 
+cat data/DMR_region_merged.txt 
+```

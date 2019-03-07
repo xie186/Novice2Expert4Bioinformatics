@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="bs-seq.html">
-<link rel="next" href="capstone-project.html">
+<link rel="prev" href="references-1.html">
+<link rel="next" href="commands-for-linux-administration-advanced-topic.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -383,24 +383,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="start-a-project" class="section level1">
-<h1><span class="header-section-number">Chapter 24</span> Start a project</h1>
-<div id="experimetal-design" class="section level2">
-<h2><span class="header-section-number">24.1</span> Experimetal design</h2>
-<p>Before</p>
-<div id="how-many-biological-replicates" class="section level3">
-<h3><span class="header-section-number">24.1.1</span> How many biological replicates</h3>
+<div id="crispr-cas9-screen-data-processing" class="section level1">
+<h1><span class="header-section-number">Chapter 29</span> CRISPR-CAS9 screen data processing</h1>
+<div id="installation-of-softwares-using-conda" class="section level2">
+<h2><span class="header-section-number">29.1</span> Installation of softwares using <code>conda</code></h2>
+<pre><code>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+conda config --add channels conda-forge
+conda config --add channels bioconda
+conda create -n mageck-vispr mageck mageck-vispr python=3</code></pre>
 </div>
-<div id="how-big" class="section level3">
-<h3><span class="header-section-number">24.1.2</span> How big</h3>
+<div id="an-exmaple-of-how-to-process" class="section level2">
+<h2><span class="header-section-number">29.2</span> An exmaple of how to process</h2>
+<p>CRISPR Screen. For the pooled genome-wide CRISPR screen, 1 × 108 LNCaP cells were infected with the pooled lentiviral GeCKO v2 library at a multiplicity of infection of 0.5. After 3 d of puromycin selection, half of the surviving cells were stored as 0-d control samples, and the rest of cells were cultured for an additional 2 wk. PCR was performed on genomic DNA to construct the sequencing library. Each library was sequenced at 30∼40 million reads to achieve ∼300× average coverage over the CRISPR library and data were analyzed by MAGeCK and MAGeCK-VISPR.</p>
+<div id="donwload-the-data-1" class="section level3">
+<h3><span class="header-section-number">29.2.1</span> Donwload the data</h3>
+<pre><code>#!/usr/bin/env bash
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR231/007/SRR2318477/SRR2318477.fastq.gz -o CRISPR-0d.fastq.gz &amp;
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR231/006/SRR2318476/SRR2318476.fastq.gz -o CRISPR-plasmid.fastq.gz &amp;
+curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR231/008/SRR2318478/SRR2318478.fastq.gz -o CRISPR-DHT.fastq.gz &amp;</code></pre>
 </div>
-<div id="how-much-data-to-generate" class="section level3">
-<h3><span class="header-section-number">24.1.3</span> How much data to generate</h3>
-</div>
-<div id="section-6" class="section level3">
-<h3><span class="header-section-number">24.1.4</span> </h3>
-<p>Where to start?</p>
-<p>There are many ways to start to talk about Bioinformatics analysis. Here we’ll go from whether there is a reference genome or not. Let’s take RNA-seq as an example.</p>
+<div id="reference-1" class="section level3">
+<h3><span class="header-section-number">29.2.2</span> Reference</h3>
+<p>Fei T, Chen Y, Xiao T, Li W et al. Genome-wide CRISPR screen identifies HNRNPL as a prostate cancer dependency regulating RNA splicing. Proc Natl Acad Sci U S A 2017 Jun 27;114(26):E5207-E5215. PMID: 28611215</p>
 
 </div>
 </div>
@@ -410,8 +414,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="bs-seq.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="capstone-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="commands-for-linux-administration-advanced-topic.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -440,7 +444,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xie186/Novice2Expert4Bioinformatics/edit/master/27_ExpDesign.Rmd",
+"link": "https://github.com/xie186/Novice2Expert4Bioinformatics/edit/master/capstone_CRISPR_screen.Rmd",
 "text": "Edit"
 },
 "download": ["bioinfBookXIE186.epub"],

@@ -1,6 +1,6 @@
 --- 
 title: "All things considered for Bioinformatics"
-subtitle: "Essential Linux, Perl, R, Statistics in life science"
+subtitle: "Essential Linux, Perl, R and Statistics in life science"
 author: "Shaojun Xie (解少俊)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
