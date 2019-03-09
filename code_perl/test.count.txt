@@ -1,0 +1,6 @@
+gene_id	sam1	sam2	sam3
+gene1	0	2	3
+..
+
+..
+
