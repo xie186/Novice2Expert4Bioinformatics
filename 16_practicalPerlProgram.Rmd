@@ -34,3 +34,12 @@ cat data/DMR_region.txt
 perl code_perl/genomic_coordinate_merge.pl  data/DMR_region.txt  data/DMR_region_merged.txt 
 cat data/DMR_region_merged.txt 
 ```
+
+
+## Add annotation information to DESeq2 results
+
+
+```
+#x
+```
+

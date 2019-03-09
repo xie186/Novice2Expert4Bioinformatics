@@ -180,9 +180,180 @@ perl code_perl/wrap_output.pl code_perl/var_assign_strict_warnings.err 60
 
 ## Array
 
+### Init an array
+
+```{perl}
+my @base_pair = ('A', 'T', 'C', "C", "G");
+print "";
+print @base_pair, "\n";
+print join("\t", @base_pair), "\n";
+```
 
 
 
-## Hash
+### Array index
+
+```{perl}
+my @base_pair = ('A', 'T', 'C', "C", "G");
+### Extract the first element in the array
+my $first_base = $base_pair[0];
+print "First base is: $first_base\n\n"; 
+
+### Extract the last element in the array
+my $last_base = $base_pair[4];
+print "Last base is: $last_base\n\n"; 
+
+### Extract the last element in the array using index `-1`
+my $last_base = $base_pair[-1];
+print "Last base using '-1' is: $last_base\n\n"; 
+
+### Extract the last element in the array using index `$#`
+my $last_base = $base_pair[$#base_pair];
+print "Last base using '\$#' is : $last_base\n\n"; 
+
+```
+
+### Length of the array
+
+To get the length of the array, you can use `scalar @array` or `just array`. 
+
+```{perl}
+my @gene_expr = (1, 3, 10);
+my $len = scalar @gene_expr;  ## or @gene_expr
+print "Array has: @gene_expr\n";
+print "Length of array: ", $len, "\n";
+```
+
+Another way is to use `$#array`. `$#array` will return the index of the last element. Since the index starts with 0, to get the length we use `$#array + 1`. 
+
+If the length of array is empty, `$#array` will return `-1`. 
+
+```{perl}
+my @gene_expr = ();
+my $len = $#gene_expr + 1;
+print "Array has $len element\n";
+print "Length of array: ", $len, "\n";
+```
+
+### Sort Arrays in Perl
+
+#### Sort alphebetically
+
+```{perl}
+my @base_pair = ('A', 'T', 'C', "C", "G");
+my @sorted_bp = sort @base_pair;
+print "Array before sorted: ", "@base_pair", "\n";
+print "Array after sorted: ", "@sorted_bp", "\n";
+```
+
+#### Sort numerically
 
 
+To sort an array numerically, we use `spaceship operator: <=>`. 
+
+
+```{perl}
+my @genome_coor = (100, 300, 200, 500);
+my @sorted_coor = sort {$a <=> $b} @genome_coor;
+
+print "Array before sorted: ", "@genome_coor", "\n";
+print "Array after sorted: ", "@sorted_coor", "\n";
+```
+
+Similarly, array can be also sorted numerically in decreasing order. 
+
+```{perl}
+my @genome_coor = (100, 300, 200, 500);
+## {$a <=> $b} is modified as {$b <=> $a} 
+my @sorted_coor = sort {$b <=> $a} @genome_coor;  
+
+print "Array before sorted: ", "@genome_coor", "\n";
+print "Array after sorted: ", "@sorted_coor", "\n";
+```
+
+### Use `push`, `pop`, `shift` and `unshift` in Perl
+
+
+
+## Hash in Perl
+
+A Perl hash is defined by key-value pairs. Perl stores elements of a hash in such an optimal way that you can look up its values based on keys very fast.
+
+With the array, you use indices to access its elements. However, you must use descriptive keys to access hash’s element. A hash is sometimes referred to as an associative array.
+
+Like a scalar or an array variable, a hash variable has its own prefix. A hash variable must begin with a percent sign ( %). The prefix % looks like key/value pair so remember this trick to name the hash variables.
+
+The following example defines a simple hash.
+
+
+```{perl}
+my %gene_info = ("gene1"=>"ROS",
+                 "gene2"=>"WRKY",
+                 "gene3"=>"WRKY"
+                );
+
+print "$gene_info{gene1}\n";
+print "$gene_info{gene2}\n";
+print "$gene_info{gene3}\n";
+```
+
+
+```{perl}
+my %gene_info = ("gene1"=>"ROS",
+                 "gene2"=>"WRKY",
+                 "gene3"=>"WRKY"
+                );
+my @hash_key  = keys %gene_info;
+@hash_key = sort @hash_key;
+#print "Keys of \%gene_info: ", @hash_key, "\n";
+print "Keys of \%gene_info: ", join("\t", sort keys %gene_info), "\n";
+#print "Keys of \%gene_info: ", keys %gene_info, "\n";
+```
+
+```{perl}
+my %gene_info = ("gene1"=>"ROS",
+                 "gene2"=>"WRKY",
+                 "gene3"=>"WRKY"
+                );
+foreach(sort keys %gene_info){
+    print "The value of $_ is: ", $gene_info{$_}, "\n";
+}
+
+```
+
+
+### Sort keys numerically using `sort {$a<=>$b}`
+
+```{perl}
+my %read_dep = ("1"=>"100",
+                 "2"=>"200",
+                 "3"=>"50",
+                 "10"=>"20",
+                );
+
+### sort in increasing order
+foreach(sort {$a<=>$b} keys %read_dep){
+    print "The value of $_ is: ", $read_dep{$_}, "\n";
+}
+
+print "\nSort in descending order: \n";
+### sort {$b<=>$a} if you want to sort in descending order python
+foreach(sort {$b<=>$a} keys %read_dep){
+    print "The value of $_ is: ", $read_dep{$_}, "\n";
+}
+```
+
+
+### Use `exists` function on a hash
+
+Given an expression that specifies an element of a hash, `exists` returns true if the specified element in the hash has ever been initialized, even if the corresponding value is undefined.
+
+```{perl}
+my %gene_info = ("gene1"=>"ROS",
+                 "gene2"=>"WRKY",
+                 "gene3"=>"WRKY"
+                );
+if(exists $gene_info{"gene1"}){
+    print "The key 'gene1' exists in \%gene_info\n";
+}
+```

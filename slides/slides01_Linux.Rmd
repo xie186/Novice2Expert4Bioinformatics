@@ -1,6 +1,6 @@
 ---
 title: "Linux for Bioinformatics"
-author: "TabOmics团队@众智领先"
+author: ""
 date: "`r Sys.Date()`"
 output:
   ioslides_presentation:
