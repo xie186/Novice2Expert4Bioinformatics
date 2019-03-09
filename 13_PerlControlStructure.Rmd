@@ -4,13 +4,49 @@
 Perl is an iterative language in which control flows from the first statement in the program to the last statement unless something interrupts. Some of the things that can interrupt this linear flow are conditional branches and loop structures. Perl offers approximately a dozen such constructs, which are described below. The basic form will be shown for each followed by a partial example.
 ....
 
-## `while` loop
-
-
 
 ## `for` loop
 
+```{perl}
+my @gene_expr = (2,6,8, 9);
+
+# This is an example of  for loop 
+for(my $i=0; $i<@gene_expr; ++$i){
+    my $tem_var= $gene_expr[$i]/2;
+
+    print "At $i place, the number devided by 2 equals: $tem_var\n";    
+}
+```
+
 ## `foreach` loop
+
+```{perl}
+my @gene_expr = (2,6,8, 9);
+
+my $j = 0;
+foreach(@gene_expr){
+    my $tem_var= $gene_expr[$j]/2;
+    print "At $j place, the number devided by 2 equals: $tem_var\n";
+    #$j = $j +1
+    ++$j;
+}
+```
+
+
+## `while` loop
+
+```{perl}
+my @gene_expr = (2,6,8, 9);
+
+my $k = 0;
+while($k<@gene_expr){
+    my $tem_var= $gene_expr[$k]/2;
+    print "At $k place, the number devided by 2 equals: $tem_var\n";
+    ++$k;
+}
+
+```
+
 
 ## Statement if-else
 
@@ -22,5 +58,18 @@ Perl is an iterative language in which control flows from the first statement in
 ## Operator `last` and `next`
 
 ## Operator `redo`
+
+Before we use `redo`, first let's see what is `BLOCK` in Perl. In Perl, a `BLOCK` by itself (labeled or not) is semantically equivalent to a loop that executes once. Thus you can use any of the loop control statements in it to leave or restart the block. 
+
+The redo command restarts the loop block without evaluating the conditional again.
+
+Let's say we have some postitions on the genome where a few 
+
+```{perl}
+my @read_depth = (8, 9, 10, 7, 10, 7, 7);
+
+```
+
+
 
 

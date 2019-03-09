@@ -1,0 +1,5 @@
+#gene_id	log2fc	p-val
+gene1	2	0.01
+gene2	3	0.04
+gene3	-2	0.06
+gene4	-8	0.001

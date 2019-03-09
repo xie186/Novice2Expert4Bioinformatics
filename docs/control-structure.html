@@ -215,9 +215,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>11</b> Control structure</a><ul>
-<li class="chapter" data-level="11.1" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>11.1</b> <code>while</code> loop</a></li>
-<li class="chapter" data-level="11.2" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>11.2</b> <code>for</code> loop</a></li>
-<li class="chapter" data-level="11.3" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>11.3</b> <code>foreach</code> loop</a></li>
+<li class="chapter" data-level="11.1" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>11.1</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="11.2" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>11.2</b> <code>foreach</code> loop</a></li>
+<li class="chapter" data-level="11.3" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>11.3</b> <code>while</code> loop</a></li>
 <li class="chapter" data-level="11.4" data-path="control-structure.html"><a href="control-structure.html#statement-if-else"><i class="fa fa-check"></i><b>11.4</b> Statement if-else</a></li>
 <li class="chapter" data-level="11.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>11.5</b> Operator <code>last</code> and <code>next</code></a></li>
 <li class="chapter" data-level="11.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>11.6</b> Operator <code>redo</code></a></li>
@@ -245,9 +245,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>13.3</b> Arguments from command line</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>14</b> Practical Perl program</a><ul>
-<li class="chapter" data-level="14.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#extract-sequences-from-genomic-dna-for-some-specific-regions"><i class="fa fa-check"></i><b>14.1</b> Extract sequences from genomic DNA for some specific regions</a></li>
+<li class="chapter" data-level="14.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>14.1</b> Add annotation information to DESeq2 results</a></li>
 <li class="chapter" data-level="14.2" data-path="practical-perl-program.html"><a href="practical-perl-program.html#merge-overlap-genomic-regions"><i class="fa fa-check"></i><b>14.2</b> Merge overlap genomic regions</a></li>
-<li class="chapter" data-level="14.3" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>14.3</b> Add annotation information to DESeq2 results</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>15</b> Perl modules</a><ul>
 <li class="chapter" data-level="15.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>15.1</b> What is a Perl module</a></li>
@@ -388,14 +387,51 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="control-structure" class="section level1">
 <h1><span class="header-section-number">Chapter 11</span> Control structure</h1>
 <p>…. Perl is an iterative language in which control flows from the first statement in the program to the last statement unless something interrupts. Some of the things that can interrupt this linear flow are conditional branches and loop structures. Perl offers approximately a dozen such constructs, which are described below. The basic form will be shown for each followed by a partial example. ….</p>
-<div id="while-loop" class="section level2">
-<h2><span class="header-section-number">11.1</span> <code>while</code> loop</h2>
-</div>
 <div id="for-loop" class="section level2">
-<h2><span class="header-section-number">11.2</span> <code>for</code> loop</h2>
+<h2><span class="header-section-number">11.1</span> <code>for</code> loop</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);
+
+<span class="co"># This is an example of  for loop </span>
+<span class="kw">for</span>(<span class="kw">my</span> <span class="dt">$i</span>=<span class="dv">0</span>; <span class="dt">$i</span>&lt;<span class="dt">@gene_expr</span>; ++<span class="dt">$i</span>){
+    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$i</span>]/<span class="dv">2</span>;
+
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$i</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;    
+}</code></pre></div>
+<pre><code>## At 0 place, the number devided by 2 equals: 1
+## At 1 place, the number devided by 2 equals: 3
+## At 2 place, the number devided by 2 equals: 4
+## At 3 place, the number devided by 2 equals: 4.5</code></pre>
 </div>
 <div id="foreach-loop" class="section level2">
-<h2><span class="header-section-number">11.3</span> <code>foreach</code> loop</h2>
+<h2><span class="header-section-number">11.2</span> <code>foreach</code> loop</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);
+
+<span class="kw">my</span> <span class="dt">$j</span> = <span class="dv">0</span>;
+<span class="kw">foreach</span>(<span class="dt">@gene_expr</span>){
+    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$j</span>]/<span class="dv">2</span>;
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$j</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+    <span class="co">#$j = $j +1</span>
+    ++<span class="dt">$j</span>;
+}</code></pre></div>
+<pre><code>## At 0 place, the number devided by 2 equals: 1
+## At 1 place, the number devided by 2 equals: 3
+## At 2 place, the number devided by 2 equals: 4
+## At 3 place, the number devided by 2 equals: 4.5</code></pre>
+</div>
+<div id="while-loop" class="section level2">
+<h2><span class="header-section-number">11.3</span> <code>while</code> loop</h2>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);
+
+<span class="kw">my</span> <span class="dt">$k</span> = <span class="dv">0</span>;
+<span class="kw">while</span>(<span class="dt">$k</span>&lt;<span class="dt">@gene_expr</span>){
+    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$k</span>]/<span class="dv">2</span>;
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$k</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+    ++<span class="dt">$k</span>;
+}</code></pre></div>
+<pre><code>## At 0 place, the number devided by 2 equals: 1
+## At 1 place, the number devided by 2 equals: 3
+## At 2 place, the number devided by 2 equals: 4
+## At 3 place, the number devided by 2 equals: 4.5</code></pre>
 </div>
 <div id="statement-if-else" class="section level2">
 <h2><span class="header-section-number">11.4</span> Statement if-else</h2>
@@ -420,6 +456,10 @@ Index 5: 10</code></pre>
 </div>
 <div id="operator-redo" class="section level2">
 <h2><span class="header-section-number">11.6</span> Operator <code>redo</code></h2>
+<p>Before we use <code>redo</code>, first let’s see what is <code>BLOCK</code> in Perl. In Perl, a <code>BLOCK</code> by itself (labeled or not) is semantically equivalent to a loop that executes once. Thus you can use any of the loop control statements in it to leave or restart the block.</p>
+<p>The redo command restarts the loop block without evaluating the conditional again.</p>
+<p>Let’s say we have some postitions on the genome where a few</p>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@read_depth</span> = (<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">7</span>);</code></pre></div>
 
 </div>
 </div>

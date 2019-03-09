@@ -215,9 +215,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>11</b> Control structure</a><ul>
-<li class="chapter" data-level="11.1" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>11.1</b> <code>while</code> loop</a></li>
-<li class="chapter" data-level="11.2" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>11.2</b> <code>for</code> loop</a></li>
-<li class="chapter" data-level="11.3" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>11.3</b> <code>foreach</code> loop</a></li>
+<li class="chapter" data-level="11.1" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>11.1</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="11.2" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>11.2</b> <code>foreach</code> loop</a></li>
+<li class="chapter" data-level="11.3" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>11.3</b> <code>while</code> loop</a></li>
 <li class="chapter" data-level="11.4" data-path="control-structure.html"><a href="control-structure.html#statement-if-else"><i class="fa fa-check"></i><b>11.4</b> Statement if-else</a></li>
 <li class="chapter" data-level="11.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>11.5</b> Operator <code>last</code> and <code>next</code></a></li>
 <li class="chapter" data-level="11.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>11.6</b> Operator <code>redo</code></a></li>
@@ -245,9 +245,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>13.3</b> Arguments from command line</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>14</b> Practical Perl program</a><ul>
-<li class="chapter" data-level="14.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#extract-sequences-from-genomic-dna-for-some-specific-regions"><i class="fa fa-check"></i><b>14.1</b> Extract sequences from genomic DNA for some specific regions</a></li>
+<li class="chapter" data-level="14.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>14.1</b> Add annotation information to DESeq2 results</a></li>
 <li class="chapter" data-level="14.2" data-path="practical-perl-program.html"><a href="practical-perl-program.html#merge-overlap-genomic-regions"><i class="fa fa-check"></i><b>14.2</b> Merge overlap genomic regions</a></li>
-<li class="chapter" data-level="14.3" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>14.3</b> Add annotation information to DESeq2 results</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>15</b> Perl modules</a><ul>
 <li class="chapter" data-level="15.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>15.1</b> What is a Perl module</a></li>
@@ -387,22 +386,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="practical-perl-program" class="section level1">
 <h1><span class="header-section-number">Chapter 14</span> Practical Perl program</h1>
-<div id="extract-sequences-from-genomic-dna-for-some-specific-regions" class="section level2">
-<h2><span class="header-section-number">14.1</span> Extract sequences from genomic DNA for some specific regions</h2>
-<p>Figure 8.1 shows how to extract sequences from genomic DNA for some specific regions. For example, when we perform ChIP-seq for a transcription factor. We will get the binding sites (some regions) of transcription factor after analyzing ChIP-seq. You want to know whether there is motifs that can be recognized by the transcription factor.</p>
-<p>The Perl program in Figure 8.1 has two arguments (input files): genomic DNA sequences and ChIP-seq peak regions. It will print the genomic DNA sequences for each region in fasta format. We can use <code>&gt;</code> to generate a new file to record the result (Figure 8.1).</p>
-<p>The genomic DNA sequence data is saved in fasta format (See 11.1). ChIP-seq peak regions are saved in BED format (See 12.3).</p>
-<p>Let’s go through each line in detail.</p>
-<p>A normal paragraph.</p>
-<p>The above code provides an interactive HTML page (figure <a href="practical-perl-program.html#fig:foo">14.1</a>)</p>
-
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span>)  <span class="co"># a scatterplot</span></code></pre></div>
-<div class="figure"><span id="fig:foo"></span>
-<img src="bioinfBookXIE186_files/figure-html/foo-1.png" alt="A scatterplot of the data cars using base R graphics." width="672" />
-<p class="caption">
-Figure 14.1: A scatterplot of the data <code>cars</code> using <strong>base</strong> R graphics.
-</p>
-</div>
+<div id="add-annotation-information-to-deseq2-results" class="section level2">
+<h2><span class="header-section-number">14.1</span> Add annotation information to DESeq2 results</h2>
+<p>Imaging we have a table that stores that differentially expressed genes information.</p>
+<p>It includes three columns (tab-delimited):</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/DEG_list.txt</code></pre></div>
+<pre><code>## #gene_id log2fc  p-val
+## gene1    2   0.01
+## gene2    3   0.04
+## gene3    -2  0.06
+## gene4    -8  0.001</code></pre>
+<p>We have another table which has the annotation information of each gene:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/gene_annotation.txt</code></pre></div>
+<pre><code>## gene1    ROS
+## gene2    WRKY
+## gene3    ZmCCT</code></pre>
 </div>
 <div id="merge-overlap-genomic-regions" class="section level2">
 <h2><span class="header-section-number">14.2</span> Merge overlap genomic regions</h2>
@@ -459,10 +457,6 @@ Figure 14.1: A scatterplot of the data <code>cars</code> using <strong>base</str
 ## chr1 500 650
 ## chr2 300 1000
 ## chr3 500 1000</code></pre>
-</div>
-<div id="add-annotation-information-to-deseq2-results" class="section level2">
-<h2><span class="header-section-number">14.3</span> Add annotation information to DESeq2 results</h2>
-<pre><code>#x</code></pre>
 
 </div>
 </div>

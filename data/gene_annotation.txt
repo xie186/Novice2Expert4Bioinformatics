@@ -1,0 +1,3 @@
+gene1	ROS
+gene2	WRKY
+gene3	ZmCCT
