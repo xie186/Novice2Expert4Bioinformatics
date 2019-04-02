@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-03-09">
+<meta name="date" content="2019-04-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -143,15 +143,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
 <li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.7</b> Advanced topic</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.7.1</b> Linux <code>md5sum</code> Command</a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.8</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.8.1</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.9</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.9.1</b> <code>cut</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.9</b> Check you job status</a></li>
-<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.10</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.10.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.10.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.10</b> Check you job status</a></li>
+<li class="chapter" data-level="3.11" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.11</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.11.1</b> List files bigger than filesize specified</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
@@ -472,7 +473,7 @@ Figure 3.3: ref:linuxCMDls
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre></div>
 <pre><code>## total 24
 ## drwxrwxr-x  2 xie186 xie186 4096 Jun 21  2018 .
-## drwxr-xr-x 16 xie186 xie186 4096 Mar  9 23:55 ..
+## drwxr-xr-x 16 xie186 xie186 4096 Apr  2 00:40 ..
 ## -rw-rw-r--  1 xie186 xie186 4139 Jun 21  2018 10_PerlInputOutput_bak.Rmd
 ## -rw-rw-r--  1 xie186 xie186  223 Jun 21  2018 linuxPathShortcuts.tsv
 ## -rw-rw-r--  1 xie186 xie186  766 Jun 21  2018 textEditorLinuxVi3modes.csv</code></pre>
@@ -873,10 +874,42 @@ Figure 3.4: Demonstration of programmable completion feature.
 <pre><code>## ls: cannot access NOTAFILE: No such file or directory</code></pre>
 </div>
 </div>
+<div id="find-disk-usage-of-files-and-directories" class="section level2">
+<h2><span class="header-section-number">3.7</span> Find Disk Usage of Files and Directories</h2>
+<p>The Linux <code>du</code> (short for Disk Usage) is a standard Unix/Linux command, used to check the information of disk usage of files and directories on a machine. The <code>du</code> command has many parameter options that can be used to get the results in many formats. The du command also displays the files and directory sizes in a recursively manner.</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> data/ESP6500-African_American.vcf.gz
+<span class="fu">du</span> -h data/ESP6500-African_American.vcf.gz</code></pre></div>
+<pre><code>## 27388    data/ESP6500-African_American.vcf.gz
+## 27M  data/ESP6500-African_American.vcf.gz</code></pre>
+<p>To get the summary of a grand total disk usage size of an directory use the option “-s” as follows.</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -sh data/</code></pre></div>
+<pre><code>## 37M  data/</code></pre>
+<p>Using “-a” flag with “du” command displays the disk usage of all the files and directories.</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -ah data/</code></pre></div>
+<pre><code>## 4.0K data/test_ref2.fa
+## 4.0K data/gene_annotation.txt
+## 88K  data/maize_embryo_specific_gene_Sheet1.tsv
+## 532K data/ESP6500-African_American.vcf.gz.tbi
+## 4.0K data/.dir_bash_history_xie186
+## 4.0K data/test_ref2_30.fa
+## 4.0K data/test_ref_len.txt
+## 4.0K data/WGBS_sample_information.txt
+## 4.0K data/DMR_region_merged.txt
+## 4.0K data/PYL10_ARATH.fasta
+## 27M  data/ESP6500-African_American.vcf.gz
+## 4.0K data/test_ref.fa
+## 4.0K data/test_output.txt
+## 4.0K data/DEG_list.txt
+## 9.3M data/Arabidopsis_thaliana.TAIR10.37.gff3.gz
+## 4.0K data/README
+## 4.0K data/testdata4linux_cmd.txt
+## 4.0K data/DMR_region.txt
+## 37M  data/</code></pre>
+</div>
 <div id="advanced-topic" class="section level2">
-<h2><span class="header-section-number">3.7</span> Advanced topic</h2>
+<h2><span class="header-section-number">3.8</span> Advanced topic</h2>
 <div id="linux-md5sum-command" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> Linux <code>md5sum</code> Command</h3>
+<h3><span class="header-section-number">3.8.1</span> Linux <code>md5sum</code> Command</h3>
 <p><code>md5sum</code> is used to verify the integrity of files, as virtually any change to a file will cause its MD5 hash to change. Most commonly, md5sum is used to verify that a file has not changed as a result of a faulty file transfer, a disk error or non-malicious meddling. The md5sum program is included in most Unix-like operating systems.</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd is: &quot;</span>
 <span class="ex">md5sum</span> index.Rmd
@@ -887,25 +920,25 @@ Figure 3.4: Demonstration of programmable completion feature.
 <span class="fu">head</span> index.Rmd <span class="op">&gt;</span> index.Rmd_bak
 <span class="ex">md5sum</span> index.Rmd_bak </code></pre></div>
 <pre><code>## The MD5 value of index.Rmd is: 
-## 700777c8f95a5dd5a1bd6d0a43867885  index.Rmd
+## 6f60c6aed56e56ae89e688ba847bc9e7  index.Rmd
 ## The MD5 value of index.Rmd_bak is: 
-## 700777c8f95a5dd5a1bd6d0a43867885  index.Rmd_bak
+## 6f60c6aed56e56ae89e688ba847bc9e7  index.Rmd_bak
 ## The MD5 value of new index.Rmd_bak is: 
 ## dec3208e7823660c2f2ed85b41a16467  index.Rmd_bak</code></pre>
 
 </div>
 </div>
 <div id="filtering-output" class="section level2">
-<h2><span class="header-section-number">3.8</span> Filtering Output</h2>
+<h2><span class="header-section-number">3.9</span> Filtering Output</h2>
 <div id="cut" class="section level3">
-<h3><span class="header-section-number">3.8.1</span> <code>cut</code></h3>
+<h3><span class="header-section-number">3.9.1</span> <code>cut</code></h3>
 <p><code>cut</code> can be used to print selected parts of lines from each FILE to standard output.</p>
 <p>cut sort uniq wc grep</p>
 <p><a href="https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK" class="uri">https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</a></p>
 </div>
 </div>
 <div id="check-you-job-status" class="section level2">
-<h2><span class="header-section-number">3.9</span> Check you job status</h2>
+<h2><span class="header-section-number">3.10</span> Check you job status</h2>
 <pre><code>$ ps aux  
 USER       PID  %CPU %MEM  VSZ RSS     TTY   STAT START   TIME COMMAND
 timothy  29217  0.0  0.0 11916 4560 pts/21   S+   08:15   0:00 pine  
@@ -914,9 +947,9 @@ can      29529  0.0  0.0 38332 1904 ?        S    Mar07   0:00 sshd: can@notty  
 <p>USER = user owning the process PID = process ID of the process %CPU = It is the CPU time used divided by the time the process has been running. %MEM = ratio of the process’s resident set size to the physical memory on the machine VSZ = virtual memory usage of entire process (in KiB) RSS = resident set size, the non-swapped physical memory that a task has used (in KiB) TTY = controlling tty (terminal) STAT = multi-character process state START = starting time or date of the process TIME = cumulative CPU time COMMAND = command with all its arguments</p>
 </div>
 <div id="finding-things" class="section level2">
-<h2><span class="header-section-number">3.10</span> Finding Things</h2>
+<h2><span class="header-section-number">3.11</span> Finding Things</h2>
 <div id="list-files-bigger-than-filesize-specified" class="section level3">
-<h3><span class="header-section-number">3.10.1</span> List files bigger than filesize specified</h3>
+<h3><span class="header-section-number">3.11.1</span> List files bigger than filesize specified</h3>
 <pre><code># To find files larger than 100MB:
 find . -type f -size +100M
 # If you want the current dir only:

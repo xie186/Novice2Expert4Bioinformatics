@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-03-09">
+<meta name="date" content="2019-04-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -143,15 +143,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
 <li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.7</b> Advanced topic</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.7.1</b> Linux <code>md5sum</code> Command</a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.8</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.8.1</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.9</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.9.1</b> <code>cut</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.9</b> Check you job status</a></li>
-<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.10</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.10.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.10.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.10</b> Check you job status</a></li>
+<li class="chapter" data-level="3.11" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.11</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.11.1</b> List files bigger than filesize specified</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
@@ -408,18 +409,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##         inet 198.211.107.37  netmask 255.255.255.0  broadcast 198.211.107.255
 ##         inet6 fe80::60d2:20ff:fe10:d100  prefixlen 64  scopeid 0x20&lt;link&gt;
 ##         ether 62:d2:20:10:d1:00  txqueuelen 1000  (Ethernet)
-##         RX packets 19427834  bytes 4565276438 (4.2 GiB)
+##         RX packets 20861165  bytes 4741686846 (4.4 GiB)
 ##         RX errors 0  dropped 22  overruns 0  frame 0
-##         TX packets 23075350  bytes 6889272231 (6.4 GiB)
+##         TX packets 24699268  bytes 7278886662 (6.7 GiB)
 ##         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ## 
 ## lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
 ##         inet 127.0.0.1  netmask 255.0.0.0
 ##         inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
 ##         loop  txqueuelen 1  (Local Loopback)
-##         RX packets 994380  bytes 353728185 (337.3 MiB)
+##         RX packets 1002776  bytes 358988773 (342.3 MiB)
 ##         RX errors 0  dropped 0  overruns 0  frame 0
-##         TX packets 994380  bytes 353728185 (337.3 MiB)
+##         TX packets 1002776  bytes 358988773 (342.3 MiB)
 ##         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</code></pre>
 </div>
 <div id="useradd-and-passwd" class="section level2">

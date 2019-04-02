@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-03-09">
+<meta name="date" content="2019-04-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -143,15 +143,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
 <li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.7</b> Advanced topic</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.7.1</b> Linux <code>md5sum</code> Command</a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.8</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.8.1</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.9</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.9.1</b> <code>cut</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.9</b> Check you job status</a></li>
-<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.10</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.10.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.10.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.10</b> Check you job status</a></li>
+<li class="chapter" data-level="3.11" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.11</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.11.1</b> List files bigger than filesize specified</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
@@ -396,13 +397,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pheatmap)
 gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/maize_embryo_specific_gene_Sheet1.tsv&quot;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>)
 <span class="kw">pheatmap</span>(gene_exp)</code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.000001</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>)</code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-91-2.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-94-2.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> T, <span class="dt">show_colnames =</span> F)</code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-91-3.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-94-3.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-91-4.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-94-4.png" width="672" /></p>
 </div>
 <div id="add-the-annotation" class="section level2">
 <h2><span class="header-section-number">19.3</span> Add the annotation</h2>
@@ -413,7 +414,7 @@ gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span 
 <div id="transfrom-the-data" class="section level2">
 <h2><span class="header-section-number">19.5</span> Transfrom the data</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>)) </code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
 </div>
 <div id="how-to-add-annotations" class="section level2">
 <h2><span class="header-section-number">19.6</span> How to add annotations</h2>

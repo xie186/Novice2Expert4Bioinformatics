@@ -449,6 +449,27 @@ ls NOTAFILE
 ```
 
 
+## Find Disk Usage of Files and Directories
+
+The Linux `du` (short for Disk Usage) is a standard Unix/Linux command, used to check the information of disk usage of files and directories on a machine. The `du` command has many parameter options that can be used to get the results in many formats. The du command also displays the files and directory sizes in a recursively manner.
+
+```{sh}
+du data/ESP6500-African_American.vcf.gz
+du -h data/ESP6500-African_American.vcf.gz
+```
+
+
+To get the summary of a grand total disk usage size of an directory use the option “-s” as follows.
+
+```{sh}
+du -sh data/
+```
+
+Using “-a” flag with “du” command displays the disk usage of all the files and directories.
+
+```{sh}
+du -ah data/
+```
 
 
 ## Advanced topic
