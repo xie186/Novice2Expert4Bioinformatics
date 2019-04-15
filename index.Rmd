@@ -22,5 +22,17 @@ knitr::include_graphics('images/cover_fishingMan.jpg', dpi = NA)
 
 
 
+```{r echo=FALSE}
 
+# https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
+list.of.packages <- c("bookdown", "knitr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = T)
+
+source("https://bioconductor.org/biocLite.R")
+list.of.bioconductorpakg <- c("ropls")
+new.packages <- list.of.bioconductorpakg[!(list.of.bioconductorpakg %in% installed.packages()[,"Package"])]
+
+BiocInstaller::biocLite(new.packages, suppressUpdates=TRUE)
+```
 
