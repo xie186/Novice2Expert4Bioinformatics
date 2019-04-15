@@ -8,7 +8,7 @@ We are going to use the data from these three samples to illustrate how to analy
 
 
 ```{r wgbs_bg, fig.cap='Study background of WGBS data', outwidth="100%", echo=FALSE}
-knitr::include_graphics("https://iiif.elifesciences.org/lax:06205%2Felife-06205-fig1-v4.tif/full/1500,/0/default.jpg")
+knitr::include_graphics("figures/elife_yeast_paper.jpg")
 ```
 
 Let's walk through these workflow step-by-step. 

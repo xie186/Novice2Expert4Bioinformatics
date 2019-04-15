@@ -16,7 +16,7 @@ whoami
 
 ## `ifconfig`
 
-```{sh}
+```
 ifconfig
 ```
 

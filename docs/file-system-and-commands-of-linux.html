@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>All things considered for Bioinformatics</title>
+  <title>Chapter 3 File system and commands of Linux | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 3 File system and commands of Linux | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 3 File system and commands of Linux | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-04-02">
+<meta name="date" content="2019-04-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="achiving-and-compressing-files.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -119,40 +146,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html"><i class="fa fa-check"></i><b>3</b> File system and commands of Linux</a><ul>
 <li class="chapter" data-level="3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#relative-and-absolute-path"><i class="fa fa-check"></i><b>3.1.1</b> Relative and absolute path</a></li>
+<li class="chapter" data-level="3.1.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.1.2</b> Comand <code>ls</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.1.3</b> Command <code>cd</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>pwd</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.2.2</b> Comand <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.2</b> Manipulations of files and directories</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>cp</code></a></li>
+<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.2.2</b> Command <code>mv</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>mkdir</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.2.4</b> Command ‘rm’</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
-<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.4.1</b> Command <code>cp</code></a></li>
-<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.4.2</b> Command <code>mv</code></a></li>
-<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.4.3</b> Command <code>mkdir</code></a></li>
-<li class="chapter" data-level="3.4.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.4.4</b> Command ‘rm’</a></li>
+<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.3</b> Viewing text files in Linux</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.3.1</b> Command <code>cat</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.3.2</b> Command <code>more</code> and <code>less</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.3.3</b> Command <code>head</code> and <code>tail</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.3.4</b> Auto-completion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.5.1</b> Command <code>cat</code></a></li>
-<li class="chapter" data-level="3.5.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.5.2</b> Command <code>more</code> and <code>less</code></a></li>
-<li class="chapter" data-level="3.5.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.5.3</b> Command <code>head</code> and <code>tail</code></a></li>
-<li class="chapter" data-level="3.5.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.5.4</b> Auto-completion</a></li>
+<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.4</b> Understand standard input and stardard output</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.4.1</b> STDIN</a></li>
+<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.4.2</b> STDOUT</a></li>
+<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.4.3</b> STDERR</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.6.1</b> STDIN</a></li>
-<li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
-<li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
+<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.5</b> Find Disk Usage of Files and Directories</a></li>
+<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.6</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.6.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.7</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.1</b> <code>cut</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.9</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.9.1</b> <code>cut</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.10</b> Check you job status</a></li>
-<li class="chapter" data-level="3.11" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.11</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.11.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.11.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.8</b> Check you job status</a></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.9</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.9.1</b> List files bigger than filesize specified</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
@@ -416,17 +439,13 @@ Figure 3.1: Tree structure of Linux system.
 <pre><code>data/sample1/
 ../doc/</code></pre>
 <p>If you want to get the <strong>absolute path</strong> based on <strong>relative path</strong>, you can use <code>readlink</code> with parameter <code>-f</code>:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">pwd</span>
-<span class="fu">readlink</span> -f ../</code></pre></div>
-<pre><code>## /mnt/volume-nyc1-02/bookdown/novice2expert4bioinformatics
-## /mnt/volume-nyc1-02/bookdown</code></pre>
-</div>
-</div>
-<div id="surfing-in-linux-file-system" class="section level2">
-<h2><span class="header-section-number">3.2</span> Surfing in Linux file system</h2>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">pwd</span>
+<span class="fu">readlink</span> -f ../</code></pre>
+<pre><code>## /cloud/project
+## /cloud</code></pre>
+<p>##Surfing in Linux file system</p>
 <p>Once we enter into a Linux file system, we need to 1) know where we are; 2) how to get where we want; 3) how to know what files or directories we have in a particular path.</p>
-<div id="command-pwd" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Command <code>pwd</code></h3>
+<p>###Command <code>pwd</code></p>
 <p>In order to know where we are, we need to use <code>pwd</code> command. The command <code>pwd</code> is short for “print name of current/working directory”. It will return the full path of current directory.</p>
 <p>Command pwd is almost always used by itself. This means you only need to type pwd and press ENTER (Figure <a href="file-system-and-commands-of-linux.html#fig:linuxCMDpwd">3.2</a>).</p>
 
@@ -438,8 +457,9 @@ Figure 3.2: ref:linuxCMDpwd
 </div>
 </div>
 <div id="comand-ls" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Comand <code>ls</code></h3>
-<p>After you know where you are, then you want to know what you have in that directory, we can use command <code>ls</code> to list directory contents (Figure <a href="file-system-and-commands-of-linux.html#fig:linuxCMDls">3.3</a>). Its syntax is:</p>
+<h3><span class="header-section-number">3.1.2</span> Comand <code>ls</code></h3>
+<p>After you know where you are, then you want to know what you have in that
+directory, we can use command <code>ls</code> to list directory contents (Figure <a href="file-system-and-commands-of-linux.html#fig:linuxCMDls">3.3</a>). Its syntax is:</p>
 <pre><code>ls [option]... [file]...</code></pre>
 
 <div class="figure" style="text-align: center"><span id="fig:linuxCMDls"></span>
@@ -449,14 +469,14 @@ Figure 3.3: ref:linuxCMDls
 </p>
 </div>
 <p><code>ls</code> with no option will list files and directories in bare format. Bare format means the detailed information (type, size, modified date and time, permissions and links etc) won’t be viewed. When you use <code>ls</code> by itself (Figure <a href="file-system-and-commands-of-linux.html#fig:linuxCMDls">3.3</a>), it will list files and directories in the current directory.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">cd</span> tables
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">cd</span> tables
 <span class="fu">ls</span>
 
 <span class="bu">echo</span> <span class="st">&quot;ls -a&quot;</span>
 <span class="fu">ls</span> -a 
 
 <span class="bu">echo</span> <span class="st">&quot;ls -t&quot;</span>
-<span class="fu">ls</span> -t</code></pre></div>
+<span class="fu">ls</span> -t</code></pre>
 <pre><code>## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
 ## textEditorLinuxVi3modes.csv
@@ -470,27 +490,24 @@ Figure 3.3: ref:linuxCMDls
 ## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
 ## textEditorLinuxVi3modes.csv</code></pre>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre>
 <pre><code>## total 24
-## drwxrwxr-x  2 xie186 xie186 4096 Jun 21  2018 .
-## drwxr-xr-x 16 xie186 xie186 4096 Apr  2 00:40 ..
-## -rw-rw-r--  1 xie186 xie186 4139 Jun 21  2018 10_PerlInputOutput_bak.Rmd
-## -rw-rw-r--  1 xie186 xie186  223 Jun 21  2018 linuxPathShortcuts.tsv
-## -rw-rw-r--  1 xie186 xie186  766 Jun 21  2018 textEditorLinuxVi3modes.csv</code></pre>
+## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
+## drwxr-xr-x 16 rstudio-user rstudio-user 4096 Apr 15 16:27 ..
+## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
+## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
+## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv</code></pre>
 <p>Linux command options can be combined without a space between them and with a single - (dash).</p>
 <p>The following command is a faster way to use the l and a options and gives the same output as the Linux command shown above.</p>
 <pre><code>ls -la </code></pre>
 </div>
 <div id="command-cd" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Command <code>cd</code></h3>
+<h3><span class="header-section-number">3.1.3</span> Command <code>cd</code></h3>
 <p>Command cd is used to change the current directory. It’s syntax is:</p>
 <pre><code>cd [option] [directory]</code></pre>
 <p>Unlike <code>pwd</code>, when you use <code>cd</code> you usually need to provide the path (either absolute or relative path) which we want to enter.</p>
 <p>If we didn’t provide any path information, we will change to home directory by default.</p>
-</div>
-</div>
-<div id="path-shortcuts" class="section level2">
-<h2><span class="header-section-number">3.3</span> Path shortcuts</h2>
+<p>##Path shortcuts</p>
 <p>In Linux, there are three commonly used path shortpaths (Table <a href="file-system-and-commands-of-linux.html#tab:linuxPathShortcuts">3.1</a>).</p>
 
 <table>
@@ -526,32 +543,13 @@ Figure 3.3: ref:linuxCMDls
 </tbody>
 </table>
 <p>Here are some examples:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">cd</span> ~
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">cd</span> ~
 <span class="bu">pwd</span>
-<span class="fu">ls</span></code></pre></div>
-<pre><code>## /home/xie186
-## bak
-## bin
-## bookdown
-## cpanm
-## est
-## github_repo
-## huang_python
-## huang_test
-## Miniconda3-latest-Linux-x86_64.sh
-## mod_wsgi-4.5.24
-## perl5
-## R
-## ~.Rproj
-## seaborn-data
-## software
-## test
-## test1
-## test.py
-## xecjk
-## xecjk.zip</code></pre>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">
-<span class="fu">ls</span> ./</code></pre></div>
+<span class="fu">ls</span></code></pre>
+<pre><code>## /home/rstudio-user
+## R</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="fu">ls</span> ./</code></pre>
 <pre><code>## 00_about_me_acknowledge.Rmd
 ## 01_WhyLinux.Rmd
 ## 02_Connect2Linux.Rmd
@@ -580,68 +578,66 @@ Figure 3.3: ref:linuxCMDls
 ## 26_introBSseq.Rmd
 ## 27_ExpDesign.Rmd
 ## 28_CapstoneProjectRNA-seq.Rmd
-## 29_CapstoneProjectChIP-seq.Rmd
 ## 30_CapstoneProjectBS-seq.Rmd
 ## 30_py_why_program.Rmd
 ## 31_Good_resource.Rmd
 ## 32_Reference.Rmd
-## bak
-## bioinfBookXIE186.aux
-## bioinfBookXIE186_files
-## bioinfBookXIE186.log
-## bioinfBookXIE186.pdf
-## bioinfBookXIE186.Rmd
-## book.bib
-## bookdown-demo.log
-## bookdown-demo.Rproj
-## _bookdown_files
+## DESCRIPTION
+## LICENSE
+## README.md
+## Rmd_list.txt
+## TODO
 ## _bookdown.yml
+## _bookdown_files
 ## _build.sh
+## _deploy.sh
+## _output.yml
+## bak
+## bioinfBookXIE186.Rmd
+## bioinfBookXIE186.aux
+## bioinfBookXIE186.log
+## bioinfBookXIE186_files
+## book.bib
+## bookdown-demo.Rproj
+## bookdown-demo.log
 ## capstone_CRISPR_screen.Rmd
 ## cmd_linux_admin.Rmd
-## code_perl
 ## code_R
+## code_perl
 ## data
-## _deploy.sh
-## DESCRIPTION
 ## docs
 ## download
 ## figures
 ## images
-## index.log
 ## index.Rmd
 ## index.Rmd_bak
+## index.log
 ## lib
-## LICENSE
 ## order_Rmd.sh
 ## order_Rmd.sh.README
-## _output.yml
 ## packages.bib
-## preamble_bak.tex
 ## preamble.tex
-## README.md
-## Rmd_list.txt
+## preamble_bak.tex
 ## rpres.css
 ## slides
 ## style.css
 ## tables
 ## test.pl
 ## test.py
-## toc.css
-## TODO</code></pre>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">
+## toc.css</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash">
 <span class="co">## </span>
 <span class="bu">pwd</span>
 <span class="bu">cd</span> ../
 <span class="bu">pwd</span>
 <span class="bu">cd</span> ./
-<span class="bu">pwd</span></code></pre></div>
-<pre><code>/mnt/volume-nyc1-02/bookdown/novice2expert4bioinformatics
-/mnt/volume-nyc1-02/bookdown
-/mnt/volume-nyc1-02/bookdown</code></pre>
+<span class="bu">pwd</span></code></pre>
+<pre><code>/cloud/project
+/cloud
+/cloud</code></pre>
 <p>Each directory has two entries in it at the start, with names . (a link to itself) and .. (a link to its parent directory). The exception, of course, is the root directory, where the .. directory also refers to the root directory.</p>
 <p>Sometimes you go to a new directory and do something, then you remember that you need to go to the previous working direcotry. To get back instantly, use a dash.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;This is our current directory: &quot;</span>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;This is our current directory: &quot;</span>
 <span class="bu">pwd</span>
 
 <span class="bu">echo</span> <span class="st">&quot;Let&#39;s go our home diretory: &quot;</span>
@@ -653,55 +649,56 @@ Figure 3.3: ref:linuxCMDls
 <span class="bu">echo</span> <span class="st">&quot;Let&#39;s go to your previous working direcotry: &quot;</span>
 <span class="bu">cd</span> -
 <span class="bu">echo</span> <span class="st">&quot;Check where we&#39;re now: &quot;</span>
-<span class="bu">pwd</span></code></pre></div>
+<span class="bu">pwd</span></code></pre>
 <pre><code>## This is our current directory: 
-## /mnt/volume-nyc1-02/bookdown/novice2expert4bioinformatics
+## /cloud/project
 ## Let&#39;s go our home diretory: 
 ## Check where we are: 
-## /home/xie186
+## /home/rstudio-user
 ## Let&#39;s go to your previous working direcotry: 
-## /mnt/volume-nyc1-02/bookdown/novice2expert4bioinformatics
+## /cloud/project
 ## Check where we&#39;re now: 
-## /mnt/volume-nyc1-02/bookdown/novice2expert4bioinformatics</code></pre>
+## /cloud/project</code></pre>
+</div>
 </div>
 <div id="manipulations-of-files-and-directories" class="section level2">
-<h2><span class="header-section-number">3.4</span> Manipulations of files and directories</h2>
+<h2><span class="header-section-number">3.2</span> Manipulations of files and directories</h2>
 <p>In Linux, manipulations of files and directories are the most frequent work. In this section, you will learn how to copy, rename, remove, and create files and directories.</p>
 <div id="command-cp" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Command <code>cp</code></h3>
+<h3><span class="header-section-number">3.2.1</span> Command <code>cp</code></h3>
 <p>In Linux, command <code>cp</code> can help you copy files and directories into a target directory.</p>
 </div>
 <div id="command-mv" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Command <code>mv</code></h3>
+<h3><span class="header-section-number">3.2.2</span> Command <code>mv</code></h3>
 <p>The command <code>mv</code> is short for move (or rename) files.</p>
 <div id="move-one-file" class="section level4">
-<h4><span class="header-section-number">3.4.2.1</span> Move one file</h4>
+<h4><span class="header-section-number">3.2.2.1</span> Move one file</h4>
 <p>Here is one common example of <code>mv</code>.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">
-<span class="fu">mv</span> file1 directory1/</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="fu">mv</span> file1 directory1/</code></pre>
 </div>
 <div id="move-multiple-files-into-a-directory" class="section level4">
-<h4><span class="header-section-number">3.4.2.2</span> Move multiple files into a directory</h4>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mv</span> file1 file2 file3 target_direcotry/</code></pre></div>
+<h4><span class="header-section-number">3.2.2.2</span> Move multiple files into a directory</h4>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mv</span> file1 file2 file3 target_direcotry/</code></pre>
 </div>
 <div id="move-a-directory" class="section level4">
-<h4><span class="header-section-number">3.4.2.3</span> Move a directory</h4>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mv</span> dir1</code></pre></div>
+<h4><span class="header-section-number">3.2.2.3</span> Move a directory</h4>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mv</span> dir1</code></pre>
 </div>
 <div id="rename-a-file-or-a-directory" class="section level4">
-<h4><span class="header-section-number">3.4.2.4</span> Rename a file or a directory</h4>
+<h4><span class="header-section-number">3.2.2.4</span> Rename a file or a directory</h4>
 </div>
 </div>
 <div id="command-mkdir" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Command <code>mkdir</code></h3>
+<h3><span class="header-section-number">3.2.3</span> Command <code>mkdir</code></h3>
 <p>Command <code>mkdir</code> is short for make directory.</p>
 <p>The syntax is shown as below:</p>
 <pre><code>mkdir [OPTION ...] DIRECTORY ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mkdir</span> directory</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mkdir</span> directory</code></pre>
 <p>Multiple directories can be specified when calling <code>mkdir</code>.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mkdir</span> directory1 directory2</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mkdir</span> directory1 directory2</code></pre>
 <div id="how-to-create-a-directory" class="section level4">
-<h4><span class="header-section-number">3.4.3.1</span> How to create a directory</h4>
+<h4><span class="header-section-number">3.2.3.1</span> How to create a directory</h4>
 <pre><code>mkdir -p foo/bar/baz</code></pre>
 <blockquote>
 <p>How to defining complex directory trees with one command</p>
@@ -723,17 +720,17 @@ project/
 </div>
 </div>
 <div id="command-rm" class="section level3">
-<h3><span class="header-section-number">3.4.4</span> Command ‘rm’</h3>
+<h3><span class="header-section-number">3.2.4</span> Command ‘rm’</h3>
 <p>You can use <code>rm</code> to remove both files and directories.</p>
 <div id="how-to-remove-a-file-or-multiple-files" class="section level4">
-<h4><span class="header-section-number">3.4.4.1</span> How to remove a file or multiple files</h4>
+<h4><span class="header-section-number">3.2.4.1</span> How to remove a file or multiple files</h4>
 <pre><code>## You can remove one file. 
 rm file1 
 ## `rm` can remove multiple files simutaneously
 rm file2 file3 </code></pre>
 </div>
 <div id="how-to-remove-a-folder" class="section level4">
-<h4><span class="header-section-number">3.4.4.2</span> How to remove a folder</h4>
+<h4><span class="header-section-number">3.2.4.2</span> How to remove a folder</h4>
 <p>If a folder is empty, you can remove it using <code>rm</code> with <code>-r</code>.</p>
 <pre><code>rm -r FOLDER</code></pre>
 <p>If a folder is not empty, you can remove it using <code>rm</code> with <code>-r</code> and <code>-f</code>.</p>
@@ -743,14 +740,14 @@ rm -r test_folder</code></pre>
 </div>
 </div>
 <div id="viewing-text-files-in-linux" class="section level2">
-<h2><span class="header-section-number">3.5</span> Viewing text files in Linux</h2>
+<h2><span class="header-section-number">3.3</span> Viewing text files in Linux</h2>
 <div id="command-cat" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Command <code>cat</code></h3>
+<h3><span class="header-section-number">3.3.1</span> Command <code>cat</code></h3>
 <p>The command <code>cat</code> is short for concatenate files and print on the standard output.</p>
 <p>The syntax is shown as below:</p>
 <pre><code>cat [OPTION]... [FILE]...</code></pre>
 <p>For small text file, <code>cat</code> can be used to view the files on the standard output.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/testdata4linux_cmd.txt</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/testdata4linux_cmd.txt</code></pre>
 <pre><code>## gene1
 ## gene2
 ## gene3
@@ -768,10 +765,10 @@ rm -r test_folder</code></pre>
 ## gene15
 ## gene16</code></pre>
 <p>You can also use <code>cat</code> to merge two text files.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> file1 file2 <span class="op">&gt;</span> merged_file</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> file1 file2 <span class="op">&gt;</span> merged_file</code></pre>
 </div>
 <div id="command-more-and-less" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Command <code>more</code> and <code>less</code></h3>
+<h3><span class="header-section-number">3.3.2</span> Command <code>more</code> and <code>less</code></h3>
 <p>The command <code>more</code> is old utility. When the text passed to it is too large to fit on one screen, it pages it. You can scroll down but not up.</p>
 <p>The syntaxt of <code>more</code> is shown below:</p>
 <pre><code>more [options] file [...]</code></pre>
@@ -780,18 +777,18 @@ rm -r test_folder</code></pre>
 <pre><code>less [options] file [...]</code></pre>
 </div>
 <div id="command-head-and-tail" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Command <code>head</code> and <code>tail</code></h3>
+<h3><span class="header-section-number">3.3.3</span> Command <code>head</code> and <code>tail</code></h3>
 <p>The command <code>head</code> is used to output the first part of files. By default, it outputs the first 10 lines of the file.</p>
 <pre><code>head [OPTION]... [FILE]...</code></pre>
 <p>Here is an exmaple of printing the first 5 files of the file:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">head</span> -n 5 code_perl/variable_assign.pl</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">head</span> -n 5 code_perl/variable_assign.pl</code></pre>
 <pre><code>## #!/usr/bin/perl
 ## use warnings;
 ## use strict;
 ## 
 ## #assign two strings to two variables</code></pre>
 <p>In fact, the letter n does not even need to be used at all. Just the hyphen and the integer (with no intervening space) are sufficient to tell head how many lines to return. Thus, the following would produce the same result as the above commands:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">head</span> -5 data/testdata4linux_cmd.txt</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">head</span> -5 data/testdata4linux_cmd.txt</code></pre>
 <pre><code>## gene1
 ## gene2
 ## gene3
@@ -801,14 +798,14 @@ rm -r test_folder</code></pre>
 <p>The syntax is shown below:</p>
 <pre><code>tail [OPTION]... [FILE]...</code></pre>
 <p>Here is an exmaple of printing the last 5 files of the file:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">tail</span> -5 data/testdata4linux_cmd.txt</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">tail</span> -5 data/testdata4linux_cmd.txt</code></pre>
 <pre><code>## gene12
 ## gene13
 ## gene14
 ## gene15
 ## gene16</code></pre>
 <p>To view lines from a specific point in a file, you can use <code>-n +NUMBER</code> with the <code>tail</code> command. For example, here is an example of viewing the file from the 2nd line of the line.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">tail</span> -n +2 data/testdata4linux_cmd.txt</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">tail</span> -n +2 data/testdata4linux_cmd.txt</code></pre>
 <pre><code>## gene2
 ## gene3
 ## gene4
@@ -826,7 +823,7 @@ rm -r test_folder</code></pre>
 ## gene16</code></pre>
 </div>
 <div id="auto-completion" class="section level3">
-<h3><span class="header-section-number">3.5.4</span> Auto-completion</h3>
+<h3><span class="header-section-number">3.3.4</span> Auto-completion</h3>
 <p>In most Shell environment, programmable completion feature will also improve your speed of typing. It permits typing a partial name of command or a partial file (or directory), then pressing <code>TAB</code> key to auto-complete the command (Figure <a href="file-system-and-commands-of-linux.html#fig:linuxAutoCompletion">3.4</a>). If there are more than one possible completions, then TAB will list all of them (Figure <a href="file-system-and-commands-of-linux.html#fig:linuxAutoCompletion">3.4</a>).</p>
 
 <div class="figure"><span id="fig:linuxAutoCompletion"></span>
@@ -838,12 +835,14 @@ Figure 3.4: Demonstration of programmable completion feature.
 </div>
 </div>
 <div id="understand-standard-input-and-stardard-output" class="section level2">
-<h2><span class="header-section-number">3.6</span> Understand standard input and stardard output</h2>
+<h2><span class="header-section-number">3.4</span> Understand standard input and stardard output</h2>
 <p>In the Linux environment, input and output is distributed across three streams: standard input (STDIN), standard output (STDOUT), standard error (STDERR). These three streams are also numbered: STDIN (0), STDOUT (1), STDERR (2).</p>
 <div id="stdin" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> STDIN</h3>
-<p>… The standard input stream typically carries data from a user to a program. Programs that expect standard input usually receive input from a device, such as a keyboard. Standard input is terminated by reaching EOF (end-of-file). As described by its name, EOF indicates that there is no more data to be read.</p>
-<p>To see standard input in action, run the cat program. Cat stands for concatenate, which means to link or combine something. It is commonly used to combine the contents of two files. When run on its own, cat opens a looping prompt. …</p>
+<h3><span class="header-section-number">3.4.1</span> STDIN</h3>
+<p>…
+The standard input stream typically carries data from a user to a program. Programs that expect standard input usually receive input from a device, such as a keyboard. Standard input is terminated by reaching EOF (end-of-file). As described by its name, EOF indicates that there is no more data to be read.</p>
+<p>To see standard input in action, run the cat program. Cat stands for concatenate, which means to link or combine something. It is commonly used to combine the contents of two files. When run on its own, cat opens a looping prompt.
+…</p>
 <pre><code>tail
 1
 2
@@ -854,102 +853,111 @@ Figure 3.4: Demonstration of programmable completion feature.
 3</code></pre>
 </div>
 <div id="stdout" class="section level3">
-<h3><span class="header-section-number">3.6.2</span> STDOUT</h3>
+<h3><span class="header-section-number">3.4.2</span> STDOUT</h3>
 <p>Data that is generated by a program will be written by STDOUT. If the STDOUT is not redirected, it will output the data on to the terminal.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span>
-<span class="bu">echo</span> <span class="va">$stdout</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span>
+<span class="bu">echo</span> <span class="va">$stdout</span></code></pre>
 <pre><code>## Hello world</code></pre>
 <p>The STDOUT can be redirected to a file. See the example below:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span>
 <span class="bu">echo</span> <span class="va">$stdout</span> <span class="op">&gt;</span> data/test_output.txt
 <span class="co"># cat the data</span>
-<span class="fu">cat</span> data/test_output.txt</code></pre></div>
+<span class="fu">cat</span> data/test_output.txt</code></pre>
 <pre><code>## Hello world</code></pre>
 </div>
 <div id="stderr" class="section level3">
-<h3><span class="header-section-number">3.6.3</span> STDERR</h3>
+<h3><span class="header-section-number">3.4.3</span> STDERR</h3>
 <p>During a program’s execution, some errors may be generated when the program fails at some parts. STDERR will help you write the errors. By default, the STDERR will be outputed onto the terminal.</p>
 <p>Here is an example of STDERR</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> NOTAFILE</code></pre></div>
-<pre><code>## ls: cannot access NOTAFILE: No such file or directory</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> NOTAFILE</code></pre>
+<pre><code>## ls: cannot access &#39;NOTAFILE&#39;: No such file or directory</code></pre>
 </div>
 </div>
 <div id="find-disk-usage-of-files-and-directories" class="section level2">
-<h2><span class="header-section-number">3.7</span> Find Disk Usage of Files and Directories</h2>
+<h2><span class="header-section-number">3.5</span> Find Disk Usage of Files and Directories</h2>
 <p>The Linux <code>du</code> (short for Disk Usage) is a standard Unix/Linux command, used to check the information of disk usage of files and directories on a machine. The <code>du</code> command has many parameter options that can be used to get the results in many formats. The du command also displays the files and directory sizes in a recursively manner.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> data/ESP6500-African_American.vcf.gz
-<span class="fu">du</span> -h data/ESP6500-African_American.vcf.gz</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> data/ESP6500-African_American.vcf.gz
+<span class="fu">du</span> -h data/ESP6500-African_American.vcf.gz</code></pre>
 <pre><code>## 27388    data/ESP6500-African_American.vcf.gz
 ## 27M  data/ESP6500-African_American.vcf.gz</code></pre>
 <p>To get the summary of a grand total disk usage size of an directory use the option “-s” as follows.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -sh data/</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -sh data/</code></pre>
 <pre><code>## 37M  data/</code></pre>
 <p>Using “-a” flag with “du” command displays the disk usage of all the files and directories.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -ah data/</code></pre></div>
-<pre><code>## 4.0K data/test_ref2.fa
-## 4.0K data/gene_annotation.txt
-## 88K  data/maize_embryo_specific_gene_Sheet1.tsv
-## 532K data/ESP6500-African_American.vcf.gz.tbi
-## 4.0K data/.dir_bash_history_xie186
-## 4.0K data/test_ref2_30.fa
-## 4.0K data/test_ref_len.txt
-## 4.0K data/WGBS_sample_information.txt
-## 4.0K data/DMR_region_merged.txt
-## 4.0K data/PYL10_ARATH.fasta
-## 27M  data/ESP6500-African_American.vcf.gz
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -ah data/</code></pre>
+<pre><code>## 4.0K data/PYL10_ARATH.fasta
+## 4.0K data/test_ref2.fa
 ## 4.0K data/test_ref.fa
-## 4.0K data/test_output.txt
-## 4.0K data/DEG_list.txt
-## 9.3M data/Arabidopsis_thaliana.TAIR10.37.gff3.gz
-## 4.0K data/README
-## 4.0K data/testdata4linux_cmd.txt
+## 4.0K data/test_ref_len.txt
+## 4.0K data/gene_annotation.txt
+## 4.0K data/WGBS_sample_information.txt
+## 4.0K data/test_ref2_30.fa
+## 4.0K data/DMR_region_merged.txt
+## 27M  data/ESP6500-African_American.vcf.gz
 ## 4.0K data/DMR_region.txt
+## 88K  data/maize_embryo_specific_gene_Sheet1.tsv
+## 9.3M data/Arabidopsis_thaliana.TAIR10.37.gff3.gz
+## 532K data/ESP6500-African_American.vcf.gz.tbi
+## 4.0K data/test_output.txt
+## 4.0K data/testdata4linux_cmd.txt
+## 4.0K data/DEG_list.txt
+## 4.0K data/README
 ## 37M  data/</code></pre>
 </div>
 <div id="advanced-topic" class="section level2">
-<h2><span class="header-section-number">3.8</span> Advanced topic</h2>
+<h2><span class="header-section-number">3.6</span> Advanced topic</h2>
 <div id="linux-md5sum-command" class="section level3">
-<h3><span class="header-section-number">3.8.1</span> Linux <code>md5sum</code> Command</h3>
+<h3><span class="header-section-number">3.6.1</span> Linux <code>md5sum</code> Command</h3>
 <p><code>md5sum</code> is used to verify the integrity of files, as virtually any change to a file will cause its MD5 hash to change. Most commonly, md5sum is used to verify that a file has not changed as a result of a faulty file transfer, a disk error or non-malicious meddling. The md5sum program is included in most Unix-like operating systems.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd is: &quot;</span>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd is: &quot;</span>
 <span class="ex">md5sum</span> index.Rmd
 <span class="fu">cp</span> index.Rmd index.Rmd_bak
 <span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd_bak is: &quot;</span>
 <span class="ex">md5sum</span> index.Rmd_bak 
 <span class="bu">echo</span> <span class="st">&quot;The MD5 value of new index.Rmd_bak is: &quot;</span>
 <span class="fu">head</span> index.Rmd <span class="op">&gt;</span> index.Rmd_bak
-<span class="ex">md5sum</span> index.Rmd_bak </code></pre></div>
+<span class="ex">md5sum</span> index.Rmd_bak </code></pre>
 <pre><code>## The MD5 value of index.Rmd is: 
-## 6f60c6aed56e56ae89e688ba847bc9e7  index.Rmd
+## 687196e6e5bfac894b4047e4b54404e7  index.Rmd
 ## The MD5 value of index.Rmd_bak is: 
-## 6f60c6aed56e56ae89e688ba847bc9e7  index.Rmd_bak
+## 687196e6e5bfac894b4047e4b54404e7  index.Rmd_bak
 ## The MD5 value of new index.Rmd_bak is: 
-## dec3208e7823660c2f2ed85b41a16467  index.Rmd_bak</code></pre>
+## 6c6d75e8839891bf7ba1ab152c8f267c  index.Rmd_bak</code></pre>
 
 </div>
 </div>
 <div id="filtering-output" class="section level2">
-<h2><span class="header-section-number">3.9</span> Filtering Output</h2>
+<h2><span class="header-section-number">3.7</span> Filtering Output</h2>
 <div id="cut" class="section level3">
-<h3><span class="header-section-number">3.9.1</span> <code>cut</code></h3>
+<h3><span class="header-section-number">3.7.1</span> <code>cut</code></h3>
 <p><code>cut</code> can be used to print selected parts of lines from each FILE to standard output.</p>
 <p>cut sort uniq wc grep</p>
 <p><a href="https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK" class="uri">https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</a></p>
 </div>
 </div>
 <div id="check-you-job-status" class="section level2">
-<h2><span class="header-section-number">3.10</span> Check you job status</h2>
+<h2><span class="header-section-number">3.8</span> Check you job status</h2>
 <pre><code>$ ps aux  
 USER       PID  %CPU %MEM  VSZ RSS     TTY   STAT START   TIME COMMAND
 timothy  29217  0.0  0.0 11916 4560 pts/21   S+   08:15   0:00 pine  
 root     29505  0.0  0.0 38196 2728 ?        Ss   Mar07   0:00 sshd: can [priv]   
 can      29529  0.0  0.0 38332 1904 ?        S    Mar07   0:00 sshd: can@notty  </code></pre>
-<p>USER = user owning the process PID = process ID of the process %CPU = It is the CPU time used divided by the time the process has been running. %MEM = ratio of the process’s resident set size to the physical memory on the machine VSZ = virtual memory usage of entire process (in KiB) RSS = resident set size, the non-swapped physical memory that a task has used (in KiB) TTY = controlling tty (terminal) STAT = multi-character process state START = starting time or date of the process TIME = cumulative CPU time COMMAND = command with all its arguments</p>
+<p>USER = user owning the process
+PID = process ID of the process
+%CPU = It is the CPU time used divided by the time the process has been running.
+%MEM = ratio of the process’s resident set size to the physical memory on the machine
+VSZ = virtual memory usage of entire process (in KiB)
+RSS = resident set size, the non-swapped physical memory that a task has used (in KiB)
+TTY = controlling tty (terminal)
+STAT = multi-character process state
+START = starting time or date of the process
+TIME = cumulative CPU time
+COMMAND = command with all its arguments</p>
 </div>
 <div id="finding-things" class="section level2">
-<h2><span class="header-section-number">3.11</span> Finding Things</h2>
+<h2><span class="header-section-number">3.9</span> Finding Things</h2>
 <div id="list-files-bigger-than-filesize-specified" class="section level3">
-<h3><span class="header-section-number">3.11.1</span> List files bigger than filesize specified</h3>
+<h3><span class="header-section-number">3.9.1</span> List files bigger than filesize specified</h3>
 <pre><code># To find files larger than 100MB:
 find . -type f -size +100M
 # If you want the current dir only:
@@ -985,10 +993,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -996,10 +1005,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xie186/Novice2Expert4Bioinformatics/edit/master/03_FileSystemLinux.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/03_FileSystemLinux.Rmd",
 "text": "Edit"
 },
-"download": ["bioinfBookXIE186.epub"],
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bioinfBookXIE186.pdf", "bioinfBookXIE186.epub"],
 "toc": {
 "collapse": "subsection"
 }

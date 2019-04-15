@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>All things considered for Bioinformatics</title>
+  <title>Chapter 13 Input and output in Perl | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 13 Input and output in Perl | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 13 Input and output in Perl | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-04-02">
+<meta name="date" content="2019-04-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="practical-perl-program.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -119,40 +146,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html"><i class="fa fa-check"></i><b>3</b> File system and commands of Linux</a><ul>
 <li class="chapter" data-level="3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#relative-and-absolute-path"><i class="fa fa-check"></i><b>3.1.1</b> Relative and absolute path</a></li>
+<li class="chapter" data-level="3.1.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.1.2</b> Comand <code>ls</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.1.3</b> Command <code>cd</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>pwd</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.2.2</b> Comand <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.2</b> Manipulations of files and directories</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>cp</code></a></li>
+<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.2.2</b> Command <code>mv</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>mkdir</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.2.4</b> Command ‘rm’</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
-<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.4.1</b> Command <code>cp</code></a></li>
-<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.4.2</b> Command <code>mv</code></a></li>
-<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.4.3</b> Command <code>mkdir</code></a></li>
-<li class="chapter" data-level="3.4.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.4.4</b> Command ‘rm’</a></li>
+<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.3</b> Viewing text files in Linux</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.3.1</b> Command <code>cat</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.3.2</b> Command <code>more</code> and <code>less</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.3.3</b> Command <code>head</code> and <code>tail</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.3.4</b> Auto-completion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.5.1</b> Command <code>cat</code></a></li>
-<li class="chapter" data-level="3.5.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.5.2</b> Command <code>more</code> and <code>less</code></a></li>
-<li class="chapter" data-level="3.5.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.5.3</b> Command <code>head</code> and <code>tail</code></a></li>
-<li class="chapter" data-level="3.5.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.5.4</b> Auto-completion</a></li>
+<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.4</b> Understand standard input and stardard output</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.4.1</b> STDIN</a></li>
+<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.4.2</b> STDOUT</a></li>
+<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.4.3</b> STDERR</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.6.1</b> STDIN</a></li>
-<li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
-<li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
+<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.5</b> Find Disk Usage of Files and Directories</a></li>
+<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.6</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.6.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.7</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.1</b> <code>cut</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.9</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.9.1</b> <code>cut</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.10</b> Check you job status</a></li>
-<li class="chapter" data-level="3.11" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.11</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.11.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.11.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.8</b> Check you job status</a></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.9</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.9.1</b> List files bigger than filesize specified</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
@@ -394,7 +417,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="input-from-a-file-on-the-disk" class="section level3">
 <h3><span class="header-section-number">13.1.2</span> Input from a file on the disk</h3>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -405,8 +428,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">chomp</span> <span class="dt">$line</span>;
     <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$line</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 }
-<span class="fu">close</span> FASTA;</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/open_file.pl</code></pre></div>
+<span class="fu">close</span> FASTA;</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/open_file.pl</code></pre>
 <pre><code>## &gt;chr1
 ## ACGCTAGCTAGTCAGTCGATCGT
 ## CGTAGCTAGCTAG
@@ -419,7 +442,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="special-variable-_" class="section level3">
 <h3><span class="header-section-number">13.1.3</span> Special variable <code>$_</code></h3>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -430,11 +453,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">chomp</span> <span class="dt">$line</span>;
     <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$line</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 }
-<span class="fu">close</span> FASTA;</code></pre></div>
+<span class="fu">close</span> FASTA;</code></pre>
 <p>When you are using <code>while</code> and <code>foreach</code>, the content will be assigned to <code>$_</code> if you don’t assign it explicitly to any variable.</p>
 <p>For some build-in functions (<code>chomp</code>, <code>length</code>, <code>split</code> and <code>print</code>),</p>
 <p>I do NOT suggest you to use <code>$_</code> because <code>$_</code> will reduce the readerbility of the code.</p>
-<p>In Perl, $_ is a powerful In Perl, several functions and operators use this variable as a default, in case no parameter is explicitly used. In general, I’d say you should NOT see $_ in real code. I think the whole point of $_ is that you don’t have to write it explicitly.</p>
+<p>In Perl, $_ is a powerful
+In Perl, several functions and operators use this variable as a default, in case no parameter is explicitly used. In general, I’d say you should NOT see $_ in real code. I think the whole point of $_ is that you don’t have to write it explicitly.</p>
 </div>
 <div id="the-input-record-separator" class="section level3">
 <h3><span class="header-section-number">13.1.4</span> The input record separator: <code>$/</code></h3>
@@ -453,7 +477,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 13.1: Protein sequence of PYL10 in Arabidopsis.
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -466,19 +490,19 @@ Figure 13.1: Protein sequence of PYL10 in Arabidopsis.
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Chrom</span><span class="ch">\t</span><span class="st">Length</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 <span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$chunk</span> = <span class="kw">&lt;FASTA&gt;</span>){
     <span class="co"># Remove &gt; in the first chunk</span>
-    <span class="dt">$chunk</span> =~ <span class="kw">s/</span><span class="ch">^</span><span class="ot">&gt;//;</span>
-<span class="co">    # Remove \n&gt; from the end of the chunk</span>
-<span class="ot">    chomp </span><span class="dt">$chunk</span><span class="ot">;</span>
-<span class="co">    # Assign ID and seq to two variables</span>
-<span class="ot">    my </span><span class="ch">(</span><span class="dt">$chrom</span><span class="ot">, </span><span class="dt">$seq</span><span class="ch">)</span><span class="ot"> = split</span><span class="ch">(</span><span class="ot">/</span><span class="bn">\n</span><span class="ot">/, </span><span class="dt">$chunk</span><span class="ot">, 2</span><span class="ch">)</span><span class="ot">;</span>
-<span class="co">    # Remove \n in the string</span>
-<span class="ot">    </span><span class="dt">$seq</span><span class="ot"> =~ s/</span><span class="bn">\n</span><span class="ot">//g;</span>
-<span class="co">    # Calculate the length of sequence.</span>
-<span class="ot">    my </span><span class="dt">$seq_length</span><span class="ot"> = length </span><span class="dt">$seq</span><span class="ot">;</span>
-<span class="co">    # Print ID and length of the sequence.</span>
-<span class="ot">    print &quot;</span><span class="dt">$chrom</span><span class="ot">\t</span><span class="dt">$seq_length</span><span class="bn">\n</span><span class="ot">&quot;;</span>
-<span class="ot">}</span>
-<span class="ot">close FASTA;</span></code></pre></div>
+    <span class="dt">$chunk</span> =~ <span class="kw">s/</span><span class="ch">^</span><span class="ot">&gt;</span><span class="kw">//</span>;
+    <span class="co"># Remove \n&gt; from the end of the chunk</span>
+    <span class="fu">chomp</span> <span class="dt">$chunk</span>;
+    <span class="co"># Assign ID and seq to two variables</span>
+    <span class="kw">my</span> (<span class="dt">$chrom</span>, <span class="dt">$seq</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="bn">\n</span><span class="kw">/</span>, <span class="dt">$chunk</span>, <span class="dv">2</span>);
+    <span class="co"># Remove \n in the string</span>
+    <span class="dt">$seq</span> =~ <span class="kw">s/</span><span class="bn">\n</span><span class="kw">//g</span>;
+    <span class="co"># Calculate the length of sequence.</span>
+    <span class="kw">my</span> <span class="dt">$seq_length</span> = <span class="fu">length</span> <span class="dt">$seq</span>;
+    <span class="co"># Print ID and length of the sequence.</span>
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$chrom</span><span class="ch">\t</span><span class="dt">$seq_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+}
+<span class="fu">close</span> FASTA;</code></pre>
 <p>You can consider the content in the fasta file as a string (Figure <a href="input-and-output-in-perl.html#fig:fastaString">13.2</a>) sperarated by <code>\n&gt;</code>.</p>
 <p>We set the input record separator <code>$/</code> as <code>\n&gt;</code>.</p>
 <p>In the first cycle of the <code>while</code> loop, the first chunk is <code>&gt;chr1\nACGCTAGCTAGTCAGTCGATCGT\nCGTAGCTAGCTAG\n&gt;</code>.</p>
@@ -487,7 +511,8 @@ Figure 13.1: Protein sequence of PYL10 in Arabidopsis.
 <pre><code>chr1\nACGCTAGCTAGTCAGTCGATCGT\nCGTAGCTAGCTAG</code></pre>
 <p>The string before first <code>\n</code> is the sequence ID. The string after the first <code>\n</code> is the sequence. To get the sequnce ID and sequnce and assign to two variables, you can use <code>split(/\n/, $chunk, 2)</code>. Here LIMIT is set to 2, it represents the maximum number (here 2) of fields into which the EXPR may be split.</p>
 <p>The goal of this code is to output the sequence IDs and their lengths. Currently the string of the variable (<code>$seq</code>) is <code>ACGCTAGCTAGTCAGTCGATCGT\nCGTAGCTAGCTAG</code>. To do this, you first need to remove <code>\n</code> in the sequence by using <code>$seq =~ s/\n//g;</code>. Now the string of the variable (<code>$seq</code>) is <code>ACGCTAGCTAGTCAGTCGATCGTCGTAGCTAGCTAG</code>. Then built-in function <code>length</code> can be used to calculate the length of the sequence. The function <code>print</code> is used to output the sequnce ID and the length of the sequence.</p>
-<p>In the second cycles of the <code>while</code> loop, the chunk is <code>chr2\nCTGCGGGCTAAATCGATCGATCG\nGTACGTACGAGCTAGCTA\n&gt;</code>.</p>
+<p>In the second cycles of the <code>while</code> loop, the chunk is
+<code>chr2\nCTGCGGGCTAAATCGATCGATCG\nGTACGTACGAGCTAGCTA\n&gt;</code>.</p>
 <p>Unlike the first chunk, there is no leading <code>&gt;</code> in the second chunk. So the code <code>s/^&gt;//</code> will do nothing for the second chunk.</p>
 <p>The following steps is the same as you can do for the first cycle.</p>
 <p>In the third cycle of the <code>while</code> loop, you can do the same thing on the third sequence.</p>
@@ -498,7 +523,7 @@ Figure 13.1: Protein sequence of PYL10 in Arabidopsis.
 Figure 13.2: Fasta string.
 </p>
 </div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/fa_seq_len.pl</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/fa_seq_len.pl</code></pre>
 <pre><code>## Chrom    Length
 ## chr1 36
 ## chr2 41
@@ -508,7 +533,7 @@ Figure 13.2: Fasta string.
 </div>
 <div id="output-to-a-file-on-the-disk" class="section level2">
 <h2><span class="header-section-number">13.2</span> Output to a file on the disk</h2>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -523,22 +548,22 @@ Figure 13.2: Fasta string.
 <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="st">Chrom</span><span class="ch">\t</span><span class="st">Length</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 <span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$chunk</span> = <span class="kw">&lt;FASTA&gt;</span>){
     <span class="co"># Remove &gt; in the first chunk</span>
-    <span class="dt">$chunk</span> =~ <span class="kw">s/</span><span class="ch">^</span><span class="ot">&gt;//;</span>
-<span class="co">    # Remove \n&gt; from the end of the chunk</span>
-<span class="ot">    chomp </span><span class="dt">$chunk</span><span class="ot">;</span>
-<span class="co">    # Assign ID and seq to two variables</span>
-<span class="ot">    my </span><span class="ch">(</span><span class="dt">$chrom</span><span class="ot">, </span><span class="dt">$seq</span><span class="ch">)</span><span class="ot"> = split</span><span class="ch">(</span><span class="ot">/</span><span class="bn">\n</span><span class="ot">/, </span><span class="dt">$chunk</span><span class="ot">, 2</span><span class="ch">)</span><span class="ot">;</span>
-<span class="co">    # Remove \n in the string</span>
-<span class="ot">    </span><span class="dt">$seq</span><span class="ot"> =~ s/</span><span class="bn">\n</span><span class="ot">//g;</span>
-<span class="co">    # Calculate the length of sequence.</span>
-<span class="ot">    my </span><span class="dt">$seq_length</span><span class="ot"> = length </span><span class="dt">$seq</span><span class="ot">;</span>
-<span class="co">    # Print ID and length of the sequence.</span>
-<span class="ot">    print OUT &quot;</span><span class="dt">$chrom</span><span class="ot">\t</span><span class="dt">$seq_length</span><span class="bn">\n</span><span class="ot">&quot;;</span>
-<span class="ot">}</span>
-<span class="ot">close FASTA;</span>
-<span class="ot">close OUT;</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/fa_seq_len_out.pl
-<span class="fu">cat</span> ./data/test_ref_len.txt</code></pre></div>
+    <span class="dt">$chunk</span> =~ <span class="kw">s/</span><span class="ch">^</span><span class="ot">&gt;</span><span class="kw">//</span>;
+    <span class="co"># Remove \n&gt; from the end of the chunk</span>
+    <span class="fu">chomp</span> <span class="dt">$chunk</span>;
+    <span class="co"># Assign ID and seq to two variables</span>
+    <span class="kw">my</span> (<span class="dt">$chrom</span>, <span class="dt">$seq</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="bn">\n</span><span class="kw">/</span>, <span class="dt">$chunk</span>, <span class="dv">2</span>);
+    <span class="co"># Remove \n in the string</span>
+    <span class="dt">$seq</span> =~ <span class="kw">s/</span><span class="bn">\n</span><span class="kw">//g</span>;
+    <span class="co"># Calculate the length of sequence.</span>
+    <span class="kw">my</span> <span class="dt">$seq_length</span> = <span class="fu">length</span> <span class="dt">$seq</span>;
+    <span class="co"># Print ID and length of the sequence.</span>
+    <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom</span><span class="ch">\t</span><span class="dt">$seq_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+}
+<span class="fu">close</span> FASTA;
+<span class="fu">close</span> OUT;</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/fa_seq_len_out.pl
+<span class="fu">cat</span> ./data/test_ref_len.txt</code></pre>
 <pre><code>## Chrom    Length
 ## chr1 36
 ## chr2 41
@@ -550,7 +575,7 @@ Figure 13.2: Fasta string.
 <p>Perls provides an array called <code>@ARGV</code>. <code>@ARGV</code> holds all the arguments from the command line. The first one will be <code>$ARGV[0]</code>.</p>
 <p><code>@ARGV</code> will automatically hold all the arguments. If no arguments are provided, <code>@ARGV</code> will be empty.</p>
 <p>The following example shows you how it looks like in real code.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -559,15 +584,15 @@ Figure 13.2: Fasta string.
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Second arguments \$ARGV[0]: </span><span class="dt">$ARGV</span><span class="st">[1]</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The variable \$fasta:   </span><span class="dt">$fasta</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The variable \$out_len: </span><span class="dt">$out_len</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/test_argv.pl test_ref.fa test_ref_len.txt</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The variable \$out_len: </span><span class="dt">$out_len</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/test_argv.pl test_ref.fa test_ref_len.txt</code></pre>
 <pre><code>## First arguments $ARGV[0] : test_ref.fa
 ## Second arguments $ARGV[0]: test_ref_len.txt
 ## The variable $fasta:   test_ref.fa
 ## The variable $out_len: test_ref_len.txt</code></pre>
 <p>In the above example, the first argument is <code>$ARGV[0]</code> which stores the file name: test_ref.fa. The second one stores the file name: test_ref_len.txt. It’s highly recommended to assign the values in <code>@ARGV</code> to some variables that the readers (including yourself) can understand the variables based on the names.</p>
 <p>Here I’ll show you how to use ARGV using an example. The code below will show you what to do if you want to filter a fasta file based on the sequence length.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -582,27 +607,27 @@ Figure 13.2: Fasta string.
 <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="st">Chrom</span><span class="ch">\t</span><span class="st">Length</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 <span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$chunk</span> = <span class="kw">&lt;FASTA&gt;</span>){
     <span class="co"># Remove &gt; in the first chunk</span>
-    <span class="dt">$chunk</span> =~ <span class="kw">s/</span><span class="ch">^</span><span class="ot">&gt;//;</span>
-<span class="co">    # Remove \n&gt; from the end of the chunk</span>
-<span class="ot">    chomp </span><span class="dt">$chunk</span><span class="ot">;</span>
-<span class="co">    # Assign ID and seq to two variables</span>
-<span class="ot">    my </span><span class="ch">(</span><span class="dt">$chrom</span><span class="ot">, </span><span class="dt">$seq</span><span class="ch">)</span><span class="ot"> = split</span><span class="ch">(</span><span class="ot">/</span><span class="bn">\n</span><span class="ot">/, </span><span class="dt">$chunk</span><span class="ot">, 2</span><span class="ch">)</span><span class="ot">;</span>
-<span class="co">    # Remove \n in the string</span>
-<span class="ot">    </span><span class="dt">$seq</span><span class="ot"> =~ s/</span><span class="bn">\n</span><span class="ot">//g;</span>
-<span class="co">    # Calculate the length of sequence.</span>
-<span class="ot">    my </span><span class="dt">$seq_length</span><span class="ot"> = length </span><span class="dt">$seq</span><span class="ot">;</span>
-<span class="co">    # Print ID and length of the sequence.</span>
-<span class="ot">    print OUT &quot;</span><span class="dt">$chrom</span><span class="ot">\t</span><span class="dt">$seq_length</span><span class="bn">\n</span><span class="ot">&quot;;</span>
-<span class="ot">}</span>
-<span class="ot">close FASTA;</span>
-<span class="ot">close OUT;</span></code></pre></div>
+    <span class="dt">$chunk</span> =~ <span class="kw">s/</span><span class="ch">^</span><span class="ot">&gt;</span><span class="kw">//</span>;
+    <span class="co"># Remove \n&gt; from the end of the chunk</span>
+    <span class="fu">chomp</span> <span class="dt">$chunk</span>;
+    <span class="co"># Assign ID and seq to two variables</span>
+    <span class="kw">my</span> (<span class="dt">$chrom</span>, <span class="dt">$seq</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="bn">\n</span><span class="kw">/</span>, <span class="dt">$chunk</span>, <span class="dv">2</span>);
+    <span class="co"># Remove \n in the string</span>
+    <span class="dt">$seq</span> =~ <span class="kw">s/</span><span class="bn">\n</span><span class="kw">//g</span>;
+    <span class="co"># Calculate the length of sequence.</span>
+    <span class="kw">my</span> <span class="dt">$seq_length</span> = <span class="fu">length</span> <span class="dt">$seq</span>;
+    <span class="co"># Print ID and length of the sequence.</span>
+    <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom</span><span class="ch">\t</span><span class="dt">$seq_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+}
+<span class="fu">close</span> FASTA;
+<span class="fu">close</span> OUT;</code></pre>
 <p>For example if you want to remove the sequences that is shorter than 30 bps, you can use the following example.</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">printf</span> <span class="st">&quot;Before filtering:\n&quot;</span>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">printf</span> <span class="st">&quot;Before filtering:\n&quot;</span>
 <span class="fu">cat</span> ./data/test_ref2.fa
 <span class="fu">perl</span> code_perl/fa_seq_len_out_argv_fil.pl ./data/test_ref2.fa 30 ./data/test_ref2_30.fa
 
 <span class="bu">printf</span> <span class="st">&quot;\nAfter filtering: \n&quot;</span>
-<span class="fu">cat</span> ./data/test_ref2_30.fa </code></pre></div>
+<span class="fu">cat</span> ./data/test_ref2_30.fa </code></pre>
 <pre><code>## Before filtering:
 ## &gt;chr1
 ## ACGCTAGCTAGTCAGTCGATCGT
@@ -655,10 +680,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -666,10 +692,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xie186/Novice2Expert4Bioinformatics/edit/master/15_PerlInputOutput.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/15_PerlInputOutput.Rmd",
 "text": "Edit"
 },
-"download": ["bioinfBookXIE186.epub"],
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bioinfBookXIE186.pdf", "bioinfBookXIE186.epub"],
 "toc": {
 "collapse": "subsection"
 }

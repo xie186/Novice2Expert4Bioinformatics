@@ -1,2 +1,2 @@
-Global symbol "$dna_lenght2" requires explicit package name at code_perl/var_assign_strict_warnings.pl line 17.
+Global symbol "$dna_lenght2" requires explicit package name (did you forget to declare "my $dna_lenght2"?) at code_perl/var_assign_strict_warnings.pl line 17.
 Execution of code_perl/var_assign_strict_warnings.pl aborted due to compilation errors.

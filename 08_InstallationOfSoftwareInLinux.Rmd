@@ -111,3 +111,30 @@ Note: To use BWA, you need to first index the genome with `bwa index'.
 
 ```
 
+
+### Install with `conda` (recommended way)
+
+#### Install `conda`
+
+Go the web link here (https://conda.io/en/latest/miniconda.html): 
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
+```
+
+#### Install a software package in a envrionment
+
+Google-search "conda bwa", click the first hit and copy the command lines to install `bwa`. 
+
+```
+conda install -c bioconda bwa 
+#conda install -c bioconda/label/cf201901 bwa 
+```
+
+### Install ussing `Docker` (advance topic)
+
+
+
+
+

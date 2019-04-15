@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>All things considered for Bioinformatics</title>
+  <title>Chapter 10 Varible in Perl | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 10 Varible in Perl | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 10 Varible in Perl | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-04-02">
+<meta name="date" content="2019-04-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="control-structure.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -50,41 +51,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -119,40 +146,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html"><i class="fa fa-check"></i><b>3</b> File system and commands of Linux</a><ul>
 <li class="chapter" data-level="3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#relative-and-absolute-path"><i class="fa fa-check"></i><b>3.1.1</b> Relative and absolute path</a></li>
+<li class="chapter" data-level="3.1.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.1.2</b> Comand <code>ls</code></a></li>
+<li class="chapter" data-level="3.1.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.1.3</b> Command <code>cd</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>pwd</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#comand-ls"><i class="fa fa-check"></i><b>3.2.2</b> Comand <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.2</b> Manipulations of files and directories</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.2.1</b> Command <code>cp</code></a></li>
+<li class="chapter" data-level="3.2.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.2.2</b> Command <code>mv</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.2.3</b> Command <code>mkdir</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.2.4</b> Command ‘rm’</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
-<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cp"><i class="fa fa-check"></i><b>3.4.1</b> Command <code>cp</code></a></li>
-<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mv"><i class="fa fa-check"></i><b>3.4.2</b> Command <code>mv</code></a></li>
-<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-mkdir"><i class="fa fa-check"></i><b>3.4.3</b> Command <code>mkdir</code></a></li>
-<li class="chapter" data-level="3.4.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-rm"><i class="fa fa-check"></i><b>3.4.4</b> Command ‘rm’</a></li>
+<li class="chapter" data-level="3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.3</b> Viewing text files in Linux</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.3.1</b> Command <code>cat</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.3.2</b> Command <code>more</code> and <code>less</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.3.3</b> Command <code>head</code> and <code>tail</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.3.4</b> Auto-completion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-cat"><i class="fa fa-check"></i><b>3.5.1</b> Command <code>cat</code></a></li>
-<li class="chapter" data-level="3.5.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-more-and-less"><i class="fa fa-check"></i><b>3.5.2</b> Command <code>more</code> and <code>less</code></a></li>
-<li class="chapter" data-level="3.5.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.5.3</b> Command <code>head</code> and <code>tail</code></a></li>
-<li class="chapter" data-level="3.5.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#auto-completion"><i class="fa fa-check"></i><b>3.5.4</b> Auto-completion</a></li>
+<li class="chapter" data-level="3.4" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.4</b> Understand standard input and stardard output</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.4.1</b> STDIN</a></li>
+<li class="chapter" data-level="3.4.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.4.2</b> STDOUT</a></li>
+<li class="chapter" data-level="3.4.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.4.3</b> STDERR</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdin"><i class="fa fa-check"></i><b>3.6.1</b> STDIN</a></li>
-<li class="chapter" data-level="3.6.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
-<li class="chapter" data-level="3.6.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
+<li class="chapter" data-level="3.5" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.5</b> Find Disk Usage of Files and Directories</a></li>
+<li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.6</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.6.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.7</b> Filtering Output</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.1</b> <code>cut</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.9</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.9.1</b> <code>cut</code></a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.10</b> Check you job status</a></li>
-<li class="chapter" data-level="3.11" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.11</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.11.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.11.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.8</b> Check you job status</a></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.9</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.9.1</b> List files bigger than filesize specified</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
@@ -423,7 +446,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>In Perl, scalar variables can be used to store mainly two types of data: string and numbers.</p>
 <p>Perl does not differentiate between a number and a string, nor does it differentiate between integers and reals.</p>
 <p>In order to tell the computer what to print, we need to use variables. In Perl, the name of a <code>scalar</code> variable starts with the dollar sign <code>$</code>. You can assign either a number or a string to it.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -436,29 +459,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;
 
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/variable_assign.pl</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/variable_assign.pl</code></pre>
 <pre><code>## The length of first DNA sequence (ACCTCGGTACAGTGAATGGGAAACGTAGCTGAT) is: 33
 ## The length of the Second DNA sequence (TGCCGATCGTAATAGCTCGCTATCTAGCTCGATCGTCGTA) is: 40</code></pre>
 <p>Here are the explanations of this script.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># assign two DNA sequences to two variables</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># assign two DNA sequences to two variables</span>
 <span class="kw">my</span> <span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;
-<span class="kw">my</span> <span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="kw">my</span> <span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</code></pre>
 <p>The first line here is a comment. In Perl, <code>#</code> (pound sign) is the comment character. The comments can be used to document the program and improve the readability. During the execution, the comments will be ignored. The second and third lines declare two string scalar variables (<code>$dna1</code> and <code>$dna2</code>) to store two DNA sequences.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">#Returns the length in characters of the value of EXPR</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">#Returns the length in characters of the value of EXPR</span>
 <span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>; 
-<span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</code></pre></div>
+<span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</code></pre>
 <p>The code above has one comment line and declares two integer scalar variables to store the return values of built-on function <code>length</code>.</p>
 <p>Now you can output the variables to see what are stored in them using the following code:</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n\n</span><span class="kw">&quot;</span>;</code></pre>
 <p>This script shows you what string scalar varibles and integer scalr varibles.</p>
 </div>
 <div id="arithmetic-operations-in-perl" class="section level2">
 <h2><span class="header-section-number">10.2</span> Arithmetic operations in Perl</h2>
 <p>Most arithmetic operators are binary operators; this means they take two arguments. Unary operators only take one argument. Arithmetic operators are very simple and often transparent.</p>
 <p>Here we’re mainly going to talk about basic arithmetic opertators including addition (<code>+</code>), substraction (<code>-</code>), multiplication (<code>*</code>), division (<code>/</code>) and the modulus operation (%). Modulus (<code>%</code>) returns the remainder of a division (<code>/</code>) operation.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">## If we know the lengths of two sequences and we want to calulate the sum of the lengths.</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">## If we know the lengths of two sequences and we want to calulate the sum of the lengths.</span>
 <span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="dv">100</span>;
 <span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="dv">200</span>;
 <span class="kw">my</span> <span class="dt">$total_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_length2</span>;
@@ -468,27 +491,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length difference is </span><span class="dt">$length_diff</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 
 <span class="kw">my</span> <span class="dt">$average_length</span> = <span class="dt">$total_length</span> / <span class="dv">2</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The average length of two DNA sequences is </span><span class="dt">$average_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The average length of two DNA sequences is </span><span class="dt">$average_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## The total length of these two sequences is 300 
 ## The length difference is -100
 ## The average length of two DNA sequences is 150</code></pre>
 <p>The code above shows us how to</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">#Imaging the CC content of first DNA sequence is 0.5.</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">#Imaging the CC content of first DNA sequence is 0.5.</span>
 <span class="co">#How many CC do we have in first DNA?</span>
 <span class="kw">my</span> <span class="dt">$cg_content</span> = <span class="fl">0.5</span>;
-<span class="kw">my</span> <span class="dt">$cg_number</span> = <span class="dt">$dna_length1</span> <span class="kw">*</span> <span class="fl">0.5</span>;</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">#Imaging we have a 10 bps DNA sequnces,</span>
+<span class="kw">my</span> <span class="dt">$cg_number</span> = <span class="dt">$dna_length1</span> <span class="kw">*</span> <span class="fl">0.5</span>;</code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">#Imaging we have a 10 bps DNA sequnces,</span>
 <span class="co">#how many possible DNA sequences do we have?</span>
 <span class="kw">my</span> <span class="dt">$dna_nucleotide</span> = <span class="kw">&quot;</span><span class="st">ATCG</span><span class="kw">&quot;</span>;
 <span class="kw">my</span> <span class="dt">$dna_nucleo_number</span> = <span class="fu">length</span> <span class="dt">$dna_nucleotide</span>;
 <span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;
 <span class="kw">my</span> <span class="dt">$possible_number</span> = <span class="dt">$dna_nucleo_number</span> *<span class="kw">*</span> <span class="dt">$dna_length</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">We have </span><span class="dt">$possible_number</span><span class="st"> possibilities.</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">We have </span><span class="dt">$possible_number</span><span class="st"> possibilities.</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## We have 1048576 possibilities.</code></pre>
 <div id="shorthand-operations" class="section level3">
 <h3><span class="header-section-number">10.2.1</span> Shorthand operations</h3>
 <p>The expression $x += 3; is the shorthand version of $x = $x + 3;, they have exactly the same result:</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">use</span> <span class="kw">strict</span>;
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">use</span> <span class="kw">strict</span>;
 <span class="fu">use</span> <span class="kw">warnings</span>;
 
 <span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;
@@ -498,7 +521,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length += 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 
 <span class="dt">$dna_length</span> -= <span class="dv">3</span>;  
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length -= 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length -= 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## DNA length: 10
 ## DNA length: 13 after &#39;$dna_length += 3&#39;
 ## DNA length: 10 after &#39;$dna_length -= 3&#39;</code></pre>
@@ -506,7 +529,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="auto-increment-and-auto-decrement" class="section level3">
 <h3><span class="header-section-number">10.2.2</span> Auto increment and auto decrement</h3>
 <p><code>++</code> and <code>--</code> are provided for the auto increment and auto decrement operators. They increase and decrease respectively the value of a scalar variable by 1.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">use</span> <span class="kw">strict</span>;
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="fu">use</span> <span class="kw">strict</span>;
 <span class="fu">use</span> <span class="kw">warnings</span>;
 
 <span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;
@@ -516,7 +539,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length ++&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 
 <span class="dt">$dna_length</span> --;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after `\$dna_length --`</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after `\$dna_length --`</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## DNA length: 10
 ## DNA length: 11 after &#39;$dna_length ++&#39;
 ## DNA length: 10 after `$dna_length --`</code></pre>
@@ -528,7 +551,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Using <code>use strict; use warnings;</code> catches many errors sooner than they would be caught otherwise, which makes it easier to find the root causes of the errors. The root cause might be the need for an error or validation check, and that can happen regardless of programmer skill.</p>
 <p>What’s good about Perl warnings is that they are rarely spurious, so there’s next to no cost to using them.</p>
 <p>In the script below, <code>$dna_lenght2</code> is a typo. If you run this script, it will give you the output without any error message, although it’s not the right output.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 
 <span class="co">#assign 2 numbers to 2 variable</span>
 <span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;
@@ -543,16 +566,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="co">#calculate the total length of two DNA sequences</span>
 <span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <p>Let’s try to run this script:</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/var_assign_no_strict_warnings.pl</code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/var_assign_no_strict_warnings.pl</code></pre>
 <pre><code>First DNA: CTCGACCAGGACGATGAATGGGCGATGAAAATCT; Length: 34
 Second DNA: CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT; Length: 48
 The total length of two DNA sequences is 34 </code></pre>
 <p>So the script above is supposed to output the length of two DNA sequences and the sum of the lengths.</p>
 <p>In the chunk of code above, <code>$dna_lenght2</code> is an empty varible without storing any information. By defaut, Perl considers this as ZERO when doing plus operation. Although there was no error message given here, we infact have an incorrect output.</p>
 <p>If we add <code>use strict</code> and <code>use warnings</code>, we need to decare each variable in the script. Let us see what will happen if we have an typo.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
 <span class="fu">use</span> <span class="kw">warnings</span>;
 <span class="fu">use</span> <span class="kw">strict</span>;
 
@@ -569,12 +592,13 @@ The total length of two DNA sequences is 34 </code></pre>
 
 <span class="co">#calculate the total length of two DNA sequences</span>
 <span class="kw">my</span> <span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
-<pre><code>Global symbol &quot;$dna_lenght2&quot; requires explicit package name at code_perl/var_assign_strict_warnings.pl line 17.
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
+<pre><code>Global symbol &quot;$dna_lenght2&quot; requires explicit package name (did you forget to declare &quot;my $dna_lenght2&quot;?) at code_perl/var_assign_strict_warnings.pl line 17.
 Execution of code_perl/var_assign_strict_warnings.pl aborted due to compilation errors.</code></pre>
 <p>Now if we run this script, we encounter error mesage and the script can’t be sucessfuly excuted.</p>
 <pre><code>Global symbol &quot;$dna_lenght2&quot; requires explicit package name 
-at code_perl/var_assign_strict_warnings.pl line 17.
+(did you forget to declare &quot;my $dna_lenght2&quot;?) at code_perl/
+var_assign_strict_warnings.pl line 17.
 Execution of code_perl/var_assign_strict_warnings.pl aborted
  due to compilation errors.</code></pre>
 </div>
@@ -582,16 +606,16 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <h2><span class="header-section-number">10.4</span> Array</h2>
 <div id="init-an-array" class="section level3">
 <h3><span class="header-section-number">10.4.1</span> Init an array</h3>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);
 <span class="fu">print</span> <span class="kw">&quot;&quot;</span>;
 <span class="fu">print</span> <span class="dt">@base_pair</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="dt">@base_pair</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="dt">@base_pair</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## ATCCG
 ## A    T   C   C   G</code></pre>
 </div>
 <div id="array-index" class="section level3">
 <h3><span class="header-section-number">10.4.2</span> Array index</h3>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);
 <span class="co">### Extract the first element in the array</span>
 <span class="kw">my</span> <span class="dt">$first_base</span> = <span class="dt">$base_pair</span>[<span class="dv">0</span>];
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First base is: </span><span class="dt">$first_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; 
@@ -606,7 +630,7 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 
 <span class="co">### Extract the last element in the array using index `$#`</span>
 <span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dt">$#base_pair</span>];
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base using &#39;\$#&#39; is : </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base using &#39;\$#&#39; is : </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </code></pre>
 <pre><code>## First base is: A
 ## 
 ## Last base is: G
@@ -618,18 +642,18 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <div id="length-of-the-array" class="section level3">
 <h3><span class="header-section-number">10.4.3</span> Length of the array</h3>
 <p>To get the length of the array, you can use <code>scalar @array</code> or <code>just array</code>.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">10</span>);
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">10</span>);
 <span class="kw">my</span> <span class="dt">$len</span> = <span class="fu">scalar</span> <span class="dt">@gene_expr</span>;  <span class="co">## or @gene_expr</span>
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array has: </span><span class="dt">@gene_expr</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## Array has: 1 3 10
 ## Length of array: 3</code></pre>
 <p>Another way is to use <code>$#array</code>. <code>$#array</code> will return the index of the last element. Since the index starts with 0, to get the length we use <code>$#array + 1</code>.</p>
 <p>If the length of array is empty, <code>$#array</code> will return <code>-1</code>.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = ();
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@gene_expr</span> = ();
 <span class="kw">my</span> <span class="dt">$len</span> = <span class="dt">$#gene_expr</span> + <span class="dv">1</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array has </span><span class="dt">$len</span><span class="st"> element</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## Array has 0 element
 ## Length of array: 0</code></pre>
 </div>
@@ -637,30 +661,30 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <h3><span class="header-section-number">10.4.4</span> Sort Arrays in Perl</h3>
 <div id="sort-alphebetically" class="section level4">
 <h4><span class="header-section-number">10.4.4.1</span> Sort alphebetically</h4>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);
 <span class="kw">my</span> <span class="dt">@sorted_bp</span> = <span class="fu">sort</span> <span class="dt">@base_pair</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@base_pair</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_bp</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_bp</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## Array before sorted: A T C C G
 ## Array after sorted: A C C G T</code></pre>
 </div>
 <div id="sort-numerically" class="section level4">
 <h4><span class="header-section-number">10.4.4.2</span> Sort numerically</h4>
 <p>To sort an array numerically, we use <code>spaceship operator: &lt;=&gt;</code>.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);
 <span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$a</span> &lt;=&gt; <span class="dt">$b</span>} <span class="dt">@genome_coor</span>;
 
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@genome_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## Array before sorted: 100 300 200 500
 ## Array after sorted: 100 200 300 500</code></pre>
 <p>Similarly, array can be also sorted numerically in decreasing order.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);
 <span class="co">## {$a &lt;=&gt; $b} is modified as {$b &lt;=&gt; $a} </span>
 <span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$b</span> &lt;=&gt; <span class="dt">$a</span>} <span class="dt">@genome_coor</span>;  
 
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@genome_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## Array before sorted: 100 300 200 500
 ## Array after sorted: 500 300 200 100</code></pre>
 </div>
@@ -675,18 +699,18 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <p>With the array, you use indices to access its elements. However, you must use descriptive keys to access hash’s element. A hash is sometimes referred to as an associative array.</p>
 <p>Like a scalar or an array variable, a hash variable has its own prefix. A hash variable must begin with a percent sign ( %). The prefix % looks like key/value pair so remember this trick to name the hash variables.</p>
 <p>The following example defines a simple hash.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>
                 );
 
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene1}</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene2}</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene3}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre></div>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene3}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
 <pre><code>## ROS
 ## WRKY
 ## WRKY</code></pre>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>
                 );
@@ -694,21 +718,21 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <span class="dt">@hash_key</span> = <span class="fu">sort</span> <span class="dt">@hash_key</span>;
 <span class="co">#print &quot;Keys of \%gene_info: &quot;, @hash_key, &quot;\n&quot;;</span>
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Keys of \%gene_info: </span><span class="kw">&quot;</span>, <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-<span class="co">#print &quot;Keys of \%gene_info: &quot;, keys %gene_info, &quot;\n&quot;;</span></code></pre></div>
+<span class="co">#print &quot;Keys of \%gene_info: &quot;, keys %gene_info, &quot;\n&quot;;</span></code></pre>
 <pre><code>## Keys of %gene_info: gene1    gene2   gene3</code></pre>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>
                 );
 <span class="kw">foreach</span>(<span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>){
     <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$gene_info</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-}</code></pre></div>
+}</code></pre>
 <pre><code>## The value of gene1 is: ROS
 ## The value of gene2 is: WRKY
 ## The value of gene3 is: WRKY</code></pre>
 <div id="sort-keys-numerically-using-sort-ab" class="section level3">
 <h3><span class="header-section-number">10.5.1</span> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></h3>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%read_dep</span> = (<span class="kw">&quot;</span><span class="st">1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">100</span><span class="kw">&quot;</span>,
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%read_dep</span> = (<span class="kw">&quot;</span><span class="st">1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">100</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">200</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">50</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">10</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">20</span><span class="kw">&quot;</span>,
@@ -723,7 +747,7 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <span class="co">### sort {$b&lt;=&gt;$a} if you want to sort in descending order python</span>
 <span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$b</span>&lt;=&gt;<span class="dt">$a</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){
     <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$read_dep</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-}</code></pre></div>
+}</code></pre>
 <pre><code>## The value of 1 is: 100
 ## The value of 2 is: 200
 ## The value of 3 is: 50
@@ -738,13 +762,13 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 <div id="use-exists-function-on-a-hash" class="section level3">
 <h3><span class="header-section-number">10.5.2</span> Use <code>exists</code> function on a hash</h3>
 <p>Given an expression that specifies an element of a hash, <code>exists</code> returns true if the specified element in the hash has ever been initialized, even if the corresponding value is undefined.</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,
                  <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>
                 );
 <span class="kw">if</span>(<span class="fu">exists</span> <span class="dt">$gene_info</span>{<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>}){
     <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The key &#39;gene1&#39; exists in \%gene_info</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-}</code></pre></div>
+}</code></pre>
 <pre><code>## The key &#39;gene1&#39; exists in %gene_info</code></pre>
 
 </div>
@@ -774,10 +798,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -785,10 +810,14 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/xie186/Novice2Expert4Bioinformatics/edit/master/11_PerlVariableOperator.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/11_PerlVariableOperator.Rmd",
 "text": "Edit"
 },
-"download": ["bioinfBookXIE186.epub"],
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bioinfBookXIE186.pdf", "bioinfBookXIE186.epub"],
 "toc": {
 "collapse": "subsection"
 }

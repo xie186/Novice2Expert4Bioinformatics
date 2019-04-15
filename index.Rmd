@@ -1,6 +1,6 @@
 --- 
 title: "All things considered for Bioinformatics"
-subtitle: "Essential Linux, Perl, R and Statistics in life science"
+subtitle: "Essential Linux, Python, Perl, R and Statistics in life science"
 author: "Shaojun Xie (解少俊)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -25,7 +25,7 @@ knitr::include_graphics('images/cover_fishingMan.jpg', dpi = NA)
 ```{r echo=FALSE}
 
 # https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
-list.of.packages <- c("bookdown", "knitr")
+list.of.packages <- c("bookdown", "knitr", "pheatmap")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, dependencies = T)
 
