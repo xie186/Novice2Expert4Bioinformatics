@@ -516,7 +516,7 @@ ls [option]... [file]...
 \begin{verbatim}
 ## total 24
 ## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
-## drwxr-xr-x 16 rstudio-user rstudio-user 4096 Apr 15 16:28 ..
+## drwxr-xr-x 16 rstudio-user rstudio-user 4096 Apr 15 16:33 ..
 ## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
 ## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
 ## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv
@@ -1742,6 +1742,32 @@ Note: To use BWA, you need to first index the genome with `bwa index'.
       `aln/samse/sampe'. If you are not sure which to use, try `bwa mem'
       first. Please `man ./bwa.1' for the manual.
 \end{verbatim}
+
+\hypertarget{install-with-conda-recommended-way}{%
+\subsection{\texorpdfstring{Install with \texttt{conda} (recommended way)}{Install with conda (recommended way)}}\label{install-with-conda-recommended-way}}
+
+\hypertarget{install-conda}{%
+\subsubsection{\texorpdfstring{Install \texttt{conda}}{Install conda}}\label{install-conda}}
+
+Go the web link here (\url{https://conda.io/en/latest/miniconda.html}):
+
+\begin{verbatim}
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
+\end{verbatim}
+
+\hypertarget{install-a-software-package-in-a-envrionment}{%
+\subsubsection{Install a software package in a envrionment}\label{install-a-software-package-in-a-envrionment}}
+
+Google-search ``conda bwa'', click the first hit and copy the command lines to install \texttt{bwa}.
+
+\begin{verbatim}
+conda install -c bioconda bwa 
+#conda install -c bioconda/label/cf201901 bwa 
+\end{verbatim}
+
+\hypertarget{install-ussing-docker-advance-topic}{%
+\subsection{\texorpdfstring{Install ussing \texttt{Docker} (advance topic)}{Install ussing Docker (advance topic)}}\label{install-ussing-docker-advance-topic}}
 
 \hypertarget{text-editor-in-linux}{%
 \chapter{Text editor in Linux}\label{text-editor-in-linux}}
