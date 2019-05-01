@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 10 First Perl Program | All things considered for Bioinformatics</title>
+  <title>Chapter 27  | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 10 First Perl Program | All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 27  | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 First Perl Program | All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 27  | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="text-editor-in-linux.html">
-<link rel="next" href="varible-in-perl.html">
+<link rel="prev" href="practical-data-analysis-on-wgbs.html">
+<link rel="next" href="good-resouces-to-learn-bioinformatics.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -421,22 +421,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="first-perl-program" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> First Perl Program</h1>
-<p>Scripting languages, like Perl, are very commonly used in bioinformatics. As a generous scripting language, Perl have many advantages: easy to use, free for all operating systems like Linux, designed for working with text files (tab-delimited files). It’s one of the most popular language in bioinformatics. Moreover there are many scripts and modules available. Additionally, there are a lot of resource on Internet.</p>
-<div id="first-program" class="section level2">
-<h2><span class="header-section-number">10.1</span> First Program</h2>
-<p>As all other programming books, we begin with a “Hello world” program.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
-<span class="co">#Printing a line of text “Hello, Bioinformatics”</span>
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Hello, Bioinformatics!</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
-<p>This program show how to display a line a text in Perl. It have several features. We go through each line in detail.</p>
-<p>Line 1 is what we call shebang line. This line starts with shebang construct (<code>#!</code>). <code>/usr/bin/perl</code> indicates the path of the Perl interpreter.</p>
-<p>Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (“” or ‘’).</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/hello_bioinfor.pl</code></pre>
-<pre><code>## Hello, Bioinformatics!</code></pre>
-<p>However the characters <code>\n</code> are not displayed. Here backslash <code>\</code> is a start of an escape sequence. It changes the meaning of the character after it. The backslash <code>\</code> and <code>n</code> together (<code>\n</code>) form an escape sequence and signify a newline. Other examples are <code>\t</code> (tab) or <code>\$</code> (= print an actual dollar sign, normally a dollar sign has a special meaning). We’ll see more escape sequences in 7.1.</p>
-<p>You can try to remove <code>\n</code> in the program to see what will happen. This will give you a dee per understanding of the program.</p>
+<div id="section-9" class="section level1">
+<h1><span class="header-section-number">Chapter 27</span> </h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     1.0     3.0     4.0     4.6     6.0     9.0</code></pre>
+<div id="including-plots" class="section level2">
+<h2><span class="header-section-number">27.1</span> Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="bioinfBookXIE186_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 
 </div>
 </div>
@@ -445,8 +441,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="text-editor-in-linux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="varible-in-perl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="practical-data-analysis-on-wgbs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="good-resouces-to-learn-bioinformatics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -476,7 +472,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/10_FirstPerlProgram.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/30_py_why_program.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,4 +1,8 @@
-# File system and commands of Linux
+# Navigating in Linux file system
+
+You are in your home directory after you log into the system and are directed to the shell command prompt. This section will show you hot to explore Linux file system using shell commands. 
+
+To start, you need to take a tour of what the Linux filesystem looks like so you know where you are going.
 
 ## Path
 
@@ -51,11 +55,11 @@ readlink -f ../
 
 
 
-##Surfing in Linux file system 
+## Surfing in Linux file system 
 
 Once we enter into a Linux file system, we need to 1) know where we are; 2) how to get where we want; 3) how to know what files or directories we have in a particular path. 
 
-###Command `pwd`
+### Check where you are using command `pwd`
 
 In order to know where we are, we need to use `pwd` command. The command `pwd` is short for “print name of current/working directory”. It will return the full path of current directory.
 
@@ -67,7 +71,7 @@ Command pwd is almost always used by itself. This means you only need to type pw
 knitr::include_graphics("figures/linuxCMDpwd.png")
 ```
 
-### Comand `ls`
+### Listing the contents using command `ls`
 
 After you know where you are, then you want to know what you have in that 
 directory, we can use command `ls` to list directory contents (Figure \@ref(fig:linuxCMDls)). Its syntax is:
@@ -110,7 +114,7 @@ The following command is a faster way to use the l and a options and gives the s
 ls -la 
 ```
 
-###	Command `cd`
+###	Change directory using command `cd`
 
 Command cd is used to change the current directory. It’s syntax is:
 
@@ -123,7 +127,7 @@ Unlike `pwd`, when you use `cd` you usually need to provide the path (either abs
 If we didn’t provide any path information, we will change to home directory by default.
 
 
-##Path shortcuts
+## Path shortcuts
 
 In Linux, there are three commonly used path shortpaths (Table \@ref(tab:linuxPathShortcuts)).
 

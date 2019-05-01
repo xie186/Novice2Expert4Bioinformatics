@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 10 First Perl Program | All things considered for Bioinformatics</title>
+  <title>Chapter 3 Navigating in Linux file system | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 10 First Perl Program | All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 3 Navigating in Linux file system | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 First Perl Program | All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 3 Navigating in Linux file system | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="text-editor-in-linux.html">
-<link rel="next" href="varible-in-perl.html">
+<link rel="prev" href="connecting-to-linux.html">
+<link rel="next" href="section.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -421,23 +421,533 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="first-perl-program" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> First Perl Program</h1>
-<p>Scripting languages, like Perl, are very commonly used in bioinformatics. As a generous scripting language, Perl have many advantages: easy to use, free for all operating systems like Linux, designed for working with text files (tab-delimited files). It’s one of the most popular language in bioinformatics. Moreover there are many scripts and modules available. Additionally, there are a lot of resource on Internet.</p>
-<div id="first-program" class="section level2">
-<h2><span class="header-section-number">10.1</span> First Program</h2>
-<p>As all other programming books, we begin with a “Hello world” program.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
-<span class="co">#Printing a line of text “Hello, Bioinformatics”</span>
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Hello, Bioinformatics!</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
-<p>This program show how to display a line a text in Perl. It have several features. We go through each line in detail.</p>
-<p>Line 1 is what we call shebang line. This line starts with shebang construct (<code>#!</code>). <code>/usr/bin/perl</code> indicates the path of the Perl interpreter.</p>
-<p>Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (“” or ‘’).</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/hello_bioinfor.pl</code></pre>
-<pre><code>## Hello, Bioinformatics!</code></pre>
-<p>However the characters <code>\n</code> are not displayed. Here backslash <code>\</code> is a start of an escape sequence. It changes the meaning of the character after it. The backslash <code>\</code> and <code>n</code> together (<code>\n</code>) form an escape sequence and signify a newline. Other examples are <code>\t</code> (tab) or <code>\$</code> (= print an actual dollar sign, normally a dollar sign has a special meaning). We’ll see more escape sequences in 7.1.</p>
-<p>You can try to remove <code>\n</code> in the program to see what will happen. This will give you a dee per understanding of the program.</p>
+<div id="navigating-in-linux-file-system" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Navigating in Linux file system</h1>
+<p>You are in your home directory after you log into the system and are directed to the shell command prompt. This section will show you hot to explore Linux file system using shell commands.</p>
+<p>To start, you need to take a tour of what the Linux filesystem looks like so you know where you are going.</p>
+<div id="path" class="section level2">
+<h2><span class="header-section-number">3.1</span> Path</h2>
+<p>To understand Linux file system, you can image it as a tree structure (Figure <a href="navigating-in-linux-file-system.html#fig:linuxTreeStruc">3.1</a>).</p>
 
+<div class="figure"><span id="fig:linuxTreeStruc"></span>
+<img src="figures/LinuxPathTree.png" alt="Tree structure of Linux system."  />
+<p class="caption">
+Figure 3.1: Tree structure of Linux system.
+</p>
+</div>
+<p>In Linux, a path is a unique location of a file or a directory in the file system.</p>
+<p>For convenience, Linux file system is usually thought of in a tree structure. On a standard Linux system you will find the layout generally follows the scheme presented below.</p>
+<p>The tree of the file system starts at the trunk or slash, indicated by a forward slash (/). This directory, containing all underlying directories and files, is also called the root directory or “the root” of the file system.</p>
+<div id="relative-and-absolute-path" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Relative and absolute path</h3>
+<ul>
+<li><strong>Absolute path</strong></li>
+</ul>
+<p>An absolute path is defined as the location of a file or directory from the root directory(/). An absolute path starts from the <code>root</code> of the tree (<code>/</code>).</p>
+<p>Here are some examples:</p>
+<pre><code>/home/xie186
+/home/xie186/perl5</code></pre>
+<ul>
+<li><strong>Relative path</strong></li>
+</ul>
+<p>Relative path is a path related to the present working directory.</p>
+<pre><code>data/sample1/
+../doc/</code></pre>
+<p>If you want to get the <strong>absolute path</strong> based on <strong>relative path</strong>, you can use <code>readlink</code> with parameter <code>-f</code>:</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">pwd</span>
+<span class="fu">readlink</span> -f ../</code></pre>
+<pre><code>## /cloud/project
+## /cloud</code></pre>
+</div>
+</div>
+<div id="surfing-in-linux-file-system" class="section level2">
+<h2><span class="header-section-number">3.2</span> Surfing in Linux file system</h2>
+<p>Once we enter into a Linux file system, we need to 1) know where we are; 2) how to get where we want; 3) how to know what files or directories we have in a particular path.</p>
+<div id="check-where-you-are-using-command-pwd" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Check where you are using command <code>pwd</code></h3>
+<p>In order to know where we are, we need to use <code>pwd</code> command. The command <code>pwd</code> is short for “print name of current/working directory”. It will return the full path of current directory.</p>
+<p>Command pwd is almost always used by itself. This means you only need to type pwd and press ENTER (Figure <a href="navigating-in-linux-file-system.html#fig:linuxCMDpwd">3.2</a>).</p>
+
+<div class="figure" style="text-align: center"><span id="fig:linuxCMDpwd"></span>
+<img src="figures/linuxCMDpwd.png" alt="ref:linuxCMDpwd" width="80%" />
+<p class="caption">
+Figure 3.2: ref:linuxCMDpwd
+</p>
+</div>
+</div>
+<div id="listing-the-contents-using-command-ls" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Listing the contents using command <code>ls</code></h3>
+<p>After you know where you are, then you want to know what you have in that
+directory, we can use command <code>ls</code> to list directory contents (Figure <a href="navigating-in-linux-file-system.html#fig:linuxCMDls">3.3</a>). Its syntax is:</p>
+<pre><code>ls [option]... [file]...</code></pre>
+
+<div class="figure" style="text-align: center"><span id="fig:linuxCMDls"></span>
+<img src="figures/linuxCMDls.png" alt="ref:linuxCMDls" width="80%" />
+<p class="caption">
+Figure 3.3: ref:linuxCMDls
+</p>
+</div>
+<p><code>ls</code> with no option will list files and directories in bare format. Bare format means the detailed information (type, size, modified date and time, permissions and links etc) won’t be viewed. When you use <code>ls</code> by itself (Figure <a href="navigating-in-linux-file-system.html#fig:linuxCMDls">3.3</a>), it will list files and directories in the current directory.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">cd</span> tables
+<span class="fu">ls</span>
+
+<span class="bu">echo</span> <span class="st">&quot;ls -a&quot;</span>
+<span class="fu">ls</span> -a 
+
+<span class="bu">echo</span> <span class="st">&quot;ls -t&quot;</span>
+<span class="fu">ls</span> -t</code></pre>
+<pre><code>## 10_PerlInputOutput_bak.Rmd
+## linuxPathShortcuts.tsv
+## textEditorLinuxVi3modes.csv
+## ls -a
+## .
+## ..
+## 10_PerlInputOutput_bak.Rmd
+## linuxPathShortcuts.tsv
+## textEditorLinuxVi3modes.csv
+## ls -t
+## 10_PerlInputOutput_bak.Rmd
+## linuxPathShortcuts.tsv
+## textEditorLinuxVi3modes.csv</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre>
+<pre><code>## total 24
+## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
+## drwxr-xr-x 17 rstudio-user rstudio-user 4096 May  1 18:05 ..
+## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
+## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
+## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv</code></pre>
+<p>Linux command options can be combined without a space between them and with a single - (dash).</p>
+<p>The following command is a faster way to use the l and a options and gives the same output as the Linux command shown above.</p>
+<pre><code>ls -la </code></pre>
+</div>
+<div id="change-directory-using-command-cd" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Change directory using command <code>cd</code></h3>
+<p>Command cd is used to change the current directory. It’s syntax is:</p>
+<pre><code>cd [option] [directory]</code></pre>
+<p>Unlike <code>pwd</code>, when you use <code>cd</code> you usually need to provide the path (either absolute or relative path) which we want to enter.</p>
+<p>If we didn’t provide any path information, we will change to home directory by default.</p>
+</div>
+</div>
+<div id="path-shortcuts" class="section level2">
+<h2><span class="header-section-number">3.3</span> Path shortcuts</h2>
+<p>In Linux, there are three commonly used path shortpaths (Table <a href="navigating-in-linux-file-system.html#tab:linuxPathShortcuts">3.1</a>).</p>
+
+<table>
+<caption><span id="tab:linuxPathShortcuts">Table 3.1: </span>Shortcuts of path.</caption>
+<thead>
+<tr class="header">
+<th align="center">Path</th>
+<th align="center">Shortcuts</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Single dot</td>
+<td align="center">.</td>
+<td align="center">The current folder</td>
+</tr>
+<tr class="even">
+<td align="center">Double dots</td>
+<td align="center">..</td>
+<td align="center">The folder above the current folder</td>
+</tr>
+<tr class="odd">
+<td align="center">Tilde character</td>
+<td align="center">~</td>
+<td align="center">Home directory (normally the directory:/home/my_login_name)</td>
+</tr>
+<tr class="even">
+<td align="center">Dash</td>
+<td align="center">-</td>
+<td align="center">Your last working directory</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some examples:</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">cd</span> ~
+<span class="bu">pwd</span>
+<span class="fu">ls</span></code></pre>
+<pre><code>## /home/rstudio-user
+## R</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="fu">ls</span> ./</code></pre>
+<pre><code>## 00_about_me_acknowledge.Rmd
+## 01_WhyLinux.Rmd
+## 02_Connect2Linux.Rmd
+## 03_FileSystemLinux.Rmd
+## 04_Linux_FilteringOutputandFindingThings.Rmd
+## 05_AchivingAndCompressingFiles.Rmd
+## 06_procManageLinux.Rmd
+## 07_fileTransfer.Rmd
+## 08_InstallationOfSoftwareInLinux.Rmd
+## 09_TextEditorInLinux.Rmd
+## 10_FirstPerlProgram.Rmd
+## 11_PerlVariableOperator.Rmd
+## 13_PerlControlStructure.Rmd
+## 14_StringManipulationRegExp.Rmd
+## 15_PerlInputOutput.Rmd
+## 16_practicalPerlProgram.Rmd
+## 17_PerlModules.Rmd
+## 18_R_intro.Rmd
+## 19_SimpleGraphR.Rmd
+## 20_GraphGgplot2.Rmd
+## 21_GenerateHeatmap.Rmd
+## 22_FigureManuscript.Rmd
+## 23_IntroNGS.Rmd
+## 24_introRNA-seq.Rmd
+## 25_introChIP-seq.Rmd
+## 26_introBSseq.Rmd
+## 27_ExpDesign.Rmd
+## 28_CapstoneProjectRNA-seq.Rmd
+## 30_CapstoneProjectBS-seq.Rmd
+## 30_py_why_program.Rmd
+## 31_Good_resource.Rmd
+## 32_Reference.Rmd
+## DESCRIPTION
+## LICENSE
+## README.md
+## Rmd_list.txt
+## TODO
+## _bookdown.yml
+## _bookdown_files
+## _build.sh
+## _deploy.sh
+## _output.yml
+## bak
+## bioinfBookXIE186.Rmd
+## bioinfBookXIE186.aux
+## bioinfBookXIE186.log
+## bioinfBookXIE186_files
+## book.bib
+## bookdown-demo.Rproj
+## bookdown-demo.log
+## capstone_CRISPR_screen.Rmd
+## cmd_linux_admin.Rmd
+## code_R
+## code_perl
+## code_python
+## data
+## docs
+## download
+## figures
+## images
+## index.Rmd
+## index.Rmd_bak
+## index.log
+## lib
+## order_Rmd.sh
+## order_Rmd.sh.README
+## packages.bib
+## preamble.tex
+## preamble_bak.tex
+## python_first_python.Rmd
+## rpres.css
+## slides
+## style.css
+## tables
+## test.pl
+## test.py
+## toc.css</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="co">## </span>
+<span class="bu">pwd</span>
+<span class="bu">cd</span> ../
+<span class="bu">pwd</span>
+<span class="bu">cd</span> ./
+<span class="bu">pwd</span></code></pre>
+<pre><code>/cloud/project
+/cloud
+/cloud</code></pre>
+<p>Each directory has two entries in it at the start, with names . (a link to itself) and .. (a link to its parent directory). The exception, of course, is the root directory, where the .. directory also refers to the root directory.</p>
+<p>Sometimes you go to a new directory and do something, then you remember that you need to go to the previous working direcotry. To get back instantly, use a dash.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;This is our current directory: &quot;</span>
+<span class="bu">pwd</span>
+
+<span class="bu">echo</span> <span class="st">&quot;Let&#39;s go our home diretory: &quot;</span>
+<span class="bu">cd</span> ~
+
+<span class="bu">echo</span> <span class="st">&quot;Check where we are: &quot;</span>
+<span class="bu">pwd</span>
+
+<span class="bu">echo</span> <span class="st">&quot;Let&#39;s go to your previous working direcotry: &quot;</span>
+<span class="bu">cd</span> -
+<span class="bu">echo</span> <span class="st">&quot;Check where we&#39;re now: &quot;</span>
+<span class="bu">pwd</span></code></pre>
+<pre><code>## This is our current directory: 
+## /cloud/project
+## Let&#39;s go our home diretory: 
+## Check where we are: 
+## /home/rstudio-user
+## Let&#39;s go to your previous working direcotry: 
+## /cloud/project
+## Check where we&#39;re now: 
+## /cloud/project</code></pre>
+</div>
+<div id="manipulations-of-files-and-directories" class="section level2">
+<h2><span class="header-section-number">3.4</span> Manipulations of files and directories</h2>
+<p>In Linux, manipulations of files and directories are the most frequent work. In this section, you will learn how to copy, rename, remove, and create files and directories.</p>
+<div id="command-cp" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Command <code>cp</code></h3>
+<p>In Linux, command <code>cp</code> can help you copy files and directories into a target directory.</p>
+</div>
+<div id="command-mv" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Command <code>mv</code></h3>
+<p>The command <code>mv</code> is short for move (or rename) files.</p>
+<div id="move-one-file" class="section level4">
+<h4><span class="header-section-number">3.4.2.1</span> Move one file</h4>
+<p>Here is one common example of <code>mv</code>.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="fu">mv</span> file1 directory1/</code></pre>
+</div>
+<div id="move-multiple-files-into-a-directory" class="section level4">
+<h4><span class="header-section-number">3.4.2.2</span> Move multiple files into a directory</h4>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mv</span> file1 file2 file3 target_direcotry/</code></pre>
+</div>
+<div id="move-a-directory" class="section level4">
+<h4><span class="header-section-number">3.4.2.3</span> Move a directory</h4>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mv</span> dir1</code></pre>
+</div>
+<div id="rename-a-file-or-a-directory" class="section level4">
+<h4><span class="header-section-number">3.4.2.4</span> Rename a file or a directory</h4>
+</div>
+</div>
+<div id="command-mkdir" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Command <code>mkdir</code></h3>
+<p>Command <code>mkdir</code> is short for make directory.</p>
+<p>The syntax is shown as below:</p>
+<pre><code>mkdir [OPTION ...] DIRECTORY ...</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mkdir</span> directory</code></pre>
+<p>Multiple directories can be specified when calling <code>mkdir</code>.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">mkdir</span> directory1 directory2</code></pre>
+<div id="how-to-create-a-directory" class="section level4">
+<h4><span class="header-section-number">3.4.3.1</span> How to create a directory</h4>
+<pre><code>mkdir -p foo/bar/baz</code></pre>
+<blockquote>
+<p>How to defining complex directory trees with one command</p>
+</blockquote>
+<pre><code>mkdir -p project/{software,results,doc/{html,info,pdf},scripts}</code></pre>
+<p>This will create a direcotry trees as shown below:</p>
+<pre><code>$ tree project/
+project/
+├── doc
+│   ├── html
+│   ├── info
+│   └── pdf
+├── results
+├── scripts
+└── software
+
+7 directories, 0 files</code></pre>
+<p>The command line above will directories <code>foo</code>, <code>foo/bar</code>, and <code>foo/bar/baz</code> if they don’t exist.</p>
+</div>
+</div>
+<div id="command-rm" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Command ‘rm’</h3>
+<p>You can use <code>rm</code> to remove both files and directories.</p>
+<div id="how-to-remove-a-file-or-multiple-files" class="section level4">
+<h4><span class="header-section-number">3.4.4.1</span> How to remove a file or multiple files</h4>
+<pre><code>## You can remove one file. 
+rm file1 
+## `rm` can remove multiple files simutaneously
+rm file2 file3 </code></pre>
+</div>
+<div id="how-to-remove-a-folder" class="section level4">
+<h4><span class="header-section-number">3.4.4.2</span> How to remove a folder</h4>
+<p>If a folder is empty, you can remove it using <code>rm</code> with <code>-r</code>.</p>
+<pre><code>rm -r FOLDER</code></pre>
+<p>If a folder is not empty, you can remove it using <code>rm</code> with <code>-r</code> and <code>-f</code>.</p>
+<pre><code>mkdir test_folder
+rm -r test_folder</code></pre>
+</div>
+</div>
+</div>
+<div id="viewing-text-files-in-linux" class="section level2">
+<h2><span class="header-section-number">3.5</span> Viewing text files in Linux</h2>
+<div id="command-cat" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Command <code>cat</code></h3>
+<p>The command <code>cat</code> is short for concatenate files and print on the standard output.</p>
+<p>The syntax is shown as below:</p>
+<pre><code>cat [OPTION]... [FILE]...</code></pre>
+<p>For small text file, <code>cat</code> can be used to view the files on the standard output.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/testdata4linux_cmd.txt</code></pre>
+<pre><code>## gene1
+## gene2
+## gene3
+## gene4
+## gene5
+## gene6
+## gene7
+## gene8
+## gene9
+## gene10
+## gene11
+## gene12
+## gene13
+## gene14
+## gene15
+## gene16</code></pre>
+<p>You can also use <code>cat</code> to merge two text files.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> file1 file2 <span class="op">&gt;</span> merged_file</code></pre>
+</div>
+<div id="command-more-and-less" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Command <code>more</code> and <code>less</code></h3>
+<p>The command <code>more</code> is old utility. When the text passed to it is too large to fit on one screen, it pages it. You can scroll down but not up.</p>
+<p>The syntaxt of <code>more</code> is shown below:</p>
+<pre><code>more [options] file [...]</code></pre>
+<p>The command <code>less</code> was written by a man who was fed up with more’s inability to scroll backwards through a file. He turned less into an open source project and over time, various individuals added new features to it. less is massive now. That’s why some small embedded systems have more but not less. For comparison, less’s source is over 27000 lines long. more implementations are generally only a little over 2000 lines long.</p>
+<p>The syntaxt of <code>less</code> is shown below:</p>
+<pre><code>less [options] file [...]</code></pre>
+</div>
+<div id="command-head-and-tail" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Command <code>head</code> and <code>tail</code></h3>
+<p>The command <code>head</code> is used to output the first part of files. By default, it outputs the first 10 lines of the file.</p>
+<pre><code>head [OPTION]... [FILE]...</code></pre>
+<p>Here is an exmaple of printing the first 5 files of the file:</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">head</span> -n 5 code_perl/variable_assign.pl</code></pre>
+<pre><code>## #!/usr/bin/perl
+## use warnings;
+## use strict;
+## 
+## #assign two strings to two variables</code></pre>
+<p>In fact, the letter n does not even need to be used at all. Just the hyphen and the integer (with no intervening space) are sufficient to tell head how many lines to return. Thus, the following would produce the same result as the above commands:</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">head</span> -5 data/testdata4linux_cmd.txt</code></pre>
+<pre><code>## gene1
+## gene2
+## gene3
+## gene4
+## gene5</code></pre>
+<p>The command <code>tail</code> is used to output the last part of files. By default, it prints the last 10 lines of the file to standard output.</p>
+<p>The syntax is shown below:</p>
+<pre><code>tail [OPTION]... [FILE]...</code></pre>
+<p>Here is an exmaple of printing the last 5 files of the file:</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">tail</span> -5 data/testdata4linux_cmd.txt</code></pre>
+<pre><code>## gene12
+## gene13
+## gene14
+## gene15
+## gene16</code></pre>
+<p>To view lines from a specific point in a file, you can use <code>-n +NUMBER</code> with the <code>tail</code> command. For example, here is an example of viewing the file from the 2nd line of the line.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">tail</span> -n +2 data/testdata4linux_cmd.txt</code></pre>
+<pre><code>## gene2
+## gene3
+## gene4
+## gene5
+## gene6
+## gene7
+## gene8
+## gene9
+## gene10
+## gene11
+## gene12
+## gene13
+## gene14
+## gene15
+## gene16</code></pre>
+</div>
+<div id="auto-completion" class="section level3">
+<h3><span class="header-section-number">3.5.4</span> Auto-completion</h3>
+<p>In most Shell environment, programmable completion feature will also improve your speed of typing. It permits typing a partial name of command or a partial file (or directory), then pressing <code>TAB</code> key to auto-complete the command (Figure <a href="navigating-in-linux-file-system.html#fig:linuxAutoCompletion">3.4</a>). If there are more than one possible completions, then TAB will list all of them (Figure <a href="navigating-in-linux-file-system.html#fig:linuxAutoCompletion">3.4</a>).</p>
+
+<div class="figure"><span id="fig:linuxAutoCompletion"></span>
+<img src="figures/linuxAutoCompletion.png" alt="Demonstration of programmable completion feature."  />
+<p class="caption">
+Figure 3.4: Demonstration of programmable completion feature.
+</p>
+</div>
+</div>
+</div>
+<div id="understand-standard-input-and-stardard-output" class="section level2">
+<h2><span class="header-section-number">3.6</span> Understand standard input and stardard output</h2>
+<p>In the Linux environment, input and output is distributed across three streams: standard input (STDIN), standard output (STDOUT), standard error (STDERR). These three streams are also numbered: STDIN (0), STDOUT (1), STDERR (2).</p>
+<div id="stdin" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> STDIN</h3>
+<p>…
+The standard input stream typically carries data from a user to a program. Programs that expect standard input usually receive input from a device, such as a keyboard. Standard input is terminated by reaching EOF (end-of-file). As described by its name, EOF indicates that there is no more data to be read.</p>
+<p>To see standard input in action, run the cat program. Cat stands for concatenate, which means to link or combine something. It is commonly used to combine the contents of two files. When run on its own, cat opens a looping prompt.
+…</p>
+<pre><code>tail
+1
+2
+3
+`CTRL+D`
+1
+2
+3</code></pre>
+</div>
+<div id="stdout" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> STDOUT</h3>
+<p>Data that is generated by a program will be written by STDOUT. If the STDOUT is not redirected, it will output the data on to the terminal.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span>
+<span class="bu">echo</span> <span class="va">$stdout</span></code></pre>
+<pre><code>## Hello world</code></pre>
+<p>The STDOUT can be redirected to a file. See the example below:</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span>
+<span class="bu">echo</span> <span class="va">$stdout</span> <span class="op">&gt;</span> data/test_output.txt
+<span class="co"># cat the data</span>
+<span class="fu">cat</span> data/test_output.txt</code></pre>
+<pre><code>## Hello world</code></pre>
+</div>
+<div id="stderr" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> STDERR</h3>
+<p>During a program’s execution, some errors may be generated when the program fails at some parts. STDERR will help you write the errors. By default, the STDERR will be outputed onto the terminal.</p>
+<p>Here is an example of STDERR</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> NOTAFILE</code></pre>
+<pre><code>## ls: cannot access &#39;NOTAFILE&#39;: No such file or directory</code></pre>
+</div>
+</div>
+<div id="find-disk-usage-of-files-and-directories" class="section level2">
+<h2><span class="header-section-number">3.7</span> Find Disk Usage of Files and Directories</h2>
+<p>The Linux <code>du</code> (short for Disk Usage) is a standard Unix/Linux command, used to check the information of disk usage of files and directories on a machine. The <code>du</code> command has many parameter options that can be used to get the results in many formats. The du command also displays the files and directory sizes in a recursively manner.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> data/ESP6500-African_American.vcf.gz
+<span class="fu">du</span> -h data/ESP6500-African_American.vcf.gz</code></pre>
+<pre><code>## 27388    data/ESP6500-African_American.vcf.gz
+## 27M  data/ESP6500-African_American.vcf.gz</code></pre>
+<p>To get the summary of a grand total disk usage size of an directory use the option “-s” as follows.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -sh data/</code></pre>
+<pre><code>## 37M  data/</code></pre>
+<p>Using “-a” flag with “du” command displays the disk usage of all the files and directories.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">du</span> -ah data/</code></pre>
+<pre><code>## 4.0K data/PYL10_ARATH.fasta
+## 4.0K data/test_ref2.fa
+## 4.0K data/test_ref.fa
+## 4.0K data/test_ref_len.txt
+## 4.0K data/gene_annotation.txt
+## 4.0K data/WGBS_sample_information.txt
+## 4.0K data/test_ref2_30.fa
+## 4.0K data/DMR_region_merged.txt
+## 27M  data/ESP6500-African_American.vcf.gz
+## 4.0K data/DMR_region.txt
+## 88K  data/maize_embryo_specific_gene_Sheet1.tsv
+## 9.3M data/Arabidopsis_thaliana.TAIR10.37.gff3.gz
+## 532K data/ESP6500-African_American.vcf.gz.tbi
+## 4.0K data/test_output.txt
+## 4.0K data/testdata4linux_cmd.txt
+## 4.0K data/DEG_list.txt
+## 4.0K data/README
+## 37M  data/</code></pre>
+</div>
+<div id="advanced-topic" class="section level2">
+<h2><span class="header-section-number">3.8</span> Advanced topic</h2>
+<div id="linux-md5sum-command" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> Linux <code>md5sum</code> Command</h3>
+<p><code>md5sum</code> is used to verify the integrity of files, as virtually any change to a file will cause its MD5 hash to change. Most commonly, md5sum is used to verify that a file has not changed as a result of a faulty file transfer, a disk error or non-malicious meddling. The md5sum program is included in most Unix-like operating systems.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd is: &quot;</span>
+<span class="ex">md5sum</span> index.Rmd
+<span class="fu">cp</span> index.Rmd index.Rmd_bak
+<span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd_bak is: &quot;</span>
+<span class="ex">md5sum</span> index.Rmd_bak 
+<span class="bu">echo</span> <span class="st">&quot;The MD5 value of new index.Rmd_bak is: &quot;</span>
+<span class="fu">head</span> index.Rmd <span class="op">&gt;</span> index.Rmd_bak
+<span class="ex">md5sum</span> index.Rmd_bak </code></pre>
+<pre><code>## The MD5 value of index.Rmd is: 
+## 687196e6e5bfac894b4047e4b54404e7  index.Rmd
+## The MD5 value of index.Rmd_bak is: 
+## 687196e6e5bfac894b4047e4b54404e7  index.Rmd_bak
+## The MD5 value of new index.Rmd_bak is: 
+## 6c6d75e8839891bf7ba1ab152c8f267c  index.Rmd_bak</code></pre>
+
+</div>
 </div>
 </div>
             </section>
@@ -445,8 +955,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="text-editor-in-linux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="varible-in-perl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="connecting-to-linux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -476,7 +986,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/10_FirstPerlProgram.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/03_FileSystemLinux.Rmd",
 "text": "Edit"
 },
 "history": {

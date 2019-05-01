@@ -32,6 +32,8 @@ If you want to connect to a Linux server, what you need to know first is:
 
 If you are a Mac OS X user, you can connect to a Linux server by using `Terminal`, a console program included with the operating system. 
 
+> Mac OS system itself is also a UNIX system. Majority of the command lines in Linux will also work in Mac OS. 
+
 For Windows users, I would recommend MobaXterm for remote connection. MobatXterm is an excellent toolbox for remote connection from Windows system. It comes with an X11 server and provides many networking tools and tabbed SSH. It has all the essential UNIX commands in a single portable executable file.
 
 Here I show one example of what you should do When you first open Mobaxterm. You need to follow the numbers in Figure \@ref(fig:mobaxtermInit): click `Session`; then click `SSH`; type the IP or name address of the remote host, check `Specify username` if you need; click `OK`. 
@@ -62,23 +64,26 @@ Password: nobigfile
 
 As you can tell from the password, please do NOT upload BIG files (bigger than 2 MB).
 
-### DigitalOcean droplet 
+### Alternative ways to gain access to a Linux Server
+
+#### Mac OS
+
+#### Dual boot Ubuntu and Windows
+
+If you are a windows user, you can set up `[WindowsDualBoot]`(https://rstudio.cloud/spaces/15199/project/311887). 
+
+#### DigitalOcean droplet 
 
 Another option is to sign up on DigitalOcean and create a droplet. DigitalOcean calls its cloud servers Droplets; each Droplet you create is a new server for your personal use. DigitalOcean has a tutorial of [**How To Create Your First DigitalOcean Droplet**] (https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet). You can get a your own Linux server with a $5 monthly payment. 
 
 The Linux server with IP address of `198.211.107.37` is a droplet on DigitalOcean. I pay $5 each month for this droplet. 
 
-### AWS Free Tier offering
+#### AWS Free Tier offering
 
 One more way to get access to a Linux system is to take advantage of Red Hat Enterprise Linux delivered by Amazon EC2 (Elastic Compute Cloud). Red Hat and Amazon Web Services collaborate to provide official Red Hat Enterprise Linux licensed images through Amazon’s on-demand public cloud service at free or low cost.
 
 The guided exercises and labs for this course were written assuming that you will set up an account with Amazon Web Services and use it to start a single, simple system running Red Hat Enterprise Linux 7. You will connect to that system securely over the internet and use it to practice commands.
 
 At the time of writing, Amazon Web Services provides an AWS Free Tier offering, which gives new users free access to certain sizes of cloud instances and operating environments (including Red Hat Enterprise Linux 7) for up to 750 hours per month, for 12 months.
-
-
-
-
-
 
 

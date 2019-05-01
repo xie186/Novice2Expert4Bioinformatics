@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 10 First Perl Program | All things considered for Bioinformatics</title>
+  <title>Chapter 4  | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 10 First Perl Program | All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 4  | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 First Perl Program | All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 4  | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="text-editor-in-linux.html">
-<link rel="next" href="varible-in-perl.html">
+<link rel="prev" href="navigating-in-linux-file-system.html">
+<link rel="next" href="achiving-and-compressing-files.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -421,22 +421,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="first-perl-program" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> First Perl Program</h1>
-<p>Scripting languages, like Perl, are very commonly used in bioinformatics. As a generous scripting language, Perl have many advantages: easy to use, free for all operating systems like Linux, designed for working with text files (tab-delimited files). It’s one of the most popular language in bioinformatics. Moreover there are many scripts and modules available. Additionally, there are a lot of resource on Internet.</p>
-<div id="first-program" class="section level2">
-<h2><span class="header-section-number">10.1</span> First Program</h2>
-<p>As all other programming books, we begin with a “Hello world” program.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
-<span class="co">#Printing a line of text “Hello, Bioinformatics”</span>
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Hello, Bioinformatics!</span><span class="ch">\n</span><span class="kw">&quot;</span>;</code></pre>
-<p>This program show how to display a line a text in Perl. It have several features. We go through each line in detail.</p>
-<p>Line 1 is what we call shebang line. This line starts with shebang construct (<code>#!</code>). <code>/usr/bin/perl</code> indicates the path of the Perl interpreter.</p>
-<p>Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (“” or ‘’).</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/hello_bioinfor.pl</code></pre>
-<pre><code>## Hello, Bioinformatics!</code></pre>
-<p>However the characters <code>\n</code> are not displayed. Here backslash <code>\</code> is a start of an escape sequence. It changes the meaning of the character after it. The backslash <code>\</code> and <code>n</code> together (<code>\n</code>) form an escape sequence and signify a newline. Other examples are <code>\t</code> (tab) or <code>\$</code> (= print an actual dollar sign, normally a dollar sign has a special meaning). We’ll see more escape sequences in 7.1.</p>
-<p>You can try to remove <code>\n</code> in the program to see what will happen. This will give you a dee per understanding of the program.</p>
+<div id="section" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> </h1>
+<div id="file-filtering" class="section level2">
+<h2><span class="header-section-number">4.1</span> File Filtering</h2>
+<div id="column-filtering" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Column filtering</h3>
+</div>
+<div id="cut" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> <code>cut</code></h3>
+<p><code>cut</code> can be used to print selected parts of lines from each FILE to standard output.</p>
+<p>cut sort uniq wc grep</p>
+<p><a href="https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK" class="uri">https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</a></p>
+</div>
+<div id="row-filtering" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Row filtering</h3>
+<div id="grep" class="section level4">
+<h4><span class="header-section-number">4.1.3.1</span> <code>grep</code></h4>
+<hr />
+<p>The <code>grep</code> command which stands for “global regular expression print,” processes text line by line and prints any lines which match a specified pattern. The grep command is used to search text or searches the given file for lines containing a match to the given strings or words. By default, grep displays the matching lines.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt</code></pre>
+<pre><code>## gene2 WRKY
+## gene4 WRKY1
+## gene5 WRKY2</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt <span class="kw">|</span><span class="fu">wc</span> -l </code></pre>
+<pre><code>## 3</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> -i <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt </code></pre>
+<pre><code>## gene2 WRKY
+## gene4 WRKY1
+## gene5 WRKY2
+## gene6 wrky</code></pre>
+<p>If you want to search for a word, and avoid matching substrings use ‘-w ‘option.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </code></pre>
+<pre><code>## gene1    ROS
+## gene10  MCU</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> -w <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </code></pre>
+<pre><code>## gene1    ROS</code></pre>
+</div>
+<div id="awk" class="section level4">
+<h4><span class="header-section-number">4.1.3.2</span> <code>awk</code></h4>
+</div>
+</div>
+</div>
+<div id="finding-things" class="section level2">
+<h2><span class="header-section-number">4.2</span> Finding Things</h2>
+<div id="find-files-with-pattern-matching" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Find files with pattern matching</h3>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">## Find any files with &quot;Linux&quot; and &quot;.Rmd&quot; in the file names</span>
+<span class="fu">find</span> . -type f -name <span class="st">&quot;*Linux*.Rmd&quot;</span></code></pre>
+<pre><code>## ./slides/slides01_Linux.Rmd
+## ./04_Linux_FilteringOutputandFindingThings.Rmd
+## ./01_WhyLinux.Rmd
+## ./02_Connect2Linux.Rmd
+## ./09_TextEditorInLinux.Rmd
+## ./08_InstallationOfSoftwareInLinux.Rmd
+## ./06_procManageLinux.Rmd
+## ./03_FileSystemLinux.Rmd</code></pre>
+</div>
+<div id="count-file-numbers-in-a-folder-and-its-subdirectories" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Count file numbers in a folder and its subdirectories</h3>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">find</span> . -type f <span class="kw">|</span> <span class="fu">wc</span> -l</code></pre>
+<pre><code>## 856</code></pre>
+</div>
+<div id="list-files-bigger-than-filesize-specified" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> List files bigger than filesize specified</h3>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">#To find files larger than 10MB:</span>
+<span class="fu">find</span> . -type f -size +100M</code></pre>
+<pre><code>## ./.git/objects/pack/pack-b6b6179d7bb7190bc99389e158b2a8e4cbd98d2f.pack</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="co"># If you want the current dir only:</span>
+<span class="fu">find</span> . -maxdepth 1 -type f -size +1M</code></pre>
+<pre><code>## ./download</code></pre>
+</div>
+</div>
+<div id="check-you-job-status" class="section level2">
+<h2><span class="header-section-number">4.3</span> Check you job status</h2>
+<pre><code>$ ps aux  
+USER       PID  %CPU %MEM  VSZ RSS     TTY   STAT START   TIME COMMAND
+timothy  29217  0.0  0.0 11916 4560 pts/21   S+   08:15   0:00 pine  
+root     29505  0.0  0.0 38196 2728 ?        Ss   Mar07   0:00 sshd: can [priv]   
+can      29529  0.0  0.0 38332 1904 ?        S    Mar07   0:00 sshd: can@notty  </code></pre>
+<p>USER = user owning the process
+PID = process ID of the process
+%CPU = It is the CPU time used divided by the time the process has been running.
+%MEM = ratio of the process’s resident set size to the physical memory on the machine
+VSZ = virtual memory usage of entire process (in KiB)
+RSS = resident set size, the non-swapped physical memory that a task has used (in KiB)
+TTY = controlling tty (terminal)
+STAT = multi-character process state
+START = starting time or date of the process
+TIME = cumulative CPU time
+COMMAND = command with all its arguments</p>
+<p>References:</p>
+<p><a href="https://superuser.com/questions/117913/ps-aux-output-meaning" class="uri">https://superuser.com/questions/117913/ps-aux-output-meaning</a></p>
 
 </div>
 </div>
@@ -445,8 +521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="text-editor-in-linux.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="varible-in-perl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="navigating-in-linux-file-system.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="achiving-and-compressing-files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -476,7 +552,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/10_FirstPerlProgram.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/04_Linux_FilteringOutputandFindingThings.Rmd",
 "text": "Edit"
 },
 "history": {
