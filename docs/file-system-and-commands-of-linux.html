@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-04-19">
+<meta name="date" content="2019-05-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,13 +170,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.6</b> Advanced topic</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.6.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.7</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.1</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#file-filtering"><i class="fa fa-check"></i><b>3.7</b> File Filtering</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#column-filtering"><i class="fa fa-check"></i><b>3.7.1</b> Column filtering</a></li>
+<li class="chapter" data-level="3.7.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.2</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.7.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#row-filtering"><i class="fa fa-check"></i><b>3.7.3</b> Row filtering</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.8</b> Check you job status</a></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.9</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.9.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.8</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-files-with-pattern-matching"><i class="fa fa-check"></i><b>3.8.1</b> Find files with pattern matching</a></li>
+<li class="chapter" data-level="3.8.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#count-file-numbers-in-a-folder-and-its-subdirectories"><i class="fa fa-check"></i><b>3.8.2</b> Count file numbers in a folder and its subdirectories</a></li>
+<li class="chapter" data-level="3.8.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.8.3</b> List files bigger than filesize specified</a></li>
 </ul></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.9</b> Check you job status</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
 <li class="chapter" data-level="4.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#common-compressed-file-format"><i class="fa fa-check"></i><b>4.1</b> Common compressed file format</a></li>
@@ -497,7 +501,7 @@ Figure 3.3: ref:linuxCMDls
 <pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre>
 <pre><code>## total 24
 ## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
-## drwxr-xr-x 17 rstudio-user rstudio-user 4096 Apr 19 22:14 ..
+## drwxr-xr-x 17 rstudio-user rstudio-user 4096 May  1 01:17 ..
 ## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
 ## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
 ## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv</code></pre>
@@ -932,17 +936,78 @@ The standard input stream typically carries data from a user to a program. Progr
 
 </div>
 </div>
-<div id="filtering-output" class="section level2">
-<h2><span class="header-section-number">3.7</span> Filtering Output</h2>
+<div id="file-filtering" class="section level2">
+<h2><span class="header-section-number">3.7</span> File Filtering</h2>
+<div id="column-filtering" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> Column filtering</h3>
+</div>
 <div id="cut" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> <code>cut</code></h3>
+<h3><span class="header-section-number">3.7.2</span> <code>cut</code></h3>
 <p><code>cut</code> can be used to print selected parts of lines from each FILE to standard output.</p>
 <p>cut sort uniq wc grep</p>
 <p><a href="https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK" class="uri">https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</a></p>
 </div>
+<div id="row-filtering" class="section level3">
+<h3><span class="header-section-number">3.7.3</span> Row filtering</h3>
+<div id="grep" class="section level4">
+<h4><span class="header-section-number">3.7.3.1</span> <code>grep</code></h4>
+<hr />
+<p>The <code>grep</code> command which stands for “global regular expression print,” processes text line by line and prints any lines which match a specified pattern. The grep command is used to search text or searches the given file for lines containing a match to the given strings or words. By default, grep displays the matching lines.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt</code></pre>
+<pre><code>## gene2 WRKY
+## gene4 WRKY1
+## gene5 WRKY2</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt <span class="kw">|</span><span class="fu">wc</span> -l </code></pre>
+<pre><code>## 3</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> -i <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt </code></pre>
+<pre><code>## gene2 WRKY
+## gene4 WRKY1
+## gene5 WRKY2
+## gene6 wrky</code></pre>
+<p>If you want to search for a word, and avoid matching substrings use ‘-w ‘option.</p>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </code></pre>
+<pre><code>## gene1    ROS
+## gene10  MCU</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> -w <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </code></pre>
+<pre><code>## gene1    ROS</code></pre>
+</div>
+<div id="awk" class="section level4">
+<h4><span class="header-section-number">3.7.3.2</span> <code>awk</code></h4>
+</div>
+</div>
+</div>
+<div id="finding-things" class="section level2">
+<h2><span class="header-section-number">3.8</span> Finding Things</h2>
+<div id="find-files-with-pattern-matching" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> Find files with pattern matching</h3>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">## Find any files with &quot;Linux&quot; and &quot;.Rmd&quot; in the file names</span>
+<span class="fu">find</span> . -type f -name <span class="st">&quot;*Linux*.Rmd&quot;</span></code></pre>
+<pre><code>## ./slides/slides01_Linux.Rmd
+## ./04_Linux_FilteringOutputandFindingThings.Rmd
+## ./01_WhyLinux.Rmd
+## ./02_Connect2Linux.Rmd
+## ./09_TextEditorInLinux.Rmd
+## ./08_InstallationOfSoftwareInLinux.Rmd
+## ./06_procManageLinux.Rmd
+## ./03_FileSystemLinux.Rmd</code></pre>
+</div>
+<div id="count-file-numbers-in-a-folder-and-its-subdirectories" class="section level3">
+<h3><span class="header-section-number">3.8.2</span> Count file numbers in a folder and its subdirectories</h3>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">find</span> . -type f <span class="kw">|</span> <span class="fu">wc</span> -l</code></pre>
+<pre><code>## 777</code></pre>
+</div>
+<div id="list-files-bigger-than-filesize-specified" class="section level3">
+<h3><span class="header-section-number">3.8.3</span> List files bigger than filesize specified</h3>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">#To find files larger than 10MB:</span>
+<span class="fu">find</span> . -type f -size +100M</code></pre>
+<pre><code>## ./.git/objects/pack/pack-b6b6179d7bb7190bc99389e158b2a8e4cbd98d2f.pack</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span class="co"># If you want the current dir only:</span>
+<span class="fu">find</span> . -maxdepth 1 -type f -size +1M</code></pre>
+<pre><code>## ./download</code></pre>
+</div>
 </div>
 <div id="check-you-job-status" class="section level2">
-<h2><span class="header-section-number">3.8</span> Check you job status</h2>
+<h2><span class="header-section-number">3.9</span> Check you job status</h2>
 <pre><code>$ ps aux  
 USER       PID  %CPU %MEM  VSZ RSS     TTY   STAT START   TIME COMMAND
 timothy  29217  0.0  0.0 11916 4560 pts/21   S+   08:15   0:00 pine  
@@ -959,20 +1024,9 @@ STAT = multi-character process state
 START = starting time or date of the process
 TIME = cumulative CPU time
 COMMAND = command with all its arguments</p>
-</div>
-<div id="finding-things" class="section level2">
-<h2><span class="header-section-number">3.9</span> Finding Things</h2>
-<div id="list-files-bigger-than-filesize-specified" class="section level3">
-<h3><span class="header-section-number">3.9.1</span> List files bigger than filesize specified</h3>
-<pre><code># To find files larger than 100MB:
-find . -type f -size +100M
-# If you want the current dir only:
-find . -maxdepth 1 -type f -size +100M
-</code></pre>
 <p>References:</p>
 <p><a href="https://superuser.com/questions/117913/ps-aux-output-meaning" class="uri">https://superuser.com/questions/117913/ps-aux-output-meaning</a></p>
 
-</div>
 </div>
 </div>
             </section>

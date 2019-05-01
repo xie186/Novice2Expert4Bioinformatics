@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-04-19">
+<meta name="date" content="2019-05-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -170,13 +170,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#advanced-topic"><i class="fa fa-check"></i><b>3.6</b> Advanced topic</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.6.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#filtering-output"><i class="fa fa-check"></i><b>3.7</b> Filtering Output</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.1</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.7" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#file-filtering"><i class="fa fa-check"></i><b>3.7</b> File Filtering</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#column-filtering"><i class="fa fa-check"></i><b>3.7.1</b> Column filtering</a></li>
+<li class="chapter" data-level="3.7.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#cut"><i class="fa fa-check"></i><b>3.7.2</b> <code>cut</code></a></li>
+<li class="chapter" data-level="3.7.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#row-filtering"><i class="fa fa-check"></i><b>3.7.3</b> Row filtering</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.8</b> Check you job status</a></li>
-<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.9</b> Finding Things</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.9.1</b> List files bigger than filesize specified</a></li>
+<li class="chapter" data-level="3.8" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#finding-things"><i class="fa fa-check"></i><b>3.8</b> Finding Things</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#find-files-with-pattern-matching"><i class="fa fa-check"></i><b>3.8.1</b> Find files with pattern matching</a></li>
+<li class="chapter" data-level="3.8.2" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#count-file-numbers-in-a-folder-and-its-subdirectories"><i class="fa fa-check"></i><b>3.8.2</b> Count file numbers in a folder and its subdirectories</a></li>
+<li class="chapter" data-level="3.8.3" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>3.8.3</b> List files bigger than filesize specified</a></li>
 </ul></li>
+<li class="chapter" data-level="3.9" data-path="file-system-and-commands-of-linux.html"><a href="file-system-and-commands-of-linux.html#check-you-job-status"><i class="fa fa-check"></i><b>3.9</b> Check you job status</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>4</b> Achiving and compressing files</a><ul>
 <li class="chapter" data-level="4.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#common-compressed-file-format"><i class="fa fa-check"></i><b>4.1</b> Common compressed file format</a></li>
@@ -426,9 +430,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## gene4    -8  0.001</code></pre>
 <p>We have another table which has the annotation information of each gene:</p>
 <pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/gene_annotation.txt</code></pre>
-<pre><code>## gene1    ROS
-## gene2    WRKY
-## gene3    ZmCCT</code></pre>
+<pre><code>## gene_id gene_shortname
+## gene1    ROS
+## gene2 WRKY
+## gene3 ZmCCT
+## gene4 WRKY1
+## gene5 WRKY2
+## gene6 wrky
+## gene10  MCU</code></pre>
 </div>
 <div id="merge-overlap-genomic-regions" class="section level2">
 <h2><span class="header-section-number">14.2</span> Merge overlap genomic regions</h2>
