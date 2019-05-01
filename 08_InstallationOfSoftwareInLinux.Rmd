@@ -1,4 +1,3 @@
-
 # Install Bioinformatics software in Linux
 
 ## Installation from source code
@@ -132,7 +131,7 @@ conda install -c bioconda bwa
 #conda install -c bioconda/label/cf201901 bwa 
 ```
 
-### Install ussing `Docker` (advance topic)
+### Install ussing `Docker` (Advanced topic)
 
 
 

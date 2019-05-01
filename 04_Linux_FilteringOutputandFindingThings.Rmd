@@ -1,18 +1,83 @@
-## Filtering Output
+## File Filtering 
 
-### `cut`  
+### Column filtering
+
+### `cut`
 
 `cut` can be used to print selected parts of lines from each FILE to standard output.
-
-
 
 cut sort uniq wc grep 
 
 
-
-
 https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK
 
+
+### Row filtering
+
+#### `grep`
+
+
+---------------------
+
+The `grep` command which stands for “global regular expression print,” processes text line by line and prints any lines which match a specified pattern. The grep command is used to search text or searches the given file for lines containing a match to the given strings or words. By default, grep displays the matching lines. 
+
+```{sh}
+grep 'WRKY' data/gene_annotation.txt
+```
+
+```{sh}
+grep 'WRKY' data/gene_annotation.txt |wc -l 
+```
+
+
+```{sh}
+grep -i 'WRKY' data/gene_annotation.txt 
+```
+
+If you want to search for a word, and avoid matching substrings use ‘-w ‘option.
+
+```{sh}
+grep 'gene1' data/gene_annotation.txt 
+```
+
+```{sh}
+grep -w 'gene1' data/gene_annotation.txt 
+```
+
+#### `awk`
+
+
+
+
+
+## Finding Things
+
+
+### Find files with pattern matching
+
+
+```{sh}
+## Find any files with "Linux" and ".Rmd" in the file names
+find . -type f -name "*Linux*.Rmd"
+```
+
+### Count file numbers in a  folder and its subdirectories
+
+```{sh}
+find . -type f | wc -l
+```
+
+### List files bigger than filesize specified
+
+```{sh}
+#To find files larger than 10MB:
+find . -type f -size +100M
+```
+
+```{sh}
+# If you want the current dir only:
+find . -maxdepth 1 -type f -size +1M
+```
 
 
 ## Check you job status
@@ -37,18 +102,6 @@ STAT = multi-character process state
 START = starting time or date of the process
 TIME = cumulative CPU time
 COMMAND = command with all its arguments
-
-## Finding Things
-
-### List files bigger than filesize specified
-
-```
-# To find files larger than 100MB:
-find . -type f -size +100M
-# If you want the current dir only:
-find . -maxdepth 1 -type f -size +100M
-
-```
 
 References:
 
