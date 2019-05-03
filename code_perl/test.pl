@@ -1,4 +1,2 @@
-$num = 1;
-++$num;
-
-print $num, "\n";
+#!/usr/bin/perl
+print "Hello Bioinformatics World!\n";
