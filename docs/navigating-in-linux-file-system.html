@@ -385,17 +385,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
 <li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
 <li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
+<li class="chapter" data-level="26.3.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-using-trim_galore"><i class="fa fa-check"></i><b>26.3.2</b> Quality control using <code>trim_galore</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>27</b> </a><ul>
-<li class="chapter" data-level="27.1" data-path="section-9.html"><a href="section-9.html#including-plots"><i class="fa fa-check"></i><b>27.1</b> Including Plots</a></li>
+<li class="chapter" data-level="27" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>27</b> Python</a></li>
+<li class="chapter" data-level="28" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>28</b> </a><ul>
+<li class="chapter" data-level="28.1" data-path="section-9.html"><a href="section-9.html#including-plots"><i class="fa fa-check"></i><b>28.1</b> Including Plots</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>28</b> Good resouces to learn Bioinformatics</a><ul>
-<li class="chapter" data-level="28.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>28.1</b> References:</a></li>
+<li class="chapter" data-level="29" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>29</b> Good resouces to learn Bioinformatics</a><ul>
+<li class="chapter" data-level="29.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>29.1</b> References:</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="part"><span><b>V Python</b></span></li>
-<li class="chapter" data-level="29" data-path="first-perl-program-1.html"><a href="first-perl-program-1.html"><i class="fa fa-check"></i><b>29</b> First Perl Program</a></li>
+<li class="chapter" data-level="30" data-path="first-perl-program-1.html"><a href="first-perl-program-1.html"><i class="fa fa-check"></i><b>30</b> First Perl Program</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -507,7 +509,7 @@ Figure 3.3: ref:linuxCMDls
 <pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre>
 <pre><code>## total 24
 ## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
-## drwxr-xr-x 18 rstudio-user rstudio-user 4096 May 18 02:22 ..
+## drwxr-xr-x 17 rstudio-user rstudio-user 4096 May 18 02:39 ..
 ## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
 ## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
 ## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv</code></pre>
@@ -638,7 +640,6 @@ Figure 3.3: ref:linuxCMDls
 ## style.css
 ## tables
 ## test.pl
-## test_vi
 ## toc.css</code></pre>
 <pre class="sourceCode sh"><code class="sourceCode bash">
 <span class="co">## </span>
@@ -908,6 +909,8 @@ The standard input stream typically carries data from a user to a program. Progr
 ## 4.0K data/test_ref2_30.fa
 ## 4.0K data/DMR_region_merged.txt
 ## 27M  data/ESP6500-African_American.vcf.gz
+## 8.0K data/WGBS_example_data/EV1.fastq
+## 12K  data/WGBS_example_data
 ## 4.0K data/DMR_region.txt
 ## 88K  data/maize_embryo_specific_gene_Sheet1.tsv
 ## 9.3M data/Arabidopsis_thaliana.TAIR10.37.gff3.gz
