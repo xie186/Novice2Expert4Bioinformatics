@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-05-01">
+<meta name="date" content="2019-05-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -383,6 +383,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
 </ul></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
+<li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
+<li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>27</b> </a><ul>
 <li class="chapter" data-level="27.1" data-path="section-9.html"><a href="section-9.html#including-plots"><i class="fa fa-check"></i><b>27.1</b> Including Plots</a></li>
@@ -416,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practical-data-analysis-on-wgbs" class="section level1">
 <h1><span class="header-section-number">Chapter 26</span> Practical data analysis on WGBS</h1>
 <p>We are going to use the data in this <a href="https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905">link</a>.</p>
-<p>In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: <code>EV strain 1</code>,</p>
+<p>In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: <code>EV strain 1 (EV1)</code>, <code>dnmt3b strain 1 (3bstrain1)</code> and <code>set1 replicate1 (set1rep1)</code></p>
 <p>We are going to use the data from these three samples to illustrate how to analyze WGBS data (Figure @ref(fig:wgbs_bg)).</p>
 <div class="figure">
 <img src="figures/elife_yeast_paper.jpg" alt="Study background of WGBS data"  />
@@ -470,13 +473,30 @@ wget -O set1_rep1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra
 </div>
 <div id="convert-sra-files-to-fastq-files" class="section level2">
 <h2><span class="header-section-number">26.2</span> Convert <code>sra</code> files to <code>fastq</code> files</h2>
-<pre><code></code></pre>
+<pre><code>fastq-dump 3bstrain1.sra 
+fastq-dump EV1.sra 
+fastq-dump set1rep1.sra </code></pre>
+<p>This step will generate three files suffixed with <code>.fastq</code>:</p>
+<ul>
+<li>3bstrain1.fastq</li>
+<li>EV1.fastq</li>
+<li>set1rep1.fastq</li>
+</ul>
+</div>
+<div id="quality-control-of-the-reads" class="section level2">
+<h2><span class="header-section-number">26.3</span> Quality control of the reads</h2>
+<div id="quality-checking" class="section level3">
+<h3><span class="header-section-number">26.3.1</span> Quality checking</h3>
+<pre><code>fastqc 3bstrain1.fastq
+fastqc EV1.fastq 
+fastqc set1rep1.fastq</code></pre>
 
 <ol style="list-style-type: decimal">
 <li><p>why program</p></li>
 <li><p>how to program</p></li>
 <li><p>programming language</p></li>
 </ol>
+</div>
 </div>
 </div>
             </section>

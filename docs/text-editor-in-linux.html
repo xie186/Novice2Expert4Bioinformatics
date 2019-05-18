@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-05-01">
+<meta name="date" content="2019-05-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -383,6 +383,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
 </ul></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
+<li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
+<li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>27</b> </a><ul>
 <li class="chapter" data-level="27.1" data-path="section-9.html"><a href="section-9.html#including-plots"><i class="fa fa-check"></i><b>27.1</b> Including Plots</a></li>
@@ -438,7 +441,8 @@ Figure 9.1: Three modes of vi.
 <span class="bu">echo</span> <span class="st">&quot;Using </span><span class="dt">\`</span><span class="st">ls</span><span class="dt">\`</span><span class="st"> we don&#39;t expect files in this folder.&quot;</span>
 <span class="fu">ls</span> 
 <span class="bu">echo</span> <span class="st">&quot;No file displayed!&quot;</span></code></pre>
-<pre><code>## Using `ls` we don&#39;t expect files in this folder.
+<pre><code>## mkdir: cannot create directory ‘test_vi’: File exists
+## Using `ls` we don&#39;t expect files in this folder.
 ## No file displayed!</code></pre>
 <p>Using the code above, we made a new directory named <code>test_vi</code>. We didn’t see any file.</p>
 <p>If we type <code>vi test.pl</code>, an empty file and screen are created into which you may enter text because the file does not exist((Figure <a href="text-editor-in-linux.html#fig:ViNewFile">9.2</a>)).</p>
@@ -468,7 +472,8 @@ Figure 9.4: A screentshot of the <code>vi test.pl</code>.
 </div>
 <p>Once you are done typing. You need to go to <code>Command mode</code>(Figure <a href="text-editor-in-linux.html#fig:workingModeVi">9.1</a>) if you want to save and exit the file. To do this, you need to press <code>ESC</code> button on the keyboard.</p>
 <p>Now we just wrote a Perl script. We can run this script.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> test.pl</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="fu">perl</span> test.pl</code></pre>
 <pre><code>## Hello Bioinformatics World!</code></pre>
 </div>
 <div id="an-example-for-using-editor-r" class="section level2">

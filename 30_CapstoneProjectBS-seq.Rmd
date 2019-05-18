@@ -2,7 +2,7 @@
 
 We are going to use the data in this [link](https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905). 
 
-In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: `EV strain 1`, 
+In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: `EV strain 1 (EV1)`, `dnmt3b strain 1 (3bstrain1)` and `set1 replicate1 (set1rep1)`
 
 We are going to use the data from these three samples to illustrate how to analyze WGBS data (Figure \@ref(fig:wgbs_bg)). 
 
@@ -49,5 +49,25 @@ wget -O set1_rep1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra
 ## Convert `sra` files to `fastq` files
 
 ```
+fastq-dump 3bstrain1.sra 
+fastq-dump EV1.sra 
+fastq-dump set1rep1.sra 
+```
+
+This step will generate three files suffixed with `.fastq`:
+
+* 3bstrain1.fastq
+* EV1.fastq 
+* set1rep1.fastq
+
+## Quality control of the reads
+
+### Quality checking
 
 ```
+fastqc 3bstrain1.fastq
+fastqc EV1.fastq 
+fastqc set1rep1.fastq
+```
+
+

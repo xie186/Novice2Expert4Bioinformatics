@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-05-01">
+<meta name="date" content="2019-05-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -383,6 +383,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
 </ul></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
+<li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
+<li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>27</b> </a><ul>
 <li class="chapter" data-level="27.1" data-path="section-9.html"><a href="section-9.html#including-plots"><i class="fa fa-check"></i><b>27.1</b> Including Plots</a></li>
@@ -504,7 +507,7 @@ Figure 3.3: ref:linuxCMDls
 <pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">ls</span> -l -a tables/</code></pre>
 <pre><code>## total 24
 ## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
-## drwxr-xr-x 17 rstudio-user rstudio-user 4096 May  1 18:10 ..
+## drwxr-xr-x 18 rstudio-user rstudio-user 4096 May 18 02:22 ..
 ## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
 ## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
 ## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv</code></pre>
@@ -608,8 +611,6 @@ Figure 3.3: ref:linuxCMDls
 ## _output.yml
 ## bak
 ## bioinfBookXIE186.Rmd
-## bioinfBookXIE186.aux
-## bioinfBookXIE186.log
 ## bioinfBookXIE186_files
 ## book.bib
 ## bookdown-demo.Rproj
@@ -637,7 +638,7 @@ Figure 3.3: ref:linuxCMDls
 ## style.css
 ## tables
 ## test.pl
-## test.py
+## test_vi
 ## toc.css</code></pre>
 <pre class="sourceCode sh"><code class="sourceCode bash">
 <span class="co">## </span>
