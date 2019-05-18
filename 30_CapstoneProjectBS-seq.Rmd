@@ -70,4 +70,19 @@ fastqc EV1.fastq
 fastqc set1rep1.fastq
 ```
 
+### Quality control using `trim_galore`
+
+The default value for `-q` (or `--quality`) is 20 meaning `Trim low-quality ends from reads`. After we remove the low quality bases, a read could be very short. So `--length 75` can be used to discard any reads that are shorter than 75 bps after quality control. 
+
+```
+trim_galore --length 75 EV1.fastq 
+## Equivalent of:
+trim_galore -q 20 --length 75 EV1.fastq 
+
+trim_galore --length 75 3bstrain1.fastq
+trim_galore --length 75 set1rep1.fastq 
+```
+
+Taken `EV1.fastq` as an exmaple, two files will be generated: `EV1_trimmed.fa` and `EV1.fastq_trimming_report.txt`. 
+
 
