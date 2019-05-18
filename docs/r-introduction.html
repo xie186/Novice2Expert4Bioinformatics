@@ -274,6 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>13.5.2</b> Pattern substitution</a></li>
 <li class="chapter" data-level="13.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>13.5.3</b> Modifiers to pattern matching and substitution</a></li>
 <li class="chapter" data-level="13.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>13.5.4</b> Greedy or non-greedy</a></li>
+<li class="chapter" data-level="13.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>13.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>14</b> Input and output in Perl</a><ul>
@@ -378,15 +379,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25.4" data-path="capstone-project.html"><a href="capstone-project.html#section-8"><i class="fa fa-check"></i><b>25.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="26" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html"><i class="fa fa-check"></i><b>26</b> Practical data analysis on WGBS</a><ul>
-<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-the-data"><i class="fa fa-check"></i><b>26.1</b> Donwload the data</a><ul>
-<li class="chapter" data-level="26.1.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#reference-1"><i class="fa fa-check"></i><b>26.1.1</b> Reference</a></li>
-<li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
-</ul></li>
+<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1</b> Download the WGBS data</a></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
 <li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
 <li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
 <li class="chapter" data-level="26.3.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-using-trim_galore"><i class="fa fa-check"></i><b>26.3.2</b> Quality control using <code>trim_galore</code></a></li>
 </ul></li>
+<li class="chapter" data-level="26.4" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-reference-genome"><i class="fa fa-check"></i><b>26.4</b> Donwload reference genome</a></li>
+<li class="chapter" data-level="26.5" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#build-bismark-index-for-bismark-alignment"><i class="fa fa-check"></i><b>26.5</b> Build bismark index for <code>Bismark</code> alignment</a></li>
+<li class="chapter" data-level="26.6" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#bismark-alignment"><i class="fa fa-check"></i><b>26.6</b> Bismark alignment</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>27</b> Python</a></li>
 <li class="chapter" data-level="28" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>28</b> </a><ul>
@@ -433,7 +434,7 @@ cars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1<
 
 <span class="co"># Graph the cars vector with all defaults</span>
 <span class="kw">plot</span>(cars)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r">?plot</code></pre>
 <p>Let’s add a title, a line to connect the points, and some color:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define the cars vector with 5 values</span>
@@ -444,7 +445,7 @@ cars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1<
 
 <span class="co"># Create a title with a red, bold/italic font</span>
 <span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Autos&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 <p>Now let’s add a red line for trucks and specify the y-axis range directly so it will be large enough to fit the truck data:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define 2 vectors</span>
 cars &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">9</span>)
@@ -458,7 +459,7 @@ trucks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">
 
 <span class="co"># Create a title with a red, bold/italic font</span>
 <span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Autos&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 
 </div>
 </div>

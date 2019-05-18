@@ -1,0 +1,6 @@
+Special variables	Description
+$+	Whatever the last bracket match matched
+$&	The entire matched string
+"$`"	Everything before the matched string
+"$'"	Everything after the marched string
+"$^N"	"Whatever was matched by the most-recently closed group (submatch)"

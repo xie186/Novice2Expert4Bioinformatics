@@ -274,6 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>13.5.2</b> Pattern substitution</a></li>
 <li class="chapter" data-level="13.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>13.5.3</b> Modifiers to pattern matching and substitution</a></li>
 <li class="chapter" data-level="13.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>13.5.4</b> Greedy or non-greedy</a></li>
+<li class="chapter" data-level="13.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>13.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>14</b> Input and output in Perl</a><ul>
@@ -378,15 +379,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25.4" data-path="capstone-project.html"><a href="capstone-project.html#section-8"><i class="fa fa-check"></i><b>25.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="26" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html"><i class="fa fa-check"></i><b>26</b> Practical data analysis on WGBS</a><ul>
-<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-the-data"><i class="fa fa-check"></i><b>26.1</b> Donwload the data</a><ul>
-<li class="chapter" data-level="26.1.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#reference-1"><i class="fa fa-check"></i><b>26.1.1</b> Reference</a></li>
-<li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
-</ul></li>
+<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1</b> Download the WGBS data</a></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
 <li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
 <li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
 <li class="chapter" data-level="26.3.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-using-trim_galore"><i class="fa fa-check"></i><b>26.3.2</b> Quality control using <code>trim_galore</code></a></li>
 </ul></li>
+<li class="chapter" data-level="26.4" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-reference-genome"><i class="fa fa-check"></i><b>26.4</b> Donwload reference genome</a></li>
+<li class="chapter" data-level="26.5" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#build-bismark-index-for-bismark-alignment"><i class="fa fa-check"></i><b>26.5</b> Build bismark index for <code>Bismark</code> alignment</a></li>
+<li class="chapter" data-level="26.6" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#bismark-alignment"><i class="fa fa-check"></i><b>26.6</b> Bismark alignment</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>27</b> Python</a></li>
 <li class="chapter" data-level="28" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>28</b> </a><ul>
@@ -430,13 +431,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pheatmap)
 gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/maize_embryo_specific_gene_Sheet1.tsv&quot;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>)
 <span class="kw">pheatmap</span>(gene_exp)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.000001</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-105-2.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-2.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> T, <span class="dt">show_colnames =</span> F)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-105-3.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-3.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-105-4.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-4.png" width="672" /></p>
 </div>
 <div id="add-the-annotation" class="section level2">
 <h2><span class="header-section-number">20.3</span> Add the annotation</h2>
@@ -447,7 +448,7 @@ gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span 
 <div id="transfrom-the-data" class="section level2">
 <h2><span class="header-section-number">20.5</span> Transfrom the data</h2>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>)) </code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 </div>
 <div id="how-to-add-annotations" class="section level2">
 <h2><span class="header-section-number">20.6</span> How to add annotations</h2>

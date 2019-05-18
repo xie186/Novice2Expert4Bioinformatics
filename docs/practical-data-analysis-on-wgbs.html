@@ -274,6 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>13.5.2</b> Pattern substitution</a></li>
 <li class="chapter" data-level="13.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>13.5.3</b> Modifiers to pattern matching and substitution</a></li>
 <li class="chapter" data-level="13.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>13.5.4</b> Greedy or non-greedy</a></li>
+<li class="chapter" data-level="13.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>13.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>14</b> Input and output in Perl</a><ul>
@@ -378,15 +379,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25.4" data-path="capstone-project.html"><a href="capstone-project.html#section-8"><i class="fa fa-check"></i><b>25.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="26" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html"><i class="fa fa-check"></i><b>26</b> Practical data analysis on WGBS</a><ul>
-<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-the-data"><i class="fa fa-check"></i><b>26.1</b> Donwload the data</a><ul>
-<li class="chapter" data-level="26.1.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#reference-1"><i class="fa fa-check"></i><b>26.1.1</b> Reference</a></li>
-<li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
-</ul></li>
+<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1</b> Download the WGBS data</a></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
 <li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
 <li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
 <li class="chapter" data-level="26.3.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-using-trim_galore"><i class="fa fa-check"></i><b>26.3.2</b> Quality control using <code>trim_galore</code></a></li>
 </ul></li>
+<li class="chapter" data-level="26.4" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-reference-genome"><i class="fa fa-check"></i><b>26.4</b> Donwload reference genome</a></li>
+<li class="chapter" data-level="26.5" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#build-bismark-index-for-bismark-alignment"><i class="fa fa-check"></i><b>26.5</b> Build bismark index for <code>Bismark</code> alignment</a></li>
+<li class="chapter" data-level="26.6" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#bismark-alignment"><i class="fa fa-check"></i><b>26.6</b> Bismark alignment</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>27</b> Python</a></li>
 <li class="chapter" data-level="28" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>28</b> </a><ul>
@@ -430,18 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </p>
 </div>
 <p>Let’s walk through these workflow step-by-step.</p>
-<div id="donwload-the-data" class="section level2">
-<h2><span class="header-section-number">26.1</span> Donwload the data</h2>
-<p>First we need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file).</p>
-<div id="reference-1" class="section level3">
-<h3><span class="header-section-number">26.1.1</span> Reference</h3>
-<p>Reference link: <a href="http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index" class="uri">http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index</a></p>
-<pre><code>wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
-wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
-</code></pre>
-</div>
-<div id="now-lets-download-the-wgbs-data" class="section level3">
-<h3><span class="header-section-number">26.1.2</span> Now let’s download the WGBS data</h3>
+<div id="download-the-wgbs-data" class="section level2">
+<h2><span class="header-section-number">26.1</span> Download the WGBS data</h2>
 <p>Based on the GEO <a href="https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905">link</a> here, we can use the command lines below to download the <code>sra</code> files.</p>
 <p>(ref:wgbs_sample) Sample list for WGBS data</p>
 <table>
@@ -471,7 +462,6 @@ wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharo
 wget -O 3bstrain1.sra  ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR191/SRR1916134/SRR1916134.sra
 wget -O set1_rep1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR191/SRR1916142/SRR1916142.sra
 </code></pre>
-</div>
 </div>
 <div id="convert-sra-files-to-fastq-files" class="section level2">
 <h2><span class="header-section-number">26.2</span> Convert <code>sra</code> files to <code>fastq</code> files</h2>
@@ -503,8 +493,34 @@ trim_galore -q 20 --length 75 EV1.fastq
 trim_galore --length 75 3bstrain1.fastq
 trim_galore --length 75 set1rep1.fastq </code></pre>
 <p>Taken <code>EV1.fastq</code> as an exmaple, two files will be generated: <code>EV1_trimmed.fa</code> and <code>EV1.fastq_trimming_report.txt</code>.</p>
-
 </div>
+</div>
+<div id="donwload-reference-genome" class="section level2">
+<h2><span class="header-section-number">26.4</span> Donwload reference genome</h2>
+<p>You need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file).</p>
+<p>Here is the link for reference genome: <a href="http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index" class="uri">http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index</a></p>
+<pre><code>wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
+</code></pre>
+</div>
+<div id="build-bismark-index-for-bismark-alignment" class="section level2">
+<h2><span class="header-section-number">26.5</span> Build bismark index for <code>Bismark</code> alignment</h2>
+<pre><code>mkdir bismark_index/
+
+zcat Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz &gt; bismark_index/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa</code></pre>
+<pre><code>bismark_genome_preparation bismark_index/</code></pre>
+<p>This script <code>bismark_genome_preparation</code> needs to be run only once to prepare the genome of interest for bisulfite alignments. You need to specify a directory containing the genome you want to align your reads against (please be aware that the bismark_genome_preparation script expects FastA files in this folder (with either .fa or .fasta extension, single or multiple sequence entries per file). Bismark will create two individual folders within this directory, one for a C-&gt;T converted genome and the other one for the G-&gt;A converted genome. After creating C-&gt;T and G-&gt;A versions of the genome they will be indexed in parallel using the indexer bowtie2-build (or hisat2-build). Once both C-&gt;T and G-&gt;A genome indices have been created you do not need to use the genome preparation script again (unless you want to align against a different genome…).</p>
+<blockquote>
+<p>Please note that Bowtie 2 and HISAT2 indexes are not compatible! To create a genome index for use with HISAT2 the option –hisat2 needs to be included as well.</p>
+</blockquote>
+</div>
+<div id="bismark-alignment" class="section level2">
+<h2><span class="header-section-number">26.6</span> Bismark alignment</h2>
+<pre><code>## make sure bowtie2 and samtools have been installed.
+bismark ../ref/bismark_index/ 3bstrain1.fastq 
+bismark ../ref/bismark_index/ EV1.fastq 
+bismark ../ref/bismark_index/ set1rep1.fastq</code></pre>
+
 </div>
 </div>
             </section>

@@ -13,21 +13,8 @@ knitr::include_graphics("figures/elife_yeast_paper.jpg")
 
 Let's walk through these workflow step-by-step. 
 
-## Donwload the data
 
-First we need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file). 
-
-### Reference
-
-Reference link: http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index
-
-```
-wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
-wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
-
-```
-
-### Now let's download the WGBS data
+## Download the WGBS data
 
 Based on the GEO [link](https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905) here, we can use the command lines below to download the `sra` files. 
 
@@ -86,3 +73,45 @@ trim_galore --length 75 set1rep1.fastq
 Taken `EV1.fastq` as an exmaple, two files will be generated: `EV1_trimmed.fa` and `EV1.fastq_trimming_report.txt`. 
 
 
+
+## Donwload reference genome
+
+You need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file).
+
+Here is the link for reference genome: http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index
+
+```
+wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
+
+```
+
+## Build bismark index for `Bismark` alignment
+
+
+```
+mkdir bismark_index/
+
+zcat Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz > bismark_index/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa
+```
+
+
+
+```
+bismark_genome_preparation bismark_index/
+```
+
+This script `bismark_genome_preparation` needs to be run only once to prepare the genome of interest for bisulfite alignments. You need to specify a directory containing the genome you want to align your reads against (please be aware that the bismark_genome_preparation script expects FastA files in this folder (with either .fa or .fasta extension, single or multiple sequence entries per file). Bismark will create two individual folders within this directory, one for a C->T converted genome and the other one for the G->A converted genome. After creating C->T and G->A versions of the genome they will be indexed in parallel using the indexer bowtie2-build (or hisat2-build). Once both C->T and G->A genome indices have been created you do not need to use the genome preparation script again (unless you want to align against a different genome...).
+
+> Please note that Bowtie 2 and HISAT2 indexes are not compatible! To create a genome index for use with HISAT2 the option --hisat2 needs to be included as well.
+
+
+## Bismark alignment 
+
+
+```
+## make sure bowtie2 and samtools have been installed.
+bismark ../ref/bismark_index/ 3bstrain1.fastq 
+bismark ../ref/bismark_index/ EV1.fastq 
+bismark ../ref/bismark_index/ set1rep1.fastq
+```

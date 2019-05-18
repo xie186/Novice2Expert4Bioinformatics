@@ -274,6 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>13.5.2</b> Pattern substitution</a></li>
 <li class="chapter" data-level="13.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>13.5.3</b> Modifiers to pattern matching and substitution</a></li>
 <li class="chapter" data-level="13.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>13.5.4</b> Greedy or non-greedy</a></li>
+<li class="chapter" data-level="13.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>13.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>14</b> Input and output in Perl</a><ul>
@@ -378,15 +379,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25.4" data-path="capstone-project.html"><a href="capstone-project.html#section-8"><i class="fa fa-check"></i><b>25.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="26" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html"><i class="fa fa-check"></i><b>26</b> Practical data analysis on WGBS</a><ul>
-<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-the-data"><i class="fa fa-check"></i><b>26.1</b> Donwload the data</a><ul>
-<li class="chapter" data-level="26.1.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#reference-1"><i class="fa fa-check"></i><b>26.1.1</b> Reference</a></li>
-<li class="chapter" data-level="26.1.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#now-lets-download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1.2</b> Now let’s download the WGBS data</a></li>
-</ul></li>
+<li class="chapter" data-level="26.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#download-the-wgbs-data"><i class="fa fa-check"></i><b>26.1</b> Download the WGBS data</a></li>
 <li class="chapter" data-level="26.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#convert-sra-files-to-fastq-files"><i class="fa fa-check"></i><b>26.2</b> Convert <code>sra</code> files to <code>fastq</code> files</a></li>
 <li class="chapter" data-level="26.3" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-of-the-reads"><i class="fa fa-check"></i><b>26.3</b> Quality control of the reads</a><ul>
 <li class="chapter" data-level="26.3.1" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-checking"><i class="fa fa-check"></i><b>26.3.1</b> Quality checking</a></li>
 <li class="chapter" data-level="26.3.2" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#quality-control-using-trim_galore"><i class="fa fa-check"></i><b>26.3.2</b> Quality control using <code>trim_galore</code></a></li>
 </ul></li>
+<li class="chapter" data-level="26.4" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#donwload-reference-genome"><i class="fa fa-check"></i><b>26.4</b> Donwload reference genome</a></li>
+<li class="chapter" data-level="26.5" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#build-bismark-index-for-bismark-alignment"><i class="fa fa-check"></i><b>26.5</b> Build bismark index for <code>Bismark</code> alignment</a></li>
+<li class="chapter" data-level="26.6" data-path="practical-data-analysis-on-wgbs.html"><a href="practical-data-analysis-on-wgbs.html#bismark-alignment"><i class="fa fa-check"></i><b>26.6</b> Bismark alignment</a></li>
 </ul></li>
 <li class="chapter" data-level="27" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>27</b> Python</a></li>
 <li class="chapter" data-level="28" data-path="section-9.html"><a href="section-9.html"><i class="fa fa-check"></i><b>28</b> </a><ul>
@@ -452,8 +453,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="regular-expression" class="section level2">
 <h2><span class="header-section-number">13.5</span> Regular expression</h2>
+<p>A regular expresion is a string of characters that defines the pattern or patterns you are searching. Usually this pattern is used by string searching algorithms for ‘find’ or ‘find and replace’ operations on strings or for input validation.</p>
+<p>You can use pattern binding operators <code>=~</code> and <code>!~</code>. The first operator is a test and assignment operator.</p>
+<p>In Perl, there are three three scenarios you may use regular expression:</p>
+<ul>
+<li><p>Pattern matching: <code>m//</code></p></li>
+<li><p>Pattern substitution: <code>s///</code></p></li>
+<li><p>Modifiers to pattern matching and substitution: <code>tr///</code></p></li>
+</ul>
+<p>In each case above, the forward slashes is used as delimiters for regular expression specified by you.</p>
 <div id="pattern-matching" class="section level3">
 <h3><span class="header-section-number">13.5.1</span> Pattern matching</h3>
+<p>In Perl, <code>m//</code> is used to match a string (could be sequence in Bioinformatics) to a regular expression. For example, to match a mRNA sequence <code>$mRNA</code> against the mRNA sequence ‘$mRNA’</p>
+<p>The match operator, m//, is used to match a string or statement to a regular expression. For example, to match the character sequence “foo” against the scalar $bar, you might use a statement like this −</p>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+
+<span class="dt">$mRNA</span> = <span class="kw">&quot;</span><span class="st">ATG</span><span class="kw">&quot;</span>;
+<span class="kw">if</span> (<span class="dt">$bar</span> =~ <span class="kw">/</span><span class="ot">foo</span><span class="kw">/</span>) {
+   <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First time is matching</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+} <span class="kw">else</span> {
+   <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First time is not matching</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+}</code></pre>
+<pre><code>## First time is not matching</code></pre>
 </div>
 <div id="pattern-substitution" class="section level3">
 <h3><span class="header-section-number">13.5.2</span> Pattern substitution</h3>
@@ -463,6 +484,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="greedy-or-non-greedy" class="section level3">
 <h3><span class="header-section-number">13.5.4</span> Greedy or non-greedy</h3>
+</div>
+<div id="practical-perl-for-regular-expresssion-advanced" class="section level3">
+<h3><span class="header-section-number">13.5.5</span> Practical Perl for regular expresssion (Advanced)</h3>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl -l</span>
+
+<span class="co"># http://perlmonks.org/?node_id=1146191</span>
+
+<span class="fu">use</span> <span class="kw">strict</span>;
+<span class="fu">use</span> <span class="kw">warnings</span>;
+
+<span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;
+
+<span class="kw">while</span>( <span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ot">ATG</span><span class="kw">/g</span> ){
+    <span class="co">## Post match: $&#39;:</span>
+    <span class="co">## The string following whatever was matched by the last successful pattern match </span>
+    <span class="kw">my</span> <span class="dt">$rest</span> = <span class="dt">$&#39;</span>;
+    <span class="kw">while</span>(<span class="dt">$rest</span> =~ <span class="kw">/</span><span class="ch">(</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">)</span><span class="kw">/g</span>){
+        <span class="kw">my</span> <span class="dt">$output</span> = <span class="kw">&#39;</span><span class="st">ATG</span><span class="kw">&#39;</span> . <span class="dt">$`</span> . <span class="dt">$1</span>;
+        <span class="fu">print</span> <span class="dt">$output</span>;
+    }
+}</code></pre>
+<pre><code>## ATGGTTTCTCCCATCTCTCCATCGGCATAA
+## ATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGA
+## ATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAA
+## ATGATCTAA</code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+
+<span class="co"># http://perlmonks.org/?node_id=1146191</span>
+
+<span class="fu">use</span> <span class="kw">strict</span>;
+<span class="fu">use</span> <span class="kw">warnings</span>;
+
+<span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;
+
+<span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ch">(</span><span class="ot">ATG.</span><span class="ch">*?(?:</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">))(??{print &quot;$1\n&quot; if (length $1)</span><span class="ot">%3 == 0}</span><span class="ch">)</span><span class="kw">/</span>;</code></pre>
+<pre><code>## ATGGTTTCTCCCATCTCTCCATCGGCATAA</code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl</span>
+
+<span class="fu">use</span> <span class="kw">strict</span>;
+<span class="fu">use</span> <span class="kw">warnings</span>;
+<span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;
+
+<span class="kw">while</span>(<span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ot">ATG</span><span class="ch">(([</span><span class="bn">ATGC</span><span class="ch">]{3})+?)(</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">)</span><span class="kw">/g</span>){
+    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">ATG</span><span class="dt">$1</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+}</code></pre>
+<pre><code>## ATGGTTTCTCCCATCTCTCCATCGGCA
+## ATGATC</code></pre>
+<p>We start with matching the start codon ATG. Then the thing we want to match
+is inside a parenthesis and it is at least one group of three arbitrary nucleotides
+([ATGC]{3}). Finally we want to end with either of the three stop codons. Now
+if we look by eye, we can see that there are two such matches in the string:
+GGAATACGCGGA and CACCACGACGCCATAATT, but if we run the script it will only find
+one sequence starting after the first start codon and ending with the last stop codon:
+GGAATACGCGGATAAGGCGAAATGCACCACGACGCCATAATT. This is because the + character
+matches as many as possible. It is greedy. To stop it from being greedy we need
+to add a ? sign after it:</p>
 
 </div>
 </div>
