@@ -52,3 +52,24 @@ title(main="Autos", col.main="red", font.main=4)
 ```
 
 
+
+## XXX
+
+
+```{r}
+fruit = c("apple", "apple", "pear", "orange")
+fruit == "apple" 
+```
+```{r}
+fruit = c("apple", "apple", "pear", "orange")
+which(fruit == "apple")
+```
+
+
+```{r}
+fruit = c("apple", "apple", "pear", "orange")
+which(fruit == "apple" | fruit == "pear")
+```
+
+
+
