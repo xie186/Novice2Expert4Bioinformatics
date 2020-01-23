@@ -72,4 +72,30 @@ which(fruit == "apple" | fruit == "pear")
 ```
 
 
+## Logic `&&` and `|`
+
+
+The short answer is that && and || only ever return a single (scalar, length-1 vector) TRUE or FALSE value, whereas | and & return a vector after doing element-by-element comparisons.
+
+The only place in R you routinely use a scalar TRUE/FALSE value is in the conditional of an if statement, so you'll often see && or || used in idioms like:
+
+if (length(x) > 0 && any(is.na(x))) { do.something() }
+
+In most other instances you'll be working with vectors and use & and | instead.
+
+
+
+
+## List as dictionary
+
+the list type is a good approximation. You can use names() on your list to set and retrieve the 'keys':
+
+
+```{r}
+foo <- vector(mode="list", length=3)
+names(foo) <- c("tic", "tac", "toe")
+foo[[1]] <- 12; foo[[2]] <- 22; foo[[3]] <- 33
+foo
+names(foo)
+```
 

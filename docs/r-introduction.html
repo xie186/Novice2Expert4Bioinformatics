@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-05-18">
+<meta name="date" content="2020-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -304,6 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>17.2</b> Producing Simple Graphs with R</a><ul>
 <li class="chapter" data-level="17.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>17.2.1</b> Line Charts</a></li>
 </ul></li>
+<li class="chapter" data-level="17.3" data-path="r-introduction.html"><a href="r-introduction.html#xxx"><i class="fa fa-check"></i><b>17.3</b> XXX</a></li>
+<li class="chapter" data-level="17.4" data-path="r-introduction.html"><a href="r-introduction.html#logic-and"><i class="fa fa-check"></i><b>17.4</b> Logic <code>&amp;&amp;</code> and <code>|</code></a></li>
+<li class="chapter" data-level="17.5" data-path="r-introduction.html"><a href="r-introduction.html#list-as-dictionary"><i class="fa fa-check"></i><b>17.5</b> List as dictionary</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html"><i class="fa fa-check"></i><b>18</b> Producing simple graphs</a><ul>
 <li class="chapter" data-level="18.1" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#producing-simple-graphs-using-r"><i class="fa fa-check"></i><b>18.1</b> Producing simple graphs using R</a><ul>
@@ -460,8 +463,45 @@ trucks &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">
 <span class="co"># Create a title with a red, bold/italic font</span>
 <span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Autos&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</code></pre>
 <p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
-
 </div>
+</div>
+<div id="xxx" class="section level2">
+<h2><span class="header-section-number">17.3</span> XXX</h2>
+<pre class="sourceCode r"><code class="sourceCode r">fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)
+fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span> </code></pre>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)
+<span class="kw">which</span>(fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span>)</code></pre>
+<pre><code>## [1] 1 2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)
+<span class="kw">which</span>(fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span> <span class="op">|</span><span class="st"> </span>fruit <span class="op">==</span><span class="st"> &quot;pear&quot;</span>)</code></pre>
+<pre><code>## [1] 1 2 3</code></pre>
+</div>
+<div id="logic-and" class="section level2">
+<h2><span class="header-section-number">17.4</span> Logic <code>&amp;&amp;</code> and <code>|</code></h2>
+<p>The short answer is that &amp;&amp; and || only ever return a single (scalar, length-1 vector) TRUE or FALSE value, whereas | and &amp; return a vector after doing element-by-element comparisons.</p>
+<p>The only place in R you routinely use a scalar TRUE/FALSE value is in the conditional of an if statement, so you’ll often see &amp;&amp; or || used in idioms like:</p>
+<p>if (length(x) &gt; 0 &amp;&amp; any(is.na(x))) { do.something() }</p>
+<p>In most other instances you’ll be working with vectors and use &amp; and | instead.</p>
+</div>
+<div id="list-as-dictionary" class="section level2">
+<h2><span class="header-section-number">17.5</span> List as dictionary</h2>
+<p>the list type is a good approximation. You can use names() on your list to set and retrieve the ‘keys’:</p>
+<pre class="sourceCode r"><code class="sourceCode r">foo &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;list&quot;</span>, <span class="dt">length=</span><span class="dv">3</span>)
+<span class="kw">names</span>(foo) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tic&quot;</span>, <span class="st">&quot;tac&quot;</span>, <span class="st">&quot;toe&quot;</span>)
+foo[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="dv">12</span>; foo[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="dv">22</span>; foo[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="dv">33</span>
+foo</code></pre>
+<pre><code>## $tic
+## [1] 12
+## 
+## $tac
+## [1] 22
+## 
+## $toe
+## [1] 33</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(foo)</code></pre>
+<pre><code>## [1] &quot;tic&quot; &quot;tac&quot; &quot;toe&quot;</code></pre>
+
 </div>
 </div>
 <h3>References</h3>

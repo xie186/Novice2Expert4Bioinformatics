@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2019-05-18">
+<meta name="date" content="2020-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -304,6 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>17.2</b> Producing Simple Graphs with R</a><ul>
 <li class="chapter" data-level="17.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>17.2.1</b> Line Charts</a></li>
 </ul></li>
+<li class="chapter" data-level="17.3" data-path="r-introduction.html"><a href="r-introduction.html#xxx"><i class="fa fa-check"></i><b>17.3</b> XXX</a></li>
+<li class="chapter" data-level="17.4" data-path="r-introduction.html"><a href="r-introduction.html#logic-and"><i class="fa fa-check"></i><b>17.4</b> Logic <code>&amp;&amp;</code> and <code>|</code></a></li>
+<li class="chapter" data-level="17.5" data-path="r-introduction.html"><a href="r-introduction.html#list-as-dictionary"><i class="fa fa-check"></i><b>17.5</b> List as dictionary</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html"><i class="fa fa-check"></i><b>18</b> Producing simple graphs</a><ul>
 <li class="chapter" data-level="18.1" data-path="producing-simple-graphs.html"><a href="producing-simple-graphs.html#producing-simple-graphs-using-r"><i class="fa fa-check"></i><b>18.1</b> Producing simple graphs using R</a><ul>
@@ -431,13 +434,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pheatmap)
 gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/maize_embryo_specific_gene_Sheet1.tsv&quot;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>)
 <span class="kw">pheatmap</span>(gene_exp)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.000001</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-2.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-113-2.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> T, <span class="dt">show_colnames =</span> F)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-3.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-113-3.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-4.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-113-4.png" width="672" /></p>
 </div>
 <div id="add-the-annotation" class="section level2">
 <h2><span class="header-section-number">20.3</span> Add the annotation</h2>
@@ -448,7 +451,7 @@ gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span 
 <div id="transfrom-the-data" class="section level2">
 <h2><span class="header-section-number">20.5</span> Transfrom the data</h2>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>)) </code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
 </div>
 <div id="how-to-add-annotations" class="section level2">
 <h2><span class="header-section-number">20.6</span> How to add annotations</h2>
