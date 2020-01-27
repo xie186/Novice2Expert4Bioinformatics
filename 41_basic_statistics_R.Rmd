@@ -1,0 +1,56 @@
+# Basic statistics
+
+## Probability distribution 
+
+
+### Geometirc distribution
+
+The geometric distribution is the distribution of the number of trials needed to get get the first success in repeated independent Bernolli trails. 
+
+
+### Bionomial distribution 
+
+The binomial distribution is the distribution of the number of successes (X) in  a fixed number (_n_) if independent Bernolli trails. 
+
+### Negative binomial distribution
+
+
+The negative bionomial distribution distribution is the distribution of the number of trials needed (X) to get the _r_th success (r). 
+
+
+
+$$
+\left(\begin{array}{l}
+{x-1} \\
+{r-1}
+\end{array}\right) p^{r-1}(1-p)^{(x-1)-(r-1)}
+$$
+
+
+The probabilty of the rth success that occures on the xth trial is: 
+
+$$
+\begin{aligned}
+P(X=x) &=p \times\left(\begin{array}{c}
+{x-1} \\
+{r-1}
+\end{array}\right) p^{r-1}(1-p)^{(x-1)-(r-1)} \\
+&=\left(\begin{array}{c}
+{x-1} \\
+{r-1}
+\end{array}\right) p^{r}(1-p)^{x-r}
+\end{aligned}
+$$
+
+The mean is:
+
+$$
+\mu=\frac{r}{p}
+$$
+
+
+
+
+## Reference
+
+Negative bionomial distribution 

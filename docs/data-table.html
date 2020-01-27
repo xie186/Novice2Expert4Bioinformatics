@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 18 Producing simple graphs | All things considered for Bioinformatics</title>
+  <title>Chapter 26 data.table | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 18 Producing simple graphs | All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 26 data.table | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Producing simple graphs | All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 26 data.table | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="r-introduction.html">
-<link rel="next" href="ggplot2.html">
+<link rel="prev" href="capstone-project.html">
+<link rel="next" href="practical-data-analysis-on-wgbs.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -436,28 +436,127 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="producing-simple-graphs" class="section level1">
-<h1><span class="header-section-number">Chapter 18</span> Producing simple graphs</h1>
-<div id="producing-simple-graphs-using-r" class="section level2">
-<h2><span class="header-section-number">18.1</span> Producing simple graphs using R</h2>
-<div id="line-charts-1" class="section level3">
-<h3><span class="header-section-number">18.1.1</span> Line Charts</h3>
+<div id="data.table" class="section level1">
+<h1><span class="header-section-number">Chapter 26</span> data.table</h1>
+<div id="split-data.table-into-chunks-in-a-list" class="section level2">
+<h2><span class="header-section-number">26.1</span> Split data.table into chunks in a list</h2>
+<p>Split method for data.table. Faster and more flexible. Be aware that processing list of data.tables will be generally much slower than manipulation in single data.table by group using by argument, read more on data.table.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+<span class="kw">set.seed</span>(<span class="dv">123</span>)
+dt =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">x1 =</span> <span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">6</span>), 
+                <span class="dt">x2 =</span> <span class="kw">rep</span>(letters[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">4</span>), 
+                <span class="dt">x3 =</span> <span class="kw">rep</span>(letters[<span class="dv">5</span><span class="op">:</span><span class="dv">8</span>], <span class="dv">3</span>), 
+                <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dv">12</span>))
+dt =<span class="st"> </span>dt[<span class="kw">sample</span>(.N)]
+df =<span class="st"> </span><span class="kw">as.data.frame</span>(dt)
+df</code></pre>
+<pre><code>##    x1 x2 x3           y
+## 1   b  d  h -1.26506123
+## 2   b  e  h  0.35981383
+## 3   b  e  f  1.71506499
+## 4   b  c  f -0.44566197
+## 5   a  e  g  1.55870831
+## 6   b  d  f -0.23017749
+## 7   a  e  e -0.68685285
+## 8   a  d  e  0.12928774
+## 9   a  d  g  1.22408180
+## 10  b  c  h  0.07050839
+## 11  a  c  e -0.56047565
+## 12  a  c  g  0.46091621</code></pre>
+<div id="nested-list-using-flatten-arguments" class="section level3">
+<h3><span class="header-section-number">26.1.1</span> nested list using <code>flatten</code> arguments</h3>
+<pre class="sourceCode r"><code class="sourceCode r">new_list &lt;-<span class="st"> </span><span class="kw">split</span>(dt, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>))
+new_list</code></pre>
+<pre><code>## $b.d
+##    x1 x2 x3          y
+## 1:  b  d  h -1.2650612
+## 2:  b  d  f -0.2301775
+## 
+## $b.e
+##    x1 x2 x3         y
+## 1:  b  e  h 0.3598138
+## 2:  b  e  f 1.7150650
+## 
+## $b.c
+##    x1 x2 x3           y
+## 1:  b  c  f -0.44566197
+## 2:  b  c  h  0.07050839
+## 
+## $a.e
+##    x1 x2 x3          y
+## 1:  a  e  g  1.5587083
+## 2:  a  e  e -0.6868529
+## 
+## $a.d
+##    x1 x2 x3         y
+## 1:  a  d  e 0.1292877
+## 2:  a  d  g 1.2240818
+## 
+## $a.c
+##    x1 x2 x3          y
+## 1:  a  c  e -0.5604756
+## 2:  a  c  g  0.4609162</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">new_list &lt;-<span class="st"> </span><span class="kw">split</span>(dt, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>), <span class="dt">flatten=</span><span class="ot">FALSE</span>)
+new_list</code></pre>
+<pre><code>## $b
+## $b$d
+##    x1 x2 x3          y
+## 1:  b  d  h -1.2650612
+## 2:  b  d  f -0.2301775
+## 
+## $b$e
+##    x1 x2 x3         y
+## 1:  b  e  h 0.3598138
+## 2:  b  e  f 1.7150650
+## 
+## $b$c
+##    x1 x2 x3           y
+## 1:  b  c  f -0.44566197
+## 2:  b  c  h  0.07050839
+## 
+## 
+## $a
+## $a$e
+##    x1 x2 x3          y
+## 1:  a  e  g  1.5587083
+## 2:  a  e  e -0.6868529
+## 
+## $a$d
+##    x1 x2 x3         y
+## 1:  a  d  e 0.1292877
+## 2:  a  d  g 1.2240818
+## 
+## $a$c
+##    x1 x2 x3          y
+## 1:  a  c  e -0.5604756
+## 2:  a  c  g  0.4609162</code></pre>
 </div>
-<div id="bar-charts" class="section level3">
-<h3><span class="header-section-number">18.1.2</span> Bar Charts</h3>
-</div>
-<div id="histograms" class="section level3">
-<h3><span class="header-section-number">18.1.3</span> Histograms</h3>
-</div>
-<div id="pie-charts" class="section level3">
-<h3><span class="header-section-number">18.1.4</span> Pie Charts</h3>
-</div>
-<div id="dotcharts" class="section level3">
-<h3><span class="header-section-number">18.1.5</span> Dotcharts</h3>
-</div>
-<div id="misc" class="section level3">
-<h3><span class="header-section-number">18.1.6</span> Misc</h3>
+<div id="example" class="section level3">
+<h3><span class="header-section-number">26.1.2</span> Example</h3>
+<pre class="sourceCode r"><code class="sourceCode r">dt_example =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>), <span class="dv">4</span>), 
+                <span class="dt">gene =</span> <span class="kw">c</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], letters[<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>]))
+dt</code></pre>
+<pre><code>##     x1 x2 x3           y
+##  1:  b  d  h -1.26506123
+##  2:  b  e  h  0.35981383
+##  3:  b  e  f  1.71506499
+##  4:  b  c  f -0.44566197
+##  5:  a  e  g  1.55870831
+##  6:  b  d  f -0.23017749
+##  7:  a  e  e -0.68685285
+##  8:  a  d  e  0.12928774
+##  9:  a  d  g  1.22408180
+## 10:  b  c  h  0.07050839
+## 11:  a  c  e -0.56047565
+## 12:  a  c  g  0.46091621</code></pre>
+<div id="crate-a-matrix-from-data.table" class="section level4">
+<h4><span class="header-section-number">26.1.2.1</span> Crate a matrix from data.table</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(UpSetR)
+list_group =<span class="st"> </span><span class="kw">split</span>(dt_example[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;z&quot;</span>)], <span class="dt">by=</span><span class="st">&quot;group&quot;</span>,  <span class="dt">drop=</span><span class="ot">TRUE</span>)
+list_group</code></pre>
+<pre><code>## named list()</code></pre>
 
+</div>
 </div>
 </div>
 </div>
@@ -466,8 +565,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="r-introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="capstone-project.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practical-data-analysis-on-wgbs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -497,7 +596,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/19_SimpleGraphR.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/29_R_data.table.Rmd",
 "text": "Edit"
 },
 "history": {

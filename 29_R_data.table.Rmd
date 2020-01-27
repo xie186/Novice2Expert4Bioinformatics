@@ -1,0 +1,52 @@
+# data.table
+
+
+
+## Split data.table into chunks in a list
+
+Split method for data.table. Faster and more flexible. Be aware that processing list of data.tables will be generally much slower than manipulation in single data.table by group using by argument, read more on data.table.
+
+
+
+```{r}
+library(data.table)
+set.seed(123)
+dt = data.table(x1 = rep(letters[1:2], 6), 
+                x2 = rep(letters[3:5], 4), 
+                x3 = rep(letters[5:8], 3), 
+                y = rnorm(12))
+dt = dt[sample(.N)]
+df = as.data.frame(dt)
+df
+```
+
+### nested list using `flatten` arguments
+
+```{r}
+new_list <- split(dt, by=c("x1", "x2"))
+new_list
+```
+
+```{r}
+new_list <- split(dt, by=c("x1", "x2"), flatten=FALSE)
+new_list
+```
+
+
+
+### Example
+
+```{r}
+dt_example = data.table(group = rep(c("group1", "group2"), 4), 
+                gene = c(letters[1:4], letters[3:6]))
+dt
+
+```
+
+#### Crate a matrix from data.table 
+
+```{r}
+library(UpSetR)
+list_group = split(dt_example[-which(names(df)=="z")], by="group",  drop=TRUE)
+list_group
+```
