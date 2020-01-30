@@ -15,7 +15,7 @@ The binomial distribution is the distribution of the number of successes (X) in 
 ### Negative binomial distribution
 
 
-The negative bionomial distribution distribution is the distribution of the number of trials needed (X) to get the _r_th success (r). 
+The negative bionomial distribution distribution is the distribution of the number of trials needed (X) to get the _r_th success (r)(@jbstatistics). 
 
 
 
@@ -42,15 +42,105 @@ P(X=x) &=p \times\left(\begin{array}{c}
 \end{aligned}
 $$
 
-The mean is:
+We say Random varaible X is distributed $$X \sim N B(r, p)$$. The mean is: $$\mu=\frac{r}{p}$$. The variance is $$\sigma^{2}=\frac{r(1-p)}{p^{2}}$$. 
 
-$$
-\mu=\frac{r}{p}
-$$
+_X_ is the count of independent Bernoulli trials required to achieve the rth successful trial when the probability of success is constant _p_.
 
 
+R function `dnbinom` gives the density. `dnbbinom(x, size, prob)` calculate the probability that a number of failures _x_ occurs before _r_-th success, in a sequence of Bernoulli trials, for which the probability of individual success is p.
+
+Example 1 (@NBblogMichael): 
+
+An oil company has a `p = 0.20` chance of striking oil when drilling a well. What is the probability the company drills x = 7 wells to strike oil r = 3 times?
+
+```{r}
+r = 3
+p = 0.20
+n = 7 - r
+# exact
+dnbinom(x = n, size = r, prob = p)
+```
+
+```{r}
+# simulated
+mean(rnbinom(n = 10000, size = r, prob = p) == n)
+```
+
+```{r}
+barplot(dnbinom(1:25,2,0.5), col="grey", names.arg=1:25)
+
+```
+
+```{r}
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
+
+data.frame(x = 0:10, prob = dnbinom(x = 0:10, size = r, prob = p)) %>%
+  mutate(Failures = ifelse(x == n, n, "other")) %>%
+ggplot(aes(x = factor(x), y = prob, fill = Failures)) +
+  geom_col() +
+  geom_text(
+    aes(label = round(prob,2), y = prob + 0.01),
+    position = position_dodge(0.9),
+    size = 3,
+    vjust = 0
+  ) +
+  labs(title = "Probability of r = 3 Successes in X = 7 Trials",
+       subtitle = "NB(3,.2)",
+       x = "Failed Trials (X - r)",
+       y = "Probability") 
+```
+
+```{r}
+#What is the expected number of trials to achieve r = 3 successes when the probability of success is p = 0.2?
+r = 3
+p = 0.20
+# mean
+# exact
+r / p
+
+```
+```{r}
+# simulated
+mean(rnbinom(n = 10000, size = 3, prob = p)) + r
+```
+
+```{r}
+# Variance
+# exact
+r * (1 - p) / p^2
+```
+```{r}
+# simulated
+var(rnbinom(n = 100000, size = r, prob = p))
+```
+
+```{r}
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
+
+data.frame(x = 1:20, 
+           pmf = dnbinom(x = 1:20, size = r, prob = p),
+           cdf = pnbinom(q = 1:20, size = r, prob = p, lower.tail = TRUE)) %>%
+ggplot(aes(x = factor(x), y = cdf)) +
+  geom_col() +
+  geom_text(
+    aes(label = round(cdf,2), y = cdf + 0.01),
+    position = position_dodge(0.9),
+    size = 3,
+    vjust = 0
+  ) +
+  labs(title = "Cumulative Probability of X = x failed trials to achieve 3rd success",
+       subtitle = "NB(3,.2)",
+       x = "Failed Trials (x)",
+       y = "probability") 
+
+```
+
+#### Why is it called Negative Binomial?
 
 
-## Reference
 
-Negative bionomial distribution 
+The “negative” part of negative binomial stems from the fact that one facet of the binomial distribution is reversed: in a binomial experiment, we count the number of successes in a fixed number of trials. In a negative binomial experiment, we’re counting the failures, or how many cards it takes you to pick two aces.
+
+

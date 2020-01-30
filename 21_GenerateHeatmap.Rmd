@@ -16,13 +16,32 @@ library(pheatmap)
 gene_exp <- read.table("data/maize_embryo_specific_gene_Sheet1.tsv", header=T, row.names=1)
 pheatmap(gene_exp)
 
+```
 
+
+
+
+
+
+
+```{r}
+library(ggplot2)
+# Set the theme for all the following plots.
+theme_set(theme_bw(base_size = 16))
+
+dat <- data.frame(values = as.numeric(unlist(gene_exp)))
+summary(dat)
+ggplot(dat, aes(values)) + geom_density(bw = "SJ") + xlim(c(0,100))
+```
+
+The data is skewed. 
+
+
+```{r}
 pheatmap(log2(gene_exp + 0.000001), scale="row")
 pheatmap(log2(gene_exp + 0.01), scale="row", show_rownames = T, show_colnames = F)
 pheatmap(log2(gene_exp + 0.01), scale="row", show_rownames = F, show_colnames = T)
 
-
- 
 ```
 
 ## Add the annotation
@@ -33,7 +52,7 @@ pheatmap(log2(gene_exp + 0.01), scale="row", show_rownames = F, show_colnames = 
 
 ```{r}
 
-pheatmap(log2(gene_exp + 0.01)) 
+pheatmap(log2(gene_exp + 0.01), show_rownames = F) 
 
 ```
 
@@ -44,4 +63,17 @@ pheatmap(log2(gene_exp + 0.01))
 
 ## How to get the cluster information from the heatmap
 
-## 
+## Change color 
+
+
+### Use Brewer 
+
+```{r}
+col.pal <- RColorBrewer::brewer.pal(9, "Reds")
+col.pal 
+pheatmap(log2(gene_exp + 0.01), scale="row",
+         show_rownames = F, show_colnames = T)
+pheatmap(log2(gene_exp + 0.01), scale="row", color = col.pal,
+         show_rownames = F, show_colnames = T)
+
+```
