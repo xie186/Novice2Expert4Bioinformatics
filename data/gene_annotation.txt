@@ -1,8 +1,8 @@
-gene_id gene_shortname
+gene_id	gene_shortname
 gene1	ROS
-gene2 WRKY
-gene3 ZmCCT
-gene4 WRKY1
-gene5 WRKY2
-gene6 wrky
-gene10  MCU
+gene2	WRKY
+gene3	ZmCCT
+gene4	WRKY1
+gene5	WRKY2
+gene6	wrky
+gene10	MCU

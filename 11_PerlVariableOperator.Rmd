@@ -129,6 +129,52 @@ $dna_length --;
 print "DNA length: $dna_length after `\$dna_length --`\n";
 ```
 
+### `inf` and `-inf` in Perl
+
+
+In Bioinformaticics analysis, you may need to calculate fold change of expression between two samples (let's say sample 1/sample 2). If sample 2 has an expression level of 0, 
+
+Deviding a zero will lead an eror message: `Illegal division by zero at ...`
+
+
+```
+print 2/0, "\n";
+```
+
+But Perl can recognize special values `inf`,`+inf, `-inf`: 
+
+When we use them in a multiplication, we get "inf" again:
+
+```{perl}
+$result = "inf" * 100;
+print "$result\n";
+```
+```{perl}
+$result = "-inf" * 0;
+print "$result\n";
+```
+
+
+
+```{perl}
+$result = "-inf" * 1;
+print "$result\n";
+```
+
+Dividing by an infinity variant returns its limit, which is 0:
+
+```{perl}
+$result = 1/inf;
+print "$result\n";
+```
+
+```{perl}
+$result = 1/-inf;
+print "$result\n";
+```
+
+You might see `-0` if the underlying C library handles that. It’s the same as regular 0. 
+
 
 ## `use strict`; `user warnings` and `my`
 

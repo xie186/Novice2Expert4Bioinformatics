@@ -56,7 +56,7 @@ gunzip -c file.gz > file
 
 #### How to decompress the `*.tar.gz` file
 
-```
+```{sh, eval=FALSE}
 tar zxvf file.tar.gz
 ```
 
@@ -67,24 +67,33 @@ tar zxvf file.tar.gz
 
 #### How to view the content without extract the files
 
-```
+```{sh, eval=FALSE}
 tar -tf file.tar.gz
 ```
 
+```{sh, eval=FALSE}
+tar -tvf file.tar.gz
+```
+
+
 #### How to create a `*.tar.gz` file
 
-```
+```{sh, eval=FALSE}
 tar zcvf file_new.tar.gz file1 file2 folder1 folder2
 ```
 
-#### How to create `*.tar.gz` file
+#### How to extract a specific file from a `*.tar.gz` file
 
+```{sh, eval=FALSE}
+#tar -xvf {tarball.tar} {path/to/file}
+tar -zxvf config.tar.gz etc/default/sysstat
+```
 
 ### `*.zip`
 
 #### How to unzip a `*.zip` file
 
-```
+```{sh, eval=FALSE}
 unzip file.zip
 ```
 
@@ -106,7 +115,7 @@ pwd
 ls 
 wget https://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2
 ls
-tar -vxjf bwa-0.7.17.tar.bz2
+tar -jxvf bwa-0.7.17.tar.bz2
 
 ```
 

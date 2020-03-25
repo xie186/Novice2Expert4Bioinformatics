@@ -1,0 +1,58 @@
+# Perl one-liner
+
+Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. 
+
+
+## Convert a fastq file from FASTQ to FAST 
+
+```{sh}
+perl -e 'while(<>){$id=$_; $seq=<>;<>;<>; print ">$id$seq";}' ./data/WGBS_example_data/EV1.fastq |head -10
+```
+
+
+Now how about finding all repeated lines in a file?
+
+```{sh}
+perl -ne 'print $_ if $record{$_}++' ./data/WGBS_example_data/EV1.fastq
+```
+
+
+How about numbering lines? Super simple! Perl has the `$.` special
+variable that maintains the current line number. You can just print it out together with the line:
+
+```{sh}
+perl -ne 'print "$.:$_" if /gene3/' ./data/DEG_list.txt
+```
+
+This is equivalent of the `grep` comand line shown below: 
+
+```{sh}
+grep -n 'gene3'  ./data/DEG_list.txt
+```
+
+```{sh}
+perl -e 'while(<>){$id=$_; $seq=<>;<>;<>; print ">$id$seq";}' ./data/WGBS_example_data/EV1.fastq |head -10
+```
+
+
+## Escape single quote
+
+You can't use single quotes alone. You need to escape them correctly using '\'' This works:
+
+```{sh}
+echo "a,b" | perl -F',' -lane 'print "'\''$F[0]'\''";'
+```
+
+
+The `\047` is an octal escape. it's actually just a single quote. when working with embedded quotes, it's sometimes easier to just write \047 rather than something like `'\''`.
+
+```{sh}
+echo "a,b" | perl -F',' -lane 'print "\047$F[0]\047";'
+```
+
+
+## Reference
+
+https://catonmat.net/ftp/perlbook-preview.pdf
+
+

@@ -28,7 +28,7 @@ grep 'WRKY' data/gene_annotation.txt
 ```
 
 ```{sh}
-grep 'WRKY' data/gene_annotation.txt |wc -l 
+grep 'WRKY' data/gene_annotation.txt  |wc -l 
 ```
 
 
@@ -48,12 +48,36 @@ grep -w 'gene1' data/gene_annotation.txt
 
 #### `awk`
 
+## `paste`
+
+```{sh}
+paste data/DEG_list.txt data/gene_annotation.txt |head -5
+```
+
+```{sh}
+paste data/DEG_list.txt data/gene_annotation.txt |head -5 |cut -f 1-3,5
+```
 
 
+```{sh}
+head -2 data/WGBS_example_data/EV1.fastq
+```
 
+```{sh}
+paste - - - - <data/WGBS_example_data/EV1.fastq |head -2 
+```
+
+```{sh}
+paste - - - - <data/WGBS_example_data/EV1.fastq |cut -f1-2 |head -2
+```
+
+Convert fastq file to fasta file using paste: 
+
+```{sh}
+paste - - - - <data/WGBS_example_data/EV1.fastq |cut -f1-2 | sed 's/^@/>/' | tr "\t" "\n"  |head -4
+```
 
 ## Finding Things
-
 
 ### Find files with pattern matching
 
@@ -73,12 +97,18 @@ find . -type f | wc -l
 
 ```{sh}
 #To find files larger than 10MB:
-find . -type f -size +100M
+find . -type f -size +10M
 ```
 
 ```{sh}
 # If you want the current dir only:
 find . -maxdepth 1 -type f -size +1M
+```
+
+### Find files and do someting
+
+```{sh}
+find . -type f -name "*fa*.pl" -exec ls -l {} +; 
 ```
 
 

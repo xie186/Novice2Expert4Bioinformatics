@@ -97,3 +97,54 @@ foo
 names(foo)
 ```
 
+
+
+## Parsing arguments as string
+
+
+### String as xlim
+
+```{r}
+
+```
+
+
+### How to access data frame column using variable
+
+
+```{r}
+a = "col1"
+b = "col2"
+d = data.frame(a=c(1,2,3),b=c(4,5,6))
+colnames(d) <- c("col1", "col2")
+d[[a]]
+```
+
+This is useful when you parse a variable from the command line 
+
+
+### How to create a formula from a 
+
+It can be useful to create a formula from a string. This often occurs in functions where the formula arguments are passed in as strings.
+
+
+
+It can be useful to create a formula from a string. This often occurs in functions where the formula arguments are passed in as strings.
+
+```{r}
+design1 = "diet"
+design2 = "age"
+## `~ diet + age`
+as.formula(paste0("~ " , design1, " + ", design2))
+
+```
+
+
+```{r comment=''}
+cat(readLines('code_R/parse_aug_as.formula.R'), sep = '\n')
+```
+
+
+```{sh}
+/opt/R/3.5.3/lib/R/bin/Rscript code_R/parse_aug_as.formula.R time Time
+```

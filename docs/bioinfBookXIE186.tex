@@ -126,7 +126,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-04-15}
+    \date{2020-03-20}
 
 \usepackage{booktabs}
 
@@ -210,7 +210,7 @@
 \end{verbatim}
 
 \begin{verbatim}
-## Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.2 (2018-12-20).
+## Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.3 (2019-03-11).
 \end{verbatim}
 
 \hypertarget{part-linux}{%
@@ -317,6 +317,10 @@ If you want to connect to a Linux server, what you need to know first is:
 
 If you are a Mac OS X user, you can connect to a Linux server by using \texttt{Terminal}, a console program included with the operating system.
 
+\begin{quote}
+Mac OS system itself is also a UNIX system. Majority of the command lines in Linux will also work in Mac OS.
+\end{quote}
+
 For Windows users, I would recommend MobaXterm for remote connection. MobatXterm is an excellent toolbox for remote connection from Windows system. It comes with an X11 server and provides many networking tools and tabbed SSH. It has all the essential UNIX commands in a single portable executable file.
 
 Here I show one example of what you should do When you first open Mobaxterm. You need to follow the numbers in Figure \ref{fig:mobaxtermInit}: click \texttt{Session}; then click \texttt{SSH}; type the IP or name address of the remote host, check \texttt{Specify\ username} if you need; click \texttt{OK}.
@@ -351,15 +355,26 @@ Password: nobigfile
 
 As you can tell from the password, please do NOT upload BIG files (bigger than 2 MB).
 
+\hypertarget{alternative-ways-to-gain-access-to-a-linux-server}{%
+\subsection{Alternative ways to gain access to a Linux Server}\label{alternative-ways-to-gain-access-to-a-linux-server}}
+
+\hypertarget{mac-os}{%
+\subsubsection{Mac OS}\label{mac-os}}
+
+\hypertarget{dual-boot-ubuntu-and-windows}{%
+\subsubsection{Dual boot Ubuntu and Windows}\label{dual-boot-ubuntu-and-windows}}
+
+If you are a windows user, you can set up \texttt{{[}WindowsDualBoot{]}}(\url{https://rstudio.cloud/spaces/15199/project/311887}).
+
 \hypertarget{digitalocean-droplet}{%
-\subsection{DigitalOcean droplet}\label{digitalocean-droplet}}
+\subsubsection{DigitalOcean droplet}\label{digitalocean-droplet}}
 
 Another option is to sign up on DigitalOcean and create a droplet. DigitalOcean calls its cloud servers Droplets; each Droplet you create is a new server for your personal use. DigitalOcean has a tutorial of {[}\textbf{How To Create Your First DigitalOcean Droplet}{]} (\url{https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet}). You can get a your own Linux server with a \$5 monthly payment.
 
 The Linux server with IP address of \texttt{198.211.107.37} is a droplet on DigitalOcean. I pay \$5 each month for this droplet.
 
 \hypertarget{aws-free-tier-offering}{%
-\subsection{AWS Free Tier offering}\label{aws-free-tier-offering}}
+\subsubsection{AWS Free Tier offering}\label{aws-free-tier-offering}}
 
 One more way to get access to a Linux system is to take advantage of Red Hat Enterprise Linux delivered by Amazon EC2 (Elastic Compute Cloud). Red Hat and Amazon Web Services collaborate to provide official Red Hat Enterprise Linux licensed images through Amazon's on-demand public cloud service at free or low cost.
 
@@ -367,8 +382,12 @@ The guided exercises and labs for this course were written assuming that you wil
 
 At the time of writing, Amazon Web Services provides an AWS Free Tier offering, which gives new users free access to certain sizes of cloud instances and operating environments (including Red Hat Enterprise Linux 7) for up to 750 hours per month, for 12 months.
 
-\hypertarget{file-system-and-commands-of-linux}{%
-\chapter{File system and commands of Linux}\label{file-system-and-commands-of-linux}}
+\hypertarget{navigating-in-linux-file-system}{%
+\chapter{Navigating in Linux file system}\label{navigating-in-linux-file-system}}
+
+You are in your home directory after you log into the system and are directed to the shell command prompt. This section will show you hot to explore Linux file system using shell commands.
+
+To start, you need to take a tour of what the Linux filesystem looks like so you know where you are going.
 
 \hypertarget{path}{%
 \section{Path}\label{path}}
@@ -434,11 +453,13 @@ If you want to get the \textbf{absolute path} based on \textbf{relative path}, y
 ## /cloud
 \end{verbatim}
 
-\#\#Surfing in Linux file system
+\hypertarget{surfing-in-linux-file-system}{%
+\section{Surfing in Linux file system}\label{surfing-in-linux-file-system}}
 
 Once we enter into a Linux file system, we need to 1) know where we are; 2) how to get where we want; 3) how to know what files or directories we have in a particular path.
 
-\#\#\#Command \texttt{pwd}
+\hypertarget{check-where-you-are-using-command-pwd}{%
+\subsection{\texorpdfstring{Check where you are using command \texttt{pwd}}{Check where you are using command pwd}}\label{check-where-you-are-using-command-pwd}}
 
 In order to know where we are, we need to use \texttt{pwd} command. The command \texttt{pwd} is short for ``print name of current/working directory''. It will return the full path of current directory.
 
@@ -455,8 +476,8 @@ Command pwd is almost always used by itself. This means you only need to type pw
 \caption{ref:linuxCMDpwd}\label{fig:linuxCMDpwd}
 \end{figure}
 
-\hypertarget{comand-ls}{%
-\subsection{\texorpdfstring{Comand \texttt{ls}}{Comand ls}}\label{comand-ls}}
+\hypertarget{listing-the-contents-using-command-ls}{%
+\subsection{\texorpdfstring{Listing the contents using command \texttt{ls}}{Listing the contents using command ls}}\label{listing-the-contents-using-command-ls}}
 
 After you know where you are, then you want to know what you have in that
 directory, we can use command \texttt{ls} to list directory contents (Figure \ref{fig:linuxCMDls}). Its syntax is:
@@ -494,14 +515,17 @@ ls [option]... [file]...
 \begin{verbatim}
 ## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
+## regexp_perl.tsv
 ## textEditorLinuxVi3modes.csv
 ## ls -a
 ## .
 ## ..
 ## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
+## regexp_perl.tsv
 ## textEditorLinuxVi3modes.csv
 ## ls -t
+## regexp_perl.tsv
 ## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
 ## textEditorLinuxVi3modes.csv
@@ -514,12 +538,13 @@ ls [option]... [file]...
 \end{Shaded}
 
 \begin{verbatim}
-## total 24
-## drwxrwxr-x  2 rstudio-user rstudio-user 4096 Apr 15 15:48 .
-## drwxr-xr-x 16 rstudio-user rstudio-user 4096 Apr 15 16:33 ..
-## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15 15:48 10_PerlInputOutput_bak.Rmd
-## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15 15:48 linuxPathShortcuts.tsv
-## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15 15:48 textEditorLinuxVi3modes.csv
+## total 28
+## drwxrwxr-x  2 rstudio-user rstudio-user 4096 May 18  2019 .
+## drwxr-xr-x 17 rstudio-user rstudio-user 4096 Mar 20 17:58 ..
+## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15  2019 10_PerlInputOutput_bak.Rmd
+## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15  2019 linuxPathShortcuts.tsv
+## -rw-rw-r--  1 rstudio-user rstudio-user  259 May 18  2019 regexp_perl.tsv
+## -rw-rw-r--  1 rstudio-user rstudio-user  766 Apr 15  2019 textEditorLinuxVi3modes.csv
 \end{verbatim}
 
 Linux command options can be combined without a space between them and with a single - (dash).
@@ -530,8 +555,8 @@ The following command is a faster way to use the l and a options and gives the s
 ls -la 
 \end{verbatim}
 
-\hypertarget{command-cd}{%
-\subsection{\texorpdfstring{Command \texttt{cd}}{Command cd}}\label{command-cd}}
+\hypertarget{change-directory-using-command-cd}{%
+\subsection{\texorpdfstring{Change directory using command \texttt{cd}}{Change directory using command cd}}\label{change-directory-using-command-cd}}
 
 Command cd is used to change the current directory. It's syntax is:
 
@@ -543,7 +568,8 @@ Unlike \texttt{pwd}, when you use \texttt{cd} you usually need to provide the pa
 
 If we didn't provide any path information, we will change to home directory by default.
 
-\#\#Path shortcuts
+\hypertarget{path-shortcuts}{%
+\section{Path shortcuts}\label{path-shortcuts}}
 
 In Linux, there are three commonly used path shortpaths (Table \ref{tab:linuxPathShortcuts}).
 
@@ -601,6 +627,7 @@ Here are some examples:
 ## 07_fileTransfer.Rmd
 ## 08_InstallationOfSoftwareInLinux.Rmd
 ## 09_TextEditorInLinux.Rmd
+## 100_Perl_oneliner.Rmd
 ## 10_FirstPerlProgram.Rmd
 ## 11_PerlVariableOperator.Rmd
 ## 13_PerlControlStructure.Rmd
@@ -609,7 +636,6 @@ Here are some examples:
 ## 16_practicalPerlProgram.Rmd
 ## 17_PerlModules.Rmd
 ## 18_R_intro.Rmd
-## 19_SimpleGraphR.Rmd
 ## 20_GraphGgplot2.Rmd
 ## 21_GenerateHeatmap.Rmd
 ## 22_FigureManuscript.Rmd
@@ -619,10 +645,12 @@ Here are some examples:
 ## 26_introBSseq.Rmd
 ## 27_ExpDesign.Rmd
 ## 28_CapstoneProjectRNA-seq.Rmd
+## 29_R_data.table.Rmd
 ## 30_CapstoneProjectBS-seq.Rmd
 ## 30_py_why_program.Rmd
 ## 31_Good_resource.Rmd
 ## 32_Reference.Rmd
+## 41_basic_statistics_R.Rmd
 ## DESCRIPTION
 ## LICENSE
 ## README.md
@@ -635,16 +663,13 @@ Here are some examples:
 ## _output.yml
 ## bak
 ## bioinfBookXIE186.Rmd
-## bioinfBookXIE186.aux
-## bioinfBookXIE186.log
 ## bioinfBookXIE186_files
 ## book.bib
 ## bookdown-demo.Rproj
 ## bookdown-demo.log
-## capstone_CRISPR_screen.Rmd
-## cmd_linux_admin.Rmd
 ## code_R
 ## code_perl
+## code_python
 ## data
 ## docs
 ## download
@@ -659,12 +684,12 @@ Here are some examples:
 ## packages.bib
 ## preamble.tex
 ## preamble_bak.tex
+## python_first_python.Rmd
 ## rpres.css
 ## slides
 ## style.css
 ## tables
 ## test.pl
-## test.py
 ## toc.css
 \end{verbatim}
 
@@ -1145,10 +1170,14 @@ Using ``-a'' flag with ``du'' command displays the disk usage of all the files a
 ## 4.0K data/test_ref.fa
 ## 4.0K data/test_ref_len.txt
 ## 4.0K data/gene_annotation.txt
+## 8.0K data/Pneumonia_china_2020.RDS
 ## 4.0K data/WGBS_sample_information.txt
+## 0    data/regexp_perl.txt
 ## 4.0K data/test_ref2_30.fa
 ## 4.0K data/DMR_region_merged.txt
 ## 27M  data/ESP6500-African_American.vcf.gz
+## 8.0K data/WGBS_example_data/EV1.fastq
+## 12K  data/WGBS_example_data
 ## 4.0K data/DMR_region.txt
 ## 88K  data/maize_embryo_specific_gene_Sheet1.tsv
 ## 9.3M data/Arabidopsis_thaliana.TAIR10.37.gff3.gz
@@ -1183,15 +1212,21 @@ Using ``-a'' flag with ``du'' command displays the disk usage of all the files a
 
 \begin{verbatim}
 ## The MD5 value of index.Rmd is: 
-## 687196e6e5bfac894b4047e4b54404e7  index.Rmd
+## c33df2aa9b5eb7f181fb7b35f2df8fbc  index.Rmd
 ## The MD5 value of index.Rmd_bak is: 
-## 687196e6e5bfac894b4047e4b54404e7  index.Rmd_bak
+## c33df2aa9b5eb7f181fb7b35f2df8fbc  index.Rmd_bak
 ## The MD5 value of new index.Rmd_bak is: 
 ## 6c6d75e8839891bf7ba1ab152c8f267c  index.Rmd_bak
 \end{verbatim}
 
-\hypertarget{filtering-output}{%
-\section{Filtering Output}\label{filtering-output}}
+\hypertarget{file-content-filtering}{%
+\chapter{File content filtering}\label{file-content-filtering}}
+
+\hypertarget{file-filtering}{%
+\section{File Filtering}\label{file-filtering}}
+
+\hypertarget{column-filtering}{%
+\subsection{Column filtering}\label{column-filtering}}
 
 \hypertarget{cut}{%
 \subsection{\texorpdfstring{\texttt{cut}}{cut}}\label{cut}}
@@ -1201,6 +1236,155 @@ Using ``-a'' flag with ``du'' command displays the disk usage of all the files a
 cut sort uniq wc grep
 
 \url{https://www.youtube.com/playlist?list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK}
+
+\hypertarget{row-filtering}{%
+\subsection{Row filtering}\label{row-filtering}}
+
+\hypertarget{grep}{%
+\subsubsection{\texorpdfstring{\texttt{grep}}{grep}}\label{grep}}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+The \texttt{grep} command which stands for ``global regular expression print,'' processes text line by line and prints any lines which match a specified pattern. The grep command is used to search text or searches the given file for lines containing a match to the given strings or words. By default, grep displays the matching lines.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grep} \StringTok{'WRKY'}\NormalTok{ data/gene_annotation.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## gene2 WRKY
+## gene4 WRKY1
+## gene5 WRKY2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grep} \StringTok{'WRKY'}\NormalTok{ data/gene_annotation.txt }\KeywordTok{|}\FunctionTok{wc}\NormalTok{ -l }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grep}\NormalTok{ -i }\StringTok{'WRKY'}\NormalTok{ data/gene_annotation.txt }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## gene2 WRKY
+## gene4 WRKY1
+## gene5 WRKY2
+## gene6 wrky
+\end{verbatim}
+
+If you want to search for a word, and avoid matching substrings use `-w `option.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grep} \StringTok{'gene1'}\NormalTok{ data/gene_annotation.txt }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## gene1    ROS
+## gene10  MCU
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{grep}\NormalTok{ -w }\StringTok{'gene1'}\NormalTok{ data/gene_annotation.txt }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## gene1    ROS
+\end{verbatim}
+
+\hypertarget{awk}{%
+\subsubsection{\texorpdfstring{\texttt{awk}}{awk}}\label{awk}}
+
+\hypertarget{finding-things}{%
+\section{Finding Things}\label{finding-things}}
+
+\hypertarget{find-files-with-pattern-matching}{%
+\subsection{Find files with pattern matching}\label{find-files-with-pattern-matching}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Find any files with "Linux" and ".Rmd" in the file names}
+\FunctionTok{find}\NormalTok{ . -type f -name }\StringTok{"*Linux*.Rmd"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ./slides/slides01_Linux.Rmd
+## ./04_Linux_FilteringOutputandFindingThings.Rmd
+## ./01_WhyLinux.Rmd
+## ./02_Connect2Linux.Rmd
+## ./09_TextEditorInLinux.Rmd
+## ./08_InstallationOfSoftwareInLinux.Rmd
+## ./06_procManageLinux.Rmd
+## ./03_FileSystemLinux.Rmd
+\end{verbatim}
+
+\hypertarget{count-file-numbers-in-a-folder-and-its-subdirectories}{%
+\subsection{Count file numbers in a folder and its subdirectories}\label{count-file-numbers-in-a-folder-and-its-subdirectories}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{find}\NormalTok{ . -type f }\KeywordTok{|} \FunctionTok{wc}\NormalTok{ -l}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1608
+\end{verbatim}
+
+\hypertarget{list-files-bigger-than-filesize-specified}{%
+\subsection{List files bigger than filesize specified}\label{list-files-bigger-than-filesize-specified}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#To find files larger than 10MB:}
+\FunctionTok{find}\NormalTok{ . -type f -size +100M}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ./.git/objects/pack/pack-b6b6179d7bb7190bc99389e158b2a8e4cbd98d2f.pack
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# If you want the current dir only:}
+\FunctionTok{find}\NormalTok{ . -maxdepth 1 -type f -size +1M}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ./download
+\end{verbatim}
+
+\hypertarget{find-files-and-do-someting}{%
+\subsection{Find files and do someting}\label{find-files-and-do-someting}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{find}\NormalTok{ . -type f -name }\StringTok{"*fa*.pl"}\NormalTok{ -exec ls -l }\DataTypeTok{\{\}}\NormalTok{ +}\KeywordTok{;} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -rw-rw-r-- 1 rstudio-user rstudio-user 642 Apr 15  2019 ./code_perl/fa_seq_len.pl
+## -rw-rw-r-- 1 rstudio-user rstudio-user 809 Apr 15  2019 ./code_perl/fa_seq_len_out.pl
+## -rw-rw-r-- 1 rstudio-user rstudio-user 810 Apr 15  2019 ./code_perl/fa_seq_len_out_argv.pl
+## -rw-rw-r-- 1 rstudio-user rstudio-user 879 Apr 15  2019 ./code_perl/fa_seq_len_out_argv_fil.pl
+\end{verbatim}
 
 \hypertarget{check-you-job-status}{%
 \section{Check you job status}\label{check-you-job-status}}
@@ -1224,19 +1408,6 @@ STAT = multi-character process state
 START = starting time or date of the process
 TIME = cumulative CPU time
 COMMAND = command with all its arguments
-
-\hypertarget{finding-things}{%
-\section{Finding Things}\label{finding-things}}
-
-\hypertarget{list-files-bigger-than-filesize-specified}{%
-\subsection{List files bigger than filesize specified}\label{list-files-bigger-than-filesize-specified}}
-
-\begin{verbatim}
-# To find files larger than 100MB:
-find . -type f -size +100M
-# If you want the current dir only:
-find . -maxdepth 1 -type f -size +100M
-\end{verbatim}
 
 References:
 
@@ -1318,9 +1489,11 @@ gunzip -c file.gz > file
 \hypertarget{how-to-decompress-the-.tar.gz-file}{%
 \subsubsection{\texorpdfstring{How to decompress the \texttt{*.tar.gz} file}{How to decompress the *.tar.gz file}}\label{how-to-decompress-the-.tar.gz-file}}
 
-\begin{verbatim}
-tar zxvf file.tar.gz
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tar}\NormalTok{ zxvf file.tar.gz}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{itemize}
 \tightlist
@@ -1337,19 +1510,36 @@ tar zxvf file.tar.gz
 \hypertarget{how-to-view-the-content-without-extract-the-files}{%
 \subsubsection{How to view the content without extract the files}\label{how-to-view-the-content-without-extract-the-files}}
 
-\begin{verbatim}
-tar -tf file.tar.gz
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tar}\NormalTok{ -tf file.tar.gz}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tar}\NormalTok{ -tvf file.tar.gz}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{how-to-create-a-.tar.gz-file}{%
 \subsubsection{\texorpdfstring{How to create a \texttt{*.tar.gz} file}{How to create a *.tar.gz file}}\label{how-to-create-a-.tar.gz-file}}
 
-\begin{verbatim}
-tar zcvf file_new.tar.gz file1 file2 folder1 folder2
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tar}\NormalTok{ zcvf file_new.tar.gz file1 file2 folder1 folder2}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{how-to-create-.tar.gz-file}{%
-\subsubsection{\texorpdfstring{How to create \texttt{*.tar.gz} file}{How to create *.tar.gz file}}\label{how-to-create-.tar.gz-file}}
+\hypertarget{how-to-extract-a-specific-file-from-a-.tar.gz-file}{%
+\subsubsection{\texorpdfstring{How to extract a specific file from a \texttt{*.tar.gz} file}{How to extract a specific file from a *.tar.gz file}}\label{how-to-extract-a-specific-file-from-a-.tar.gz-file}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#tar -xvf \{tarball.tar\} \{path/to/file\}}
+\FunctionTok{tar}\NormalTok{ -zxvf config.tar.gz etc/default/sysstat}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{zip}{%
 \subsection{\texorpdfstring{\texttt{*.zip}}{*.zip}}\label{zip}}
@@ -1357,9 +1547,11 @@ tar zcvf file_new.tar.gz file1 file2 folder1 folder2
 \hypertarget{how-to-unzip-a-.zip-file}{%
 \subsubsection{\texorpdfstring{How to unzip a \texttt{*.zip} file}{How to unzip a *.zip file}}\label{how-to-unzip-a-.zip-file}}
 
-\begin{verbatim}
-unzip file.zip
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{unzip}\NormalTok{ file.zip}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{how-to-create-a-.zip-file}{%
 \subsubsection{\texorpdfstring{How to create a \texttt{*.zip} file}{How to create a *.zip file}}\label{how-to-create-a-.zip-file}}
@@ -1382,7 +1574,7 @@ zip file_new.zip file1 file2 folder1 folder2
 \FunctionTok{ls} 
 \FunctionTok{wget}\NormalTok{ https://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2}
 \FunctionTok{ls}
-\FunctionTok{tar}\NormalTok{ -vxjf bwa-0.7.17.tar.bz2}
+\FunctionTok{tar}\NormalTok{ -jxvf bwa-0.7.17.tar.bz2}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1535,6 +1727,53 @@ G & Gigabytes (GB)\tabularnewline
 T & Terabytes (TB)\tabularnewline
 \bottomrule
 \end{longtable}
+
+\hypertarget{commands-for-linux-administration-advanced-topic}{%
+\section{Commands for Linux administration (Advanced topic)}\label{commands-for-linux-administration-advanced-topic}}
+
+\hypertarget{w}{%
+\section{\texorpdfstring{\texttt{w}}{w}}\label{w}}
+
+\hypertarget{who}{%
+\section{\texorpdfstring{\texttt{who}}{who}}\label{who}}
+
+\hypertarget{uptime}{%
+\section{\texorpdfstring{\texttt{uptime}}{uptime}}\label{uptime}}
+
+In Linux uptime command shows since how long your system is running and the number of users are currently logged in and also displays load average for 1,5 and 15 minutes intervals.
+
+\hypertarget{whoami}{%
+\section{\texorpdfstring{\texttt{whoami}}{whoami}}\label{whoami}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{whoami}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## rstudio-user
+\end{verbatim}
+
+\hypertarget{ifconfig}{%
+\section{\texorpdfstring{\texttt{ifconfig}}{ifconfig}}\label{ifconfig}}
+
+\begin{verbatim}
+ifconfig
+\end{verbatim}
+
+\hypertarget{useradd-and-passwd}{%
+\section{\texorpdfstring{\texttt{useradd} and \texttt{passwd}}{useradd and passwd}}\label{useradd-and-passwd}}
+
+\begin{verbatim}
+## Need to have root access
+adduser superomics 
+\end{verbatim}
+
+\begin{verbatim}
+## add a user to a specified group
+adduser superomics -g bioinf
+\end{verbatim}
 
 \hypertarget{file-transfer}{%
 \chapter{File transfer}\label{file-transfer}}
@@ -1766,8 +2005,8 @@ conda install -c bioconda bwa
 #conda install -c bioconda/label/cf201901 bwa 
 \end{verbatim}
 
-\hypertarget{install-ussing-docker-advance-topic}{%
-\subsection{\texorpdfstring{Install ussing \texttt{Docker} (advance topic)}{Install ussing Docker (advance topic)}}\label{install-ussing-docker-advance-topic}}
+\hypertarget{install-ussing-docker-advanced-topic}{%
+\subsection{\texorpdfstring{Install ussing \texttt{Docker} (Advanced topic)}{Install ussing Docker (Advanced topic)}}\label{install-ussing-docker-advanced-topic}}
 
 \hypertarget{text-editor-in-linux}{%
 \chapter{Text editor in Linux}\label{text-editor-in-linux}}
@@ -1864,6 +2103,7 @@ Now we just wrote a Perl script. We can run this script.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+
 \FunctionTok{perl}\NormalTok{ test.pl}
 \end{Highlighting}
 \end{Shaded}
@@ -1902,7 +2142,7 @@ Now we just wrote a Perl script. We can run this script.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-58-1.pdf}
 
 \hypertarget{part-perl}{%
 \part{Perl}\label{part-perl}}
@@ -1944,6 +2184,36 @@ Line 3 shows how to print a line of text in Perl. Nearly all programming languag
 However the characters \texttt{\textbackslash{}n} are not displayed. Here backslash \texttt{\textbackslash{}} is a start of an escape sequence. It changes the meaning of the character after it. The backslash \texttt{\textbackslash{}} and \texttt{n} together (\texttt{\textbackslash{}n}) form an escape sequence and signify a newline. Other examples are \texttt{\textbackslash{}t} (tab) or \texttt{\textbackslash{}\$} (= print an actual dollar sign, normally a dollar sign has a special meaning). We'll see more escape sequences in 7.1.
 
 You can try to remove \texttt{\textbackslash{}n} in the program to see what will happen. This will give you a dee per understanding of the program.
+
+\hypertarget{perl-one-liner}{%
+\chapter{Perl one-liner}\label{perl-one-liner}}
+
+\hypertarget{escape-single-quote}{%
+\section{Escape single quote}\label{escape-single-quote}}
+
+You can't use single quotes alone. You need to escape them correctly using `'' This works:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{echo} \StringTok{"a,b"} \KeywordTok{|} \FunctionTok{perl}\NormalTok{ -F}\StringTok{','}\NormalTok{ -lane }\StringTok{'print "'}\DataTypeTok{\textbackslash{}'}\StringTok{'$F[0]'}\DataTypeTok{\textbackslash{}'}\StringTok{'";'}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'a'
+\end{verbatim}
+
+The \texttt{\textbackslash{}047} is an octal escape. it's actually just a single quote. when working with embedded quotes, it's sometimes easier to just write \textbackslash{}047 rather than something like \texttt{\textquotesingle{}\textbackslash{}\textquotesingle{}\textquotesingle{}}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{echo} \StringTok{"a,b"} \KeywordTok{|} \FunctionTok{perl}\NormalTok{ -F}\StringTok{','}\NormalTok{ -lane }\StringTok{'print "\textbackslash{}047$F[0]\textbackslash{}047";'}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'a'
+\end{verbatim}
 
 \hypertarget{varible-in-perl}{%
 \chapter{Varible in Perl}\label{varible-in-perl}}
@@ -2682,8 +2952,73 @@ join
 \hypertarget{regular-expression}{%
 \section{Regular expression}\label{regular-expression}}
 
+A regular expresion is a string of characters that defines the pattern or patterns you are searching. Usually this pattern is used by string searching algorithms for `find' or `find and replace' operations on strings or for input validation.
+
+You can use pattern binding operators \texttt{=\textasciitilde{}} and \texttt{!\textasciitilde{}}. The first operator is a test and assignment operator.
+
+In Perl, there are three three scenarios you may use regular expression:
+
+\begin{itemize}
+\item
+  Pattern matching: \texttt{m//}
+\item
+  Pattern substitution: \texttt{s///}
+\item
+  Modifiers to pattern matching and substitution: \texttt{tr///}
+\end{itemize}
+
+In each case above, the forward slashes is used as delimiters for regular expression specified by you.
+
 \hypertarget{pattern-matching}{%
 \subsection{Pattern matching}\label{pattern-matching}}
+
+In Perl, \texttt{m//} is used to match a string (could be sequence in Bioinformatics) to a regular expression. For example, to match a mRNA sequence \texttt{\$mRNA} against the mRNA sequence `\$mRNA'
+
+The match operator, m//, is used to match a string or statement to a regular expression. For example, to match the character sequence ``foo'' against the scalar \$bar, you might use a statement like this −
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{#!/usr/bin/perl}
+
+\DataTypeTok{$mRNA}\NormalTok{ = }\KeywordTok{"}\StringTok{ATG}\KeywordTok{"}\NormalTok{;}
+\KeywordTok{if}\NormalTok{ (}\DataTypeTok{$bar}\NormalTok{ =~ }\KeywordTok{/}\OtherTok{foo}\KeywordTok{/}\NormalTok{) \{}
+   \FunctionTok{print} \KeywordTok{"}\StringTok{First time is matching}\CharTok{\textbackslash{}n}\KeywordTok{"}\NormalTok{;}
+\NormalTok{\} }\KeywordTok{else}\NormalTok{ \{}
+   \FunctionTok{print} \KeywordTok{"}\StringTok{First time is not matching}\CharTok{\textbackslash{}n}\KeywordTok{"}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## First time is not matching
+\end{verbatim}
+
+Several special variables also refer back to portions of the previous match.
+
+(ref:regexp\_perl) Several special variables
+
+\textbackslash{}begin\{table\}{[}t{]}
+
+\textbackslash{}caption\{(\#tab:regexp\_perl)(ref:regexp\_perl)\}
+\centering
+
+\begin{tabular}{c|c}
+\hline
+Special.variables & Description\\
+\hline
+\$+ & Whatever the last bracket match matched\\
+\hline
+\$\& & The entire matched string\\
+\hline
+\$` & Everything before the matched string\\
+\hline
+\$' & Everything after the marched string\\
+\hline
+\$\textasciicircum{}N & Whatever was matched by the most-recently closed group (submatch)\\
+\hline
+\end{tabular}
+
+\textbackslash{}end\{table\}
 
 \hypertarget{pattern-substitution}{%
 \subsection{Pattern substitution}\label{pattern-substitution}}
@@ -2693,6 +3028,89 @@ join
 
 \hypertarget{greedy-or-non-greedy}{%
 \subsection{Greedy or non-greedy}\label{greedy-or-non-greedy}}
+
+\hypertarget{practical-perl-for-regular-expresssion-advanced}{%
+\subsection{Practical Perl for regular expresssion (Advanced)}\label{practical-perl-for-regular-expresssion-advanced}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{#!/usr/bin/perl -l}
+
+\CommentTok{# http://perlmonks.org/?node_id=1146191}
+
+\FunctionTok{use} \KeywordTok{strict}\NormalTok{;}
+\FunctionTok{use} \KeywordTok{warnings}\NormalTok{;}
+
+\KeywordTok{my} \DataTypeTok{$sequence}\NormalTok{ = }\KeywordTok{'}\StringTok{AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA}\KeywordTok{'}\NormalTok{;}
+
+\KeywordTok{while}\NormalTok{( }\DataTypeTok{$sequence}\NormalTok{ =~ }\KeywordTok{/}\OtherTok{ATG}\KeywordTok{/g}\NormalTok{ )\{}
+    \CommentTok{## Post match: $':}
+    \CommentTok{## The string following whatever was matched by the last successful pattern match }
+    \KeywordTok{my} \DataTypeTok{$rest}\NormalTok{ = }\DataTypeTok{$'}\NormalTok{;}
+    \KeywordTok{while}\NormalTok{(}\DataTypeTok{$rest}\NormalTok{ =~ }\KeywordTok{/}\CharTok{(}\OtherTok{TAG}\CharTok{|}\OtherTok{TAA}\CharTok{|}\OtherTok{TGA}\CharTok{)}\KeywordTok{/g}\NormalTok{)\{}
+        \KeywordTok{my} \DataTypeTok{$output}\NormalTok{ = }\KeywordTok{'}\StringTok{ATG}\KeywordTok{'}\NormalTok{ . }\DataTypeTok{$`}\NormalTok{ . }\DataTypeTok{$1}\NormalTok{;}
+        \FunctionTok{print} \DataTypeTok{$output}\NormalTok{;}
+\NormalTok{    \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ATGGTTTCTCCCATCTCTCCATCGGCATAA
+## ATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGA
+## ATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAA
+## ATGATCTAA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{#!/usr/bin/perl}
+
+\CommentTok{# http://perlmonks.org/?node_id=1146191}
+
+\FunctionTok{use} \KeywordTok{strict}\NormalTok{;}
+\FunctionTok{use} \KeywordTok{warnings}\NormalTok{;}
+
+\KeywordTok{my} \DataTypeTok{$sequence}\NormalTok{ = }\KeywordTok{'}\StringTok{AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA}\KeywordTok{'}\NormalTok{;}
+
+\DataTypeTok{$sequence}\NormalTok{ =~ }\KeywordTok{/}\CharTok{(}\OtherTok{ATG.}\CharTok{*?(?:}\OtherTok{TAG}\CharTok{|}\OtherTok{TAA}\CharTok{|}\OtherTok{TGA}\CharTok{))(??\{print "$1\textbackslash{}n" if (length $1)}\OtherTok{%3 == 0\}}\CharTok{)}\KeywordTok{/}\NormalTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ATGGTTTCTCCCATCTCTCCATCGGCATAA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{#!/usr/bin/perl}
+
+\FunctionTok{use} \KeywordTok{strict}\NormalTok{;}
+\FunctionTok{use} \KeywordTok{warnings}\NormalTok{;}
+\KeywordTok{my} \DataTypeTok{$sequence}\NormalTok{ = }\KeywordTok{'}\StringTok{AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA}\KeywordTok{'}\NormalTok{;}
+
+\KeywordTok{while}\NormalTok{(}\DataTypeTok{$sequence}\NormalTok{ =~ }\KeywordTok{/}\OtherTok{ATG}\CharTok{(([}\BaseNTok{ATGC}\CharTok{]\{3\})+?)(}\OtherTok{TAG}\CharTok{|}\OtherTok{TAA}\CharTok{|}\OtherTok{TGA}\CharTok{)}\KeywordTok{/g}\NormalTok{)\{}
+    \FunctionTok{print} \KeywordTok{"}\StringTok{ATG}\DataTypeTok{$1}\CharTok{\textbackslash{}n}\KeywordTok{"}\NormalTok{;}
+    \FunctionTok{print} \KeywordTok{"}\DataTypeTok{$2}\KeywordTok{"}\NormalTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ATGGTTTCTCCCATCTCTCCATCGGCA
+## GCAATGATC
+## ATC
+\end{verbatim}
+
+We start with matching the start codon ATG. Then the thing we want to match
+is inside a parenthesis and it is at least one group of three arbitrary nucleotides
+({[}ATGC{]}\{3\}). Finally we want to end with either of the three stop codons. Now
+if we look by eye, we can see that there are two such matches in the string:
+GGAATACGCGGA and CACCACGACGCCATAATT, but if we run the script it will only find
+one sequence starting after the first start codon and ending with the last stop codon:
+GGAATACGCGGATAAGGCGAAATGCACCACGACGCCATAATT. This is because the + character
+matches as many as possible. It is greedy. To stop it from being greedy we need
+to add a ? sign after it:
 
 \hypertarget{input-and-output-in-perl}{%
 \chapter{Input and output in Perl}\label{input-and-output-in-perl}}
@@ -3078,9 +3496,14 @@ We have another table which has the annotation information of each gene:
 \end{Shaded}
 
 \begin{verbatim}
+## gene_id gene_shortname
 ## gene1    ROS
-## gene2    WRKY
-## gene3    ZmCCT
+## gene2 WRKY
+## gene3 ZmCCT
+## gene4 WRKY1
+## gene5 WRKY2
+## gene6 wrky
+## gene10  MCU
 \end{verbatim}
 
 \hypertarget{merge-overlap-genomic-regions}{%
@@ -3248,83 +3671,214 @@ The credit of this section goes to Dr.~Frank McCown (\citet{simpleGraphR}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Define the cars vector with 5 values}
-\NormalTok{cars <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\CommentTok{# Define the gene_expr_level vector with 5 values}
+\NormalTok{gene_expr_level <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{120}\NormalTok{)}
 
-\CommentTok{# Graph the cars vector with all defaults}
-\KeywordTok{plot}\NormalTok{(cars)}
+\CommentTok{# Graph the gene_expr_fpkm vector with all defaults}
+\KeywordTok{plot}\NormalTok{(gene_expr_level)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-92-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{?plot}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-115-1.pdf}
 
 Let's add a title, a line to connect the points, and some color:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Define the cars vector with 5 values}
-\NormalTok{cars <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\CommentTok{# Define the gene_expr_level vector with 5 values}
+\NormalTok{geneX_expr <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{120}\NormalTok{)}
 
 \CommentTok{# Graph cars using blue points overlayed by a line }
-\KeywordTok{plot}\NormalTok{(cars, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(geneX_expr, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
 
 \CommentTok{# Create a title with a red, bold/italic font}
-\KeywordTok{title}\NormalTok{(}\DataTypeTok{main=}\StringTok{"Autos"}\NormalTok{, }\DataTypeTok{col.main=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{font.main=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{main=}\StringTok{"GeneX"}\NormalTok{, }\DataTypeTok{col.main=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{font.main=}\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-93-1.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-116-1.pdf}
 
 Now let's add a red line for trucks and specify the y-axis range directly so it will be large enough to fit the truck data:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Define 2 vectors}
-\NormalTok{cars <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{)}
-\NormalTok{trucks <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\CommentTok{# Define the gene_expr_level vector with 5 values}
+\NormalTok{geneX_expr <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{120}\NormalTok{)}
+\NormalTok{geneY_expr <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{280}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{12}\NormalTok{)}
 
-\CommentTok{# Graph cars using a y axis that ranges from 0 to 12}
-\KeywordTok{plot}\NormalTok{(cars, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{12}\NormalTok{))}
-
+\CommentTok{# Graph cars using blue points overlayed by a line }
+\KeywordTok{plot}\NormalTok{(geneX_expr, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{300}\NormalTok{))}
 \CommentTok{# Graph trucks with red dashed line and square points}
-\KeywordTok{lines}\NormalTok{(trucks, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{22}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
-
+\KeywordTok{lines}\NormalTok{(geneY_expr, }\DataTypeTok{type=}\StringTok{"o"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{22}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
 \CommentTok{# Create a title with a red, bold/italic font}
-\KeywordTok{title}\NormalTok{(}\DataTypeTok{main=}\StringTok{"Autos"}\NormalTok{, }\DataTypeTok{col.main=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{font.main=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{title}\NormalTok{(}\DataTypeTok{main=}\StringTok{"Gene expresion level"}\NormalTok{, }\DataTypeTok{col.main=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{font.main=}\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-94-1.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-117-1.pdf}
 
-\hypertarget{producing-simple-graphs}{%
-\chapter{Producing simple graphs}\label{producing-simple-graphs}}
+\hypertarget{xxx}{%
+\section{XXX}\label{xxx}}
 
-\hypertarget{producing-simple-graphs-using-r}{%
-\section{Producing simple graphs using R}\label{producing-simple-graphs-using-r}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fruit =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"apple"}\NormalTok{, }\StringTok{"pear"}\NormalTok{, }\StringTok{"orange"}\NormalTok{)}
+\NormalTok{fruit }\OperatorTok{==}\StringTok{ "apple"} 
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{line-charts-1}{%
-\subsection{Line Charts}\label{line-charts-1}}
+\begin{verbatim}
+## [1]  TRUE  TRUE FALSE FALSE
+\end{verbatim}
 
-\hypertarget{bar-charts}{%
-\subsection{Bar Charts}\label{bar-charts}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fruit =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"apple"}\NormalTok{, }\StringTok{"pear"}\NormalTok{, }\StringTok{"orange"}\NormalTok{)}
+\KeywordTok{which}\NormalTok{(fruit }\OperatorTok{==}\StringTok{ "apple"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{histograms}{%
-\subsection{Histograms}\label{histograms}}
+\begin{verbatim}
+## [1] 1 2
+\end{verbatim}
 
-\hypertarget{pie-charts}{%
-\subsection{Pie Charts}\label{pie-charts}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fruit =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"apple"}\NormalTok{, }\StringTok{"pear"}\NormalTok{, }\StringTok{"orange"}\NormalTok{)}
+\KeywordTok{which}\NormalTok{(fruit }\OperatorTok{==}\StringTok{ "apple"} \OperatorTok{|}\StringTok{ }\NormalTok{fruit }\OperatorTok{==}\StringTok{ "pear"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\hypertarget{dotcharts}{%
-\subsection{Dotcharts}\label{dotcharts}}
+\begin{verbatim}
+## [1] 1 2 3
+\end{verbatim}
 
-\hypertarget{misc}{%
-\subsection{Misc}\label{misc}}
+\hypertarget{logic-and}{%
+\section{\texorpdfstring{Logic \texttt{\&\&} and \texttt{\textbar{}}}{Logic \&\& and \textbar{}}}\label{logic-and}}
+
+The short answer is that \&\& and \textbar{}\textbar{} only ever return a single (scalar, length-1 vector) TRUE or FALSE value, whereas \textbar{} and \& return a vector after doing element-by-element comparisons.
+
+The only place in R you routinely use a scalar TRUE/FALSE value is in the conditional of an if statement, so you'll often see \&\& or \textbar{}\textbar{} used in idioms like:
+
+if (length(x) \textgreater{} 0 \&\& any(is.na(x))) \{ do.something() \}
+
+In most other instances you'll be working with vectors and use \& and \textbar{} instead.
+
+\hypertarget{list-as-dictionary}{%
+\section{List as dictionary}\label{list-as-dictionary}}
+
+the list type is a good approximation. You can use names() on your list to set and retrieve the `keys':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{foo <-}\StringTok{ }\KeywordTok{vector}\NormalTok{(}\DataTypeTok{mode=}\StringTok{"list"}\NormalTok{, }\DataTypeTok{length=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(foo) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"tic"}\NormalTok{, }\StringTok{"tac"}\NormalTok{, }\StringTok{"toe"}\NormalTok{)}
+\NormalTok{foo[[}\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\DecValTok{12}\NormalTok{; foo[[}\DecValTok{2}\NormalTok{]] <-}\StringTok{ }\DecValTok{22}\NormalTok{; foo[[}\DecValTok{3}\NormalTok{]] <-}\StringTok{ }\DecValTok{33}
+\NormalTok{foo}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $tic
+## [1] 12
+## 
+## $tac
+## [1] 22
+## 
+## $toe
+## [1] 33
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{names}\NormalTok{(foo)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "tic" "tac" "toe"
+\end{verbatim}
+
+\hypertarget{parsing-arguments-as-string}{%
+\section{Parsing arguments as string}\label{parsing-arguments-as-string}}
+
+\hypertarget{string-as-xlim}{%
+\subsection{String as xlim}\label{string-as-xlim}}
+
+\hypertarget{how-to-access-data-frame-column-using-variable}{%
+\subsection{How to access data frame column using variable}\label{how-to-access-data-frame-column-using-variable}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a =}\StringTok{ "col1"}
+\NormalTok{b =}\StringTok{ "col2"}
+\NormalTok{d =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{a=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\DataTypeTok{b=}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\KeywordTok{colnames}\NormalTok{(d) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"col1"}\NormalTok{, }\StringTok{"col2"}\NormalTok{)}
+\NormalTok{d[[a]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3
+\end{verbatim}
+
+This is useful when you parse a variable from the command line
+
+\hypertarget{how-to-create-a-formula-from-a}{%
+\subsection{How to create a formula from a}\label{how-to-create-a-formula-from-a}}
+
+It can be useful to create a formula from a string. This often occurs in functions where the formula arguments are passed in as strings.
+
+It can be useful to create a formula from a string. This often occurs in functions where the formula arguments are passed in as strings.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{design1 =}\StringTok{ "diet"}
+\NormalTok{design2 =}\StringTok{ "age"}
+\CommentTok{## `~ diet + age`}
+\KeywordTok{as.formula}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(}\StringTok{"~ "}\NormalTok{ , design1, }\StringTok{" + "}\NormalTok{, design2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ~diet + age
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\KeywordTok{readLines}\NormalTok{(}\StringTok{'code_R/parse_aug_as.formula.R'}\NormalTok{), }\DataTypeTok{sep =} \StringTok{'}\CharTok{\textbackslash{}n}\StringTok{'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+argv <- commandArgs(trailingOnly = T)
+
+level1 <- argv[1]
+level2 <- argv[2]
+
+#First, build a simple data frame with time as a factor and Time as a continuous,
+#numeric variable. The two variables look alike when you print the data frame.
+#But, if you summarize the data, you see that they are different.
+d <- data.frame(level1 = factor(1:4), level2 = 1:4)
+colnames(d)<-c(level1, level2)
+summary(d)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{/opt/R/3.5.3/lib/R/bin/Rscript}\NormalTok{ code_R/parse_aug_as.formula.R time Time}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  time       Time     
+##  1:1   Min.   :1.00  
+##  2:1   1st Qu.:1.75  
+##  3:1   Median :2.50  
+##  4:1   Mean   :2.50  
+##        3rd Qu.:3.25  
+##        Max.   :4.00
+\end{verbatim}
 
 \hypertarget{ggplot2}{%
 \chapter{\texorpdfstring{\texttt{ggplot2}}{ggplot2}}\label{ggplot2}}
@@ -3358,7 +3912,42 @@ install.packages("pheatmap")
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-95-1.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-127-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\CommentTok{# Set the theme for all the following plots.}
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{(}\DataTypeTok{base_size =} \DecValTok{16}\NormalTok{))}
+
+\NormalTok{dat <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{values =} \KeywordTok{as.numeric}\NormalTok{(}\KeywordTok{unlist}\NormalTok{(gene_exp)))}
+\KeywordTok{summary}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      values        
+##  Min.   :    0.00  
+##  1st Qu.:    0.00  
+##  Median :    0.40  
+##  Mean   :   38.91  
+##  3rd Qu.:    6.22  
+##  Max.   :25534.25
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(dat, }\KeywordTok{aes}\NormalTok{(values)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw =} \StringTok{"SJ"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{xlim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{100}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 958 rows containing non-finite values (stat_density).
+\end{verbatim}
+
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-128-1.pdf}
+
+The data is skewed.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3366,7 +3955,7 @@ install.packages("pheatmap")
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-95-2.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-129-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3374,7 +3963,7 @@ install.packages("pheatmap")
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-95-3.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-129-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3382,7 +3971,7 @@ install.packages("pheatmap")
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-95-4.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-129-3.pdf}
 
 \hypertarget{add-the-annotation}{%
 \section{Add the annotation}\label{add-the-annotation}}
@@ -3395,11 +3984,11 @@ install.packages("pheatmap")
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pheatmap}\NormalTok{(}\KeywordTok{log2}\NormalTok{(gene_exp }\OperatorTok{+}\StringTok{ }\FloatTok{0.01}\NormalTok{)) }
+\KeywordTok{pheatmap}\NormalTok{(}\KeywordTok{log2}\NormalTok{(gene_exp }\OperatorTok{+}\StringTok{ }\FloatTok{0.01}\NormalTok{), }\DataTypeTok{show_rownames =}\NormalTok{ F) }
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-96-1.pdf}
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-130-1.pdf}
 
 \hypertarget{how-to-add-annotations}{%
 \section{How to add annotations}\label{how-to-add-annotations}}
@@ -3410,8 +3999,41 @@ install.packages("pheatmap")
 \hypertarget{how-to-get-the-cluster-information-from-the-heatmap}{%
 \section{How to get the cluster information from the heatmap}\label{how-to-get-the-cluster-information-from-the-heatmap}}
 
-\hypertarget{section-1}{%
-\section{}\label{section-1}}
+\hypertarget{change-color}{%
+\section{Change color}\label{change-color}}
+
+\hypertarget{use-brewer}{%
+\subsection{Use Brewer}\label{use-brewer}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{col.pal <-}\StringTok{ }\NormalTok{RColorBrewer}\OperatorTok{::}\KeywordTok{brewer.pal}\NormalTok{(}\DecValTok{9}\NormalTok{, }\StringTok{"Reds"}\NormalTok{)}
+\NormalTok{col.pal }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "#FFF5F0" "#FEE0D2" "#FCBBA1" "#FC9272" "#FB6A4A" "#EF3B2C" "#CB181D"
+## [8] "#A50F15" "#67000D"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pheatmap}\NormalTok{(}\KeywordTok{log2}\NormalTok{(gene_exp }\OperatorTok{+}\StringTok{ }\FloatTok{0.01}\NormalTok{), }\DataTypeTok{scale=}\StringTok{"row"}\NormalTok{,}
+         \DataTypeTok{show_rownames =}\NormalTok{ F, }\DataTypeTok{show_colnames =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-131-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pheatmap}\NormalTok{(}\KeywordTok{log2}\NormalTok{(gene_exp }\OperatorTok{+}\StringTok{ }\FloatTok{0.01}\NormalTok{), }\DataTypeTok{scale=}\StringTok{"row"}\NormalTok{, }\DataTypeTok{color =}\NormalTok{ col.pal,}
+         \DataTypeTok{show_rownames =}\NormalTok{ F, }\DataTypeTok{show_colnames =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-131-2.pdf}
 
 \hypertarget{preparation-of-figures-for-manuscript}{%
 \chapter{Preparation of figures for manuscript}\label{preparation-of-figures-for-manuscript}}
@@ -3426,6 +4048,12 @@ Inkscape is an open source software which can be used to arrange, crop, and anno
 
 \hypertarget{introduction-to-ngs}{%
 \chapter{Introduction to NGS}\label{introduction-to-ngs}}
+
+Next-generation sequencing (NGS) is one of the fundamental technological developments of the decade in life sciences. Whole genome sequencing (WGS), RAD-Seq, RNA-Seq, Chip-Seq, and several other technologies are routinely used to investigate important biological problems. These are also called high-throughput sequencing technologies, and with good reason: they generate vast amounts of data that needs to be processed. NGS is the main reason that computational biology has become a big-data discipline. More than anything else, this is a field that requires strong bioinformatics techniques.
+
+As this is not an introductory book, you are expected to know at least what FASTA, FASTQ, Binary Alignment Map (BAM), and Variant Call Format (VCF) files are. I will also make use of the basic genomic terminology without introducing it (such as exomes, nonsynonymous mutations, and so on). You are required to be familiar with basic Python. We will leverage this knowledge to introduce the fundamental libraries in Python to perform the NGS analysis. Here, we will follow the flow of a standard bioinformatics pipeline.
+
+However, before we delve into real data from a real project, let's get comfortable with accessing existing genomic databases and basic sequence processing---a simple start before the storm.
 
 \hypertarget{introduction-of-biology-for-bioinformatics}{%
 \section{Introduction of Biology for Bioinformatics}\label{introduction-of-biology-for-bioinformatics}}
@@ -3452,8 +4080,8 @@ NGS (Next geneneration sequencing) is not an accurate term. An more accurate ter
 \hypertarget{application-of-ngs}{%
 \section{Application of NGS}\label{application-of-ngs}}
 
-\hypertarget{section-2}{%
-\section{}\label{section-2}}
+\hypertarget{section-1}{%
+\section{}\label{section-1}}
 
 \hypertarget{data-file-formats-to-store-the-genomic-information}{%
 \section{Data file formats to store the genomic information}\label{data-file-formats-to-store-the-genomic-information}}
@@ -3461,8 +4089,108 @@ NGS (Next geneneration sequencing) is not an accurate term. An more accurate ter
 \hypertarget{fasta-file}{%
 \subsection{\texorpdfstring{\texttt{fasta} file}{fasta file}}\label{fasta-file}}
 
+FASTA format is a text-based format for representing either nucleotide sequences or peptide sequences, in which base pairs or amino acids are represented using single-letter codes. A sequence in FASTA format begins with a single-line description, followed by lines of sequence data. The description line is distinguished from the sequence data by a greater-than (``\textgreater{}'') symbol in the first column. It is recommended that all lines of text be shorter than 80 characters in length.
+
+A sequence in FASTA format begins with a single-line description, followed by lines of sequence data. The description line (defline) is distinguished from the sequence data by a greater-than (``\textgreater{}'') symbol at the beginning. It is recommended that all lines of text be shorter than 80 characters in length. An example sequence in FASTA format is:
+
+\begin{verbatim}
+>gi|186681228|ref|YP_001864424.1| phycoerythrobilin:ferredoxin oxidoreductase
+MNSERSDVTLYQPFLDYAIAYMRSRLDLEPYPIPTGFESNSAVVGKGKNQEEVVTTSYAFQTAKLRQIRA
+AHVQGGNSLQVLNFVIFPHLNYDLPFFGADLVTLPGGHLIALDMQPLFRDDSAYQAKYTEPILPIFHAHQ
+QHLSWGGDFPEEAQPFFSPAFLWTRPQETAVVETQVFAAFKDYLKAYLDFVEQAEAVTDSQNLVAIKQAQ
+LRYLRYRAEKDPARGMFKRFYGAEWTEEYIHGFLFDLERKLTVVK
+\end{verbatim}
+
 \hypertarget{gff-file}{%
 \subsection{GFF file}\label{gff-file}}
+
+The GFF (gene-finding format, generic feature format or general feature format) is a file format used for describing genes and other features of DNA, RNA and protein sequences. The filename extension associated with such files is .GFF and the content type associated with them is text/x-gff3. There are two versions of the GFF file format in general use. We here focus on GFF3.
+
+are tabular files with 9 fields per line, separated by tabs. They all share the same structure for the first 7 fields, while differing in the content and format of the ninth field. The general structure is as follows:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.03\columnwidth}\raggedright
+Position index\strut
+\end{minipage} & \begin{minipage}[b]{0.03\columnwidth}\raggedright
+Position name\strut
+\end{minipage} & \begin{minipage}[b]{0.85\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+1\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+sequence\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+The name of the sequence where the feature is located.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+2\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+source\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+Keyword identifying the source of the feature, like a program (e.g.~Augustus or RepeatMasker) or an organization (like TAIR).\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+3\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+feature\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+The feature type name, like ``gene'' or ``exon''. In a well structured GFF file, all the children features always follow their parents in a single block (so all exons of a transcript are put after their parent ``transcript'' feature line and before any other parent transcript line). In GFF3, all features and their relationships should be compatible with the standards released by the Sequence Ontology Project.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+4\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+start\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+Genomic start of the feature, with a 1-base offset. This is in contrast with other 0-offset half-open sequence formats, like BED files.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+end\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+Genomic end of the feature, with a 1-base offset. This is the same end coordinate as it is in 0-offset half-open sequence formats, like BED files.{[}citation needed{]}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+6\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+score\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+Numeric value that generally indicates the confidence of the source on the annotated feature. A value of ``.'' (a dot) is used to define a null value.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+7\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+strand\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+Single character that indicates the Sense (molecular biology) strand of the feature; it can assume the values of ``+'' (positive, or 5'-\textgreater{}3'), ``-'', (negative, or 3'-\textgreater{}5'), ``.'' (undetermined).\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+8\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+phase\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+phase of CDS features; it can be either one of 0, 1, 2 (for CDS features) or ``.'' (for everything else). See the section below for a detailed explanation.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.03\columnwidth}\raggedright
+9\strut
+\end{minipage} & \begin{minipage}[t]{0.03\columnwidth}\raggedright
+Attributes.\strut
+\end{minipage} & \begin{minipage}[t]{0.85\columnwidth}\raggedright
+All the other information pertaining to this feature. The format, structure and content of this field is the one which varies the most between the three competing file formats.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{reference}{%
+\subsubsection{Reference}\label{reference}}
+
+Generic Feature Format Version 3 (GFF3): \url{https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md}
+
+General feature format wikipage: \url{https://en.wikipedia.org/wiki/General_feature_format}
 
 \hypertarget{gtf-file}{%
 \subsection{GTF file}\label{gtf-file}}
@@ -3494,22 +4222,22 @@ NGS (Next geneneration sequencing) is not an accurate term. An more accurate ter
 \hypertarget{bs-seq}{%
 \chapter{BS-seq}\label{bs-seq}}
 
-\hypertarget{section-3}{%
-\section{}\label{section-3}}
+\hypertarget{section-2}{%
+\section{}\label{section-2}}
 
 \url{https://www.slideshare.net/secret/Da9IOe8wLsaF8V}
 
 \hypertarget{what-is-bs-seq}{%
 \section{What is BS-seq}\label{what-is-bs-seq}}
 
-\hypertarget{section-4}{%
-\section{}\label{section-4}}
+\hypertarget{section-3}{%
+\section{}\label{section-3}}
 
 \hypertarget{how-to-analyze-bs-seq-data}{%
 \section{How to analyze BS-seq data}\label{how-to-analyze-bs-seq-data}}
 
-\hypertarget{section-5}{%
-\subsection{}\label{section-5}}
+\hypertarget{section-4}{%
+\subsection{}\label{section-4}}
 
 MINI REVIEW: Statistical methods for detecting differentially methylated loci and regions
 
@@ -3532,8 +4260,8 @@ Before
 \hypertarget{how-much-data-to-generate}{%
 \subsection{How much data to generate}\label{how-much-data-to-generate}}
 
-\hypertarget{section-6}{%
-\subsection{}\label{section-6}}
+\hypertarget{section-5}{%
+\subsection{}\label{section-5}}
 
 Where to start?
 
@@ -3551,15 +4279,179 @@ There are many ways to start to talk about Bioinformatics analysis. Here we'll g
 \hypertarget{pipelines}{%
 \section{Pipelines}\label{pipelines}}
 
-\hypertarget{section-7}{%
-\section{}\label{section-7}}
+\hypertarget{section-6}{%
+\section{}\label{section-6}}
+
+\hypertarget{data.table}{%
+\chapter{data.table}\label{data.table}}
+
+\hypertarget{split-data.table-into-chunks-in-a-list}{%
+\section{Split data.table into chunks in a list}\label{split-data.table-into-chunks-in-a-list}}
+
+Split method for data.table. Faster and more flexible. Be aware that processing list of data.tables will be generally much slower than manipulation in single data.table by group using by argument, read more on data.table.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(data.table)}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{dt =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\DataTypeTok{x1 =} \KeywordTok{rep}\NormalTok{(letters[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{], }\DecValTok{6}\NormalTok{), }
+                \DataTypeTok{x2 =} \KeywordTok{rep}\NormalTok{(letters[}\DecValTok{3}\OperatorTok{:}\DecValTok{5}\NormalTok{], }\DecValTok{4}\NormalTok{), }
+                \DataTypeTok{x3 =} \KeywordTok{rep}\NormalTok{(letters[}\DecValTok{5}\OperatorTok{:}\DecValTok{8}\NormalTok{], }\DecValTok{3}\NormalTok{), }
+                \DataTypeTok{y =} \KeywordTok{rnorm}\NormalTok{(}\DecValTok{12}\NormalTok{))}
+\NormalTok{dt =}\StringTok{ }\NormalTok{dt[}\KeywordTok{sample}\NormalTok{(.N)]}
+\NormalTok{df =}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(dt)}
+\NormalTok{df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    x1 x2 x3           y
+## 1   b  d  h -1.26506123
+## 2   b  e  h  0.35981383
+## 3   b  e  f  1.71506499
+## 4   b  c  f -0.44566197
+## 5   a  e  g  1.55870831
+## 6   b  d  f -0.23017749
+## 7   a  e  e -0.68685285
+## 8   a  d  e  0.12928774
+## 9   a  d  g  1.22408180
+## 10  b  c  h  0.07050839
+## 11  a  c  e -0.56047565
+## 12  a  c  g  0.46091621
+\end{verbatim}
+
+\hypertarget{nested-list-using-flatten-arguments}{%
+\subsection{\texorpdfstring{nested list using \texttt{flatten} arguments}{nested list using flatten arguments}}\label{nested-list-using-flatten-arguments}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new_list <-}\StringTok{ }\KeywordTok{split}\NormalTok{(dt, }\DataTypeTok{by=}\KeywordTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{))}
+\NormalTok{new_list}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $b.d
+##    x1 x2 x3          y
+## 1:  b  d  h -1.2650612
+## 2:  b  d  f -0.2301775
+## 
+## $b.e
+##    x1 x2 x3         y
+## 1:  b  e  h 0.3598138
+## 2:  b  e  f 1.7150650
+## 
+## $b.c
+##    x1 x2 x3           y
+## 1:  b  c  f -0.44566197
+## 2:  b  c  h  0.07050839
+## 
+## $a.e
+##    x1 x2 x3          y
+## 1:  a  e  g  1.5587083
+## 2:  a  e  e -0.6868529
+## 
+## $a.d
+##    x1 x2 x3         y
+## 1:  a  d  e 0.1292877
+## 2:  a  d  g 1.2240818
+## 
+## $a.c
+##    x1 x2 x3          y
+## 1:  a  c  e -0.5604756
+## 2:  a  c  g  0.4609162
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new_list <-}\StringTok{ }\KeywordTok{split}\NormalTok{(dt, }\DataTypeTok{by=}\KeywordTok{c}\NormalTok{(}\StringTok{"x1"}\NormalTok{, }\StringTok{"x2"}\NormalTok{), }\DataTypeTok{flatten=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{new_list}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $b
+## $b$d
+##    x1 x2 x3          y
+## 1:  b  d  h -1.2650612
+## 2:  b  d  f -0.2301775
+## 
+## $b$e
+##    x1 x2 x3         y
+## 1:  b  e  h 0.3598138
+## 2:  b  e  f 1.7150650
+## 
+## $b$c
+##    x1 x2 x3           y
+## 1:  b  c  f -0.44566197
+## 2:  b  c  h  0.07050839
+## 
+## 
+## $a
+## $a$e
+##    x1 x2 x3          y
+## 1:  a  e  g  1.5587083
+## 2:  a  e  e -0.6868529
+## 
+## $a$d
+##    x1 x2 x3         y
+## 1:  a  d  e 0.1292877
+## 2:  a  d  g 1.2240818
+## 
+## $a$c
+##    x1 x2 x3          y
+## 1:  a  c  e -0.5604756
+## 2:  a  c  g  0.4609162
+\end{verbatim}
+
+\hypertarget{example}{%
+\subsection{Example}\label{example}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dt_example =}\StringTok{ }\KeywordTok{data.table}\NormalTok{(}\DataTypeTok{group =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"group1"}\NormalTok{, }\StringTok{"group2"}\NormalTok{), }\DecValTok{4}\NormalTok{), }
+                \DataTypeTok{gene =} \KeywordTok{c}\NormalTok{(letters[}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{], letters[}\DecValTok{3}\OperatorTok{:}\DecValTok{6}\NormalTok{]))}
+\NormalTok{dt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     x1 x2 x3           y
+##  1:  b  d  h -1.26506123
+##  2:  b  e  h  0.35981383
+##  3:  b  e  f  1.71506499
+##  4:  b  c  f -0.44566197
+##  5:  a  e  g  1.55870831
+##  6:  b  d  f -0.23017749
+##  7:  a  e  e -0.68685285
+##  8:  a  d  e  0.12928774
+##  9:  a  d  g  1.22408180
+## 10:  b  c  h  0.07050839
+## 11:  a  c  e -0.56047565
+## 12:  a  c  g  0.46091621
+\end{verbatim}
+
+\hypertarget{crate-a-matrix-from-data.table}{%
+\subsubsection{Crate a matrix from data.table}\label{crate-a-matrix-from-data.table}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(UpSetR)}
+\NormalTok{list_group =}\StringTok{ }\KeywordTok{split}\NormalTok{(dt_example[}\OperatorTok{-}\KeywordTok{which}\NormalTok{(}\KeywordTok{names}\NormalTok{(df)}\OperatorTok{==}\StringTok{"z"}\NormalTok{)], }\DataTypeTok{by=}\StringTok{"group"}\NormalTok{,  }\DataTypeTok{drop=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{list_group}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## named list()
+\end{verbatim}
 
 \hypertarget{practical-data-analysis-on-wgbs}{%
 \chapter{Practical data analysis on WGBS}\label{practical-data-analysis-on-wgbs}}
 
 We are going to use the data in this \href{https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905}{link}.
 
-In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: \texttt{EV\ strain\ 1},
+In this link, it has multile WGBS from different genotypes of yeast. For simplicity, we are going to only pick 3 samples: \texttt{EV\ strain\ 1\ (EV1)}, \texttt{dnmt3b\ strain\ 1\ (3bstrain1)} and \texttt{set1\ replicate1\ (set1rep1)}
 
 We are going to use the data from these three samples to illustrate how to analyze WGBS data (Figure @ref(fig:wgbs\_bg)).
 
@@ -3571,23 +4463,8 @@ We are going to use the data from these three samples to illustrate how to analy
 
 Let's walk through these workflow step-by-step.
 
-\hypertarget{donwload-the-data}{%
-\section{Donwload the data}\label{donwload-the-data}}
-
-First we need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file).
-
-\hypertarget{reference}{%
-\subsection{Reference}\label{reference}}
-
-Reference link: \url{http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index}
-
-\begin{verbatim}
-wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
-wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
-\end{verbatim}
-
-\hypertarget{now-lets-download-the-wgbs-data}{%
-\subsection{Now let's download the WGBS data}\label{now-lets-download-the-wgbs-data}}
+\hypertarget{download-the-wgbs-data}{%
+\section{Download the WGBS data}\label{download-the-wgbs-data}}
 
 Based on the GEO \href{https://www.ncbi.nlm.nih.gov//geo/query/acc.cgi?acc=GSE66905}{link} here, we can use the command lines below to download the \texttt{sra} files.
 
@@ -3622,7 +4499,94 @@ wget -O set1_rep1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra
 \section{\texorpdfstring{Convert \texttt{sra} files to \texttt{fastq} files}{Convert sra files to fastq files}}\label{convert-sra-files-to-fastq-files}}
 
 \begin{verbatim}
+fastq-dump 3bstrain1.sra 
+fastq-dump EV1.sra 
+fastq-dump set1rep1.sra 
 \end{verbatim}
+
+This step will generate three files suffixed with \texttt{.fastq}:
+
+\begin{itemize}
+\tightlist
+\item
+  3bstrain1.fastq
+\item
+  EV1.fastq
+\item
+  set1rep1.fastq
+\end{itemize}
+
+\hypertarget{quality-control-of-the-reads}{%
+\section{Quality control of the reads}\label{quality-control-of-the-reads}}
+
+\hypertarget{quality-checking}{%
+\subsection{Quality checking}\label{quality-checking}}
+
+\begin{verbatim}
+fastqc 3bstrain1.fastq
+fastqc EV1.fastq 
+fastqc set1rep1.fastq
+\end{verbatim}
+
+\hypertarget{quality-control-using-trim_galore}{%
+\subsection{\texorpdfstring{Quality control using \texttt{trim\_galore}}{Quality control using trim\_galore}}\label{quality-control-using-trim_galore}}
+
+The default value for \texttt{-q} (or \texttt{-\/-quality}) is 20 meaning \texttt{Trim\ low-quality\ ends\ from\ reads}. After we remove the low quality bases, a read could be very short. So \texttt{-\/-length\ 75} can be used to discard any reads that are shorter than 75 bps after quality control.
+
+\begin{verbatim}
+trim_galore --length 75 EV1.fastq 
+## Equivalent of:
+trim_galore -q 20 --length 75 EV1.fastq 
+
+trim_galore --length 75 3bstrain1.fastq
+trim_galore --length 75 set1rep1.fastq 
+\end{verbatim}
+
+Taken \texttt{EV1.fastq} as an exmaple, two files will be generated: \texttt{EV1\_trimmed.fa} and \texttt{EV1.fastq\_trimming\_report.txt}.
+
+\hypertarget{donwload-reference-genome}{%
+\section{Donwload reference genome}\label{donwload-reference-genome}}
+
+You need to download the reference genome (in fasta file) and the genome annotation file (in gff/gtf file).
+
+Here is the link for reference genome: \url{http://useast.ensembl.org/Saccharomyces_cerevisiae/Info/Index}
+
+\begin{verbatim}
+wget ftp://ftp.ensembl.org/pub/release-95/fasta/saccharomyces_cerevisiae/dna/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz
+wget ftp://ftp.ensembl.org/pub/release-95/gff3/saccharomyces_cerevisiae/Saccharomyces_cerevisiae.R64-1-1.95.gff3.gz
+\end{verbatim}
+
+\hypertarget{build-bismark-index-for-bismark-alignment}{%
+\section{\texorpdfstring{Build bismark index for \texttt{Bismark} alignment}{Build bismark index for Bismark alignment}}\label{build-bismark-index-for-bismark-alignment}}
+
+\begin{verbatim}
+mkdir bismark_index/
+
+zcat Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz > bismark_index/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa
+\end{verbatim}
+
+\begin{verbatim}
+bismark_genome_preparation bismark_index/
+\end{verbatim}
+
+This script \texttt{bismark\_genome\_preparation} needs to be run only once to prepare the genome of interest for bisulfite alignments. You need to specify a directory containing the genome you want to align your reads against (please be aware that the bismark\_genome\_preparation script expects FastA files in this folder (with either .fa or .fasta extension, single or multiple sequence entries per file). Bismark will create two individual folders within this directory, one for a C-\textgreater{}T converted genome and the other one for the G-\textgreater{}A converted genome. After creating C-\textgreater{}T and G-\textgreater{}A versions of the genome they will be indexed in parallel using the indexer bowtie2-build (or hisat2-build). Once both C-\textgreater{}T and G-\textgreater{}A genome indices have been created you do not need to use the genome preparation script again (unless you want to align against a different genome\ldots{}).
+
+\begin{quote}
+Please note that Bowtie 2 and HISAT2 indexes are not compatible! To create a genome index for use with HISAT2 the option --hisat2 needs to be included as well.
+\end{quote}
+
+\hypertarget{bismark-alignment}{%
+\section{Bismark alignment}\label{bismark-alignment}}
+
+\begin{verbatim}
+## make sure bowtie2 and samtools have been installed.
+bismark ../ref/bismark_index/ 3bstrain1.fastq 
+bismark ../ref/bismark_index/ EV1.fastq 
+bismark ../ref/bismark_index/ set1rep1.fastq
+\end{verbatim}
+
+\hypertarget{python}{%
+\chapter{Python}\label{python}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3634,8 +4598,8 @@ wget -O set1_rep1.sra ftp://ftp.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra
   programming language
 \end{enumerate}
 
-\hypertarget{section-8}{%
-\chapter{}\label{section-8}}
+\hypertarget{section-7}{%
+\chapter{}\label{section-7}}
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see \url{http://rmarkdown.rstudio.com}.
 
@@ -3648,8 +4612,13 @@ When you click the \textbf{Knit} button a document will be generated that includ
 \end{Shaded}
 
 \begin{verbatim}
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##     1.0     3.0     4.0     4.6     6.0     9.0
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
 \end{verbatim}
 
 \hypertarget{including-plots}{%
@@ -3669,86 +4638,216 @@ Note that the \texttt{echo\ =\ FALSE} parameter was added to the code chunk to p
 
 \url{https://www.bioinformatics.babraham.ac.uk/training.html}
 
-\hypertarget{crispr-cas9-screen-data-processing}{%
-\chapter{CRISPR-CAS9 screen data processing}\label{crispr-cas9-screen-data-processing}}
+\hypertarget{basic-statistics}{%
+\chapter{Basic statistics}\label{basic-statistics}}
 
-\hypertarget{installation-of-softwares-using-conda}{%
-\section{\texorpdfstring{Installation of softwares using \texttt{conda}}{Installation of softwares using conda}}\label{installation-of-softwares-using-conda}}
+\hypertarget{probability-distribution}{%
+\section{Probability distribution}\label{probability-distribution}}
 
-\begin{verbatim}
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-conda config --add channels conda-forge
-conda config --add channels bioconda
-conda create -n mageck-vispr mageck mageck-vispr python=3
-\end{verbatim}
+\hypertarget{geometirc-distribution}{%
+\subsection{Geometirc distribution}\label{geometirc-distribution}}
 
-\hypertarget{an-exmaple-of-how-to-process}{%
-\section{An exmaple of how to process}\label{an-exmaple-of-how-to-process}}
+The geometric distribution is the distribution of the number of trials needed to get get the first success in repeated independent Bernolli trails.
 
-CRISPR Screen.
-For the pooled genome-wide CRISPR screen, 1 × 108 LNCaP cells were infected with the pooled lentiviral GeCKO v2 library at a multiplicity of infection of 0.5. After 3 d of puromycin selection, half of the surviving cells were stored as 0-d control samples, and the rest of cells were cultured for an additional 2 wk. PCR was performed on genomic DNA to construct the sequencing library. Each library was sequenced at 30∼40 million reads to achieve ∼300× average coverage over the CRISPR library and data were analyzed by MAGeCK and MAGeCK-VISPR.
+\hypertarget{bionomial-distribution}{%
+\subsection{Bionomial distribution}\label{bionomial-distribution}}
 
-\hypertarget{donwload-the-data-1}{%
-\subsection{Donwload the data}\label{donwload-the-data-1}}
+The binomial distribution is the distribution of the number of successes (X) in a fixed number (\emph{n}) if independent Bernolli trails.
 
-\begin{verbatim}
-#!/usr/bin/env bash
-curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR231/007/SRR2318477/SRR2318477.fastq.gz -o CRISPR-0d.fastq.gz &
-curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR231/006/SRR2318476/SRR2318476.fastq.gz -o CRISPR-plasmid.fastq.gz &
-curl -L ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR231/008/SRR2318478/SRR2318478.fastq.gz -o CRISPR-DHT.fastq.gz &
-\end{verbatim}
+\hypertarget{negative-binomial-distribution}{%
+\subsection{Negative binomial distribution}\label{negative-binomial-distribution}}
 
-\hypertarget{reference-1}{%
-\subsection{Reference}\label{reference-1}}
+The negative bionomial distribution distribution is the distribution of the number of trials needed (X) to get the \_r\_th success (r)(\citet{jbstatistics}).
 
-Fei T, Chen Y, Xiao T, Li W et al.~Genome-wide CRISPR screen identifies HNRNPL as a prostate cancer dependency regulating RNA splicing. Proc Natl Acad Sci U S A 2017 Jun 27;114(26):E5207-E5215. PMID: 28611215
+\[
+\left(\begin{array}{l}
+{x-1} \\
+{r-1}
+\end{array}\right) p^{r-1}(1-p)^{(x-1)-(r-1)}
+\]
 
-\hypertarget{commands-for-linux-administration-advanced-topic}{%
-\chapter{Commands for Linux administration (Advanced topic)}\label{commands-for-linux-administration-advanced-topic}}
+The probabilty of the rth success that occures on the xth trial is:
 
-\hypertarget{w}{%
-\section{\texorpdfstring{\texttt{w}}{w}}\label{w}}
+\[
+\begin{aligned}
+P(X=x) &=p \times\left(\begin{array}{c}
+{x-1} \\
+{r-1}
+\end{array}\right) p^{r-1}(1-p)^{(x-1)-(r-1)} \\
+&=\left(\begin{array}{c}
+{x-1} \\
+{r-1}
+\end{array}\right) p^{r}(1-p)^{x-r}
+\end{aligned}
+\]
 
-\hypertarget{who}{%
-\section{\texorpdfstring{\texttt{who}}{who}}\label{who}}
+We say Random varaible X is distributed \[X \sim N B(r, p)\]. The mean is: \[\mu=\frac{r}{p}\]. The variance is \[\sigma^{2}=\frac{r(1-p)}{p^{2}}\].
 
-\hypertarget{uptime}{%
-\section{\texorpdfstring{\texttt{uptime}}{uptime}}\label{uptime}}
+\emph{X} is the count of independent Bernoulli trials required to achieve the rth successful trial when the probability of success is constant \emph{p}.
 
-In Linux uptime command shows since how long your system is running and the number of users are currently logged in and also displays load average for 1,5 and 15 minutes intervals.
+R function \texttt{dnbinom} gives the density. \texttt{dnbbinom(x,\ size,\ prob)} calculate the probability that a number of failures \emph{x} occurs before \emph{r}-th success, in a sequence of Bernoulli trials, for which the probability of individual success is p.
 
-\hypertarget{whoami}{%
-\section{\texorpdfstring{\texttt{whoami}}{whoami}}\label{whoami}}
+Example 1 (\citet{NBblogMichael}):
+
+An oil company has a \texttt{p\ =\ 0.20} chance of striking oil when drilling a well. What is the probability the company drills x = 7 wells to strike oil r = 3 times?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{whoami}
+\NormalTok{r =}\StringTok{ }\DecValTok{3}
+\NormalTok{p =}\StringTok{ }\FloatTok{0.20}
+\NormalTok{n =}\StringTok{ }\DecValTok{7} \OperatorTok{-}\StringTok{ }\NormalTok{r}
+\CommentTok{# exact}
+\KeywordTok{dnbinom}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ n, }\DataTypeTok{size =}\NormalTok{ r, }\DataTypeTok{prob =}\NormalTok{ p)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## rstudio-user
+## [1] 0.049152
 \end{verbatim}
 
-\hypertarget{ifconfig}{%
-\section{\texorpdfstring{\texttt{ifconfig}}{ifconfig}}\label{ifconfig}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# simulated}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{rnbinom}\NormalTok{(}\DataTypeTok{n =} \DecValTok{10000}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ r, }\DataTypeTok{prob =}\NormalTok{ p) }\OperatorTok{==}\StringTok{ }\NormalTok{n)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-ifconfig
+## [1] 0.05
 \end{verbatim}
 
-\hypertarget{useradd-and-passwd}{%
-\section{\texorpdfstring{\texttt{useradd} and \texttt{passwd}}{useradd and passwd}}\label{useradd-and-passwd}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{dnbinom}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{25}\NormalTok{,}\DecValTok{2}\NormalTok{,}\FloatTok{0.5}\NormalTok{), }\DataTypeTok{col=}\StringTok{"grey"}\NormalTok{, }\DataTypeTok{names.arg=}\DecValTok{1}\OperatorTok{:}\DecValTok{25}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-139-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(}\KeywordTok{library}\NormalTok{(dplyr))}
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(}\KeywordTok{library}\NormalTok{(ggplot2))}
+
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x =} \DecValTok{0}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{prob =} \KeywordTok{dnbinom}\NormalTok{(}\DataTypeTok{x =} \DecValTok{0}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ r, }\DataTypeTok{prob =}\NormalTok{ p)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Failures =} \KeywordTok{ifelse}\NormalTok{(x }\OperatorTok{==}\StringTok{ }\NormalTok{n, n, }\StringTok{"other"}\NormalTok{)) }\OperatorTok{%>%}
+\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(x), }\DataTypeTok{y =}\NormalTok{ prob, }\DataTypeTok{fill =}\NormalTok{ Failures)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(prob,}\DecValTok{2}\NormalTok{), }\DataTypeTok{y =}\NormalTok{ prob }\OperatorTok{+}\StringTok{ }\FloatTok{0.01}\NormalTok{),}
+    \DataTypeTok{position =} \KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.9}\NormalTok{),}
+    \DataTypeTok{size =} \DecValTok{3}\NormalTok{,}
+    \DataTypeTok{vjust =} \DecValTok{0}
+\NormalTok{  ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Probability of r = 3 Successes in X = 7 Trials"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"NB(3,.2)"}\NormalTok{,}
+       \DataTypeTok{x =} \StringTok{"Failed Trials (X - r)"}\NormalTok{,}
+       \DataTypeTok{y =} \StringTok{"Probability"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-140-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#What is the expected number of trials to achieve r = 3 successes when the probability of success is p = 0.2?}
+\NormalTok{r =}\StringTok{ }\DecValTok{3}
+\NormalTok{p =}\StringTok{ }\FloatTok{0.20}
+\CommentTok{# mean}
+\CommentTok{# exact}
+\NormalTok{r }\OperatorTok{/}\StringTok{ }\NormalTok{p}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{verbatim}
-## Need to have root access
-adduser tabomics 
+## [1] 15
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# simulated}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{rnbinom}\NormalTok{(}\DataTypeTok{n =} \DecValTok{10000}\NormalTok{, }\DataTypeTok{size =} \DecValTok{3}\NormalTok{, }\DataTypeTok{prob =}\NormalTok{ p)) }\OperatorTok{+}\StringTok{ }\NormalTok{r}
+\end{Highlighting}
+\end{Shaded}
+
 \begin{verbatim}
-## add a user to a specified group
-adduser tabomics -g bioinf
+## [1] 14.9629
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Variance}
+\CommentTok{# exact}
+\NormalTok{r }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\NormalTok{p) }\OperatorTok{/}\StringTok{ }\NormalTok{p}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 60
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# simulated}
+\KeywordTok{var}\NormalTok{(}\KeywordTok{rnbinom}\NormalTok{(}\DataTypeTok{n =} \DecValTok{100000}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ r, }\DataTypeTok{prob =}\NormalTok{ p))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 60.21722
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(}\KeywordTok{library}\NormalTok{(dplyr))}
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(}\KeywordTok{library}\NormalTok{(ggplot2))}
+
+\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }
+           \DataTypeTok{pmf =} \KeywordTok{dnbinom}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ r, }\DataTypeTok{prob =}\NormalTok{ p),}
+           \DataTypeTok{cdf =} \KeywordTok{pnbinom}\NormalTok{(}\DataTypeTok{q =} \DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ r, }\DataTypeTok{prob =}\NormalTok{ p, }\DataTypeTok{lower.tail =} \OtherTok{TRUE}\NormalTok{)) }\OperatorTok{%>%}
+\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(x), }\DataTypeTok{y =}\NormalTok{ cdf)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =} \KeywordTok{round}\NormalTok{(cdf,}\DecValTok{2}\NormalTok{), }\DataTypeTok{y =}\NormalTok{ cdf }\OperatorTok{+}\StringTok{ }\FloatTok{0.01}\NormalTok{),}
+    \DataTypeTok{position =} \KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.9}\NormalTok{),}
+    \DataTypeTok{size =} \DecValTok{3}\NormalTok{,}
+    \DataTypeTok{vjust =} \DecValTok{0}
+\NormalTok{  ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Cumulative Probability of X = x failed trials to achieve 3rd success"}\NormalTok{,}
+       \DataTypeTok{subtitle =} \StringTok{"NB(3,.2)"}\NormalTok{,}
+       \DataTypeTok{x =} \StringTok{"Failed Trials (x)"}\NormalTok{,}
+       \DataTypeTok{y =} \StringTok{"probability"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bioinfBookXIE186_files/figure-latex/unnamed-chunk-145-1.pdf}
+
+\hypertarget{why-is-it-called-negative-binomial}{%
+\subsubsection{Why is it called Negative Binomial?}\label{why-is-it-called-negative-binomial}}
+
+The ``negative'' part of negative binomial stems from the fact that one facet of the binomial distribution is reversed: in a binomial experiment, we count the number of successes in a fixed number of trials. In a negative binomial experiment, we're counting the failures, or how many cards it takes you to pick two aces.
+
+\hypertarget{part-python}{%
+\part{Python}\label{part-python}}
+
+\hypertarget{first-perl-program-1}{%
+\chapter{First Perl Program}\label{first-perl-program-1}}
+
+As all other programming books, we begin with a ``Hello world'' program.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{#!/usr/bin/python}
+\CommentTok{#Printing a line of text “Hello, Bioinformatics”}
+\FunctionTok{print}\NormalTok{(}\KeywordTok{"}\StringTok{Hello, Bioinformatics!}\CharTok{\textbackslash{}n}\KeywordTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This program show how to display a line a text in Perl. It have several features. We go through each line in detail.
+
+Line 1 is what we call shebang line. This line starts with shebang construct (\texttt{\#!}). \texttt{/usr/bin/perl} indicates the path of the Perl interpreter.
+
+Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (``'' or `').
 
 \bibliography{book.bib,packages.bib}
 
