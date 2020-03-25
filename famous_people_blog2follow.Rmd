@@ -1,0 +1,17 @@
+# Famouse people and/or blogs to follow
+
+Stand on the giants' should is the best way to learn new things. Here is a list of people/blogs to follow. 
+
+In this book, some of the ideas came from these resources. Big thanks. 
+
+
+```{r}
+suppressWarnings(library(knitr))
+suppressWarnings(library(kableExtra))
+
+tab <- read.table("data/famous_people.txt", sep="\t", header=T)
+kable(tab, format = "html", align = "c")  %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+
