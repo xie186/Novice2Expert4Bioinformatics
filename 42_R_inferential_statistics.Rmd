@@ -1,0 +1,63 @@
+# Inferential Statistics
+
+In Bioinformatics, understanding statistics is essential to understand research. You will learn the basics of inferential statistics in this chapter. You will learn not just how to calculate them but also how to interpret the resuts. 
+
+"""
+
+Inferential statistics help us to make inferences based on relations found in a sample, about relations in the population. We will start by considering the basic principles of significance testing: the sampling and test statistic distribution, p-value, significance level, power and type I and type II errors.
+
+Then we will consider a large number of statistical tests and techniques that help us make inferences for different types of data and different types of research designs. For each individual statistical test we will consider how it works, for what data and design it is appropriate and how results should be interpreted. You will also learn how to perform these tests using freely available software.
+
+For those who are already familiar with statistical testing: We will look at z-tests for 1 and 2 proportions, McNemar's test for dependent proportions, t-tests for 1 mean (paired differences) and 2 means, the Chi-square test for independence, Fisher’s exact test, simple regression (linear, exponential and logistic) and multiple regression, one way and multi-way analysis of variance, and non-parametric tests (Wilcoxon, Kruskal-Wallis, sign test, signed-rank test).
+"""
+
+
+
+## Comparing two groups
+
+### Independent groups
+
+### Dependent groups
+
+
+### Controlling for other variables
+
+
+## Categorical association
+
+
+### Categorical association - Chi-squared test for association
+
+
+### Categorical association - Chi-squared test for goodness of fit
+
+
+### Categorical association - Sidenotes and an alternative to the Chi-squared test
+
+
+## Simple regression
+
+
+###  Describing quantitative association
+
+###  Drawing inferences
+
+### Exponential regression
+
+## Multiple regression
+
+## Analysis of variance
+
+
+## Non-parametric tests
+
+### Comparing groups with respect to mean rank
+
+### Rank-based correlation & randomness
+
+
+### 
+
+
+
+

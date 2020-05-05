@@ -77,6 +77,27 @@ Convert fastq file to fasta file using paste:
 paste - - - - <data/WGBS_example_data/EV1.fastq |cut -f1-2 | sed 's/^@/>/' | tr "\t" "\n"  |head -4
 ```
 
+For fastq files, another exmaple is to either combine two paired-end read files into one interleaved read file and vise versa. 
+
+```
+## https://biowize.wordpress.com/2015/03/26/the-fastest-darn-fastq-decoupling-procedure-i-ever-done-seen/
+paste <(paste - - - - < reads-1.fastq) \
+      <(paste - - - - < reads-2.fastq) | \
+      tr '\t' '\n' > reads-interleave.fastq
+paste - - - - - - - - < reads-int.fastq \
+    | tee >(cut -f 1-4 | tr '\t' '\n' > reads-1.fastq) \
+    | cut -f 5-8 | tr '\t' '\n' > reads-2.fastq
+```
+
+### Advanced topic: 
+
+
+
+```
+## https://gist.github.com/nathanhaigh/3521724
+sh code_shell/deinterleave_fastq.sh < 
+```
+
 ## Finding Things
 
 ### Find files with pattern matching
@@ -138,3 +159,6 @@ COMMAND = command with all its arguments
 References:
 
 https://superuser.com/questions/117913/ps-aux-output-meaning
+
+https://biowize.wordpress.com/2015/03/26/the-fastest-darn-fastq-decoupling-procedure-i-ever-done-seen/
+

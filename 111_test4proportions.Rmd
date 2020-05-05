@@ -1,0 +1,32 @@
+# Statistical test
+
+
+## Hypothesis test for difference in proportions example
+
+
+* Random
+
+* Normal condition: Either of the numbers (success or failure) is above 10. 
+
+* Independence: either sample size is no more than 10% of the population
+
+
+
+
+H0: P1 = P2
+
+
+Ha: P1 > P2
+
+
+
+### Impact of smaple size on Prop test 
+
+
+```{r}
+prop.test(c(35,25),c(100,100))
+prop.test(c(350,250),c(1000,1000))
+prop.test(c(3500,2500),c(10000,10000))
+prop.test(c(35000,25000),c(100000,100000))
+```
+

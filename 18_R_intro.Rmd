@@ -1,6 +1,10 @@
 # (PART) Statistics and R {-}
 
+
+
 # R introduction
+
+I started to work on 
 
 ## Basic R function
 
