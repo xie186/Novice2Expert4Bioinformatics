@@ -1,0 +1,17 @@
+# Gini index
+
+
+## 
+
+
+```{sh}
+cat code_python/gini_index.py
+```
+
+```{sh}
+cat data/sgRNA_count_norm4gini_index.txt 
+```
+
+```{sh}
+python3 code_python/gini_index.py data/sgRNA_count_norm4gini_index.txt sgRNA_gini_index
+```

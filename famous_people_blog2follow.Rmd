@@ -4,7 +4,7 @@ Stand on the giants' should is the best way to learn new things. Here is a list 
 
 In this book, some of the ideas came from these resources. If I miss any reference please let me know. Big thanks. 
 
-```{r}
+```{r echo=F}
 suppressWarnings(library(knitr))
 suppressWarnings(library(kableExtra))
 

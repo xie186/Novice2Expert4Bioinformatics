@@ -1,0 +1,12 @@
+# Dataframe
+
+
+## Init an empty dataframe
+
+### Init an empty dataframe with known rownames
+
+```{r eval=FALSE}
+df <- data.frame(row.names = c("gene1", "gene2", "gene3"))
+df
+```
+

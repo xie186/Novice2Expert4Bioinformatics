@@ -1,0 +1,42 @@
+---
+title: "Crocodile Math Problem in R"
+author: "Shaojun Xie"
+date: "5/15/2020"
+output: html_document
+---
+
+
+# Question
+
+![](https://ichef.bbci.co.uk/news/660/cpsprodpb/126B7/production/_85974457_croc.png)
+
+
+```{r}
+
+time_crocodile <- function(x) {
+  5 * sqrt(36 + x^2) + 4 * (20 - x)
+}
+```
+
+
+
+```{r}
+ggplot(data.frame(x=c(0, 20)), aes(x)) + 
+  stat_function(fun = time_crocodile) +
+  xlab("Distance") +  
+  ylab("Time")
+```
+
+
+# Solve first question
+
+```{r}
+time_crocodile(20)
+```
+
+# Reference
+
+Crocodile maths question 'was challenging': https://www.bbc.com/news/uk-scotland-34476699
+
+
+https://www.gastonsanchez.com/visually-enforced/how-to/2015/10/19/crocodile-problem/

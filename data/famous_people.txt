@@ -1,5 +1,6 @@
-Name	Website
+Name/Title	Web link
 Daniel Standage	http://standage.github.io/
 Michael I. Love	https://mikelove.github.io/
 Dave Tang	https://davetang.org/muse/
 Nathan Watson-Haigh	http://nathanhaigh.github.io/
+Chris Mack	https://www.youtube.com/channel/UCf0TBxBHf6viwLLJLgIAUnw

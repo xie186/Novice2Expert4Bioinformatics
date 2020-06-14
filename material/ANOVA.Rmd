@@ -1,0 +1,54 @@
+---
+title: "ANOVA.Rmd"
+author: "Shaojun Xie"
+date: "5/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##  Data
+
+```{r}
+library(WRS2)
+dim(diet)
+```
+
+
+
+In `diet` dataset, there are 76 people. They undertook one of the thre dieats (referred here as `A`, `B` and `C`). Other background informaiton inlcude `age`, `gender` and `height`. The goal of this study is to investigate which diet was best for losing weight. 
+
+
+
+`ANOVA` is the anlayisis of variance to compare 3 or more population means. 
+
+
+
+Hypotheses
+
+* H0: μ1 = μ2 = μ3 ... = μk
+* H1: At least one mean mean differs from the others.
+
+
+```{r}
+# Compute the analysis of variance
+result <- aov(weight.loss ~ diet.type, data=diet) 
+# summary of the analysis
+summary(result)
+```
+
+Since the p-value is less than the significant level 0.05, we can say that at least one mean of `diet.type` differs from the others. 
+
+
+
+
+Let's see how we can get this result step by step. 
+
+
+
+
+
+
+
