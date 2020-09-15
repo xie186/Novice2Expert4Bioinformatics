@@ -1,0 +1,5 @@
+touch 11_python_variable_type.Rmd
+touch 11_python_flow_control.Rmd
+touch 11_python_reading_files.Rmd
+touch 11_python_def.Rmd
+touch 11_pyhton_reg_expr.Rmd

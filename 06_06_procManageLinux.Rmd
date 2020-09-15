@@ -56,6 +56,14 @@ kill 20140418
 
 ## `df`
 
+`df` can be used to report file system disk space usage. 
+
+```{sh}
+df -h 
+```
+
+If you Linux cluster, you might need to check other command like `myquota`. 
+
 ## Advanced topic `free`
 
 You can use command `free` to display amount of free and used memory in the system. 

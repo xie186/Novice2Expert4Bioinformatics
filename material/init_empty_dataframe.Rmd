@@ -1,50 +1,15 @@
----
-title: "Initiate an empty dataframe"
-author: "Shaojun Xie"
-date: "6/6/2020"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## 
-
-If you already have an existent data frame, let's say df that has the columns you want, then you can just create an empty data frame by removing all the rows:
-
-```{r}
-empty_df = df[FALSE,]
-```
+# Dataframe
 
 
-```{r}
-df = data.frame(matrix(vector(), 0, 3,
-                dimnames=list(c(), c("Date", "File", "User"))),
-                stringsAsFactors=F)
-View(df)
-```
+## Init an empty dataframe
 
+### Init an empty dataframe with known rownames
 
-
-
-```{r}
-colClasses = c("Date", "character", "character")
-col.names = c("Date", "File", "User")
-
-df <- read.table(text = "",
-                 colClasses = colClasses,
-                 col.names = col.names)
+```{r eval=FALSE}
+df <- data.frame(row.names = c("gene1", "gene2", "gene3"))
 df
 ```
 
-```{r}
-#Alternatively specifying the col.names as a string:
-df <- read.csv(text="Date,File,User", colClasses = colClasses)
-```
 
 
-## Reference
-
-https://stackoverflow.com/questions/10689055/create-an-empty-data-frame
 

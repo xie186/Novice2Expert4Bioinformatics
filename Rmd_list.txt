@@ -1,47 +1,40 @@
-## Acknow
-about_me_acknowledge.Rmd
-## Linux
-WhyLinux.Rmd
-Connect2Linux.Rmd
-FileSystemLinux.Rmd
-Linux_FilteringOutputandFindingThings.Rmd
-AchivingAndCompressingFiles.Rmd
-procManageLinux.Rmd
-fileTransfer.Rmd
-InstallationOfSoftwareInLinux.Rmd
-TextEditorInLinux.Rmd
-
-## Perl
-FirstPerlProgram.Rmd
-PerlArrat.Rmd
-PerlVariableOperator.Rmd
-PerlControlStructure.Rmd
-StringManipulationRegExp.Rmd
-PerlInputOutput.Rmd
-practicalPerlProgram.Rmd
-PerlModules.Rmd
-
-## R basics
-R_intro.Rmd
-SimpleGraphR.Rmd
-GraphGgplot2.Rmd
-GenerateHeatmap.Rmd
-
-## Figure manuscript
-FigureManuscript.Rmd
-
-## NGS
-IntroNGS.Rmd
-introRNA-seq.Rmd
-introChIP-seq.Rmd
-introBSseq.Rmd
-ExpDesign.Rmd
-
-## CapsoneProject
-CapstoneProjectRNA-seq.Rmd
-CapstoneProjectChIP-seq.Rmd
-CapstoneProjectBS-seq.Rmd
-Good_resource.Rmd
-Reference.Rmd
-#index.Rmd
-#materials.Rmd
+00_about_me_acknowledge.Rmd
+01_WhyLinux.Rmd
+02_Connect2Linux.Rmd
+03_FileSystemLinux.Rmd
+04_Linux_FilteringOutputandFindingThings.Rmd
+05_AchivingAndCompressingFiles.Rmd
+06_procManageLinux.Rmd
+07_fileTransfer.Rmd
+08_InstallationOfSoftwareInLinux.Rmd
+09_TextEditorInLinux.Rmd
+10_python_first_python.Rmd
+11_python_variable_type.Rmd
+11_python_flow_control.Rmd
+11_python_reading_files.Rmd
+11_python_def.Rmd
+11_pyhton_reg_expr.Rmd
+18_R_intro.Rmd
+20_GraphGgplot2.Rmd
+21_GenerateHeatmap.Rmd
+22_FigureManuscript.Rmd
+23_IntroNGS.Rmd
+24_introRNA-seq.Rmd
+27_ExpDesign.Rmd
+28_CapstoneProjectRNA-seq.Rmd
+28_common_measurement.Rmd
+29_R_data.table.Rmd
+31_Good_resource.Rmd
+41_basic_statistics_R.Rmd
+42_R_inferential_statistics.Rmd
+10_FirstPerlProgram.Rmd
+11_PerlVariableOperator.Rmd
+11_R_linear_regression.Rmd
+13_PerlControlStructure.Rmd
+14_StringManipulationRegExp.Rmd
+15_PerlInputOutput.Rmd
+16_practicalPerlProgram.Rmd
+17_PerlModules.Rmd
+100_Perl_oneliner.Rmd
+famous_people_blog2follow.Rmd
+32_Reference.Rmd

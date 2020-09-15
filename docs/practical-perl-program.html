@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 18 Practical Perl program | All things considered for Bioinformatics</title>
+  <title>Chapter 29 Practical Perl program | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 18 Practical Perl program | All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 29 Practical Perl program | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Practical Perl program | All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 29 Practical Perl program | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-06-14">
+<meta name="date" content="2020-09-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,9 +52,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -239,208 +241,204 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#create-new-text-file-with-vi"><i class="fa fa-check"></i><b>9.2</b> Create new text file with <code>vi</code></a></li>
 <li class="chapter" data-level="9.3" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#an-example-for-using-editor-r"><i class="fa fa-check"></i><b>9.3</b> An example for using editor R</a></li>
 </ul></li>
-<li class="part"><span><b>II Perl</b></span></li>
-<li class="chapter" data-level="10" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>10</b> First Perl Program</a><ul>
-<li class="chapter" data-level="10.1" data-path="first-perl-program.html"><a href="first-perl-program.html#first-program"><i class="fa fa-check"></i><b>10.1</b> First Program</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="perl-one-liner.html"><a href="perl-one-liner.html"><i class="fa fa-check"></i><b>11</b> Perl one-liner</a><ul>
-<li class="chapter" data-level="11.1" data-path="perl-one-liner.html"><a href="perl-one-liner.html#convert-a-fastq-file-from-fastq-to-fast"><i class="fa fa-check"></i><b>11.1</b> Convert a fastq file from FASTQ to FAST</a></li>
-<li class="chapter" data-level="11.2" data-path="perl-one-liner.html"><a href="perl-one-liner.html#escape-single-quote"><i class="fa fa-check"></i><b>11.2</b> Escape single quote</a></li>
-<li class="chapter" data-level="11.3" data-path="perl-one-liner.html"><a href="perl-one-liner.html#reference"><i class="fa fa-check"></i><b>11.3</b> Reference</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>12</b> Varible in Perl</a><ul>
-<li class="chapter" data-level="12.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#scalar-variable"><i class="fa fa-check"></i><b>12.1</b> Scalar variable</a></li>
-<li class="chapter" data-level="12.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>12.2</b> Arithmetic operations in Perl</a><ul>
-<li class="chapter" data-level="12.2.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#shorthand-operations"><i class="fa fa-check"></i><b>12.2.1</b> Shorthand operations</a></li>
-<li class="chapter" data-level="12.2.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#auto-increment-and-auto-decrement"><i class="fa fa-check"></i><b>12.2.2</b> Auto increment and auto decrement</a></li>
-<li class="chapter" data-level="12.2.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#inf-and--inf-in-perl"><i class="fa fa-check"></i><b>12.2.3</b> <code>inf</code> and <code>-inf</code> in Perl</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-strict-user-warnings-and-my"><i class="fa fa-check"></i><b>12.3</b> <code>use strict</code>; <code>user warnings</code> and <code>my</code></a></li>
-<li class="chapter" data-level="12.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>12.4</b> Array</a><ul>
-<li class="chapter" data-level="12.4.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#init-an-array"><i class="fa fa-check"></i><b>12.4.1</b> Init an array</a></li>
-<li class="chapter" data-level="12.4.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array-index"><i class="fa fa-check"></i><b>12.4.2</b> Array index</a></li>
-<li class="chapter" data-level="12.4.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#length-of-the-array"><i class="fa fa-check"></i><b>12.4.3</b> Length of the array</a></li>
-<li class="chapter" data-level="12.4.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-arrays-in-perl"><i class="fa fa-check"></i><b>12.4.4</b> Sort Arrays in Perl</a></li>
-<li class="chapter" data-level="12.4.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-push-pop-shift-and-unshift-in-perl"><i class="fa fa-check"></i><b>12.4.5</b> Use <code>push</code>, <code>pop</code>, <code>shift</code> and <code>unshift</code> in Perl</a></li>
-</ul></li>
-<li class="chapter" data-level="12.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash-in-perl"><i class="fa fa-check"></i><b>12.5</b> Hash in Perl</a><ul>
-<li class="chapter" data-level="12.5.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-keys-numerically-using-sort-ab"><i class="fa fa-check"></i><b>12.5.1</b> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></a></li>
-<li class="chapter" data-level="12.5.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-exists-function-on-a-hash"><i class="fa fa-check"></i><b>12.5.2</b> Use <code>exists</code> function on a hash</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>13</b> Linear regression</a><ul>
-<li class="chapter" data-level="13.1" data-path="linear-regression.html"><a href="linear-regression.html#interpreting-regression-parameters-in-a-basic-model"><i class="fa fa-check"></i><b>13.1</b> Interpreting regression parameters in a basic model</a><ul>
-<li class="chapter" data-level="13.1.1" data-path="linear-regression.html"><a href="linear-regression.html#r-squared-and-correlation"><i class="fa fa-check"></i><b>13.1.1</b> R-squared and correlation</a></li>
-</ul></li>
-<li class="chapter" data-level="13.2" data-path="linear-regression.html"><a href="linear-regression.html#reference-1"><i class="fa fa-check"></i><b>13.2</b> Reference</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="statistical-test.html"><a href="statistical-test.html"><i class="fa fa-check"></i><b>14</b> Statistical test</a><ul>
-<li class="chapter" data-level="14.1" data-path="statistical-test.html"><a href="statistical-test.html#hypothesis-test-for-difference-in-proportions-example"><i class="fa fa-check"></i><b>14.1</b> Hypothesis test for difference in proportions example</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="statistical-test.html"><a href="statistical-test.html#impact-of-smaple-size-on-prop-test"><i class="fa fa-check"></i><b>14.1.1</b> Impact of smaple size on Prop test</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>15</b> Control structure</a><ul>
-<li class="chapter" data-level="15.1" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>15.1</b> <code>for</code> loop</a></li>
-<li class="chapter" data-level="15.2" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>15.2</b> <code>foreach</code> loop</a></li>
-<li class="chapter" data-level="15.3" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>15.3</b> <code>while</code> loop</a></li>
-<li class="chapter" data-level="15.4" data-path="control-structure.html"><a href="control-structure.html#statement-if-else"><i class="fa fa-check"></i><b>15.4</b> Statement if-else</a></li>
-<li class="chapter" data-level="15.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>15.5</b> Operator <code>last</code> and <code>next</code></a></li>
-<li class="chapter" data-level="15.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>15.6</b> Operator <code>redo</code></a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>16</b> String manipulation</a><ul>
-<li class="chapter" data-level="16.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-concatenation"><i class="fa fa-check"></i><b>16.1</b> String concatenation</a></li>
-<li class="chapter" data-level="16.2" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-extraction"><i class="fa fa-check"></i><b>16.2</b> Substring extraction</a></li>
-<li class="chapter" data-level="16.3" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-search"><i class="fa fa-check"></i><b>16.3</b> Substring search</a></li>
-<li class="chapter" data-level="16.4" data-path="string-manipulation.html"><a href="string-manipulation.html#split-string"><i class="fa fa-check"></i><b>16.4</b> Split String</a></li>
-<li class="chapter" data-level="16.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>16.5</b> Regular expression</a><ul>
-<li class="chapter" data-level="16.5.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>16.5.1</b> Pattern matching</a></li>
-<li class="chapter" data-level="16.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>16.5.2</b> Pattern substitution</a></li>
-<li class="chapter" data-level="16.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>16.5.3</b> Modifiers to pattern matching and substitution</a></li>
-<li class="chapter" data-level="16.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>16.5.4</b> Greedy or non-greedy</a></li>
-<li class="chapter" data-level="16.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>16.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>17</b> Input and output in Perl</a><ul>
-<li class="chapter" data-level="17.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>17.1</b> Input</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#standard-input"><i class="fa fa-check"></i><b>17.1.1</b> Standard input</a></li>
-<li class="chapter" data-level="17.1.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input-from-a-file-on-the-disk"><i class="fa fa-check"></i><b>17.1.2</b> Input from a file on the disk</a></li>
-<li class="chapter" data-level="17.1.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#special-variable-_"><i class="fa fa-check"></i><b>17.1.3</b> Special variable <code>$_</code></a></li>
-<li class="chapter" data-level="17.1.4" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#the-input-record-separator"><i class="fa fa-check"></i><b>17.1.4</b> The input record separator: <code>$/</code></a></li>
-</ul></li>
-<li class="chapter" data-level="17.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#output-to-a-file-on-the-disk"><i class="fa fa-check"></i><b>17.2</b> Output to a file on the disk</a></li>
-<li class="chapter" data-level="17.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>17.3</b> Arguments from command line</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>18</b> Practical Perl program</a><ul>
-<li class="chapter" data-level="18.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>18.1</b> Add annotation information to DESeq2 results</a></li>
-<li class="chapter" data-level="18.2" data-path="practical-perl-program.html"><a href="practical-perl-program.html#merge-overlap-genomic-regions"><i class="fa fa-check"></i><b>18.2</b> Merge overlap genomic regions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>19</b> Perl modules</a><ul>
-<li class="chapter" data-level="19.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>19.1</b> What is a Perl module</a></li>
-<li class="chapter" data-level="19.2" data-path="perl-modules.html"><a href="perl-modules.html#how-to-install-a-perl-module"><i class="fa fa-check"></i><b>19.2</b> How to install a Perl module</a></li>
-<li class="chapter" data-level="19.3" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-a-perl-module"><i class="fa fa-check"></i><b>19.3</b> How to use a Perl module</a></li>
-<li class="chapter" data-level="19.4" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-bioperl-module"><i class="fa fa-check"></i><b>19.4</b> How to use BioPerl module</a></li>
-<li class="chapter" data-level="19.5" data-path="perl-modules.html"><a href="perl-modules.html#how-to-write-a-module"><i class="fa fa-check"></i><b>19.5</b> How to write a module</a></li>
-</ul></li>
+<li class="part"><span><b>II Python</b></span></li>
+<li class="chapter" data-level="10" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>10</b> First Perl Program</a></li>
 <li class="part"><span><b>III Statistics and R</b></span></li>
-<li class="chapter" data-level="20" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>20</b> R introduction</a><ul>
-<li class="chapter" data-level="20.1" data-path="r-introduction.html"><a href="r-introduction.html#basic-r-function"><i class="fa fa-check"></i><b>20.1</b> Basic R function</a></li>
-<li class="chapter" data-level="20.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>20.2</b> Producing Simple Graphs with R</a><ul>
-<li class="chapter" data-level="20.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>20.2.1</b> Line Charts</a></li>
+<li class="chapter" data-level="11" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>11</b> R introduction</a><ul>
+<li class="chapter" data-level="11.1" data-path="r-introduction.html"><a href="r-introduction.html#basic-r-function"><i class="fa fa-check"></i><b>11.1</b> Basic R function</a></li>
+<li class="chapter" data-level="11.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>11.2</b> Producing Simple Graphs with R</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>11.2.1</b> Line Charts</a></li>
 </ul></li>
-<li class="chapter" data-level="20.3" data-path="r-introduction.html"><a href="r-introduction.html#xxx"><i class="fa fa-check"></i><b>20.3</b> XXX</a></li>
-<li class="chapter" data-level="20.4" data-path="r-introduction.html"><a href="r-introduction.html#logic-and"><i class="fa fa-check"></i><b>20.4</b> Logic <code>&amp;&amp;</code> and <code>|</code></a></li>
-<li class="chapter" data-level="20.5" data-path="r-introduction.html"><a href="r-introduction.html#list-as-dictionary"><i class="fa fa-check"></i><b>20.5</b> List as dictionary</a></li>
-<li class="chapter" data-level="20.6" data-path="r-introduction.html"><a href="r-introduction.html#parsing-arguments-as-string"><i class="fa fa-check"></i><b>20.6</b> Parsing arguments as string</a><ul>
-<li class="chapter" data-level="20.6.1" data-path="r-introduction.html"><a href="r-introduction.html#string-as-xlim"><i class="fa fa-check"></i><b>20.6.1</b> String as xlim</a></li>
-<li class="chapter" data-level="20.6.2" data-path="r-introduction.html"><a href="r-introduction.html#how-to-access-data-frame-column-using-variable"><i class="fa fa-check"></i><b>20.6.2</b> How to access data frame column using variable</a></li>
-<li class="chapter" data-level="20.6.3" data-path="r-introduction.html"><a href="r-introduction.html#how-to-create-a-formula-from-a"><i class="fa fa-check"></i><b>20.6.3</b> How to create a formula from a</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>21</b> <code>ggplot2</code></a><ul>
-<li class="chapter" data-level="21.1" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-1"><i class="fa fa-check"></i><b>21.1</b> ggplot2</a></li>
-<li class="chapter" data-level="21.2" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-practical"><i class="fa fa-check"></i><b>21.2</b> ggplot2 practical</a></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>22</b> Heatmap Tutorial</a><ul>
-<li class="chapter" data-level="22.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#install-pheatmap-package"><i class="fa fa-check"></i><b>22.1</b> Install <code>pheatmap</code> package</a></li>
-<li class="chapter" data-level="22.2" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#draw-a-heatmap-for-gene-expression-of-rna-seq-data"><i class="fa fa-check"></i><b>22.2</b> Draw a heatmap for gene expression of RNA-seq data</a></li>
-<li class="chapter" data-level="22.3" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#add-the-annotation"><i class="fa fa-check"></i><b>22.3</b> Add the annotation</a></li>
-<li class="chapter" data-level="22.4" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#section"><i class="fa fa-check"></i><b>22.4</b> </a></li>
-<li class="chapter" data-level="22.5" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#transfrom-the-data"><i class="fa fa-check"></i><b>22.5</b> Transfrom the data</a></li>
-<li class="chapter" data-level="22.6" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-add-annotations"><i class="fa fa-check"></i><b>22.6</b> How to add annotations</a></li>
-<li class="chapter" data-level="22.7" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-cut-the-trees"><i class="fa fa-check"></i><b>22.7</b> How to cut the trees</a></li>
-<li class="chapter" data-level="22.8" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-get-the-cluster-information-from-the-heatmap"><i class="fa fa-check"></i><b>22.8</b> How to get the cluster information from the heatmap</a></li>
-<li class="chapter" data-level="22.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#change-color"><i class="fa fa-check"></i><b>22.9</b> Change color</a><ul>
-<li class="chapter" data-level="22.9.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#use-brewer"><i class="fa fa-check"></i><b>22.9.1</b> Use Brewer</a></li>
+<li class="chapter" data-level="11.3" data-path="r-introduction.html"><a href="r-introduction.html#xxx"><i class="fa fa-check"></i><b>11.3</b> XXX</a></li>
+<li class="chapter" data-level="11.4" data-path="r-introduction.html"><a href="r-introduction.html#logic-and"><i class="fa fa-check"></i><b>11.4</b> Logic <code>&amp;&amp;</code> and <code>|</code></a></li>
+<li class="chapter" data-level="11.5" data-path="r-introduction.html"><a href="r-introduction.html#list-as-dictionary"><i class="fa fa-check"></i><b>11.5</b> List as dictionary</a></li>
+<li class="chapter" data-level="11.6" data-path="r-introduction.html"><a href="r-introduction.html#parsing-arguments-as-string"><i class="fa fa-check"></i><b>11.6</b> Parsing arguments as string</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="r-introduction.html"><a href="r-introduction.html#string-as-xlim"><i class="fa fa-check"></i><b>11.6.1</b> String as xlim</a></li>
+<li class="chapter" data-level="11.6.2" data-path="r-introduction.html"><a href="r-introduction.html#how-to-access-data-frame-column-using-variable"><i class="fa fa-check"></i><b>11.6.2</b> How to access data frame column using variable</a></li>
+<li class="chapter" data-level="11.6.3" data-path="r-introduction.html"><a href="r-introduction.html#how-to-create-a-formula-from-a"><i class="fa fa-check"></i><b>11.6.3</b> How to create a formula from a</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>23</b> Preparation of figures for manuscript</a><ul>
-<li class="chapter" data-level="23.1" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html#test1"><i class="fa fa-check"></i><b>23.1</b> test1</a></li>
+<li class="chapter" data-level="12" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>12</b> <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="12.1" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-1"><i class="fa fa-check"></i><b>12.1</b> ggplot2</a></li>
+<li class="chapter" data-level="12.2" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-practical"><i class="fa fa-check"></i><b>12.2</b> ggplot2 practical</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>13</b> Heatmap Tutorial</a><ul>
+<li class="chapter" data-level="13.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#install-pheatmap-package"><i class="fa fa-check"></i><b>13.1</b> Install <code>pheatmap</code> package</a></li>
+<li class="chapter" data-level="13.2" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#draw-a-heatmap-for-gene-expression-of-rna-seq-data"><i class="fa fa-check"></i><b>13.2</b> Draw a heatmap for gene expression of RNA-seq data</a></li>
+<li class="chapter" data-level="13.3" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#add-the-annotation"><i class="fa fa-check"></i><b>13.3</b> Add the annotation</a></li>
+<li class="chapter" data-level="13.4" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#section"><i class="fa fa-check"></i><b>13.4</b> </a></li>
+<li class="chapter" data-level="13.5" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#transfrom-the-data"><i class="fa fa-check"></i><b>13.5</b> Transfrom the data</a></li>
+<li class="chapter" data-level="13.6" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-add-annotations"><i class="fa fa-check"></i><b>13.6</b> How to add annotations</a></li>
+<li class="chapter" data-level="13.7" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-cut-the-trees"><i class="fa fa-check"></i><b>13.7</b> How to cut the trees</a></li>
+<li class="chapter" data-level="13.8" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-get-the-cluster-information-from-the-heatmap"><i class="fa fa-check"></i><b>13.8</b> How to get the cluster information from the heatmap</a></li>
+<li class="chapter" data-level="13.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#change-color"><i class="fa fa-check"></i><b>13.9</b> Change color</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#use-brewer"><i class="fa fa-check"></i><b>13.9.1</b> Use Brewer</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>14</b> Preparation of figures for manuscript</a><ul>
+<li class="chapter" data-level="14.1" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html#test1"><i class="fa fa-check"></i><b>14.1</b> test1</a></li>
 </ul></li>
 <li class="part"><span><b>IV Omics data</b></span></li>
-<li class="chapter" data-level="24" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>24</b> Introduction to NGS</a><ul>
-<li class="chapter" data-level="24.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>24.1</b> Introduction of Biology for Bioinformatics</a><ul>
-<li class="chapter" data-level="24.1.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-dna"><i class="fa fa-check"></i><b>24.1.1</b> What is DNA</a></li>
-<li class="chapter" data-level="24.1.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-genome"><i class="fa fa-check"></i><b>24.1.2</b> What is genome</a></li>
-<li class="chapter" data-level="24.1.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#how-to-assemble-a-genome"><i class="fa fa-check"></i><b>24.1.3</b> How to assemble a genome</a></li>
-<li class="chapter" data-level="24.1.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-gene"><i class="fa fa-check"></i><b>24.1.4</b> What is gene</a></li>
+<li class="chapter" data-level="15" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>15</b> Introduction to NGS</a><ul>
+<li class="chapter" data-level="15.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>15.1</b> Introduction of Biology for Bioinformatics</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-dna"><i class="fa fa-check"></i><b>15.1.1</b> What is DNA</a></li>
+<li class="chapter" data-level="15.1.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-genome"><i class="fa fa-check"></i><b>15.1.2</b> What is genome</a></li>
+<li class="chapter" data-level="15.1.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#how-to-assemble-a-genome"><i class="fa fa-check"></i><b>15.1.3</b> How to assemble a genome</a></li>
+<li class="chapter" data-level="15.1.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-gene"><i class="fa fa-check"></i><b>15.1.4</b> What is gene</a></li>
 </ul></li>
-<li class="chapter" data-level="24.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-ngs"><i class="fa fa-check"></i><b>24.2</b> What is NGS</a></li>
-<li class="chapter" data-level="24.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#application-of-ngs"><i class="fa fa-check"></i><b>24.3</b> Application of NGS</a></li>
-<li class="chapter" data-level="24.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#section-1"><i class="fa fa-check"></i><b>24.4</b> </a></li>
-<li class="chapter" data-level="24.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>24.5</b> Data file formats to store the genomic information</a><ul>
-<li class="chapter" data-level="24.5.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fasta-file"><i class="fa fa-check"></i><b>24.5.1</b> <code>fasta</code> file</a></li>
-<li class="chapter" data-level="24.5.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gff-file"><i class="fa fa-check"></i><b>24.5.2</b> GFF file</a></li>
-<li class="chapter" data-level="24.5.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gtf-file"><i class="fa fa-check"></i><b>24.5.3</b> GTF file</a></li>
-<li class="chapter" data-level="24.5.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fastq-file"><i class="fa fa-check"></i><b>24.5.4</b> FASTQ file</a></li>
-<li class="chapter" data-level="24.5.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#sambam-file"><i class="fa fa-check"></i><b>24.5.5</b> SAM/BAM file</a></li>
-<li class="chapter" data-level="24.5.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#vcf-file"><i class="fa fa-check"></i><b>24.5.6</b> VCF file</a></li>
-<li class="chapter" data-level="24.5.7" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#bed-format"><i class="fa fa-check"></i><b>24.5.7</b> BED format</a></li>
-<li class="chapter" data-level="24.5.8" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#bedgraph-format"><i class="fa fa-check"></i><b>24.5.8</b> bedGraph format</a></li>
+<li class="chapter" data-level="15.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-ngs"><i class="fa fa-check"></i><b>15.2</b> What is NGS</a></li>
+<li class="chapter" data-level="15.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#application-of-ngs"><i class="fa fa-check"></i><b>15.3</b> Application of NGS</a></li>
+<li class="chapter" data-level="15.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#section-1"><i class="fa fa-check"></i><b>15.4</b> </a></li>
+<li class="chapter" data-level="15.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>15.5</b> Data file formats to store the genomic information</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fasta-file"><i class="fa fa-check"></i><b>15.5.1</b> <code>fasta</code> file</a></li>
+<li class="chapter" data-level="15.5.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gff-file"><i class="fa fa-check"></i><b>15.5.2</b> GFF file</a></li>
+<li class="chapter" data-level="15.5.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gtf-file"><i class="fa fa-check"></i><b>15.5.3</b> GTF file</a></li>
+<li class="chapter" data-level="15.5.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fastq-file"><i class="fa fa-check"></i><b>15.5.4</b> FASTQ file</a></li>
+<li class="chapter" data-level="15.5.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#sambam-file"><i class="fa fa-check"></i><b>15.5.5</b> SAM/BAM file</a></li>
+<li class="chapter" data-level="15.5.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#vcf-file"><i class="fa fa-check"></i><b>15.5.6</b> VCF file</a></li>
+<li class="chapter" data-level="15.5.7" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#bed-format"><i class="fa fa-check"></i><b>15.5.7</b> BED format</a></li>
+<li class="chapter" data-level="15.5.8" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#bedgraph-format"><i class="fa fa-check"></i><b>15.5.8</b> bedGraph format</a></li>
 </ul></li>
-<li class="chapter" data-level="24.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#usefull-links"><i class="fa fa-check"></i><b>24.6</b> Usefull links:</a></li>
+<li class="chapter" data-level="15.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#usefull-links"><i class="fa fa-check"></i><b>15.6</b> Usefull links:</a></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>25</b> Start a project</a><ul>
-<li class="chapter" data-level="25.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>25.1</b> Experimetal design</a><ul>
-<li class="chapter" data-level="25.1.1" data-path="start-a-project.html"><a href="start-a-project.html#how-many-biological-replicates"><i class="fa fa-check"></i><b>25.1.1</b> How many biological replicates</a></li>
-<li class="chapter" data-level="25.1.2" data-path="start-a-project.html"><a href="start-a-project.html#how-big"><i class="fa fa-check"></i><b>25.1.2</b> How big</a></li>
-<li class="chapter" data-level="25.1.3" data-path="start-a-project.html"><a href="start-a-project.html#how-much-data-to-generate"><i class="fa fa-check"></i><b>25.1.3</b> How much data to generate</a></li>
-<li class="chapter" data-level="25.1.4" data-path="start-a-project.html"><a href="start-a-project.html#section-2"><i class="fa fa-check"></i><b>25.1.4</b> </a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="26" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>26</b> Capstone project:</a><ul>
-<li class="chapter" data-level="26.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction"><i class="fa fa-check"></i><b>26.1</b> Introduction</a></li>
-<li class="chapter" data-level="26.2" data-path="capstone-project.html"><a href="capstone-project.html#method"><i class="fa fa-check"></i><b>26.2</b> Method</a></li>
-<li class="chapter" data-level="26.3" data-path="capstone-project.html"><a href="capstone-project.html#pipelines"><i class="fa fa-check"></i><b>26.3</b> Pipelines</a></li>
-<li class="chapter" data-level="26.4" data-path="capstone-project.html"><a href="capstone-project.html#section-3"><i class="fa fa-check"></i><b>26.4</b> </a></li>
-</ul></li>
-<li class="chapter" data-level="27" data-path="data-table.html"><a href="data-table.html"><i class="fa fa-check"></i><b>27</b> data.table</a><ul>
-<li class="chapter" data-level="27.1" data-path="data-table.html"><a href="data-table.html#split-data.table-into-chunks-in-a-list"><i class="fa fa-check"></i><b>27.1</b> Split data.table into chunks in a list</a><ul>
-<li class="chapter" data-level="27.1.1" data-path="data-table.html"><a href="data-table.html#nested-list-using-flatten-arguments"><i class="fa fa-check"></i><b>27.1.1</b> nested list using <code>flatten</code> arguments</a></li>
-<li class="chapter" data-level="27.1.2" data-path="data-table.html"><a href="data-table.html#example"><i class="fa fa-check"></i><b>27.1.2</b> Example</a></li>
+<li class="chapter" data-level="16" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>16</b> Start a project</a><ul>
+<li class="chapter" data-level="16.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>16.1</b> Experimetal design</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="start-a-project.html"><a href="start-a-project.html#how-many-biological-replicates"><i class="fa fa-check"></i><b>16.1.1</b> How many biological replicates</a></li>
+<li class="chapter" data-level="16.1.2" data-path="start-a-project.html"><a href="start-a-project.html#how-big"><i class="fa fa-check"></i><b>16.1.2</b> How big</a></li>
+<li class="chapter" data-level="16.1.3" data-path="start-a-project.html"><a href="start-a-project.html#how-much-data-to-generate"><i class="fa fa-check"></i><b>16.1.3</b> How much data to generate</a></li>
+<li class="chapter" data-level="16.1.4" data-path="start-a-project.html"><a href="start-a-project.html#section-2"><i class="fa fa-check"></i><b>16.1.4</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>28</b> Python</a></li>
-<li class="chapter" data-level="29" data-path="section-4.html"><a href="section-4.html"><i class="fa fa-check"></i><b>29</b> </a><ul>
-<li class="chapter" data-level="29.1" data-path="section-4.html"><a href="section-4.html#including-plots"><i class="fa fa-check"></i><b>29.1</b> Including Plots</a></li>
+<li class="chapter" data-level="17" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>17</b> Capstone project:</a><ul>
+<li class="chapter" data-level="17.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction"><i class="fa fa-check"></i><b>17.1</b> Introduction</a></li>
+<li class="chapter" data-level="17.2" data-path="capstone-project.html"><a href="capstone-project.html#method"><i class="fa fa-check"></i><b>17.2</b> Method</a></li>
+<li class="chapter" data-level="17.3" data-path="capstone-project.html"><a href="capstone-project.html#pipelines"><i class="fa fa-check"></i><b>17.3</b> Pipelines</a></li>
+<li class="chapter" data-level="17.4" data-path="capstone-project.html"><a href="capstone-project.html#section-3"><i class="fa fa-check"></i><b>17.4</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>30</b> Good resouces to learn Bioinformatics</a><ul>
-<li class="chapter" data-level="30.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>30.1</b> References:</a></li>
+<li class="chapter" data-level="18" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html"><i class="fa fa-check"></i><b>18</b> Useful measurements in Bioinformatics</a><ul>
+<li class="chapter" data-level="18.1" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#k-mer"><i class="fa fa-check"></i><b>18.1</b> K-mer</a></li>
+<li class="chapter" data-level="18.2" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#shannon-entropy"><i class="fa fa-check"></i><b>18.2</b> Shannon Entropy</a></li>
+<li class="chapter" data-level="18.3" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#gini-index"><i class="fa fa-check"></i><b>18.3</b> Gini index</a></li>
 </ul></li>
+<li class="chapter" data-level="19" data-path="data-table.html"><a href="data-table.html"><i class="fa fa-check"></i><b>19</b> data.table</a><ul>
+<li class="chapter" data-level="19.1" data-path="data-table.html"><a href="data-table.html#split-data.table-into-chunks-in-a-list"><i class="fa fa-check"></i><b>19.1</b> Split data.table into chunks in a list</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="data-table.html"><a href="data-table.html#nested-list-using-flatten-arguments"><i class="fa fa-check"></i><b>19.1.1</b> nested list using <code>flatten</code> arguments</a></li>
+<li class="chapter" data-level="19.1.2" data-path="data-table.html"><a href="data-table.html#example"><i class="fa fa-check"></i><b>19.1.2</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>20</b> Good resouces to learn Bioinformatics</a><ul>
+<li class="chapter" data-level="20.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>20.1</b> References:</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html"><i class="fa fa-check"></i><b>21</b> Basic statistics - Descriptive Statistics</a><ul>
+<li class="chapter" data-level="21.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#probability-distribution"><i class="fa fa-check"></i><b>21.1</b> Probability distribution</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#geometirc-distribution"><i class="fa fa-check"></i><b>21.1.1</b> Geometirc distribution</a></li>
+<li class="chapter" data-level="21.1.2" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#bionomial-distribution"><i class="fa fa-check"></i><b>21.1.2</b> Bionomial distribution</a></li>
+<li class="chapter" data-level="21.1.3" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>21.1.3</b> Negative binomial distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>22</b> Inferential Statistics</a><ul>
+<li class="chapter" data-level="22.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-two-groups"><i class="fa fa-check"></i><b>22.1</b> Comparing two groups</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#independent-groups"><i class="fa fa-check"></i><b>22.1.1</b> Independent groups</a></li>
+<li class="chapter" data-level="22.1.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#dependent-groups"><i class="fa fa-check"></i><b>22.1.2</b> Dependent groups</a></li>
+<li class="chapter" data-level="22.1.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#controlling-for-other-variables"><i class="fa fa-check"></i><b>22.1.3</b> Controlling for other variables</a></li>
+</ul></li>
+<li class="chapter" data-level="22.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association"><i class="fa fa-check"></i><b>22.2</b> Categorical association</a><ul>
+<li class="chapter" data-level="22.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-association"><i class="fa fa-check"></i><b>22.2.1</b> Categorical association - Chi-squared test for association</a></li>
+<li class="chapter" data-level="22.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>22.2.2</b> Categorical association - Chi-squared test for goodness of fit</a></li>
+<li class="chapter" data-level="22.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---sidenotes-and-an-alternative-to-the-chi-squared-test"><i class="fa fa-check"></i><b>22.2.3</b> Categorical association - Sidenotes and an alternative to the Chi-squared test</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#simple-regression"><i class="fa fa-check"></i><b>22.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="22.3.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#describing-quantitative-association"><i class="fa fa-check"></i><b>22.3.1</b> Describing quantitative association</a></li>
+<li class="chapter" data-level="22.3.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#drawing-inferences"><i class="fa fa-check"></i><b>22.3.2</b> Drawing inferences</a></li>
+<li class="chapter" data-level="22.3.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#exponential-regression"><i class="fa fa-check"></i><b>22.3.3</b> Exponential regression</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="inferential-statistics.html"><a href="inferential-statistics.html#multiple-regression"><i class="fa fa-check"></i><b>22.4</b> Multiple regression</a></li>
+<li class="chapter" data-level="22.5" data-path="inferential-statistics.html"><a href="inferential-statistics.html#analysis-of-variance"><i class="fa fa-check"></i><b>22.5</b> Analysis of variance</a></li>
+<li class="chapter" data-level="22.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#non-parametric-tests"><i class="fa fa-check"></i><b>22.6</b> Non-parametric tests</a><ul>
+<li class="chapter" data-level="22.6.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-groups-with-respect-to-mean-rank"><i class="fa fa-check"></i><b>22.6.1</b> Comparing groups with respect to mean rank</a></li>
+<li class="chapter" data-level="22.6.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#rank-based-correlation-randomness"><i class="fa fa-check"></i><b>22.6.2</b> Rank-based correlation &amp; randomness</a></li>
+<li class="chapter" data-level="22.6.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#section-4"><i class="fa fa-check"></i><b>22.6.3</b> </a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Perl</b></span></li>
+<li class="chapter" data-level="23" data-path="first-perl-program-1.html"><a href="first-perl-program-1.html"><i class="fa fa-check"></i><b>23</b> First Perl Program</a><ul>
+<li class="chapter" data-level="23.1" data-path="first-perl-program-1.html"><a href="first-perl-program-1.html#first-program"><i class="fa fa-check"></i><b>23.1</b> First Program</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>24</b> Varible in Perl</a><ul>
+<li class="chapter" data-level="24.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#scalar-variable"><i class="fa fa-check"></i><b>24.1</b> Scalar variable</a></li>
+<li class="chapter" data-level="24.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>24.2</b> Arithmetic operations in Perl</a><ul>
+<li class="chapter" data-level="24.2.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#shorthand-operations"><i class="fa fa-check"></i><b>24.2.1</b> Shorthand operations</a></li>
+<li class="chapter" data-level="24.2.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#auto-increment-and-auto-decrement"><i class="fa fa-check"></i><b>24.2.2</b> Auto increment and auto decrement</a></li>
+<li class="chapter" data-level="24.2.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#inf-and--inf-in-perl"><i class="fa fa-check"></i><b>24.2.3</b> <code>inf</code> and <code>-inf</code> in Perl</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-strict-user-warnings-and-my"><i class="fa fa-check"></i><b>24.3</b> <code>use strict</code>; <code>user warnings</code> and <code>my</code></a></li>
+<li class="chapter" data-level="24.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>24.4</b> Array</a><ul>
+<li class="chapter" data-level="24.4.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#init-an-array"><i class="fa fa-check"></i><b>24.4.1</b> Init an array</a></li>
+<li class="chapter" data-level="24.4.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array-index"><i class="fa fa-check"></i><b>24.4.2</b> Array index</a></li>
+<li class="chapter" data-level="24.4.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#length-of-the-array"><i class="fa fa-check"></i><b>24.4.3</b> Length of the array</a></li>
+<li class="chapter" data-level="24.4.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-arrays-in-perl"><i class="fa fa-check"></i><b>24.4.4</b> Sort Arrays in Perl</a></li>
+<li class="chapter" data-level="24.4.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-push-pop-shift-and-unshift-in-perl"><i class="fa fa-check"></i><b>24.4.5</b> Use <code>push</code>, <code>pop</code>, <code>shift</code> and <code>unshift</code> in Perl</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash-in-perl"><i class="fa fa-check"></i><b>24.5</b> Hash in Perl</a><ul>
+<li class="chapter" data-level="24.5.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-keys-numerically-using-sort-ab"><i class="fa fa-check"></i><b>24.5.1</b> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></a></li>
+<li class="chapter" data-level="24.5.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-exists-function-on-a-hash"><i class="fa fa-check"></i><b>24.5.2</b> Use <code>exists</code> function on a hash</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>25</b> Linear regression</a><ul>
+<li class="chapter" data-level="25.1" data-path="linear-regression.html"><a href="linear-regression.html#interpreting-regression-parameters-in-a-basic-model"><i class="fa fa-check"></i><b>25.1</b> Interpreting regression parameters in a basic model</a><ul>
+<li class="chapter" data-level="25.1.1" data-path="linear-regression.html"><a href="linear-regression.html#r-squared-and-correlation"><i class="fa fa-check"></i><b>25.1.1</b> R-squared and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="25.2" data-path="linear-regression.html"><a href="linear-regression.html#reference-1"><i class="fa fa-check"></i><b>25.2</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>26</b> Control structure</a><ul>
+<li class="chapter" data-level="26.1" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>26.1</b> <code>for</code> loop</a></li>
+<li class="chapter" data-level="26.2" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>26.2</b> <code>foreach</code> loop</a></li>
+<li class="chapter" data-level="26.3" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>26.3</b> <code>while</code> loop</a></li>
+<li class="chapter" data-level="26.4" data-path="control-structure.html"><a href="control-structure.html#statement-if-else"><i class="fa fa-check"></i><b>26.4</b> Statement if-else</a></li>
+<li class="chapter" data-level="26.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>26.5</b> Operator <code>last</code> and <code>next</code></a></li>
+<li class="chapter" data-level="26.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>26.6</b> Operator <code>redo</code></a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>27</b> String manipulation</a><ul>
+<li class="chapter" data-level="27.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-concatenation"><i class="fa fa-check"></i><b>27.1</b> String concatenation</a></li>
+<li class="chapter" data-level="27.2" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-extraction"><i class="fa fa-check"></i><b>27.2</b> Substring extraction</a></li>
+<li class="chapter" data-level="27.3" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-search"><i class="fa fa-check"></i><b>27.3</b> Substring search</a></li>
+<li class="chapter" data-level="27.4" data-path="string-manipulation.html"><a href="string-manipulation.html#split-string"><i class="fa fa-check"></i><b>27.4</b> Split String</a></li>
+<li class="chapter" data-level="27.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>27.5</b> Regular expression</a><ul>
+<li class="chapter" data-level="27.5.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>27.5.1</b> Pattern matching</a></li>
+<li class="chapter" data-level="27.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>27.5.2</b> Pattern substitution</a></li>
+<li class="chapter" data-level="27.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>27.5.3</b> Modifiers to pattern matching and substitution</a></li>
+<li class="chapter" data-level="27.5.4" data-path="string-manipulation.html"><a href="string-manipulation.html#greedy-or-non-greedy"><i class="fa fa-check"></i><b>27.5.4</b> Greedy or non-greedy</a></li>
+<li class="chapter" data-level="27.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>27.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>28</b> Input and output in Perl</a><ul>
+<li class="chapter" data-level="28.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>28.1</b> Input</a><ul>
+<li class="chapter" data-level="28.1.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#standard-input"><i class="fa fa-check"></i><b>28.1.1</b> Standard input</a></li>
+<li class="chapter" data-level="28.1.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input-from-a-file-on-the-disk"><i class="fa fa-check"></i><b>28.1.2</b> Input from a file on the disk</a></li>
+<li class="chapter" data-level="28.1.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#special-variable-_"><i class="fa fa-check"></i><b>28.1.3</b> Special variable <code>$_</code></a></li>
+<li class="chapter" data-level="28.1.4" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#the-input-record-separator"><i class="fa fa-check"></i><b>28.1.4</b> The input record separator: <code>$/</code></a></li>
+</ul></li>
+<li class="chapter" data-level="28.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#output-to-a-file-on-the-disk"><i class="fa fa-check"></i><b>28.2</b> Output to a file on the disk</a></li>
+<li class="chapter" data-level="28.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>28.3</b> Arguments from command line</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>29</b> Practical Perl program</a><ul>
+<li class="chapter" data-level="29.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>29.1</b> Add annotation information to DESeq2 results</a></li>
+<li class="chapter" data-level="29.2" data-path="practical-perl-program.html"><a href="practical-perl-program.html#merge-overlap-genomic-regions"><i class="fa fa-check"></i><b>29.2</b> Merge overlap genomic regions</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>30</b> Perl modules</a><ul>
+<li class="chapter" data-level="30.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>30.1</b> What is a Perl module</a></li>
+<li class="chapter" data-level="30.2" data-path="perl-modules.html"><a href="perl-modules.html#how-to-install-a-perl-module"><i class="fa fa-check"></i><b>30.2</b> How to install a Perl module</a></li>
+<li class="chapter" data-level="30.3" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-a-perl-module"><i class="fa fa-check"></i><b>30.3</b> How to use a Perl module</a></li>
+<li class="chapter" data-level="30.4" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-bioperl-module"><i class="fa fa-check"></i><b>30.4</b> How to use BioPerl module</a></li>
+<li class="chapter" data-level="30.5" data-path="perl-modules.html"><a href="perl-modules.html#how-to-write-a-module"><i class="fa fa-check"></i><b>30.5</b> How to write a module</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="perl-one-liner.html"><a href="perl-one-liner.html"><i class="fa fa-check"></i><b>31</b> Perl one-liner</a><ul>
+<li class="chapter" data-level="31.1" data-path="perl-one-liner.html"><a href="perl-one-liner.html#convert-a-fastq-file-from-fastq-to-fast"><i class="fa fa-check"></i><b>31.1</b> Convert a fastq file from FASTQ to FAST</a></li>
+<li class="chapter" data-level="31.2" data-path="perl-one-liner.html"><a href="perl-one-liner.html#escape-single-quote"><i class="fa fa-check"></i><b>31.2</b> Escape single quote</a></li>
+<li class="chapter" data-level="31.3" data-path="perl-one-liner.html"><a href="perl-one-liner.html#reference-2"><i class="fa fa-check"></i><b>31.3</b> Reference</a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="famouse-people-andor-blogs-to-follow.html"><a href="famouse-people-andor-blogs-to-follow.html"><i class="fa fa-check"></i><b>32</b> Famouse people and/or blogs to follow</a></li>
 <li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="31" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html"><i class="fa fa-check"></i><b>31</b> Basic statistics - Descriptive Statistics</a><ul>
-<li class="chapter" data-level="31.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#probability-distribution"><i class="fa fa-check"></i><b>31.1</b> Probability distribution</a><ul>
-<li class="chapter" data-level="31.1.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#geometirc-distribution"><i class="fa fa-check"></i><b>31.1.1</b> Geometirc distribution</a></li>
-<li class="chapter" data-level="31.1.2" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#bionomial-distribution"><i class="fa fa-check"></i><b>31.1.2</b> Bionomial distribution</a></li>
-<li class="chapter" data-level="31.1.3" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>31.1.3</b> Negative binomial distribution</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="32" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>32</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="32.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-two-groups"><i class="fa fa-check"></i><b>32.1</b> Comparing two groups</a><ul>
-<li class="chapter" data-level="32.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#independent-groups"><i class="fa fa-check"></i><b>32.1.1</b> Independent groups</a></li>
-<li class="chapter" data-level="32.1.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#dependent-groups"><i class="fa fa-check"></i><b>32.1.2</b> Dependent groups</a></li>
-<li class="chapter" data-level="32.1.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#controlling-for-other-variables"><i class="fa fa-check"></i><b>32.1.3</b> Controlling for other variables</a></li>
-</ul></li>
-<li class="chapter" data-level="32.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association"><i class="fa fa-check"></i><b>32.2</b> Categorical association</a><ul>
-<li class="chapter" data-level="32.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-association"><i class="fa fa-check"></i><b>32.2.1</b> Categorical association - Chi-squared test for association</a></li>
-<li class="chapter" data-level="32.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>32.2.2</b> Categorical association - Chi-squared test for goodness of fit</a></li>
-<li class="chapter" data-level="32.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---sidenotes-and-an-alternative-to-the-chi-squared-test"><i class="fa fa-check"></i><b>32.2.3</b> Categorical association - Sidenotes and an alternative to the Chi-squared test</a></li>
-</ul></li>
-<li class="chapter" data-level="32.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#simple-regression"><i class="fa fa-check"></i><b>32.3</b> Simple regression</a><ul>
-<li class="chapter" data-level="32.3.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#describing-quantitative-association"><i class="fa fa-check"></i><b>32.3.1</b> Describing quantitative association</a></li>
-<li class="chapter" data-level="32.3.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#drawing-inferences"><i class="fa fa-check"></i><b>32.3.2</b> Drawing inferences</a></li>
-<li class="chapter" data-level="32.3.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#exponential-regression"><i class="fa fa-check"></i><b>32.3.3</b> Exponential regression</a></li>
-</ul></li>
-<li class="chapter" data-level="32.4" data-path="inferential-statistics.html"><a href="inferential-statistics.html#multiple-regression"><i class="fa fa-check"></i><b>32.4</b> Multiple regression</a></li>
-<li class="chapter" data-level="32.5" data-path="inferential-statistics.html"><a href="inferential-statistics.html#analysis-of-variance"><i class="fa fa-check"></i><b>32.5</b> Analysis of variance</a></li>
-<li class="chapter" data-level="32.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#non-parametric-tests"><i class="fa fa-check"></i><b>32.6</b> Non-parametric tests</a><ul>
-<li class="chapter" data-level="32.6.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-groups-with-respect-to-mean-rank"><i class="fa fa-check"></i><b>32.6.1</b> Comparing groups with respect to mean rank</a></li>
-<li class="chapter" data-level="32.6.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#rank-based-correlation-randomness"><i class="fa fa-check"></i><b>32.6.2</b> Rank-based correlation &amp; randomness</a></li>
-<li class="chapter" data-level="32.6.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#section-5"><i class="fa fa-check"></i><b>32.6.3</b> </a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="33" data-path="famouse-people-andor-blogs-to-follow.html"><a href="famouse-people-andor-blogs-to-follow.html"><i class="fa fa-check"></i><b>33</b> Famouse people and/or blogs to follow</a></li>
-<li class="part"><span><b>V Python</b></span></li>
-<li class="chapter" data-level="34" data-path="first-perl-program-1.html"><a href="first-perl-program-1.html"><i class="fa fa-check"></i><b>34</b> First Perl Program</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -462,19 +460,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="practical-perl-program" class="section level1">
-<h1><span class="header-section-number">Chapter 18</span> Practical Perl program</h1>
+<h1><span class="header-section-number">Chapter 29</span> Practical Perl program</h1>
 <div id="add-annotation-information-to-deseq2-results" class="section level2">
-<h2><span class="header-section-number">18.1</span> Add annotation information to DESeq2 results</h2>
+<h2><span class="header-section-number">29.1</span> Add annotation information to DESeq2 results</h2>
 <p>Imaging we have a table that stores that differentially expressed genes information.</p>
 <p>It includes three columns (tab-delimited):</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/DEG_list.txt</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb341-1"><a href="practical-perl-program.html#cb341-1"></a><span class="fu">cat</span> data/DEG_list.txt</span></code></pre></div>
 <pre><code>## #gene_id log2fc  p-val
 ## gene1    2   0.01
 ## gene2    3   0.04
 ## gene3    -2  0.06
 ## gene4    -8  0.001</code></pre>
 <p>We have another table which has the annotation information of each gene:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/gene_annotation.txt</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb343-1"><a href="practical-perl-program.html#cb343-1"></a><span class="fu">cat</span> data/gene_annotation.txt</span></code></pre></div>
 <pre><code>## gene_id  gene_shortname
 ## gene1    ROS
 ## gene2    WRKY
@@ -485,46 +483,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## gene10   MCU</code></pre>
 </div>
 <div id="merge-overlap-genomic-regions" class="section level2">
-<h2><span class="header-section-number">18.2</span> Merge overlap genomic regions</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">#!/usr/bin/perl -w</span>
-<span class="fu">use</span> <span class="kw">strict</span>;
-
-<span class="kw">my</span> (<span class="dt">$DMR</span>, <span class="dt">$out</span>) = <span class="dt">@ARGV</span>;
-
-<span class="fu">open</span> DMR, <span class="dt">$DMR</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="st">File not found: </span><span class="dt">$!</span><span class="kw">&quot;</span>;
-<span class="fu">open</span> OUT, <span class="kw">&quot;</span><span class="st">+&gt;</span><span class="dt">$out</span><span class="kw">&quot;</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="dt">$!</span><span class="kw">&quot;</span>;
-
-<span class="co">#read  a  line,</span>
-<span class="co"># go to next line</span>
-<span class="co">#     check overlap</span>
-<span class="co">#      if overlap: merge two regions. Then go to the next line.</span>
-<span class="co">#      if not overlap: print whatever we have now; then start from a line</span>
-<span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$region</span> = <span class="kw">&lt;DMR&gt;</span>){
-    <span class="fu">chomp</span> <span class="dt">$region</span>;
-    <span class="kw">my</span> (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$region</span>);
-    BLOCK:{
-        <span class="kw">my</span> <span class="dt">$new_region</span> = <span class="kw">&lt;DMR&gt;</span>;
-
-        <span class="kw">if</span>(!<span class="dt">$new_region</span>){
-            <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-        }<span class="kw">else</span>{
-            <span class="fu">chomp</span> <span class="dt">$new_region</span>;
-            <span class="kw">my</span> (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$new_region</span>);
-             <span class="co">## start1===============end1</span>
-             <span class="co">##           start2=====================end2</span>
-             <span class="co">## start1===============================new_end1</span>
-            <span class="kw">if</span>(<span class="dt">$chrom2</span> <span class="kw">eq</span> <span class="dt">$chrom1</span> &amp;&amp; <span class="dt">$start2</span> &gt;= <span class="dt">$start1</span> &amp;&amp; <span class="dt">$start2</span> &lt;=<span class="dt">$end1</span>){
-                <span class="dt">$end1</span> = <span class="dt">$end2</span>;
-                <span class="fu">redo</span> BLOCK;
-            }<span class="kw">else</span>{
-                <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-                (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>);
-                <span class="fu">redo</span> BLOCK;
-            }
-        }
-    }
-}</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cat</span> data/DMR_region.txt</code></pre>
+<h2><span class="header-section-number">29.2</span> Merge overlap genomic regions</h2>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb345-1"><a href="practical-perl-program.html#cb345-1"></a><span class="kw">#!/usr/bin/perl -w</span></span>
+<span id="cb345-2"><a href="practical-perl-program.html#cb345-2"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb345-3"><a href="practical-perl-program.html#cb345-3"></a></span>
+<span id="cb345-4"><a href="practical-perl-program.html#cb345-4"></a><span class="kw">my</span> (<span class="dt">$DMR</span>, <span class="dt">$out</span>) = <span class="dt">@ARGV</span>;</span>
+<span id="cb345-5"><a href="practical-perl-program.html#cb345-5"></a></span>
+<span id="cb345-6"><a href="practical-perl-program.html#cb345-6"></a><span class="fu">open</span> DMR, <span class="dt">$DMR</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="st">File not found: </span><span class="dt">$!</span><span class="kw">&quot;</span>;</span>
+<span id="cb345-7"><a href="practical-perl-program.html#cb345-7"></a><span class="fu">open</span> OUT, <span class="kw">&quot;</span><span class="st">+&gt;</span><span class="dt">$out</span><span class="kw">&quot;</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="dt">$!</span><span class="kw">&quot;</span>;</span>
+<span id="cb345-8"><a href="practical-perl-program.html#cb345-8"></a></span>
+<span id="cb345-9"><a href="practical-perl-program.html#cb345-9"></a><span class="co">#read  a  line,</span></span>
+<span id="cb345-10"><a href="practical-perl-program.html#cb345-10"></a><span class="co"># go to next line</span></span>
+<span id="cb345-11"><a href="practical-perl-program.html#cb345-11"></a><span class="co">#     check overlap</span></span>
+<span id="cb345-12"><a href="practical-perl-program.html#cb345-12"></a><span class="co">#      if overlap: merge two regions. Then go to the next line.</span></span>
+<span id="cb345-13"><a href="practical-perl-program.html#cb345-13"></a><span class="co">#      if not overlap: print whatever we have now; then start from a line</span></span>
+<span id="cb345-14"><a href="practical-perl-program.html#cb345-14"></a><span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$region</span> = <span class="kw">&lt;DMR&gt;</span>){</span>
+<span id="cb345-15"><a href="practical-perl-program.html#cb345-15"></a>    <span class="fu">chomp</span> <span class="dt">$region</span>;</span>
+<span id="cb345-16"><a href="practical-perl-program.html#cb345-16"></a>    <span class="kw">my</span> (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$region</span>);</span>
+<span id="cb345-17"><a href="practical-perl-program.html#cb345-17"></a>    BLOCK:{</span>
+<span id="cb345-18"><a href="practical-perl-program.html#cb345-18"></a>        <span class="kw">my</span> <span class="dt">$new_region</span> = <span class="kw">&lt;DMR&gt;</span>;</span>
+<span id="cb345-19"><a href="practical-perl-program.html#cb345-19"></a></span>
+<span id="cb345-20"><a href="practical-perl-program.html#cb345-20"></a>        <span class="kw">if</span>(!<span class="dt">$new_region</span>){</span>
+<span id="cb345-21"><a href="practical-perl-program.html#cb345-21"></a>            <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb345-22"><a href="practical-perl-program.html#cb345-22"></a>        }<span class="kw">else</span>{</span>
+<span id="cb345-23"><a href="practical-perl-program.html#cb345-23"></a>            <span class="fu">chomp</span> <span class="dt">$new_region</span>;</span>
+<span id="cb345-24"><a href="practical-perl-program.html#cb345-24"></a>            <span class="kw">my</span> (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$new_region</span>);</span>
+<span id="cb345-25"><a href="practical-perl-program.html#cb345-25"></a>             <span class="co">## start1===============end1</span></span>
+<span id="cb345-26"><a href="practical-perl-program.html#cb345-26"></a>             <span class="co">##           start2=====================end2</span></span>
+<span id="cb345-27"><a href="practical-perl-program.html#cb345-27"></a>             <span class="co">## start1===============================new_end1</span></span>
+<span id="cb345-28"><a href="practical-perl-program.html#cb345-28"></a>            <span class="kw">if</span>(<span class="dt">$chrom2</span> <span class="kw">eq</span> <span class="dt">$chrom1</span> &amp;&amp; <span class="dt">$start2</span> &gt;= <span class="dt">$start1</span> &amp;&amp; <span class="dt">$start2</span> &lt;=<span class="dt">$end1</span>){</span>
+<span id="cb345-29"><a href="practical-perl-program.html#cb345-29"></a>                <span class="dt">$end1</span> = <span class="dt">$end2</span>;</span>
+<span id="cb345-30"><a href="practical-perl-program.html#cb345-30"></a>                <span class="fu">redo</span> BLOCK;</span>
+<span id="cb345-31"><a href="practical-perl-program.html#cb345-31"></a>            }<span class="kw">else</span>{</span>
+<span id="cb345-32"><a href="practical-perl-program.html#cb345-32"></a>                <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb345-33"><a href="practical-perl-program.html#cb345-33"></a>                (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>);</span>
+<span id="cb345-34"><a href="practical-perl-program.html#cb345-34"></a>                <span class="fu">redo</span> BLOCK;</span>
+<span id="cb345-35"><a href="practical-perl-program.html#cb345-35"></a>            }</span>
+<span id="cb345-36"><a href="practical-perl-program.html#cb345-36"></a>        }</span>
+<span id="cb345-37"><a href="practical-perl-program.html#cb345-37"></a>    }</span>
+<span id="cb345-38"><a href="practical-perl-program.html#cb345-38"></a>}</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb346-1"><a href="practical-perl-program.html#cb346-1"></a><span class="fu">cat</span> data/DMR_region.txt</span></code></pre></div>
 <pre><code>## chr1 100 200
 ## chr1 150 250
 ## chr1 200 300
@@ -533,8 +531,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## chr2 300 800
 ## chr2 400 1000
 ## chr3 500 1000</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">perl</span> code_perl/genomic_coordinate_merge.pl  data/DMR_region.txt  data/DMR_region_merged.txt 
-<span class="fu">cat</span> data/DMR_region_merged.txt </code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb348-1"><a href="practical-perl-program.html#cb348-1"></a><span class="fu">perl</span> code_perl/genomic_coordinate_merge.pl  data/DMR_region.txt  data/DMR_region_merged.txt </span>
+<span id="cb348-2"><a href="practical-perl-program.html#cb348-2"></a><span class="fu">cat</span> data/DMR_region_merged.txt </span></code></pre></div>
 <pre><code>## chr1 100 300
 ## chr1 500 650
 ## chr2 300 1000
@@ -578,7 +576,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/16_practicalPerlProgram.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/35_16_practicalPerlProgram.Rmd",
 "text": "Edit"
 },
 "history": {

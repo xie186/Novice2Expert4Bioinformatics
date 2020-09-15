@@ -1,0 +1,18 @@
+# Useful measurements in Bioinformatics 
+
+## K-mer
+
+A “k-mer” is a piece of k bps long DNA sequence:
+
+* ACCG - 4-mer
+* ACCG - 6-mer
+
+
+
+
+## Shannon Entropy
+
+
+## Gini index
+
+
