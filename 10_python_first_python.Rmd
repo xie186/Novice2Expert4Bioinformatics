@@ -1,17 +1,21 @@
 # (PART) Python {-}
 
-# First Perl Program
+# First Python Program
 
 
 
 As all other programming books, we begin with a “Hello world” program. 
 
-```{perl code=readLines("code_python/hello_bioinfor.py"), eval=FALSE}
+```{python code=readLines("code_python/hello_bioinfor.py"), eval=FALSE}
 ```
 
-This program show how to display a line a text in Perl. It have several features. We go through each line in detail. 
+This program show how to display a line a text in Python. It have several features. We go through each line in detail. 
 
-Line 1 is what we call shebang line. This line starts with shebang construct (`#!`). `/usr/bin/perl` indicates the path of the Perl interpreter. 
+Line 1 is what we call shebang line. This line starts with shebang construct (`#!`). `/usr/bin/python` indicates the path of the Python interpreter. 
 
 Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (“” or ‘’).
+
+
+
+
 

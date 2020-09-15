@@ -1,0 +1,45 @@
+# Functions in Python
+
+A function is a block of code which only run when it is called. Data can be passed as parameters into a function. 
+
+A function can return data as a result. 
+
+
+
+## Create a function to determine the GC-content of DNA sequence
+
+
+```{python}
+def cg_content(dna):
+    cg_number = dna.count('C') + dna.count('G')
+    length = len(dna)
+    return float(cg_number/length)
+DNA_seq = "CGCTAGTCAGT"
+cg_content_val = cg_content(DNA_seq)
+print("CG content is: " + str(cg_content_val))
+```
+
+```{python}
+DNA_seq2 = "CGCTAGTCAGTAAAAAAAAAAAAAAAAAAAAAAAAAATTT"
+cg_content_val = cg_content(DNA_seq2)
+print("CG content is: " + str(cg_content_val))
+```
+
+## Reverse complement
+
+
+```{python}
+def reverse_complement(seq):
+    complement = {"A": "T", "T":"A" ,"C":"G","G":"C"}
+    rc_seq = ""
+    for base in seq:
+        rc_seq = rc_seq+complement[base]
+    return rc_seq
+
+DNA_seq = "ACGT"
+print("After reverse complement, the sequence is: " + reverse_complement(DNA_seq))
+```
+
+
+
+

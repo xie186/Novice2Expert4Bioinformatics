@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 26 Varible in Perl | All things considered for Bioinformatics</title>
+  <title>Chapter 11 Varibles in Python | All things considered for Bioinformatics</title>
   <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 26 Varible in Perl | All things considered for Bioinformatics" />
+  <meta property="og:title" content="Chapter 11 Varibles in Python | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 26 Varible in Perl | All things considered for Bioinformatics" />
+  <meta name="twitter:title" content="Chapter 11 Varibles in Python | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="twitter:image" content="images/cover.jpg" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="first-perl-program.html">
-<link rel="next" href="linear-regression.html">
+<link rel="prev" href="first-python-program.html">
+<link rel="next" href="functions-in-python.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -467,395 +467,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="varible-in-perl" class="section level1">
-<h1><span class="header-section-number">Chapter 26</span> Varible in Perl</h1>
-<p>Perl provides three kinds of variables: <code>scalars</code>, <code>arrays</code>, and <code>hash</code>(aka <code>associative arrays</code>). The initial character of the name identifies the particular type of variable and, hence, its functionality.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Type</th>
-<th>Character</th>
-<th>Example</th>
-<th>Is a name for:</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Scalar</td>
-<td>$</td>
-<td>$length</td>
-<td>An individual value (number or string)</td>
-</tr>
-<tr class="even">
-<td>Array</td>
-<td>@</td>
-<td>@gene_list</td>
-<td>A list of values, keyed by number</td>
-</tr>
-<tr class="odd">
-<td>Hash</td>
-<td>%</td>
-<td>%gene_annotation</td>
-<td>A group of values, keyed by string</td>
-</tr>
-</tbody>
-</table>
-<div id="scalar-variable" class="section level2">
-<h2><span class="header-section-number">26.1</span> Scalar variable</h2>
-<p>In Perl, scalar variables can be used to store mainly two types of data: string and numbers.</p>
-<p>Perl does not differentiate between a number and a string, nor does it differentiate between integers and reals.</p>
-<p>In order to tell the computer what to print, we need to use variables. In Perl, the name of a <code>scalar</code> variable starts with the dollar sign <code>$</code>. You can assign either a number or a string to it.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb252-1"><a href="varible-in-perl.html#cb252-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb252-2"><a href="varible-in-perl.html#cb252-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb252-3"><a href="varible-in-perl.html#cb252-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb252-4"><a href="varible-in-perl.html#cb252-4"></a></span>
-<span id="cb252-5"><a href="varible-in-perl.html#cb252-5"></a><span class="co">#assign two strings to two variables</span></span>
-<span id="cb252-6"><a href="varible-in-perl.html#cb252-6"></a><span class="kw">my</span> <span class="dt">$dna_seq1</span> = <span class="kw">&quot;</span><span class="st">ACCTCGGTACAGTGAATGGGAAACGTAGCTGAT</span><span class="kw">&quot;</span>;</span>
-<span id="cb252-7"><a href="varible-in-perl.html#cb252-7"></a><span class="kw">my</span> <span class="dt">$dna_seq2</span> = <span class="kw">&quot;</span><span class="st">TGCCGATCGTAATAGCTCGCTATCTAGCTCGATCGTCGTA</span><span class="kw">&quot;</span>;</span>
-<span id="cb252-8"><a href="varible-in-perl.html#cb252-8"></a></span>
-<span id="cb252-9"><a href="varible-in-perl.html#cb252-9"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb252-10"><a href="varible-in-perl.html#cb252-10"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>;</span>
-<span id="cb252-11"><a href="varible-in-perl.html#cb252-11"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</span>
-<span id="cb252-12"><a href="varible-in-perl.html#cb252-12"></a></span>
-<span id="cb252-13"><a href="varible-in-perl.html#cb252-13"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb252-14"><a href="varible-in-perl.html#cb252-14"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb253-1"><a href="varible-in-perl.html#cb253-1"></a><span class="fu">perl</span> code_perl/variable_assign.pl</span></code></pre></div>
-<pre><code>## The length of first DNA sequence (ACCTCGGTACAGTGAATGGGAAACGTAGCTGAT) is: 33
-## The length of the Second DNA sequence (TGCCGATCGTAATAGCTCGCTATCTAGCTCGATCGTCGTA) is: 40</code></pre>
-<p>Here are the explanations of this script.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb255-1"><a href="varible-in-perl.html#cb255-1"></a><span class="co"># assign two DNA sequences to two variables</span></span>
-<span id="cb255-2"><a href="varible-in-perl.html#cb255-2"></a><span class="kw">my</span> <span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb255-3"><a href="varible-in-perl.html#cb255-3"></a><span class="kw">my</span> <span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<p>The first line here is a comment. In Perl, <code>#</code> (pound sign) is the comment character. The comments can be used to document the program and improve the readability. During the execution, the comments will be ignored. The second and third lines declare two string scalar variables (<code>$dna1</code> and <code>$dna2</code>) to store two DNA sequences.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb256-1"><a href="varible-in-perl.html#cb256-1"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb256-2"><a href="varible-in-perl.html#cb256-2"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>; </span>
-<span id="cb256-3"><a href="varible-in-perl.html#cb256-3"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</span></code></pre></div>
-<p>The code above has one comment line and declares two integer scalar variables to store the return values of built-on function <code>length</code>.</p>
-<p>Now you can output the variables to see what are stored in them using the following code:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb257-1"><a href="varible-in-perl.html#cb257-1"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb257-2"><a href="varible-in-perl.html#cb257-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<p>This script shows you what string scalar varibles and integer scalr varibles.</p>
+<div id="varibles-in-python" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Varibles in Python</h1>
+<p>In Python, a variable is a reserved memory location to store values.</p>
+<p>Unlike other porgramming languages, there is no command for declaring a variable.</p>
+<p>When you assign a value to a variable,</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="varibles-in-python.html#cb156-1"></a>gene_len <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb156-2"><a href="varibles-in-python.html#cb156-2"></a>GC_number <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb156-3"><a href="varibles-in-python.html#cb156-3"></a>GC_content <span class="op">=</span> GC_number<span class="op">/</span>gene_len</span>
+<span id="cb156-4"><a href="varibles-in-python.html#cb156-4"></a><span class="bu">print</span>(GC_content)</span></code></pre></div>
+<pre><code>## 0.25</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="varibles-in-python.html#cb158-1"></a>distance <span class="op">=</span> <span class="dv">100</span> </span>
+<span id="cb158-2"><a href="varibles-in-python.html#cb158-2"></a>distance <span class="op">=</span> <span class="dv">105</span></span>
+<span id="cb158-3"><a href="varibles-in-python.html#cb158-3"></a><span class="bu">print</span>(distance)</span></code></pre></div>
+<pre><code>## 105</code></pre>
+<p>A variable can be a string.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="varibles-in-python.html#cb160-1"></a>DNA_seq <span class="op">=</span> <span class="st">&quot;AGCTAGCTAGTCAGCGATCGT&quot;</span></span>
+<span id="cb160-2"><a href="varibles-in-python.html#cb160-2"></a><span class="bu">print</span>(DNA_seq)</span></code></pre></div>
+<pre><code>## AGCTAGCTAGTCAGCGATCGT</code></pre>
+<p>Python has built in functions than can be used on the variables.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="varibles-in-python.html#cb162-1"></a>DNA_seq <span class="op">=</span> <span class="st">&quot;AGCTAGCTAGTCAGCGATCGT&quot;</span></span>
+<span id="cb162-2"><a href="varibles-in-python.html#cb162-2"></a>DNA_length <span class="op">=</span> <span class="bu">len</span>(DNA_seq)</span>
+<span id="cb162-3"><a href="varibles-in-python.html#cb162-3"></a><span class="bu">print</span>(<span class="st">&quot;The length of the DNA is: &quot;</span>)</span></code></pre></div>
+<pre><code>## The length of the DNA is:</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="varibles-in-python.html#cb164-1"></a><span class="bu">print</span>(DNA_length)</span></code></pre></div>
+<pre><code>## 21</code></pre>
+<div id="variable-names" class="section level2">
+<h2><span class="header-section-number">11.1</span> Variable names</h2>
+<p>There are certain rules you need to follow when you name a variable:</p>
+<ul>
+<li><p>Must start with a letter (<code>gene_expr</code>) or underscore character (<code>_gene1</code>).</p></li>
+<li><p>Only alphabetical and numeric characters and underscores can be oncluded (e.g. gene1_tpm).</p></li>
+<li><p>Variable names are case-sensitive (<code>Gene1</code> and <code>gene1</code> are two different variables)</p></li>
+</ul>
 </div>
-<div id="arithmetic-operations-in-perl" class="section level2">
-<h2><span class="header-section-number">26.2</span> Arithmetic operations in Perl</h2>
-<p>Most arithmetic operators are binary operators; this means they take two arguments. Unary operators only take one argument. Arithmetic operators are very simple and often transparent.</p>
-<p>Here we’re mainly going to talk about basic arithmetic opertators including addition (<code>+</code>), substraction (<code>-</code>), multiplication (<code>*</code>), division (<code>/</code>) and the modulus operation (%). Modulus (<code>%</code>) returns the remainder of a division (<code>/</code>) operation.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb258-1"><a href="varible-in-perl.html#cb258-1"></a><span class="co">## If we know the lengths of two sequences and we want to calulate the sum of the lengths.</span></span>
-<span id="cb258-2"><a href="varible-in-perl.html#cb258-2"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="dv">100</span>;</span>
-<span id="cb258-3"><a href="varible-in-perl.html#cb258-3"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="dv">200</span>;</span>
-<span id="cb258-4"><a href="varible-in-perl.html#cb258-4"></a><span class="kw">my</span> <span class="dt">$total_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_length2</span>;</span>
-<span id="cb258-5"><a href="varible-in-perl.html#cb258-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of these two sequences is </span><span class="dt">$total_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb258-6"><a href="varible-in-perl.html#cb258-6"></a></span>
-<span id="cb258-7"><a href="varible-in-perl.html#cb258-7"></a><span class="kw">my</span> <span class="dt">$length_diff</span> = <span class="dt">$dna_length1</span> - <span class="dt">$dna_length2</span>; </span>
-<span id="cb258-8"><a href="varible-in-perl.html#cb258-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length difference is </span><span class="dt">$length_diff</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb258-9"><a href="varible-in-perl.html#cb258-9"></a></span>
-<span id="cb258-10"><a href="varible-in-perl.html#cb258-10"></a><span class="kw">my</span> <span class="dt">$average_length</span> = <span class="dt">$total_length</span> / <span class="dv">2</span>;</span>
-<span id="cb258-11"><a href="varible-in-perl.html#cb258-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The average length of two DNA sequences is </span><span class="dt">$average_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## The total length of these two sequences is 300 
-## The length difference is -100
-## The average length of two DNA sequences is 150</code></pre>
-<p>The code above shows us how to</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb260-1"><a href="varible-in-perl.html#cb260-1"></a><span class="co">#Imaging the CC content of first DNA sequence is 0.5.</span></span>
-<span id="cb260-2"><a href="varible-in-perl.html#cb260-2"></a><span class="co">#How many CC do we have in first DNA?</span></span>
-<span id="cb260-3"><a href="varible-in-perl.html#cb260-3"></a><span class="kw">my</span> <span class="dt">$cg_content</span> = <span class="fl">0.5</span>;</span>
-<span id="cb260-4"><a href="varible-in-perl.html#cb260-4"></a><span class="kw">my</span> <span class="dt">$cg_number</span> = <span class="dt">$dna_length1</span> <span class="kw">*</span> <span class="fl">0.5</span>;</span></code></pre></div>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb261-1"><a href="varible-in-perl.html#cb261-1"></a><span class="co">#Imaging we have a 10 bps DNA sequnces,</span></span>
-<span id="cb261-2"><a href="varible-in-perl.html#cb261-2"></a><span class="co">#how many possible DNA sequences do we have?</span></span>
-<span id="cb261-3"><a href="varible-in-perl.html#cb261-3"></a><span class="kw">my</span> <span class="dt">$dna_nucleotide</span> = <span class="kw">&quot;</span><span class="st">ATCG</span><span class="kw">&quot;</span>;</span>
-<span id="cb261-4"><a href="varible-in-perl.html#cb261-4"></a><span class="kw">my</span> <span class="dt">$dna_nucleo_number</span> = <span class="fu">length</span> <span class="dt">$dna_nucleotide</span>;</span>
-<span id="cb261-5"><a href="varible-in-perl.html#cb261-5"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
-<span id="cb261-6"><a href="varible-in-perl.html#cb261-6"></a><span class="kw">my</span> <span class="dt">$possible_number</span> = <span class="dt">$dna_nucleo_number</span> *<span class="kw">*</span> <span class="dt">$dna_length</span>;</span>
-<span id="cb261-7"><a href="varible-in-perl.html#cb261-7"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">We have </span><span class="dt">$possible_number</span><span class="st"> possibilities.</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## We have 1048576 possibilities.</code></pre>
-<div id="shorthand-operations" class="section level3">
-<h3><span class="header-section-number">26.2.1</span> Shorthand operations</h3>
-<p>The expression $x += 3; is the shorthand version of $x = $x + 3;, they have exactly the same result:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb263-1"><a href="varible-in-perl.html#cb263-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb263-2"><a href="varible-in-perl.html#cb263-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb263-3"><a href="varible-in-perl.html#cb263-3"></a></span>
-<span id="cb263-4"><a href="varible-in-perl.html#cb263-4"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
-<span id="cb263-5"><a href="varible-in-perl.html#cb263-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb263-6"><a href="varible-in-perl.html#cb263-6"></a></span>
-<span id="cb263-7"><a href="varible-in-perl.html#cb263-7"></a><span class="dt">$dna_length</span> += <span class="dv">3</span>;</span>
-<span id="cb263-8"><a href="varible-in-perl.html#cb263-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length += 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb263-9"><a href="varible-in-perl.html#cb263-9"></a></span>
-<span id="cb263-10"><a href="varible-in-perl.html#cb263-10"></a><span class="dt">$dna_length</span> -= <span class="dv">3</span>;  </span>
-<span id="cb263-11"><a href="varible-in-perl.html#cb263-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length -= 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## DNA length: 10
-## DNA length: 13 after &#39;$dna_length += 3&#39;
-## DNA length: 10 after &#39;$dna_length -= 3&#39;</code></pre>
-</div>
-<div id="auto-increment-and-auto-decrement" class="section level3">
-<h3><span class="header-section-number">26.2.2</span> Auto increment and auto decrement</h3>
-<p><code>++</code> and <code>--</code> are provided for the auto increment and auto decrement operators. They increase and decrease respectively the value of a scalar variable by 1.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb265-1"><a href="varible-in-perl.html#cb265-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb265-2"><a href="varible-in-perl.html#cb265-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb265-3"><a href="varible-in-perl.html#cb265-3"></a></span>
-<span id="cb265-4"><a href="varible-in-perl.html#cb265-4"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
-<span id="cb265-5"><a href="varible-in-perl.html#cb265-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb265-6"><a href="varible-in-perl.html#cb265-6"></a></span>
-<span id="cb265-7"><a href="varible-in-perl.html#cb265-7"></a><span class="dt">$dna_length</span> ++;</span>
-<span id="cb265-8"><a href="varible-in-perl.html#cb265-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length ++&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb265-9"><a href="varible-in-perl.html#cb265-9"></a></span>
-<span id="cb265-10"><a href="varible-in-perl.html#cb265-10"></a><span class="dt">$dna_length</span> --;</span>
-<span id="cb265-11"><a href="varible-in-perl.html#cb265-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after `\$dna_length --`</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## DNA length: 10
-## DNA length: 11 after &#39;$dna_length ++&#39;
-## DNA length: 10 after `$dna_length --`</code></pre>
-</div>
-<div id="inf-and--inf-in-perl" class="section level3">
-<h3><span class="header-section-number">26.2.3</span> <code>inf</code> and <code>-inf</code> in Perl</h3>
-<p>In Bioinformaticics analysis, you may need to calculate fold change of expression between two samples (let’s say sample 1/sample 2). If sample 2 has an expression level of 0,</p>
-<p>Deviding a zero will lead an eror message: <code>Illegal division by zero at ...</code></p>
-<pre><code>print 2/0, &quot;\n&quot;;</code></pre>
-<p>But Perl can recognize special values <code>inf</code>,<code>+inf,</code>-inf`:</p>
-<p>When we use them in a multiplication, we get “inf” again:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb268-1"><a href="varible-in-perl.html#cb268-1"></a><span class="dt">$result</span> = <span class="kw">&quot;</span><span class="st">inf</span><span class="kw">&quot;</span> <span class="kw">*</span> <span class="dv">100</span>;</span>
-<span id="cb268-2"><a href="varible-in-perl.html#cb268-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## Inf</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb270-1"><a href="varible-in-perl.html#cb270-1"></a><span class="dt">$result</span> = <span class="kw">&quot;</span><span class="st">-inf</span><span class="kw">&quot;</span> <span class="kw">*</span> <span class="dv">0</span>;</span>
-<span id="cb270-2"><a href="varible-in-perl.html#cb270-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## NaN</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb272-1"><a href="varible-in-perl.html#cb272-1"></a><span class="dt">$result</span> = <span class="kw">&quot;</span><span class="st">-inf</span><span class="kw">&quot;</span> <span class="kw">*</span> <span class="dv">1</span>;</span>
-<span id="cb272-2"><a href="varible-in-perl.html#cb272-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## -Inf</code></pre>
-<p>Dividing by an infinity variant returns its limit, which is 0:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb274-1"><a href="varible-in-perl.html#cb274-1"></a><span class="dt">$result</span> = <span class="dv">1</span>/inf;</span>
-<span id="cb274-2"><a href="varible-in-perl.html#cb274-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## 0</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb276-1"><a href="varible-in-perl.html#cb276-1"></a><span class="dt">$result</span> = <span class="dv">1</span>/-inf;</span>
-<span id="cb276-2"><a href="varible-in-perl.html#cb276-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## 0</code></pre>
-<p>You might see <code>-0</code> if the underlying C library handles that. It’s the same as regular 0.</p>
-</div>
-</div>
-<div id="use-strict-user-warnings-and-my" class="section level2">
-<h2><span class="header-section-number">26.3</span> <code>use strict</code>; <code>user warnings</code> and <code>my</code></h2>
-<p>For starters, <code>use strict;</code> (and to a lesser extent, <code>use warnings;</code>) helps find typos in variable names. Even experienced programmers make such errors. A common case is forgetting to rename an instance of a variable when cleaning up or refactoring code.</p>
-<p>Using <code>use strict; use warnings;</code> catches many errors sooner than they would be caught otherwise, which makes it easier to find the root causes of the errors. The root cause might be the need for an error or validation check, and that can happen regardless of programmer skill.</p>
-<p>What’s good about Perl warnings is that they are rarely spurious, so there’s next to no cost to using them.</p>
-<p>In the script below, <code>$dna_lenght2</code> is a typo. If you run this script, it will give you the output without any error message, although it’s not the right output.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb278-1"><a href="varible-in-perl.html#cb278-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb278-2"><a href="varible-in-perl.html#cb278-2"></a></span>
-<span id="cb278-3"><a href="varible-in-perl.html#cb278-3"></a><span class="co">#assign 2 numbers to 2 variable</span></span>
-<span id="cb278-4"><a href="varible-in-perl.html#cb278-4"></a><span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb278-5"><a href="varible-in-perl.html#cb278-5"></a><span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb278-6"><a href="varible-in-perl.html#cb278-6"></a></span>
-<span id="cb278-7"><a href="varible-in-perl.html#cb278-7"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb278-8"><a href="varible-in-perl.html#cb278-8"></a><span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna1</span>;</span>
-<span id="cb278-9"><a href="varible-in-perl.html#cb278-9"></a><span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna2</span>;</span>
-<span id="cb278-10"><a href="varible-in-perl.html#cb278-10"></a></span>
-<span id="cb278-11"><a href="varible-in-perl.html#cb278-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First DNA: </span><span class="dt">$dna1</span><span class="st">; Length: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb278-12"><a href="varible-in-perl.html#cb278-12"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Second DNA: </span><span class="dt">$dna2</span><span class="st">; Length: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb278-13"><a href="varible-in-perl.html#cb278-13"></a></span>
-<span id="cb278-14"><a href="varible-in-perl.html#cb278-14"></a><span class="co">#calculate the total length of two DNA sequences</span></span>
-<span id="cb278-15"><a href="varible-in-perl.html#cb278-15"></a><span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;</span>
-<span id="cb278-16"><a href="varible-in-perl.html#cb278-16"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<p>Let’s try to run this script:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb279-1"><a href="varible-in-perl.html#cb279-1"></a><span class="fu">perl</span> code_perl/var_assign_no_strict_warnings.pl</span></code></pre></div>
-<pre><code>First DNA: CTCGACCAGGACGATGAATGGGCGATGAAAATCT; Length: 34
-Second DNA: CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT; Length: 48
-The total length of two DNA sequences is 34 </code></pre>
-<p>So the script above is supposed to output the length of two DNA sequences and the sum of the lengths.</p>
-<p>In the chunk of code above, <code>$dna_lenght2</code> is an empty varible without storing any information. By defaut, Perl considers this as ZERO when doing plus operation. Although there was no error message given here, we infact have an incorrect output.</p>
-<p>If we add <code>use strict</code> and <code>use warnings</code>, we need to decare each variable in the script. Let us see what will happen if we have an typo.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb281-1"><a href="varible-in-perl.html#cb281-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb281-2"><a href="varible-in-perl.html#cb281-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb281-3"><a href="varible-in-perl.html#cb281-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb281-4"><a href="varible-in-perl.html#cb281-4"></a></span>
-<span id="cb281-5"><a href="varible-in-perl.html#cb281-5"></a><span class="co">#assign 2 numbers to 2 variable</span></span>
-<span id="cb281-6"><a href="varible-in-perl.html#cb281-6"></a><span class="kw">my</span> <span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb281-7"><a href="varible-in-perl.html#cb281-7"></a><span class="kw">my</span> <span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb281-8"><a href="varible-in-perl.html#cb281-8"></a></span>
-<span id="cb281-9"><a href="varible-in-perl.html#cb281-9"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb281-10"><a href="varible-in-perl.html#cb281-10"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna1</span>;</span>
-<span id="cb281-11"><a href="varible-in-perl.html#cb281-11"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna2</span>;</span>
-<span id="cb281-12"><a href="varible-in-perl.html#cb281-12"></a></span>
-<span id="cb281-13"><a href="varible-in-perl.html#cb281-13"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First DNA: </span><span class="dt">$dna1</span><span class="st">; Length: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb281-14"><a href="varible-in-perl.html#cb281-14"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Second DNA: </span><span class="dt">$dna2</span><span class="st">; Length: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb281-15"><a href="varible-in-perl.html#cb281-15"></a></span>
-<span id="cb281-16"><a href="varible-in-perl.html#cb281-16"></a><span class="co">#calculate the total length of two DNA sequences</span></span>
-<span id="cb281-17"><a href="varible-in-perl.html#cb281-17"></a><span class="kw">my</span> <span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;</span>
-<span id="cb281-18"><a href="varible-in-perl.html#cb281-18"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>Global symbol &quot;$dna_lenght2&quot; requires explicit package name (did you forget to declare &quot;my $dna_lenght2&quot;?) at code_perl/var_assign_strict_warnings.pl line 17.
-Execution of code_perl/var_assign_strict_warnings.pl aborted due to compilation errors.</code></pre>
-<p>Now if we run this script, we encounter error mesage and the script can’t be sucessfuly excuted.</p>
-<pre><code>Global symbol &quot;$dna_lenght2&quot; requires explicit package name 
-(did you forget to declare &quot;my $dna_lenght2&quot;?) at code_perl/
-var_assign_strict_warnings.pl line 17.
-Execution of code_perl/var_assign_strict_warnings.pl aborted
- due to compilation errors.</code></pre>
-</div>
-<div id="array" class="section level2">
-<h2><span class="header-section-number">26.4</span> Array</h2>
-<div id="init-an-array" class="section level3">
-<h3><span class="header-section-number">26.4.1</span> Init an array</h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb284-1"><a href="varible-in-perl.html#cb284-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);</span>
-<span id="cb284-2"><a href="varible-in-perl.html#cb284-2"></a><span class="fu">print</span> <span class="kw">&quot;&quot;</span>;</span>
-<span id="cb284-3"><a href="varible-in-perl.html#cb284-3"></a><span class="fu">print</span> <span class="dt">@base_pair</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb284-4"><a href="varible-in-perl.html#cb284-4"></a><span class="fu">print</span> <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="dt">@base_pair</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## ATCCG
-## A    T   C   C   G</code></pre>
-</div>
-<div id="array-index" class="section level3">
-<h3><span class="header-section-number">26.4.2</span> Array index</h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb286-1"><a href="varible-in-perl.html#cb286-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);</span>
-<span id="cb286-2"><a href="varible-in-perl.html#cb286-2"></a><span class="co">### Extract the first element in the array</span></span>
-<span id="cb286-3"><a href="varible-in-perl.html#cb286-3"></a><span class="kw">my</span> <span class="dt">$first_base</span> = <span class="dt">$base_pair</span>[<span class="dv">0</span>];</span>
-<span id="cb286-4"><a href="varible-in-perl.html#cb286-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First base is: </span><span class="dt">$first_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span>
-<span id="cb286-5"><a href="varible-in-perl.html#cb286-5"></a></span>
-<span id="cb286-6"><a href="varible-in-perl.html#cb286-6"></a><span class="co">### Extract the last element in the array</span></span>
-<span id="cb286-7"><a href="varible-in-perl.html#cb286-7"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dv">4</span>];</span>
-<span id="cb286-8"><a href="varible-in-perl.html#cb286-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base is: </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span>
-<span id="cb286-9"><a href="varible-in-perl.html#cb286-9"></a></span>
-<span id="cb286-10"><a href="varible-in-perl.html#cb286-10"></a><span class="co">### Extract the last element in the array using index `-1`</span></span>
-<span id="cb286-11"><a href="varible-in-perl.html#cb286-11"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[-<span class="dv">1</span>];</span>
-<span id="cb286-12"><a href="varible-in-perl.html#cb286-12"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base using &#39;-1&#39; is: </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span>
-<span id="cb286-13"><a href="varible-in-perl.html#cb286-13"></a></span>
-<span id="cb286-14"><a href="varible-in-perl.html#cb286-14"></a><span class="co">### Extract the last element in the array using index `$#`</span></span>
-<span id="cb286-15"><a href="varible-in-perl.html#cb286-15"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dt">$#base_pair</span>];</span>
-<span id="cb286-16"><a href="varible-in-perl.html#cb286-16"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base using &#39;\$#&#39; is : </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span></code></pre></div>
-<pre><code>## First base is: A
-## 
-## Last base is: G
-## 
-## Last base using &#39;-1&#39; is: G
-## 
-## Last base using &#39;$#&#39; is : G</code></pre>
-</div>
-<div id="length-of-the-array" class="section level3">
-<h3><span class="header-section-number">26.4.3</span> Length of the array</h3>
-<p>To get the length of the array, you can use <code>scalar @array</code> or <code>just array</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb288-1"><a href="varible-in-perl.html#cb288-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">10</span>);</span>
-<span id="cb288-2"><a href="varible-in-perl.html#cb288-2"></a><span class="kw">my</span> <span class="dt">$len</span> = <span class="fu">scalar</span> <span class="dt">@gene_expr</span>;  <span class="co">## or @gene_expr</span></span>
-<span id="cb288-3"><a href="varible-in-perl.html#cb288-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array has: </span><span class="dt">@gene_expr</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb288-4"><a href="varible-in-perl.html#cb288-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## Array has: 1 3 10
-## Length of array: 3</code></pre>
-<p>Another way is to use <code>$#array</code>. <code>$#array</code> will return the index of the last element. Since the index starts with 0, to get the length we use <code>$#array + 1</code>.</p>
-<p>If the length of array is empty, <code>$#array</code> will return <code>-1</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb290-1"><a href="varible-in-perl.html#cb290-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = ();</span>
-<span id="cb290-2"><a href="varible-in-perl.html#cb290-2"></a><span class="kw">my</span> <span class="dt">$len</span> = <span class="dt">$#gene_expr</span> + <span class="dv">1</span>;</span>
-<span id="cb290-3"><a href="varible-in-perl.html#cb290-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array has </span><span class="dt">$len</span><span class="st"> element</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb290-4"><a href="varible-in-perl.html#cb290-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## Array has 0 element
-## Length of array: 0</code></pre>
-</div>
-<div id="sort-arrays-in-perl" class="section level3">
-<h3><span class="header-section-number">26.4.4</span> Sort Arrays in Perl</h3>
-<div id="sort-alphebetically" class="section level4">
-<h4><span class="header-section-number">26.4.4.1</span> Sort alphebetically</h4>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb292-1"><a href="varible-in-perl.html#cb292-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);</span>
-<span id="cb292-2"><a href="varible-in-perl.html#cb292-2"></a><span class="kw">my</span> <span class="dt">@sorted_bp</span> = <span class="fu">sort</span> <span class="dt">@base_pair</span>;</span>
-<span id="cb292-3"><a href="varible-in-perl.html#cb292-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@base_pair</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb292-4"><a href="varible-in-perl.html#cb292-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_bp</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## Array before sorted: A T C C G
-## Array after sorted: A C C G T</code></pre>
-</div>
-<div id="sort-numerically" class="section level4">
-<h4><span class="header-section-number">26.4.4.2</span> Sort numerically</h4>
-<p>To sort an array numerically, we use <code>spaceship operator: &lt;=&gt;</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb294-1"><a href="varible-in-perl.html#cb294-1"></a><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);</span>
-<span id="cb294-2"><a href="varible-in-perl.html#cb294-2"></a><span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$a</span> &lt;=&gt; <span class="dt">$b</span>} <span class="dt">@genome_coor</span>;</span>
-<span id="cb294-3"><a href="varible-in-perl.html#cb294-3"></a></span>
-<span id="cb294-4"><a href="varible-in-perl.html#cb294-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@genome_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb294-5"><a href="varible-in-perl.html#cb294-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## Array before sorted: 100 300 200 500
-## Array after sorted: 100 200 300 500</code></pre>
-<p>Similarly, array can be also sorted numerically in decreasing order.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb296-1"><a href="varible-in-perl.html#cb296-1"></a><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);</span>
-<span id="cb296-2"><a href="varible-in-perl.html#cb296-2"></a><span class="co">## {$a &lt;=&gt; $b} is modified as {$b &lt;=&gt; $a} </span></span>
-<span id="cb296-3"><a href="varible-in-perl.html#cb296-3"></a><span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$b</span> &lt;=&gt; <span class="dt">$a</span>} <span class="dt">@genome_coor</span>;  </span>
-<span id="cb296-4"><a href="varible-in-perl.html#cb296-4"></a></span>
-<span id="cb296-5"><a href="varible-in-perl.html#cb296-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@genome_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb296-6"><a href="varible-in-perl.html#cb296-6"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## Array before sorted: 100 300 200 500
-## Array after sorted: 500 300 200 100</code></pre>
-</div>
-</div>
-<div id="use-push-pop-shift-and-unshift-in-perl" class="section level3">
-<h3><span class="header-section-number">26.4.5</span> Use <code>push</code>, <code>pop</code>, <code>shift</code> and <code>unshift</code> in Perl</h3>
-</div>
-</div>
-<div id="hash-in-perl" class="section level2">
-<h2><span class="header-section-number">26.5</span> Hash in Perl</h2>
-<p>A Perl hash is defined by key-value pairs. Perl stores elements of a hash in such an optimal way that you can look up its values based on keys very fast.</p>
-<p>With the array, you use indices to access its elements. However, you must use descriptive keys to access hash’s element. A hash is sometimes referred to as an associative array.</p>
-<p>Like a scalar or an array variable, a hash variable has its own prefix. A hash variable must begin with a percent sign ( %). The prefix % looks like key/value pair so remember this trick to name the hash variables.</p>
-<p>The following example defines a simple hash.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb298-1"><a href="varible-in-perl.html#cb298-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb298-2"><a href="varible-in-perl.html#cb298-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb298-3"><a href="varible-in-perl.html#cb298-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb298-4"><a href="varible-in-perl.html#cb298-4"></a>                );</span>
-<span id="cb298-5"><a href="varible-in-perl.html#cb298-5"></a></span>
-<span id="cb298-6"><a href="varible-in-perl.html#cb298-6"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene1}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb298-7"><a href="varible-in-perl.html#cb298-7"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene2}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb298-8"><a href="varible-in-perl.html#cb298-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene3}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre><code>## ROS
-## WRKY
-## WRKY</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb300-1"><a href="varible-in-perl.html#cb300-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb300-2"><a href="varible-in-perl.html#cb300-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb300-3"><a href="varible-in-perl.html#cb300-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb300-4"><a href="varible-in-perl.html#cb300-4"></a>                );</span>
-<span id="cb300-5"><a href="varible-in-perl.html#cb300-5"></a><span class="kw">my</span> <span class="dt">@hash_key</span>  = <span class="fu">keys</span> <span class="dt">%gene_info</span>;</span>
-<span id="cb300-6"><a href="varible-in-perl.html#cb300-6"></a><span class="dt">@hash_key</span> = <span class="fu">sort</span> <span class="dt">@hash_key</span>;</span>
-<span id="cb300-7"><a href="varible-in-perl.html#cb300-7"></a><span class="co">#print &quot;Keys of \%gene_info: &quot;, @hash_key, &quot;\n&quot;;</span></span>
-<span id="cb300-8"><a href="varible-in-perl.html#cb300-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Keys of \%gene_info: </span><span class="kw">&quot;</span>, <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb300-9"><a href="varible-in-perl.html#cb300-9"></a><span class="co">#print &quot;Keys of \%gene_info: &quot;, keys %gene_info, &quot;\n&quot;;</span></span></code></pre></div>
-<pre><code>## Keys of %gene_info: gene1    gene2   gene3</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb302-1"><a href="varible-in-perl.html#cb302-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb302-2"><a href="varible-in-perl.html#cb302-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb302-3"><a href="varible-in-perl.html#cb302-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb302-4"><a href="varible-in-perl.html#cb302-4"></a>                );</span>
-<span id="cb302-5"><a href="varible-in-perl.html#cb302-5"></a><span class="kw">foreach</span>(<span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>){</span>
-<span id="cb302-6"><a href="varible-in-perl.html#cb302-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$gene_info</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb302-7"><a href="varible-in-perl.html#cb302-7"></a>}</span></code></pre></div>
-<pre><code>## The value of gene1 is: ROS
-## The value of gene2 is: WRKY
-## The value of gene3 is: WRKY</code></pre>
-<div id="sort-keys-numerically-using-sort-ab" class="section level3">
-<h3><span class="header-section-number">26.5.1</span> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb304-1"><a href="varible-in-perl.html#cb304-1"></a><span class="kw">my</span> <span class="dt">%read_dep</span> = (<span class="kw">&quot;</span><span class="st">1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">100</span><span class="kw">&quot;</span>,</span>
-<span id="cb304-2"><a href="varible-in-perl.html#cb304-2"></a>                 <span class="kw">&quot;</span><span class="st">2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">200</span><span class="kw">&quot;</span>,</span>
-<span id="cb304-3"><a href="varible-in-perl.html#cb304-3"></a>                 <span class="kw">&quot;</span><span class="st">3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">50</span><span class="kw">&quot;</span>,</span>
-<span id="cb304-4"><a href="varible-in-perl.html#cb304-4"></a>                 <span class="kw">&quot;</span><span class="st">10</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">20</span><span class="kw">&quot;</span>,</span>
-<span id="cb304-5"><a href="varible-in-perl.html#cb304-5"></a>                );</span>
-<span id="cb304-6"><a href="varible-in-perl.html#cb304-6"></a></span>
-<span id="cb304-7"><a href="varible-in-perl.html#cb304-7"></a><span class="co">### sort in increasing order</span></span>
-<span id="cb304-8"><a href="varible-in-perl.html#cb304-8"></a><span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$a</span>&lt;=&gt;<span class="dt">$b</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){</span>
-<span id="cb304-9"><a href="varible-in-perl.html#cb304-9"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$read_dep</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb304-10"><a href="varible-in-perl.html#cb304-10"></a>}</span>
-<span id="cb304-11"><a href="varible-in-perl.html#cb304-11"></a></span>
-<span id="cb304-12"><a href="varible-in-perl.html#cb304-12"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="ch">\n</span><span class="st">Sort in descending order: </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb304-13"><a href="varible-in-perl.html#cb304-13"></a><span class="co">### sort {$b&lt;=&gt;$a} if you want to sort in descending order python</span></span>
-<span id="cb304-14"><a href="varible-in-perl.html#cb304-14"></a><span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$b</span>&lt;=&gt;<span class="dt">$a</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){</span>
-<span id="cb304-15"><a href="varible-in-perl.html#cb304-15"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$read_dep</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb304-16"><a href="varible-in-perl.html#cb304-16"></a>}</span></code></pre></div>
-<pre><code>## The value of 1 is: 100
-## The value of 2 is: 200
-## The value of 3 is: 50
-## The value of 10 is: 20
-## 
-## Sort in descending order: 
-## The value of 10 is: 20
-## The value of 3 is: 50
-## The value of 2 is: 200
-## The value of 1 is: 100</code></pre>
-</div>
-<div id="use-exists-function-on-a-hash" class="section level3">
-<h3><span class="header-section-number">26.5.2</span> Use <code>exists</code> function on a hash</h3>
-<p>Given an expression that specifies an element of a hash, <code>exists</code> returns true if the specified element in the hash has ever been initialized, even if the corresponding value is undefined.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb306-1"><a href="varible-in-perl.html#cb306-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb306-2"><a href="varible-in-perl.html#cb306-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb306-3"><a href="varible-in-perl.html#cb306-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb306-4"><a href="varible-in-perl.html#cb306-4"></a>                );</span>
-<span id="cb306-5"><a href="varible-in-perl.html#cb306-5"></a><span class="kw">if</span>(<span class="fu">exists</span> <span class="dt">$gene_info</span>{<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>}){</span>
-<span id="cb306-6"><a href="varible-in-perl.html#cb306-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The key &#39;gene1&#39; exists in \%gene_info</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb306-7"><a href="varible-in-perl.html#cb306-7"></a>}</span></code></pre></div>
-<pre><code>## The key &#39;gene1&#39; exists in %gene_info</code></pre>
+<div id="data-types-in-python" class="section level2">
+<h2><span class="header-section-number">11.2</span> Data types in Python</h2>
 
-</div>
+
+
 </div>
 </div>
             </section>
@@ -863,8 +513,8 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
           </div>
         </div>
       </div>
-<a href="first-perl-program.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="first-python-program.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-in-python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -894,7 +544,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/30_PerlVariableOperator.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/11_python_variable_type.Rmd",
 "text": "Edit"
 },
 "history": {
