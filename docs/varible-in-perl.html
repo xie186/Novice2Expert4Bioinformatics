@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 26 Varible in Perl | All things considered for Bioinformatics</title>
-  <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 26 Varible in Perl | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:image" content="/images/cover.jpg" />
   <meta property="og:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
@@ -20,27 +19,30 @@
   <meta name="twitter:title" content="Chapter 26 Varible in Perl | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
-  <meta name="twitter:image" content="images/cover.jpg" />
+  <meta name="twitter:image" content="/images/cover.jpg" />
 
-<meta name="author" content="Shaojun Xie (解少俊)">
+<meta name="author" content="Shaojun Xie (解少俊)" />
 
 
-<meta name="date" content="2020-10-28">
+<meta name="date" content="2021-12-28" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="first-perl-program.html">
-<link rel="next" href="linear-regression.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="first-perl-program.html"/>
+<link rel="next" href="linear-regression.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,23 +50,28 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +91,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +124,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,58 +165,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Linux</b></span></li>
-<li class="chapter" data-level="1" data-path="why-linux.html"><a href="why-linux.html"><i class="fa fa-check"></i><b>1</b> Why Linux?</a><ul>
+<li class="chapter" data-level="1" data-path="why-linux.html"><a href="why-linux.html"><i class="fa fa-check"></i><b>1</b> Why Linux?</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="why-linux.html"><a href="why-linux.html#what-is-linux"><i class="fa fa-check"></i><b>1.1</b> What is Linux</a></li>
 <li class="chapter" data-level="1.2" data-path="why-linux.html"><a href="why-linux.html#linux-for-bioinformatics"><i class="fa fa-check"></i><b>1.2</b> Linux for bioinformatics</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html"><i class="fa fa-check"></i><b>2</b> Connecting to Linux</a><ul>
+<li class="chapter" data-level="2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html"><i class="fa fa-check"></i><b>2</b> Connecting to Linux</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#user-interfaces"><i class="fa fa-check"></i><b>2.1</b> User interfaces</a></li>
-<li class="chapter" data-level="2.2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#how-to-connect"><i class="fa fa-check"></i><b>2.2</b> How to connect</a><ul>
+<li class="chapter" data-level="2.2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#how-to-connect"><i class="fa fa-check"></i><b>2.2</b> How to connect</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#alternative-ways-to-gain-access-to-a-linux-server"><i class="fa fa-check"></i><b>2.2.1</b> Alternative ways to gain access to a Linux Server</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html"><i class="fa fa-check"></i><b>3</b> Navigating in Linux file system</a><ul>
-<li class="chapter" data-level="3.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a><ul>
+<li class="chapter" data-level="3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html"><i class="fa fa-check"></i><b>3</b> Navigating in Linux file system</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#relative-and-absolute-path"><i class="fa fa-check"></i><b>3.1.1</b> Relative and absolute path</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
+<li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
 <li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
-<li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
+<li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-cp"><i class="fa fa-check"></i><b>3.4.1</b> Command <code>cp</code></a></li>
 <li class="chapter" data-level="3.4.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-mv"><i class="fa fa-check"></i><b>3.4.2</b> Command <code>mv</code></a></li>
 <li class="chapter" data-level="3.4.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-mkdir"><i class="fa fa-check"></i><b>3.4.3</b> Command <code>mkdir</code></a></li>
 <li class="chapter" data-level="3.4.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-rm"><i class="fa fa-check"></i><b>3.4.4</b> Command ‘rm’</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a><ul>
+<li class="chapter" data-level="3.5" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-cat"><i class="fa fa-check"></i><b>3.5.1</b> Command <code>cat</code></a></li>
 <li class="chapter" data-level="3.5.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-more-and-less"><i class="fa fa-check"></i><b>3.5.2</b> Command <code>more</code> and <code>less</code></a></li>
 <li class="chapter" data-level="3.5.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.5.3</b> Command <code>head</code> and <code>tail</code></a></li>
 <li class="chapter" data-level="3.5.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#auto-completion"><i class="fa fa-check"></i><b>3.5.4</b> Auto-completion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a><ul>
+<li class="chapter" data-level="3.6" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#stdin"><i class="fa fa-check"></i><b>3.6.1</b> STDIN</a></li>
 <li class="chapter" data-level="3.6.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
 <li class="chapter" data-level="3.6.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
-<li class="chapter" data-level="3.8" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.8" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a>
+<ul>
 <li class="chapter" data-level="3.8.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="file-content-filtering.html"><a href="file-content-filtering.html"><i class="fa fa-check"></i><b>4</b> File content filtering</a><ul>
-<li class="chapter" data-level="4.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#file-filtering"><i class="fa fa-check"></i><b>4.1</b> File Filtering</a><ul>
+<li class="chapter" data-level="4" data-path="file-content-filtering.html"><a href="file-content-filtering.html"><i class="fa fa-check"></i><b>4</b> File content filtering</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#file-filtering"><i class="fa fa-check"></i><b>4.1</b> File Filtering</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#column-filtering"><i class="fa fa-check"></i><b>4.1.1</b> Column filtering</a></li>
 <li class="chapter" data-level="4.1.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#cut"><i class="fa fa-check"></i><b>4.1.2</b> <code>cut</code></a></li>
 <li class="chapter" data-level="4.1.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#row-filtering"><i class="fa fa-check"></i><b>4.1.3</b> Row filtering</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#paste"><i class="fa fa-check"></i><b>4.2</b> <code>paste</code></a><ul>
+<li class="chapter" data-level="4.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#paste"><i class="fa fa-check"></i><b>4.2</b> <code>paste</code></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#advanced-topic-1"><i class="fa fa-check"></i><b>4.2.1</b> Advanced topic:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#finding-things"><i class="fa fa-check"></i><b>4.3</b> Finding Things</a><ul>
+<li class="chapter" data-level="4.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#finding-things"><i class="fa fa-check"></i><b>4.3</b> Finding Things</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#find-files-with-pattern-matching"><i class="fa fa-check"></i><b>4.3.1</b> Find files with pattern matching</a></li>
 <li class="chapter" data-level="4.3.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#count-file-numbers-in-a-folder-and-its-subdirectories"><i class="fa fa-check"></i><b>4.3.2</b> Count file numbers in a folder and its subdirectories</a></li>
 <li class="chapter" data-level="4.3.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>4.3.3</b> List files bigger than filesize specified</a></li>
@@ -194,22 +238,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="file-content-filtering.html"><a href="file-content-filtering.html#check-you-job-status"><i class="fa fa-check"></i><b>4.4</b> Check you job status</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>5</b> Achiving and compressing files</a><ul>
+<li class="chapter" data-level="5" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>5</b> Achiving and compressing files</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#common-compressed-file-format"><i class="fa fa-check"></i><b>5.1</b> Common compressed file format</a></li>
-<li class="chapter" data-level="5.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#how-to-work-with-different-format"><i class="fa fa-check"></i><b>5.2</b> How to work with different format</a><ul>
+<li class="chapter" data-level="5.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#how-to-work-with-different-format"><i class="fa fa-check"></i><b>5.2</b> How to work with different format</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#gz"><i class="fa fa-check"></i><b>5.2.1</b> <code>*.gz</code></a></li>
 <li class="chapter" data-level="5.2.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#tar.gz"><i class="fa fa-check"></i><b>5.2.2</b> <code>*.tar.gz</code></a></li>
 <li class="chapter" data-level="5.2.3" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#zip"><i class="fa fa-check"></i><b>5.2.3</b> <code>*.zip</code></a></li>
 <li class="chapter" data-level="5.2.4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#tar.bz2"><i class="fa fa-check"></i><b>5.2.4</b> <code>*.tar.bz2</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html"><i class="fa fa-check"></i><b>6</b> Process management in Linux</a><ul>
+<li class="chapter" data-level="6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html"><i class="fa fa-check"></i><b>6</b> Process management in Linux</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#top"><i class="fa fa-check"></i><b>6.1</b> <code>top</code></a></li>
 <li class="chapter" data-level="6.2" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#ps"><i class="fa fa-check"></i><b>6.2</b> <code>ps</code></a></li>
 <li class="chapter" data-level="6.3" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#kill"><i class="fa fa-check"></i><b>6.3</b> <code>kill</code></a></li>
 <li class="chapter" data-level="6.4" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#df"><i class="fa fa-check"></i><b>6.4</b> <code>df</code></a></li>
 <li class="chapter" data-level="6.5" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#advanced-topic-free"><i class="fa fa-check"></i><b>6.5</b> Advanced topic <code>free</code></a></li>
-<li class="chapter" data-level="6.6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#commands-for-linux-administration-advanced-topic"><i class="fa fa-check"></i><b>6.6</b> Commands for Linux administration (Advanced topic)</a><ul>
+<li class="chapter" data-level="6.6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#commands-for-linux-administration-advanced-topic"><i class="fa fa-check"></i><b>6.6</b> Commands for Linux administration (Advanced topic)</a>
+<ul>
 <li class="chapter" data-level="6.6.1" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#w"><i class="fa fa-check"></i><b>6.6.1</b> <code>w</code></a></li>
 <li class="chapter" data-level="6.6.2" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#who"><i class="fa fa-check"></i><b>6.6.2</b> <code>who</code></a></li>
 <li class="chapter" data-level="6.6.3" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#uptime"><i class="fa fa-check"></i><b>6.6.3</b> <code>uptime</code></a></li>
@@ -218,59 +266,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6.6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#useradd-and-passwd"><i class="fa fa-check"></i><b>6.6.6</b> <code>useradd</code> and <code>passwd</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="file-transfer.html"><a href="file-transfer.html"><i class="fa fa-check"></i><b>7</b> File transfer</a><ul>
-<li class="chapter" data-level="7.1" data-path="file-transfer.html"><a href="file-transfer.html#transferring-files-between-local-computer-and-linux-server"><i class="fa fa-check"></i><b>7.1</b> Transferring files between local computer and Linux server</a><ul>
+<li class="chapter" data-level="7" data-path="file-transfer.html"><a href="file-transfer.html"><i class="fa fa-check"></i><b>7</b> File transfer</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="file-transfer.html"><a href="file-transfer.html#transferring-files-between-local-computer-and-linux-server"><i class="fa fa-check"></i><b>7.1</b> Transferring files between local computer and Linux server</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="file-transfer.html"><a href="file-transfer.html#use-command-line-tools"><i class="fa fa-check"></i><b>7.1.1</b> Use command line tools</a></li>
 <li class="chapter" data-level="7.1.2" data-path="file-transfer.html"><a href="file-transfer.html#download-files"><i class="fa fa-check"></i><b>7.1.2</b> Download files</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html"><i class="fa fa-check"></i><b>8</b> Install Bioinformatics software in Linux</a><ul>
-<li class="chapter" data-level="8.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installation-from-source-code"><i class="fa fa-check"></i><b>8.1</b> Installation from source code</a><ul>
+<li class="chapter" data-level="8" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html"><i class="fa fa-check"></i><b>8</b> Install Bioinformatics software in Linux</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installation-from-source-code"><i class="fa fa-check"></i><b>8.1</b> Installation from source code</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-bwa"><i class="fa fa-check"></i><b>8.1.1</b> Install <code>bwa</code></a></li>
 <li class="chapter" data-level="8.1.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-samtools"><i class="fa fa-check"></i><b>8.1.2</b> Install <code>samtools</code></a></li>
 <li class="chapter" data-level="8.1.3" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#align-reads-to-genome-using-bwa-and-store-the-alignment-results-in-sambam-files"><i class="fa fa-check"></i><b>8.1.3</b> Align reads to genome using <code>bwa</code> and store the alignment results in SAM/BAM files</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installing-a-precompiled-binary-executable"><i class="fa fa-check"></i><b>8.2</b> Installing a precompiled binary (executable)</a><ul>
+<li class="chapter" data-level="8.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installing-a-precompiled-binary-executable"><i class="fa fa-check"></i><b>8.2</b> Installing a precompiled binary (executable)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-bwa-1"><i class="fa fa-check"></i><b>8.2.1</b> Install <code>bwa</code></a></li>
 <li class="chapter" data-level="8.2.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-with-conda-recommended-way"><i class="fa fa-check"></i><b>8.2.2</b> Install with <code>conda</code> (recommended way)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-ussing-docker-advanced-topic"><i class="fa fa-check"></i><b>8.2.3</b> Install ussing <code>Docker</code> (Advanced topic)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html"><i class="fa fa-check"></i><b>9</b> Text editor in Linux</a><ul>
+<li class="chapter" data-level="9" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html"><i class="fa fa-check"></i><b>9</b> Text editor in Linux</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#basic-vi-skills"><i class="fa fa-check"></i><b>9.1</b> Basic vi skills</a></li>
 <li class="chapter" data-level="9.2" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#create-new-text-file-with-vi"><i class="fa fa-check"></i><b>9.2</b> Create new text file with <code>vi</code></a></li>
 <li class="chapter" data-level="9.3" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#an-example-for-using-editor-r"><i class="fa fa-check"></i><b>9.3</b> An example for using editor R</a></li>
 </ul></li>
 <li class="part"><span><b>II Python</b></span></li>
 <li class="chapter" data-level="10" data-path="first-python-program.html"><a href="first-python-program.html"><i class="fa fa-check"></i><b>10</b> First Python Program</a></li>
-<li class="chapter" data-level="11" data-path="varibles-in-python.html"><a href="varibles-in-python.html"><i class="fa fa-check"></i><b>11</b> Varibles in Python</a><ul>
+<li class="chapter" data-level="11" data-path="varibles-in-python.html"><a href="varibles-in-python.html"><i class="fa fa-check"></i><b>11</b> Varibles in Python</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="varibles-in-python.html"><a href="varibles-in-python.html#variable-names"><i class="fa fa-check"></i><b>11.1</b> Variable names</a></li>
 <li class="chapter" data-level="11.2" data-path="varibles-in-python.html"><a href="varibles-in-python.html#data-types-in-python"><i class="fa fa-check"></i><b>11.2</b> Data types in Python</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="functions-in-python.html"><a href="functions-in-python.html"><i class="fa fa-check"></i><b>12</b> Functions in Python</a><ul>
+<li class="chapter" data-level="12" data-path="functions-in-python.html"><a href="functions-in-python.html"><i class="fa fa-check"></i><b>12</b> Functions in Python</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="functions-in-python.html"><a href="functions-in-python.html#create-a-function-to-determine-the-gc-content-of-dna-sequence"><i class="fa fa-check"></i><b>12.1</b> Create a function to determine the GC-content of DNA sequence</a></li>
 <li class="chapter" data-level="12.2" data-path="functions-in-python.html"><a href="functions-in-python.html#reverse-complement"><i class="fa fa-check"></i><b>12.2</b> Reverse complement</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistics and R</b></span></li>
-<li class="chapter" data-level="13" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>13</b> R introduction</a><ul>
+<li class="chapter" data-level="13" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>13</b> R introduction</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="r-introduction.html"><a href="r-introduction.html#basic-r-function"><i class="fa fa-check"></i><b>13.1</b> Basic R function</a></li>
-<li class="chapter" data-level="13.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>13.2</b> Producing Simple Graphs with R</a><ul>
+<li class="chapter" data-level="13.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>13.2</b> Producing Simple Graphs with R</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>13.2.1</b> Line Charts</a></li>
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="r-introduction.html"><a href="r-introduction.html#xxx"><i class="fa fa-check"></i><b>13.3</b> XXX</a></li>
 <li class="chapter" data-level="13.4" data-path="r-introduction.html"><a href="r-introduction.html#logic-and"><i class="fa fa-check"></i><b>13.4</b> Logic <code>&amp;&amp;</code> and <code>|</code></a></li>
 <li class="chapter" data-level="13.5" data-path="r-introduction.html"><a href="r-introduction.html#list-as-dictionary"><i class="fa fa-check"></i><b>13.5</b> List as dictionary</a></li>
-<li class="chapter" data-level="13.6" data-path="r-introduction.html"><a href="r-introduction.html#parsing-arguments-as-string"><i class="fa fa-check"></i><b>13.6</b> Parsing arguments as string</a><ul>
+<li class="chapter" data-level="13.6" data-path="r-introduction.html"><a href="r-introduction.html#parsing-arguments-as-string"><i class="fa fa-check"></i><b>13.6</b> Parsing arguments as string</a>
+<ul>
 <li class="chapter" data-level="13.6.1" data-path="r-introduction.html"><a href="r-introduction.html#string-as-xlim"><i class="fa fa-check"></i><b>13.6.1</b> String as xlim</a></li>
 <li class="chapter" data-level="13.6.2" data-path="r-introduction.html"><a href="r-introduction.html#how-to-access-data-frame-column-using-variable"><i class="fa fa-check"></i><b>13.6.2</b> How to access data frame column using variable</a></li>
 <li class="chapter" data-level="13.6.3" data-path="r-introduction.html"><a href="r-introduction.html#how-to-create-a-formula-from-a"><i class="fa fa-check"></i><b>13.6.3</b> How to create a formula from a</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>14</b> <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="14" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>14</b> <code>ggplot2</code></a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-1"><i class="fa fa-check"></i><b>14.1</b> ggplot2</a></li>
 <li class="chapter" data-level="14.2" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-practical"><i class="fa fa-check"></i><b>14.2</b> ggplot2 practical</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>15</b> Heatmap Tutorial</a><ul>
+<li class="chapter" data-level="15" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>15</b> Heatmap Tutorial</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#install-pheatmap-package"><i class="fa fa-check"></i><b>15.1</b> Install <code>pheatmap</code> package</a></li>
 <li class="chapter" data-level="15.2" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#draw-a-heatmap-for-gene-expression-of-rna-seq-data"><i class="fa fa-check"></i><b>15.2</b> Draw a heatmap for gene expression of RNA-seq data</a></li>
 <li class="chapter" data-level="15.3" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#add-the-annotation"><i class="fa fa-check"></i><b>15.3</b> Add the annotation</a></li>
@@ -279,16 +340,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-add-annotations"><i class="fa fa-check"></i><b>15.6</b> How to add annotations</a></li>
 <li class="chapter" data-level="15.7" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-cut-the-trees"><i class="fa fa-check"></i><b>15.7</b> How to cut the trees</a></li>
 <li class="chapter" data-level="15.8" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-get-the-cluster-information-from-the-heatmap"><i class="fa fa-check"></i><b>15.8</b> How to get the cluster information from the heatmap</a></li>
-<li class="chapter" data-level="15.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#change-color"><i class="fa fa-check"></i><b>15.9</b> Change color</a><ul>
+<li class="chapter" data-level="15.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#change-color"><i class="fa fa-check"></i><b>15.9</b> Change color</a>
+<ul>
 <li class="chapter" data-level="15.9.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#use-brewer"><i class="fa fa-check"></i><b>15.9.1</b> Use Brewer</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>16</b> Preparation of figures for manuscript</a><ul>
+<li class="chapter" data-level="16" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>16</b> Preparation of figures for manuscript</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html#test1"><i class="fa fa-check"></i><b>16.1</b> test1</a></li>
 </ul></li>
 <li class="part"><span><b>IV Omics data</b></span></li>
-<li class="chapter" data-level="17" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>17</b> Introduction to NGS</a><ul>
-<li class="chapter" data-level="17.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>17.1</b> Introduction of Biology for Bioinformatics</a><ul>
+<li class="chapter" data-level="17" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>17</b> Introduction to NGS</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>17.1</b> Introduction of Biology for Bioinformatics</a>
+<ul>
 <li class="chapter" data-level="17.1.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-dna"><i class="fa fa-check"></i><b>17.1.1</b> What is DNA</a></li>
 <li class="chapter" data-level="17.1.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-genome"><i class="fa fa-check"></i><b>17.1.2</b> What is genome</a></li>
 <li class="chapter" data-level="17.1.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#how-to-assemble-a-genome"><i class="fa fa-check"></i><b>17.1.3</b> How to assemble a genome</a></li>
@@ -297,7 +362,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-ngs"><i class="fa fa-check"></i><b>17.2</b> What is NGS</a></li>
 <li class="chapter" data-level="17.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#application-of-ngs"><i class="fa fa-check"></i><b>17.3</b> Application of NGS</a></li>
 <li class="chapter" data-level="17.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#section-1"><i class="fa fa-check"></i><b>17.4</b> </a></li>
-<li class="chapter" data-level="17.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>17.5</b> Data file formats to store the genomic information</a><ul>
+<li class="chapter" data-level="17.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>17.5</b> Data file formats to store the genomic information</a>
+<ul>
 <li class="chapter" data-level="17.5.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fasta-file"><i class="fa fa-check"></i><b>17.5.1</b> <code>fasta</code> file</a></li>
 <li class="chapter" data-level="17.5.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gff-file"><i class="fa fa-check"></i><b>17.5.2</b> GFF file</a></li>
 <li class="chapter" data-level="17.5.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gtf-file"><i class="fa fa-check"></i><b>17.5.3</b> GTF file</a></li>
@@ -309,96 +375,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="17.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#usefull-links"><i class="fa fa-check"></i><b>17.6</b> Usefull links:</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>18</b> Start a project</a><ul>
-<li class="chapter" data-level="18.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>18.1</b> Experimetal design</a><ul>
+<li class="chapter" data-level="18" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>18</b> Start a project</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>18.1</b> Experimetal design</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="start-a-project.html"><a href="start-a-project.html#how-many-biological-replicates"><i class="fa fa-check"></i><b>18.1.1</b> How many biological replicates</a></li>
 <li class="chapter" data-level="18.1.2" data-path="start-a-project.html"><a href="start-a-project.html#how-big"><i class="fa fa-check"></i><b>18.1.2</b> How big</a></li>
 <li class="chapter" data-level="18.1.3" data-path="start-a-project.html"><a href="start-a-project.html#how-much-data-to-generate"><i class="fa fa-check"></i><b>18.1.3</b> How much data to generate</a></li>
 <li class="chapter" data-level="18.1.4" data-path="start-a-project.html"><a href="start-a-project.html#section-2"><i class="fa fa-check"></i><b>18.1.4</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>19</b> Capstone project:</a><ul>
+<li class="chapter" data-level="19" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>19</b> Capstone project:</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="capstone-project.html"><a href="capstone-project.html#method"><i class="fa fa-check"></i><b>19.2</b> Method</a></li>
 <li class="chapter" data-level="19.3" data-path="capstone-project.html"><a href="capstone-project.html#pipelines"><i class="fa fa-check"></i><b>19.3</b> Pipelines</a></li>
 <li class="chapter" data-level="19.4" data-path="capstone-project.html"><a href="capstone-project.html#section-3"><i class="fa fa-check"></i><b>19.4</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html"><i class="fa fa-check"></i><b>20</b> Useful measurements in Bioinformatics</a><ul>
+<li class="chapter" data-level="20" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html"><i class="fa fa-check"></i><b>20</b> Useful measurements in Bioinformatics</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#k-mer"><i class="fa fa-check"></i><b>20.1</b> K-mer</a></li>
 <li class="chapter" data-level="20.2" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#shannon-entropy"><i class="fa fa-check"></i><b>20.2</b> Shannon Entropy</a></li>
 <li class="chapter" data-level="20.3" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#gini-index"><i class="fa fa-check"></i><b>20.3</b> Gini index</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="data-table.html"><a href="data-table.html"><i class="fa fa-check"></i><b>21</b> data.table</a><ul>
-<li class="chapter" data-level="21.1" data-path="data-table.html"><a href="data-table.html#split-data.table-into-chunks-in-a-list"><i class="fa fa-check"></i><b>21.1</b> Split data.table into chunks in a list</a><ul>
-<li class="chapter" data-level="21.1.1" data-path="data-table.html"><a href="data-table.html#nested-list-using-flatten-arguments"><i class="fa fa-check"></i><b>21.1.1</b> nested list using <code>flatten</code> arguments</a></li>
-<li class="chapter" data-level="21.1.2" data-path="data-table.html"><a href="data-table.html#example"><i class="fa fa-check"></i><b>21.1.2</b> Example</a></li>
+<li class="chapter" data-level="21" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>21</b> data.table</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="data.html"><a href="data.html#split-data.table-into-chunks-in-a-list"><i class="fa fa-check"></i><b>21.1</b> Split data.table into chunks in a list</a>
+<ul>
+<li class="chapter" data-level="21.1.1" data-path="data.html"><a href="data.html#nested-list-using-flatten-arguments"><i class="fa fa-check"></i><b>21.1.1</b> nested list using <code>flatten</code> arguments</a></li>
+<li class="chapter" data-level="21.1.2" data-path="data.html"><a href="data.html#example"><i class="fa fa-check"></i><b>21.1.2</b> Example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>22</b> Good resouces to learn Bioinformatics</a><ul>
+<li class="chapter" data-level="22" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>22</b> Good resouces to learn Bioinformatics</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>22.1</b> References:</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html"><i class="fa fa-check"></i><b>23</b> Basic statistics - Descriptive Statistics</a><ul>
-<li class="chapter" data-level="23.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#probability-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability distribution</a><ul>
-<li class="chapter" data-level="23.1.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#geometirc-distribution"><i class="fa fa-check"></i><b>23.1.1</b> Geometirc distribution</a></li>
-<li class="chapter" data-level="23.1.2" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#bionomial-distribution"><i class="fa fa-check"></i><b>23.1.2</b> Bionomial distribution</a></li>
-<li class="chapter" data-level="23.1.3" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>23.1.3</b> Negative binomial distribution</a></li>
+<li class="chapter" data-level="23" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html"><i class="fa fa-check"></i><b>23</b> Basic statistics - Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#probability-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability distribution</a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#geometirc-distribution"><i class="fa fa-check"></i><b>23.1.1</b> Geometirc distribution</a></li>
+<li class="chapter" data-level="23.1.2" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#bionomial-distribution"><i class="fa fa-check"></i><b>23.1.2</b> Bionomial distribution</a></li>
+<li class="chapter" data-level="23.1.3" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>23.1.3</b> Negative binomial distribution</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>24</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="24.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-two-groups"><i class="fa fa-check"></i><b>24.1</b> Comparing two groups</a><ul>
+<li class="chapter" data-level="24" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>24</b> Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-two-groups"><i class="fa fa-check"></i><b>24.1</b> Comparing two groups</a>
+<ul>
 <li class="chapter" data-level="24.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#independent-groups"><i class="fa fa-check"></i><b>24.1.1</b> Independent groups</a></li>
 <li class="chapter" data-level="24.1.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#dependent-groups"><i class="fa fa-check"></i><b>24.1.2</b> Dependent groups</a></li>
 <li class="chapter" data-level="24.1.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#controlling-for-other-variables"><i class="fa fa-check"></i><b>24.1.3</b> Controlling for other variables</a></li>
 </ul></li>
-<li class="chapter" data-level="24.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association"><i class="fa fa-check"></i><b>24.2</b> Categorical association</a><ul>
+<li class="chapter" data-level="24.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association"><i class="fa fa-check"></i><b>24.2</b> Categorical association</a>
+<ul>
 <li class="chapter" data-level="24.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-association"><i class="fa fa-check"></i><b>24.2.1</b> Categorical association - Chi-squared test for association</a></li>
 <li class="chapter" data-level="24.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>24.2.2</b> Categorical association - Chi-squared test for goodness of fit</a></li>
 <li class="chapter" data-level="24.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---sidenotes-and-an-alternative-to-the-chi-squared-test"><i class="fa fa-check"></i><b>24.2.3</b> Categorical association - Sidenotes and an alternative to the Chi-squared test</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#simple-regression"><i class="fa fa-check"></i><b>24.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="24.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#simple-regression"><i class="fa fa-check"></i><b>24.3</b> Simple regression</a>
+<ul>
 <li class="chapter" data-level="24.3.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#describing-quantitative-association"><i class="fa fa-check"></i><b>24.3.1</b> Describing quantitative association</a></li>
 <li class="chapter" data-level="24.3.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#drawing-inferences"><i class="fa fa-check"></i><b>24.3.2</b> Drawing inferences</a></li>
 <li class="chapter" data-level="24.3.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#exponential-regression"><i class="fa fa-check"></i><b>24.3.3</b> Exponential regression</a></li>
 </ul></li>
 <li class="chapter" data-level="24.4" data-path="inferential-statistics.html"><a href="inferential-statistics.html#multiple-regression"><i class="fa fa-check"></i><b>24.4</b> Multiple regression</a></li>
 <li class="chapter" data-level="24.5" data-path="inferential-statistics.html"><a href="inferential-statistics.html#analysis-of-variance"><i class="fa fa-check"></i><b>24.5</b> Analysis of variance</a></li>
-<li class="chapter" data-level="24.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#non-parametric-tests"><i class="fa fa-check"></i><b>24.6</b> Non-parametric tests</a><ul>
+<li class="chapter" data-level="24.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#non-parametric-tests"><i class="fa fa-check"></i><b>24.6</b> Non-parametric tests</a>
+<ul>
 <li class="chapter" data-level="24.6.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-groups-with-respect-to-mean-rank"><i class="fa fa-check"></i><b>24.6.1</b> Comparing groups with respect to mean rank</a></li>
 <li class="chapter" data-level="24.6.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#rank-based-correlation-randomness"><i class="fa fa-check"></i><b>24.6.2</b> Rank-based correlation &amp; randomness</a></li>
 <li class="chapter" data-level="24.6.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#section-4"><i class="fa fa-check"></i><b>24.6.3</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Perl</b></span></li>
-<li class="chapter" data-level="25" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>25</b> First Perl Program</a><ul>
+<li class="chapter" data-level="25" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>25</b> First Perl Program</a>
+<ul>
 <li class="chapter" data-level="25.1" data-path="first-perl-program.html"><a href="first-perl-program.html#first-program"><i class="fa fa-check"></i><b>25.1</b> First Program</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>26</b> Varible in Perl</a><ul>
+<li class="chapter" data-level="26" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>26</b> Varible in Perl</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#scalar-variable"><i class="fa fa-check"></i><b>26.1</b> Scalar variable</a></li>
-<li class="chapter" data-level="26.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>26.2</b> Arithmetic operations in Perl</a><ul>
+<li class="chapter" data-level="26.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>26.2</b> Arithmetic operations in Perl</a>
+<ul>
 <li class="chapter" data-level="26.2.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#shorthand-operations"><i class="fa fa-check"></i><b>26.2.1</b> Shorthand operations</a></li>
 <li class="chapter" data-level="26.2.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#auto-increment-and-auto-decrement"><i class="fa fa-check"></i><b>26.2.2</b> Auto increment and auto decrement</a></li>
 <li class="chapter" data-level="26.2.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#inf-and--inf-in-perl"><i class="fa fa-check"></i><b>26.2.3</b> <code>inf</code> and <code>-inf</code> in Perl</a></li>
 </ul></li>
 <li class="chapter" data-level="26.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-strict-user-warnings-and-my"><i class="fa fa-check"></i><b>26.3</b> <code>use strict</code>; <code>user warnings</code> and <code>my</code></a></li>
-<li class="chapter" data-level="26.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>26.4</b> Array</a><ul>
+<li class="chapter" data-level="26.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>26.4</b> Array</a>
+<ul>
 <li class="chapter" data-level="26.4.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#init-an-array"><i class="fa fa-check"></i><b>26.4.1</b> Init an array</a></li>
 <li class="chapter" data-level="26.4.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array-index"><i class="fa fa-check"></i><b>26.4.2</b> Array index</a></li>
 <li class="chapter" data-level="26.4.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#length-of-the-array"><i class="fa fa-check"></i><b>26.4.3</b> Length of the array</a></li>
 <li class="chapter" data-level="26.4.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-arrays-in-perl"><i class="fa fa-check"></i><b>26.4.4</b> Sort Arrays in Perl</a></li>
 <li class="chapter" data-level="26.4.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-push-pop-shift-and-unshift-in-perl"><i class="fa fa-check"></i><b>26.4.5</b> Use <code>push</code>, <code>pop</code>, <code>shift</code> and <code>unshift</code> in Perl</a></li>
 </ul></li>
-<li class="chapter" data-level="26.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash-in-perl"><i class="fa fa-check"></i><b>26.5</b> Hash in Perl</a><ul>
+<li class="chapter" data-level="26.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash-in-perl"><i class="fa fa-check"></i><b>26.5</b> Hash in Perl</a>
+<ul>
 <li class="chapter" data-level="26.5.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-keys-numerically-using-sort-ab"><i class="fa fa-check"></i><b>26.5.1</b> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></a></li>
 <li class="chapter" data-level="26.5.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-exists-function-on-a-hash"><i class="fa fa-check"></i><b>26.5.2</b> Use <code>exists</code> function on a hash</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>27</b> Linear regression</a><ul>
-<li class="chapter" data-level="27.1" data-path="linear-regression.html"><a href="linear-regression.html#interpreting-regression-parameters-in-a-basic-model"><i class="fa fa-check"></i><b>27.1</b> Interpreting regression parameters in a basic model</a><ul>
+<li class="chapter" data-level="27" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>27</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="linear-regression.html"><a href="linear-regression.html#interpreting-regression-parameters-in-a-basic-model"><i class="fa fa-check"></i><b>27.1</b> Interpreting regression parameters in a basic model</a>
+<ul>
 <li class="chapter" data-level="27.1.1" data-path="linear-regression.html"><a href="linear-regression.html#r-squared-and-correlation"><i class="fa fa-check"></i><b>27.1.1</b> R-squared and correlation</a></li>
 </ul></li>
 <li class="chapter" data-level="27.2" data-path="linear-regression.html"><a href="linear-regression.html#reference-1"><i class="fa fa-check"></i><b>27.2</b> Reference</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>28</b> Control structure</a><ul>
+<li class="chapter" data-level="28" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>28</b> Control structure</a>
+<ul>
 <li class="chapter" data-level="28.1" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>28.1</b> <code>for</code> loop</a></li>
 <li class="chapter" data-level="28.2" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>28.2</b> <code>foreach</code> loop</a></li>
 <li class="chapter" data-level="28.3" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>28.3</b> <code>while</code> loop</a></li>
@@ -406,12 +494,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>28.5</b> Operator <code>last</code> and <code>next</code></a></li>
 <li class="chapter" data-level="28.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>28.6</b> Operator <code>redo</code></a></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>29</b> String manipulation</a><ul>
+<li class="chapter" data-level="29" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>29</b> String manipulation</a>
+<ul>
 <li class="chapter" data-level="29.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-concatenation"><i class="fa fa-check"></i><b>29.1</b> String concatenation</a></li>
 <li class="chapter" data-level="29.2" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-extraction"><i class="fa fa-check"></i><b>29.2</b> Substring extraction</a></li>
 <li class="chapter" data-level="29.3" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-search"><i class="fa fa-check"></i><b>29.3</b> Substring search</a></li>
 <li class="chapter" data-level="29.4" data-path="string-manipulation.html"><a href="string-manipulation.html#split-string"><i class="fa fa-check"></i><b>29.4</b> Split String</a></li>
-<li class="chapter" data-level="29.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>29.5</b> Regular expression</a><ul>
+<li class="chapter" data-level="29.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>29.5</b> Regular expression</a>
+<ul>
 <li class="chapter" data-level="29.5.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>29.5.1</b> Pattern matching</a></li>
 <li class="chapter" data-level="29.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>29.5.2</b> Pattern substitution</a></li>
 <li class="chapter" data-level="29.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>29.5.3</b> Modifiers to pattern matching and substitution</a></li>
@@ -419,8 +509,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>29.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>30</b> Input and output in Perl</a><ul>
-<li class="chapter" data-level="30.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>30.1</b> Input</a><ul>
+<li class="chapter" data-level="30" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>30</b> Input and output in Perl</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>30.1</b> Input</a>
+<ul>
 <li class="chapter" data-level="30.1.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#standard-input"><i class="fa fa-check"></i><b>30.1.1</b> Standard input</a></li>
 <li class="chapter" data-level="30.1.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input-from-a-file-on-the-disk"><i class="fa fa-check"></i><b>30.1.2</b> Input from a file on the disk</a></li>
 <li class="chapter" data-level="30.1.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#special-variable-_"><i class="fa fa-check"></i><b>30.1.3</b> Special variable <code>$_</code></a></li>
@@ -429,18 +521,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#output-to-a-file-on-the-disk"><i class="fa fa-check"></i><b>30.2</b> Output to a file on the disk</a></li>
 <li class="chapter" data-level="30.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>30.3</b> Arguments from command line</a></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>31</b> Practical Perl program</a><ul>
+<li class="chapter" data-level="31" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>31</b> Practical Perl program</a>
+<ul>
 <li class="chapter" data-level="31.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>31.1</b> Add annotation information to DESeq2 results</a></li>
 <li class="chapter" data-level="31.2" data-path="practical-perl-program.html"><a href="practical-perl-program.html#merge-overlap-genomic-regions"><i class="fa fa-check"></i><b>31.2</b> Merge overlap genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="32" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>32</b> Perl modules</a><ul>
+<li class="chapter" data-level="32" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>32</b> Perl modules</a>
+<ul>
 <li class="chapter" data-level="32.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>32.1</b> What is a Perl module</a></li>
 <li class="chapter" data-level="32.2" data-path="perl-modules.html"><a href="perl-modules.html#how-to-install-a-perl-module"><i class="fa fa-check"></i><b>32.2</b> How to install a Perl module</a></li>
 <li class="chapter" data-level="32.3" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-a-perl-module"><i class="fa fa-check"></i><b>32.3</b> How to use a Perl module</a></li>
 <li class="chapter" data-level="32.4" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-bioperl-module"><i class="fa fa-check"></i><b>32.4</b> How to use BioPerl module</a></li>
 <li class="chapter" data-level="32.5" data-path="perl-modules.html"><a href="perl-modules.html#how-to-write-a-module"><i class="fa fa-check"></i><b>32.5</b> How to write a module</a></li>
 </ul></li>
-<li class="chapter" data-level="33" data-path="perl-one-liner.html"><a href="perl-one-liner.html"><i class="fa fa-check"></i><b>33</b> Perl one-liner</a><ul>
+<li class="chapter" data-level="33" data-path="perl-one-liner.html"><a href="perl-one-liner.html"><i class="fa fa-check"></i><b>33</b> Perl one-liner</a>
+<ul>
 <li class="chapter" data-level="33.1" data-path="perl-one-liner.html"><a href="perl-one-liner.html#convert-a-fastq-file-from-fastq-to-fast"><i class="fa fa-check"></i><b>33.1</b> Convert a fastq file from FASTQ to FAST</a></li>
 <li class="chapter" data-level="33.2" data-path="perl-one-liner.html"><a href="perl-one-liner.html#escape-single-quote"><i class="fa fa-check"></i><b>33.2</b> Escape single quote</a></li>
 <li class="chapter" data-level="33.3" data-path="perl-one-liner.html"><a href="perl-one-liner.html#reference-2"><i class="fa fa-check"></i><b>33.3</b> Reference</a></li>
@@ -467,7 +562,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="varible-in-perl" class="section level1">
+<div id="varible-in-perl" class="section level1" number="26">
 <h1><span class="header-section-number">Chapter 26</span> Varible in Perl</h1>
 <p>Perl provides three kinds of variables: <code>scalars</code>, <code>arrays</code>, and <code>hash</code>(aka <code>associative arrays</code>). The initial character of the name identifies the particular type of variable and, hence, its functionality.</p>
 <table>
@@ -500,183 +595,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div id="scalar-variable" class="section level2">
+<div id="scalar-variable" class="section level2" number="26.1">
 <h2><span class="header-section-number">26.1</span> Scalar variable</h2>
 <p>In Perl, scalar variables can be used to store mainly two types of data: string and numbers.</p>
 <p>Perl does not differentiate between a number and a string, nor does it differentiate between integers and reals.</p>
 <p>In order to tell the computer what to print, we need to use variables. In Perl, the name of a <code>scalar</code> variable starts with the dollar sign <code>$</code>. You can assign either a number or a string to it.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb245-1"><a href="varible-in-perl.html#cb245-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb245-2"><a href="varible-in-perl.html#cb245-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb245-3"><a href="varible-in-perl.html#cb245-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb245-4"><a href="varible-in-perl.html#cb245-4"></a></span>
-<span id="cb245-5"><a href="varible-in-perl.html#cb245-5"></a><span class="co">#assign two strings to two variables</span></span>
-<span id="cb245-6"><a href="varible-in-perl.html#cb245-6"></a><span class="kw">my</span> <span class="dt">$dna_seq1</span> = <span class="kw">&quot;</span><span class="st">ACCTCGGTACAGTGAATGGGAAACGTAGCTGAT</span><span class="kw">&quot;</span>;</span>
-<span id="cb245-7"><a href="varible-in-perl.html#cb245-7"></a><span class="kw">my</span> <span class="dt">$dna_seq2</span> = <span class="kw">&quot;</span><span class="st">TGCCGATCGTAATAGCTCGCTATCTAGCTCGATCGTCGTA</span><span class="kw">&quot;</span>;</span>
-<span id="cb245-8"><a href="varible-in-perl.html#cb245-8"></a></span>
-<span id="cb245-9"><a href="varible-in-perl.html#cb245-9"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb245-10"><a href="varible-in-perl.html#cb245-10"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>;</span>
-<span id="cb245-11"><a href="varible-in-perl.html#cb245-11"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</span>
-<span id="cb245-12"><a href="varible-in-perl.html#cb245-12"></a></span>
-<span id="cb245-13"><a href="varible-in-perl.html#cb245-13"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb245-14"><a href="varible-in-perl.html#cb245-14"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb246-1"><a href="varible-in-perl.html#cb246-1"></a><span class="fu">perl</span> code_perl/variable_assign.pl</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb241-1"><a href="varible-in-perl.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb241-2"><a href="varible-in-perl.html#cb241-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb241-3"><a href="varible-in-perl.html#cb241-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb241-4"><a href="varible-in-perl.html#cb241-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-5"><a href="varible-in-perl.html#cb241-5" aria-hidden="true" tabindex="-1"></a><span class="co">#assign two strings to two variables</span></span>
+<span id="cb241-6"><a href="varible-in-perl.html#cb241-6" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_seq1</span> = <span class="ot">&quot;</span><span class="st">ACCTCGGTACAGTGAATGGGAAACGTAGCTGAT</span><span class="ot">&quot;</span>;</span>
+<span id="cb241-7"><a href="varible-in-perl.html#cb241-7" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_seq2</span> = <span class="ot">&quot;</span><span class="st">TGCCGATCGTAATAGCTCGCTATCTAGCTCGATCGTCGTA</span><span class="ot">&quot;</span>;</span>
+<span id="cb241-8"><a href="varible-in-perl.html#cb241-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-9"><a href="varible-in-perl.html#cb241-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
+<span id="cb241-10"><a href="varible-in-perl.html#cb241-10" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>;</span>
+<span id="cb241-11"><a href="varible-in-perl.html#cb241-11" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</span>
+<span id="cb241-12"><a href="varible-in-perl.html#cb241-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-13"><a href="varible-in-perl.html#cb241-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb241-14"><a href="varible-in-perl.html#cb241-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb242-1"><a href="varible-in-perl.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> code_perl/variable_assign.pl</span></code></pre></div>
 <pre><code>## The length of first DNA sequence (ACCTCGGTACAGTGAATGGGAAACGTAGCTGAT) is: 33
 ## The length of the Second DNA sequence (TGCCGATCGTAATAGCTCGCTATCTAGCTCGATCGTCGTA) is: 40</code></pre>
 <p>Here are the explanations of this script.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb248-1"><a href="varible-in-perl.html#cb248-1"></a><span class="co"># assign two DNA sequences to two variables</span></span>
-<span id="cb248-2"><a href="varible-in-perl.html#cb248-2"></a><span class="kw">my</span> <span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb248-3"><a href="varible-in-perl.html#cb248-3"></a><span class="kw">my</span> <span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb244-1"><a href="varible-in-perl.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign two DNA sequences to two variables</span></span>
+<span id="cb244-2"><a href="varible-in-perl.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna1</span> = <span class="ot">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="ot">&quot;</span>;</span>
+<span id="cb244-3"><a href="varible-in-perl.html#cb244-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna2</span> = <span class="ot">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <p>The first line here is a comment. In Perl, <code>#</code> (pound sign) is the comment character. The comments can be used to document the program and improve the readability. During the execution, the comments will be ignored. The second and third lines declare two string scalar variables (<code>$dna1</code> and <code>$dna2</code>) to store two DNA sequences.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb249-1"><a href="varible-in-perl.html#cb249-1"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb249-2"><a href="varible-in-perl.html#cb249-2"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>; </span>
-<span id="cb249-3"><a href="varible-in-perl.html#cb249-3"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb245-1"><a href="varible-in-perl.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
+<span id="cb245-2"><a href="varible-in-perl.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna_seq1</span>; </span>
+<span id="cb245-3"><a href="varible-in-perl.html#cb245-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna_seq2</span>;</span></code></pre></div>
 <p>The code above has one comment line and declares two integer scalar variables to store the return values of built-on function <code>length</code>.</p>
 <p>Now you can output the variables to see what are stored in them using the following code:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb250-1"><a href="varible-in-perl.html#cb250-1"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb250-2"><a href="varible-in-perl.html#cb250-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb246-1"><a href="varible-in-perl.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The length of first DNA sequence (</span><span class="dt">$dna_seq1</span><span class="st">) is: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb246-2"><a href="varible-in-perl.html#cb246-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The length of the Second DNA sequence (</span><span class="dt">$dna_seq2</span><span class="st">) is: </span><span class="dt">$dna_length2</span><span class="ch">\n\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <p>This script shows you what string scalar varibles and integer scalr varibles.</p>
 </div>
-<div id="arithmetic-operations-in-perl" class="section level2">
+<div id="arithmetic-operations-in-perl" class="section level2" number="26.2">
 <h2><span class="header-section-number">26.2</span> Arithmetic operations in Perl</h2>
 <p>Most arithmetic operators are binary operators; this means they take two arguments. Unary operators only take one argument. Arithmetic operators are very simple and often transparent.</p>
 <p>Here we’re mainly going to talk about basic arithmetic opertators including addition (<code>+</code>), substraction (<code>-</code>), multiplication (<code>*</code>), division (<code>/</code>) and the modulus operation (%). Modulus (<code>%</code>) returns the remainder of a division (<code>/</code>) operation.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb251-1"><a href="varible-in-perl.html#cb251-1"></a><span class="co">## If we know the lengths of two sequences and we want to calulate the sum of the lengths.</span></span>
-<span id="cb251-2"><a href="varible-in-perl.html#cb251-2"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="dv">100</span>;</span>
-<span id="cb251-3"><a href="varible-in-perl.html#cb251-3"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="dv">200</span>;</span>
-<span id="cb251-4"><a href="varible-in-perl.html#cb251-4"></a><span class="kw">my</span> <span class="dt">$total_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_length2</span>;</span>
-<span id="cb251-5"><a href="varible-in-perl.html#cb251-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of these two sequences is </span><span class="dt">$total_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb251-6"><a href="varible-in-perl.html#cb251-6"></a></span>
-<span id="cb251-7"><a href="varible-in-perl.html#cb251-7"></a><span class="kw">my</span> <span class="dt">$length_diff</span> = <span class="dt">$dna_length1</span> - <span class="dt">$dna_length2</span>; </span>
-<span id="cb251-8"><a href="varible-in-perl.html#cb251-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The length difference is </span><span class="dt">$length_diff</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb251-9"><a href="varible-in-perl.html#cb251-9"></a></span>
-<span id="cb251-10"><a href="varible-in-perl.html#cb251-10"></a><span class="kw">my</span> <span class="dt">$average_length</span> = <span class="dt">$total_length</span> / <span class="dv">2</span>;</span>
-<span id="cb251-11"><a href="varible-in-perl.html#cb251-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The average length of two DNA sequences is </span><span class="dt">$average_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb247-1"><a href="varible-in-perl.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co">## If we know the lengths of two sequences and we want to calulate the sum of the lengths.</span></span>
+<span id="cb247-2"><a href="varible-in-perl.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="dv">100</span>;</span>
+<span id="cb247-3"><a href="varible-in-perl.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="dv">200</span>;</span>
+<span id="cb247-4"><a href="varible-in-perl.html#cb247-4" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$total_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_length2</span>;</span>
+<span id="cb247-5"><a href="varible-in-perl.html#cb247-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The total length of these two sequences is </span><span class="dt">$total_length</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb247-6"><a href="varible-in-perl.html#cb247-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-7"><a href="varible-in-perl.html#cb247-7" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$length_diff</span> = <span class="dt">$dna_length1</span> - <span class="dt">$dna_length2</span>; </span>
+<span id="cb247-8"><a href="varible-in-perl.html#cb247-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The length difference is </span><span class="dt">$length_diff</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb247-9"><a href="varible-in-perl.html#cb247-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-10"><a href="varible-in-perl.html#cb247-10" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$average_length</span> = <span class="dt">$total_length</span> / <span class="dv">2</span>;</span>
+<span id="cb247-11"><a href="varible-in-perl.html#cb247-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The average length of two DNA sequences is </span><span class="dt">$average_length</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## The total length of these two sequences is 300 
 ## The length difference is -100
 ## The average length of two DNA sequences is 150</code></pre>
 <p>The code above shows us how to</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb253-1"><a href="varible-in-perl.html#cb253-1"></a><span class="co">#Imaging the CC content of first DNA sequence is 0.5.</span></span>
-<span id="cb253-2"><a href="varible-in-perl.html#cb253-2"></a><span class="co">#How many CC do we have in first DNA?</span></span>
-<span id="cb253-3"><a href="varible-in-perl.html#cb253-3"></a><span class="kw">my</span> <span class="dt">$cg_content</span> = <span class="fl">0.5</span>;</span>
-<span id="cb253-4"><a href="varible-in-perl.html#cb253-4"></a><span class="kw">my</span> <span class="dt">$cg_number</span> = <span class="dt">$dna_length1</span> <span class="kw">*</span> <span class="fl">0.5</span>;</span></code></pre></div>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb254-1"><a href="varible-in-perl.html#cb254-1"></a><span class="co">#Imaging we have a 10 bps DNA sequnces,</span></span>
-<span id="cb254-2"><a href="varible-in-perl.html#cb254-2"></a><span class="co">#how many possible DNA sequences do we have?</span></span>
-<span id="cb254-3"><a href="varible-in-perl.html#cb254-3"></a><span class="kw">my</span> <span class="dt">$dna_nucleotide</span> = <span class="kw">&quot;</span><span class="st">ATCG</span><span class="kw">&quot;</span>;</span>
-<span id="cb254-4"><a href="varible-in-perl.html#cb254-4"></a><span class="kw">my</span> <span class="dt">$dna_nucleo_number</span> = <span class="fu">length</span> <span class="dt">$dna_nucleotide</span>;</span>
-<span id="cb254-5"><a href="varible-in-perl.html#cb254-5"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
-<span id="cb254-6"><a href="varible-in-perl.html#cb254-6"></a><span class="kw">my</span> <span class="dt">$possible_number</span> = <span class="dt">$dna_nucleo_number</span> *<span class="kw">*</span> <span class="dt">$dna_length</span>;</span>
-<span id="cb254-7"><a href="varible-in-perl.html#cb254-7"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">We have </span><span class="dt">$possible_number</span><span class="st"> possibilities.</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb249-1"><a href="varible-in-perl.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Imaging the CC content of first DNA sequence is 0.5.</span></span>
+<span id="cb249-2"><a href="varible-in-perl.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="co">#How many CC do we have in first DNA?</span></span>
+<span id="cb249-3"><a href="varible-in-perl.html#cb249-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$cg_content</span> = <span class="fl">0.5</span>;</span>
+<span id="cb249-4"><a href="varible-in-perl.html#cb249-4" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$cg_number</span> = <span class="dt">$dna_length1</span> <span class="ot">*</span> <span class="fl">0.5</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb250-1"><a href="varible-in-perl.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Imaging we have a 10 bps DNA sequnces,</span></span>
+<span id="cb250-2"><a href="varible-in-perl.html#cb250-2" aria-hidden="true" tabindex="-1"></a><span class="co">#how many possible DNA sequences do we have?</span></span>
+<span id="cb250-3"><a href="varible-in-perl.html#cb250-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_nucleotide</span> = <span class="ot">&quot;</span><span class="st">ATCG</span><span class="ot">&quot;</span>;</span>
+<span id="cb250-4"><a href="varible-in-perl.html#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_nucleo_number</span> = <span class="fu">length</span> <span class="dt">$dna_nucleotide</span>;</span>
+<span id="cb250-5"><a href="varible-in-perl.html#cb250-5" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
+<span id="cb250-6"><a href="varible-in-perl.html#cb250-6" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$possible_number</span> = <span class="dt">$dna_nucleo_number</span> *<span class="ot">*</span> <span class="dt">$dna_length</span>;</span>
+<span id="cb250-7"><a href="varible-in-perl.html#cb250-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">We have </span><span class="dt">$possible_number</span><span class="st"> possibilities.</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## We have 1048576 possibilities.</code></pre>
-<div id="shorthand-operations" class="section level3">
+<div id="shorthand-operations" class="section level3" number="26.2.1">
 <h3><span class="header-section-number">26.2.1</span> Shorthand operations</h3>
 <p>The expression $x += 3; is the shorthand version of $x = $x + 3;, they have exactly the same result:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb256-1"><a href="varible-in-perl.html#cb256-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb256-2"><a href="varible-in-perl.html#cb256-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb256-3"><a href="varible-in-perl.html#cb256-3"></a></span>
-<span id="cb256-4"><a href="varible-in-perl.html#cb256-4"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
-<span id="cb256-5"><a href="varible-in-perl.html#cb256-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb256-6"><a href="varible-in-perl.html#cb256-6"></a></span>
-<span id="cb256-7"><a href="varible-in-perl.html#cb256-7"></a><span class="dt">$dna_length</span> += <span class="dv">3</span>;</span>
-<span id="cb256-8"><a href="varible-in-perl.html#cb256-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length += 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb256-9"><a href="varible-in-perl.html#cb256-9"></a></span>
-<span id="cb256-10"><a href="varible-in-perl.html#cb256-10"></a><span class="dt">$dna_length</span> -= <span class="dv">3</span>;  </span>
-<span id="cb256-11"><a href="varible-in-perl.html#cb256-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length -= 3&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb252-1"><a href="varible-in-perl.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb252-2"><a href="varible-in-perl.html#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb252-3"><a href="varible-in-perl.html#cb252-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb252-4"><a href="varible-in-perl.html#cb252-4" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
+<span id="cb252-5"><a href="varible-in-perl.html#cb252-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb252-6"><a href="varible-in-perl.html#cb252-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb252-7"><a href="varible-in-perl.html#cb252-7" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna_length</span> += <span class="dv">3</span>;</span>
+<span id="cb252-8"><a href="varible-in-perl.html#cb252-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length += 3&#39;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb252-9"><a href="varible-in-perl.html#cb252-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb252-10"><a href="varible-in-perl.html#cb252-10" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna_length</span> -= <span class="dv">3</span>;  </span>
+<span id="cb252-11"><a href="varible-in-perl.html#cb252-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length -= 3&#39;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## DNA length: 10
 ## DNA length: 13 after &#39;$dna_length += 3&#39;
 ## DNA length: 10 after &#39;$dna_length -= 3&#39;</code></pre>
 </div>
-<div id="auto-increment-and-auto-decrement" class="section level3">
+<div id="auto-increment-and-auto-decrement" class="section level3" number="26.2.2">
 <h3><span class="header-section-number">26.2.2</span> Auto increment and auto decrement</h3>
 <p><code>++</code> and <code>--</code> are provided for the auto increment and auto decrement operators. They increase and decrease respectively the value of a scalar variable by 1.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb258-1"><a href="varible-in-perl.html#cb258-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb258-2"><a href="varible-in-perl.html#cb258-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb258-3"><a href="varible-in-perl.html#cb258-3"></a></span>
-<span id="cb258-4"><a href="varible-in-perl.html#cb258-4"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
-<span id="cb258-5"><a href="varible-in-perl.html#cb258-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb258-6"><a href="varible-in-perl.html#cb258-6"></a></span>
-<span id="cb258-7"><a href="varible-in-perl.html#cb258-7"></a><span class="dt">$dna_length</span> ++;</span>
-<span id="cb258-8"><a href="varible-in-perl.html#cb258-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length ++&#39;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb258-9"><a href="varible-in-perl.html#cb258-9"></a></span>
-<span id="cb258-10"><a href="varible-in-perl.html#cb258-10"></a><span class="dt">$dna_length</span> --;</span>
-<span id="cb258-11"><a href="varible-in-perl.html#cb258-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after `\$dna_length --`</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb254-1"><a href="varible-in-perl.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb254-2"><a href="varible-in-perl.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb254-3"><a href="varible-in-perl.html#cb254-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb254-4"><a href="varible-in-perl.html#cb254-4" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length</span> = <span class="dv">10</span>;</span>
+<span id="cb254-5"><a href="varible-in-perl.html#cb254-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb254-6"><a href="varible-in-perl.html#cb254-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb254-7"><a href="varible-in-perl.html#cb254-7" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna_length</span> ++;</span>
+<span id="cb254-8"><a href="varible-in-perl.html#cb254-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after &#39;\$dna_length ++&#39;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb254-9"><a href="varible-in-perl.html#cb254-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb254-10"><a href="varible-in-perl.html#cb254-10" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna_length</span> --;</span>
+<span id="cb254-11"><a href="varible-in-perl.html#cb254-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">DNA length: </span><span class="dt">$dna_length</span><span class="st"> after `\$dna_length --`</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## DNA length: 10
 ## DNA length: 11 after &#39;$dna_length ++&#39;
 ## DNA length: 10 after `$dna_length --`</code></pre>
 </div>
-<div id="inf-and--inf-in-perl" class="section level3">
+<div id="inf-and--inf-in-perl" class="section level3" number="26.2.3">
 <h3><span class="header-section-number">26.2.3</span> <code>inf</code> and <code>-inf</code> in Perl</h3>
 <p>In Bioinformaticics analysis, you may need to calculate fold change of expression between two samples (let’s say sample 1/sample 2). If sample 2 has an expression level of 0,</p>
 <p>Deviding a zero will lead an eror message: <code>Illegal division by zero at ...</code></p>
 <pre><code>print 2/0, &quot;\n&quot;;</code></pre>
 <p>But Perl can recognize special values <code>inf</code>,<code>+inf,</code>-inf`:</p>
 <p>When we use them in a multiplication, we get “inf” again:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb261-1"><a href="varible-in-perl.html#cb261-1"></a><span class="dt">$result</span> = <span class="kw">&quot;</span><span class="st">inf</span><span class="kw">&quot;</span> <span class="kw">*</span> <span class="dv">100</span>;</span>
-<span id="cb261-2"><a href="varible-in-perl.html#cb261-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb257-1"><a href="varible-in-perl.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$result</span> = <span class="ot">&quot;</span><span class="st">inf</span><span class="ot">&quot;</span> <span class="ot">*</span> <span class="dv">100</span>;</span>
+<span id="cb257-2"><a href="varible-in-perl.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## Inf</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb263-1"><a href="varible-in-perl.html#cb263-1"></a><span class="dt">$result</span> = <span class="kw">&quot;</span><span class="st">-inf</span><span class="kw">&quot;</span> <span class="kw">*</span> <span class="dv">0</span>;</span>
-<span id="cb263-2"><a href="varible-in-perl.html#cb263-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb259-1"><a href="varible-in-perl.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$result</span> = <span class="ot">&quot;</span><span class="st">-inf</span><span class="ot">&quot;</span> <span class="ot">*</span> <span class="dv">0</span>;</span>
+<span id="cb259-2"><a href="varible-in-perl.html#cb259-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## NaN</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb265-1"><a href="varible-in-perl.html#cb265-1"></a><span class="dt">$result</span> = <span class="kw">&quot;</span><span class="st">-inf</span><span class="kw">&quot;</span> <span class="kw">*</span> <span class="dv">1</span>;</span>
-<span id="cb265-2"><a href="varible-in-perl.html#cb265-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb261-1"><a href="varible-in-perl.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$result</span> = <span class="ot">&quot;</span><span class="st">-inf</span><span class="ot">&quot;</span> <span class="ot">*</span> <span class="dv">1</span>;</span>
+<span id="cb261-2"><a href="varible-in-perl.html#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## -Inf</code></pre>
 <p>Dividing by an infinity variant returns its limit, which is 0:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb267-1"><a href="varible-in-perl.html#cb267-1"></a><span class="dt">$result</span> = <span class="dv">1</span>/inf;</span>
-<span id="cb267-2"><a href="varible-in-perl.html#cb267-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb263-1"><a href="varible-in-perl.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$result</span> = <span class="dv">1</span>/inf;</span>
+<span id="cb263-2"><a href="varible-in-perl.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## 0</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb269-1"><a href="varible-in-perl.html#cb269-1"></a><span class="dt">$result</span> = <span class="dv">1</span>/-inf;</span>
-<span id="cb269-2"><a href="varible-in-perl.html#cb269-2"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb265-1"><a href="varible-in-perl.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$result</span> = <span class="dv">1</span>/-inf;</span>
+<span id="cb265-2"><a href="varible-in-perl.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$result</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## 0</code></pre>
 <p>You might see <code>-0</code> if the underlying C library handles that. It’s the same as regular 0.</p>
 </div>
 </div>
-<div id="use-strict-user-warnings-and-my" class="section level2">
+<div id="use-strict-user-warnings-and-my" class="section level2" number="26.3">
 <h2><span class="header-section-number">26.3</span> <code>use strict</code>; <code>user warnings</code> and <code>my</code></h2>
 <p>For starters, <code>use strict;</code> (and to a lesser extent, <code>use warnings;</code>) helps find typos in variable names. Even experienced programmers make such errors. A common case is forgetting to rename an instance of a variable when cleaning up or refactoring code.</p>
 <p>Using <code>use strict; use warnings;</code> catches many errors sooner than they would be caught otherwise, which makes it easier to find the root causes of the errors. The root cause might be the need for an error or validation check, and that can happen regardless of programmer skill.</p>
 <p>What’s good about Perl warnings is that they are rarely spurious, so there’s next to no cost to using them.</p>
 <p>In the script below, <code>$dna_lenght2</code> is a typo. If you run this script, it will give you the output without any error message, although it’s not the right output.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb271-1"><a href="varible-in-perl.html#cb271-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb271-2"><a href="varible-in-perl.html#cb271-2"></a></span>
-<span id="cb271-3"><a href="varible-in-perl.html#cb271-3"></a><span class="co">#assign 2 numbers to 2 variable</span></span>
-<span id="cb271-4"><a href="varible-in-perl.html#cb271-4"></a><span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb271-5"><a href="varible-in-perl.html#cb271-5"></a><span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb271-6"><a href="varible-in-perl.html#cb271-6"></a></span>
-<span id="cb271-7"><a href="varible-in-perl.html#cb271-7"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb271-8"><a href="varible-in-perl.html#cb271-8"></a><span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna1</span>;</span>
-<span id="cb271-9"><a href="varible-in-perl.html#cb271-9"></a><span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna2</span>;</span>
-<span id="cb271-10"><a href="varible-in-perl.html#cb271-10"></a></span>
-<span id="cb271-11"><a href="varible-in-perl.html#cb271-11"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First DNA: </span><span class="dt">$dna1</span><span class="st">; Length: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb271-12"><a href="varible-in-perl.html#cb271-12"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Second DNA: </span><span class="dt">$dna2</span><span class="st">; Length: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb271-13"><a href="varible-in-perl.html#cb271-13"></a></span>
-<span id="cb271-14"><a href="varible-in-perl.html#cb271-14"></a><span class="co">#calculate the total length of two DNA sequences</span></span>
-<span id="cb271-15"><a href="varible-in-perl.html#cb271-15"></a><span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;</span>
-<span id="cb271-16"><a href="varible-in-perl.html#cb271-16"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb267-1"><a href="varible-in-perl.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb267-2"><a href="varible-in-perl.html#cb267-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-3"><a href="varible-in-perl.html#cb267-3" aria-hidden="true" tabindex="-1"></a><span class="co">#assign 2 numbers to 2 variable</span></span>
+<span id="cb267-4"><a href="varible-in-perl.html#cb267-4" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna1</span> = <span class="ot">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="ot">&quot;</span>;</span>
+<span id="cb267-5"><a href="varible-in-perl.html#cb267-5" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna2</span> = <span class="ot">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="ot">&quot;</span>;</span>
+<span id="cb267-6"><a href="varible-in-perl.html#cb267-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-7"><a href="varible-in-perl.html#cb267-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
+<span id="cb267-8"><a href="varible-in-perl.html#cb267-8" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna1</span>;</span>
+<span id="cb267-9"><a href="varible-in-perl.html#cb267-9" aria-hidden="true" tabindex="-1"></a><span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna2</span>;</span>
+<span id="cb267-10"><a href="varible-in-perl.html#cb267-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-11"><a href="varible-in-perl.html#cb267-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">First DNA: </span><span class="dt">$dna1</span><span class="st">; Length: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb267-12"><a href="varible-in-perl.html#cb267-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Second DNA: </span><span class="dt">$dna2</span><span class="st">; Length: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb267-13"><a href="varible-in-perl.html#cb267-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb267-14"><a href="varible-in-perl.html#cb267-14" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the total length of two DNA sequences</span></span>
+<span id="cb267-15"><a href="varible-in-perl.html#cb267-15" aria-hidden="true" tabindex="-1"></a><span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;</span>
+<span id="cb267-16"><a href="varible-in-perl.html#cb267-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <p>Let’s try to run this script:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb272-1"><a href="varible-in-perl.html#cb272-1"></a><span class="fu">perl</span> code_perl/var_assign_no_strict_warnings.pl</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb268-1"><a href="varible-in-perl.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">perl</span> code_perl/var_assign_no_strict_warnings.pl</span></code></pre></div>
 <pre><code>First DNA: CTCGACCAGGACGATGAATGGGCGATGAAAATCT; Length: 34
 Second DNA: CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT; Length: 48
 The total length of two DNA sequences is 34 </code></pre>
 <p>So the script above is supposed to output the length of two DNA sequences and the sum of the lengths.</p>
 <p>In the chunk of code above, <code>$dna_lenght2</code> is an empty varible without storing any information. By defaut, Perl considers this as ZERO when doing plus operation. Although there was no error message given here, we infact have an incorrect output.</p>
 <p>If we add <code>use strict</code> and <code>use warnings</code>, we need to decare each variable in the script. Let us see what will happen if we have an typo.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb274-1"><a href="varible-in-perl.html#cb274-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb274-2"><a href="varible-in-perl.html#cb274-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb274-3"><a href="varible-in-perl.html#cb274-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb274-4"><a href="varible-in-perl.html#cb274-4"></a></span>
-<span id="cb274-5"><a href="varible-in-perl.html#cb274-5"></a><span class="co">#assign 2 numbers to 2 variable</span></span>
-<span id="cb274-6"><a href="varible-in-perl.html#cb274-6"></a><span class="kw">my</span> <span class="dt">$dna1</span> = <span class="kw">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb274-7"><a href="varible-in-perl.html#cb274-7"></a><span class="kw">my</span> <span class="dt">$dna2</span> = <span class="kw">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="kw">&quot;</span>;</span>
-<span id="cb274-8"><a href="varible-in-perl.html#cb274-8"></a></span>
-<span id="cb274-9"><a href="varible-in-perl.html#cb274-9"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
-<span id="cb274-10"><a href="varible-in-perl.html#cb274-10"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna1</span>;</span>
-<span id="cb274-11"><a href="varible-in-perl.html#cb274-11"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna2</span>;</span>
-<span id="cb274-12"><a href="varible-in-perl.html#cb274-12"></a></span>
-<span id="cb274-13"><a href="varible-in-perl.html#cb274-13"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First DNA: </span><span class="dt">$dna1</span><span class="st">; Length: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb274-14"><a href="varible-in-perl.html#cb274-14"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Second DNA: </span><span class="dt">$dna2</span><span class="st">; Length: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb274-15"><a href="varible-in-perl.html#cb274-15"></a></span>
-<span id="cb274-16"><a href="varible-in-perl.html#cb274-16"></a><span class="co">#calculate the total length of two DNA sequences</span></span>
-<span id="cb274-17"><a href="varible-in-perl.html#cb274-17"></a><span class="kw">my</span> <span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;</span>
-<span id="cb274-18"><a href="varible-in-perl.html#cb274-18"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb270-1"><a href="varible-in-perl.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb270-2"><a href="varible-in-perl.html#cb270-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb270-3"><a href="varible-in-perl.html#cb270-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb270-4"><a href="varible-in-perl.html#cb270-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb270-5"><a href="varible-in-perl.html#cb270-5" aria-hidden="true" tabindex="-1"></a><span class="co">#assign 2 numbers to 2 variable</span></span>
+<span id="cb270-6"><a href="varible-in-perl.html#cb270-6" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna1</span> = <span class="ot">&quot;</span><span class="st">CTCGACCAGGACGATGAATGGGCGATGAAAATCT</span><span class="ot">&quot;</span>;</span>
+<span id="cb270-7"><a href="varible-in-perl.html#cb270-7" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna2</span> = <span class="ot">&quot;</span><span class="st">CGCTAAACGCTAAACCCTAAACGCTAAACCTCTGAATCCTTAATCGCT</span><span class="ot">&quot;</span>;</span>
+<span id="cb270-8"><a href="varible-in-perl.html#cb270-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb270-9"><a href="varible-in-perl.html#cb270-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Returns the length in characters of the value of EXPR</span></span>
+<span id="cb270-10"><a href="varible-in-perl.html#cb270-10" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length1</span> = <span class="fu">length</span> <span class="dt">$dna1</span>;</span>
+<span id="cb270-11"><a href="varible-in-perl.html#cb270-11" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$dna_length2</span> = <span class="fu">length</span> <span class="dt">$dna2</span>;</span>
+<span id="cb270-12"><a href="varible-in-perl.html#cb270-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb270-13"><a href="varible-in-perl.html#cb270-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">First DNA: </span><span class="dt">$dna1</span><span class="st">; Length: </span><span class="dt">$dna_length1</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb270-14"><a href="varible-in-perl.html#cb270-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Second DNA: </span><span class="dt">$dna2</span><span class="st">; Length: </span><span class="dt">$dna_length2</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb270-15"><a href="varible-in-perl.html#cb270-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb270-16"><a href="varible-in-perl.html#cb270-16" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the total length of two DNA sequences</span></span>
+<span id="cb270-17"><a href="varible-in-perl.html#cb270-17" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$tot_length</span> = <span class="dt">$dna_length1</span> + <span class="dt">$dna_lenght2</span>;</span>
+<span id="cb270-18"><a href="varible-in-perl.html#cb270-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The total length of two DNA sequences is </span><span class="dt">$tot_length</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>Global symbol &quot;$dna_lenght2&quot; requires explicit package name (did you forget to declare &quot;my $dna_lenght2&quot;?) at code_perl/var_assign_strict_warnings.pl line 17.
 Execution of code_perl/var_assign_strict_warnings.pl aborted due to compilation errors.</code></pre>
 <p>Now if we run this script, we encounter error mesage and the script can’t be sucessfuly excuted.</p>
@@ -686,35 +781,35 @@ var_assign_strict_warnings.pl line 17.
 Execution of code_perl/var_assign_strict_warnings.pl aborted
  due to compilation errors.</code></pre>
 </div>
-<div id="array" class="section level2">
+<div id="array" class="section level2" number="26.4">
 <h2><span class="header-section-number">26.4</span> Array</h2>
-<div id="init-an-array" class="section level3">
+<div id="init-an-array" class="section level3" number="26.4.1">
 <h3><span class="header-section-number">26.4.1</span> Init an array</h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb277-1"><a href="varible-in-perl.html#cb277-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);</span>
-<span id="cb277-2"><a href="varible-in-perl.html#cb277-2"></a><span class="fu">print</span> <span class="kw">&quot;&quot;</span>;</span>
-<span id="cb277-3"><a href="varible-in-perl.html#cb277-3"></a><span class="fu">print</span> <span class="dt">@base_pair</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb277-4"><a href="varible-in-perl.html#cb277-4"></a><span class="fu">print</span> <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="dt">@base_pair</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb273-1"><a href="varible-in-perl.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="ot">&#39;</span><span class="ss">A</span><span class="ot">&#39;</span>, <span class="ot">&#39;</span><span class="ss">T</span><span class="ot">&#39;</span>, <span class="ot">&#39;</span><span class="ss">C</span><span class="ot">&#39;</span>, <span class="ot">&quot;</span><span class="st">C</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">G</span><span class="ot">&quot;</span>);</span>
+<span id="cb273-2"><a href="varible-in-perl.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;&quot;</span>;</span>
+<span id="cb273-3"><a href="varible-in-perl.html#cb273-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="dt">@base_pair</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb273-4"><a href="varible-in-perl.html#cb273-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="fu">join</span>(<span class="ot">&quot;</span><span class="ch">\t</span><span class="ot">&quot;</span>, <span class="dt">@base_pair</span>), <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## ATCCG
 ## A    T   C   C   G</code></pre>
 </div>
-<div id="array-index" class="section level3">
+<div id="array-index" class="section level3" number="26.4.2">
 <h3><span class="header-section-number">26.4.2</span> Array index</h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb279-1"><a href="varible-in-perl.html#cb279-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);</span>
-<span id="cb279-2"><a href="varible-in-perl.html#cb279-2"></a><span class="co">### Extract the first element in the array</span></span>
-<span id="cb279-3"><a href="varible-in-perl.html#cb279-3"></a><span class="kw">my</span> <span class="dt">$first_base</span> = <span class="dt">$base_pair</span>[<span class="dv">0</span>];</span>
-<span id="cb279-4"><a href="varible-in-perl.html#cb279-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First base is: </span><span class="dt">$first_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span>
-<span id="cb279-5"><a href="varible-in-perl.html#cb279-5"></a></span>
-<span id="cb279-6"><a href="varible-in-perl.html#cb279-6"></a><span class="co">### Extract the last element in the array</span></span>
-<span id="cb279-7"><a href="varible-in-perl.html#cb279-7"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dv">4</span>];</span>
-<span id="cb279-8"><a href="varible-in-perl.html#cb279-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base is: </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span>
-<span id="cb279-9"><a href="varible-in-perl.html#cb279-9"></a></span>
-<span id="cb279-10"><a href="varible-in-perl.html#cb279-10"></a><span class="co">### Extract the last element in the array using index `-1`</span></span>
-<span id="cb279-11"><a href="varible-in-perl.html#cb279-11"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[-<span class="dv">1</span>];</span>
-<span id="cb279-12"><a href="varible-in-perl.html#cb279-12"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base using &#39;-1&#39; is: </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span>
-<span id="cb279-13"><a href="varible-in-perl.html#cb279-13"></a></span>
-<span id="cb279-14"><a href="varible-in-perl.html#cb279-14"></a><span class="co">### Extract the last element in the array using index `$#`</span></span>
-<span id="cb279-15"><a href="varible-in-perl.html#cb279-15"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dt">$#base_pair</span>];</span>
-<span id="cb279-16"><a href="varible-in-perl.html#cb279-16"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Last base using &#39;\$#&#39; is : </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="kw">&quot;</span>; </span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb275-1"><a href="varible-in-perl.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="ot">&#39;</span><span class="ss">A</span><span class="ot">&#39;</span>, <span class="ot">&#39;</span><span class="ss">T</span><span class="ot">&#39;</span>, <span class="ot">&#39;</span><span class="ss">C</span><span class="ot">&#39;</span>, <span class="ot">&quot;</span><span class="st">C</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">G</span><span class="ot">&quot;</span>);</span>
+<span id="cb275-2"><a href="varible-in-perl.html#cb275-2" aria-hidden="true" tabindex="-1"></a><span class="co">### Extract the first element in the array</span></span>
+<span id="cb275-3"><a href="varible-in-perl.html#cb275-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$first_base</span> = <span class="dt">$base_pair</span>[<span class="dv">0</span>];</span>
+<span id="cb275-4"><a href="varible-in-perl.html#cb275-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">First base is: </span><span class="dt">$first_base</span><span class="ch">\n\n</span><span class="ot">&quot;</span>; </span>
+<span id="cb275-5"><a href="varible-in-perl.html#cb275-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb275-6"><a href="varible-in-perl.html#cb275-6" aria-hidden="true" tabindex="-1"></a><span class="co">### Extract the last element in the array</span></span>
+<span id="cb275-7"><a href="varible-in-perl.html#cb275-7" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dv">4</span>];</span>
+<span id="cb275-8"><a href="varible-in-perl.html#cb275-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Last base is: </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="ot">&quot;</span>; </span>
+<span id="cb275-9"><a href="varible-in-perl.html#cb275-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb275-10"><a href="varible-in-perl.html#cb275-10" aria-hidden="true" tabindex="-1"></a><span class="co">### Extract the last element in the array using index `-1`</span></span>
+<span id="cb275-11"><a href="varible-in-perl.html#cb275-11" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[-<span class="dv">1</span>];</span>
+<span id="cb275-12"><a href="varible-in-perl.html#cb275-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Last base using &#39;-1&#39; is: </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="ot">&quot;</span>; </span>
+<span id="cb275-13"><a href="varible-in-perl.html#cb275-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb275-14"><a href="varible-in-perl.html#cb275-14" aria-hidden="true" tabindex="-1"></a><span class="co">### Extract the last element in the array using index `$#`</span></span>
+<span id="cb275-15"><a href="varible-in-perl.html#cb275-15" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$last_base</span> = <span class="dt">$base_pair</span>[<span class="dt">$#base_pair</span>];</span>
+<span id="cb275-16"><a href="varible-in-perl.html#cb275-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Last base using &#39;\$#&#39; is : </span><span class="dt">$last_base</span><span class="ch">\n\n</span><span class="ot">&quot;</span>; </span></code></pre></div>
 <pre><code>## First base is: A
 ## 
 ## Last base is: G
@@ -723,115 +818,115 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 ## 
 ## Last base using &#39;$#&#39; is : G</code></pre>
 </div>
-<div id="length-of-the-array" class="section level3">
+<div id="length-of-the-array" class="section level3" number="26.4.3">
 <h3><span class="header-section-number">26.4.3</span> Length of the array</h3>
 <p>To get the length of the array, you can use <code>scalar @array</code> or <code>just array</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb281-1"><a href="varible-in-perl.html#cb281-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">10</span>);</span>
-<span id="cb281-2"><a href="varible-in-perl.html#cb281-2"></a><span class="kw">my</span> <span class="dt">$len</span> = <span class="fu">scalar</span> <span class="dt">@gene_expr</span>;  <span class="co">## or @gene_expr</span></span>
-<span id="cb281-3"><a href="varible-in-perl.html#cb281-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array has: </span><span class="dt">@gene_expr</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb281-4"><a href="varible-in-perl.html#cb281-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb277-1"><a href="varible-in-perl.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">10</span>);</span>
+<span id="cb277-2"><a href="varible-in-perl.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$len</span> = <span class="fu">scalar</span> <span class="dt">@gene_expr</span>;  <span class="co">## or @gene_expr</span></span>
+<span id="cb277-3"><a href="varible-in-perl.html#cb277-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array has: </span><span class="dt">@gene_expr</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb277-4"><a href="varible-in-perl.html#cb277-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Length of array: </span><span class="ot">&quot;</span>, <span class="dt">$len</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## Array has: 1 3 10
 ## Length of array: 3</code></pre>
 <p>Another way is to use <code>$#array</code>. <code>$#array</code> will return the index of the last element. Since the index starts with 0, to get the length we use <code>$#array + 1</code>.</p>
 <p>If the length of array is empty, <code>$#array</code> will return <code>-1</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb283-1"><a href="varible-in-perl.html#cb283-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = ();</span>
-<span id="cb283-2"><a href="varible-in-perl.html#cb283-2"></a><span class="kw">my</span> <span class="dt">$len</span> = <span class="dt">$#gene_expr</span> + <span class="dv">1</span>;</span>
-<span id="cb283-3"><a href="varible-in-perl.html#cb283-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array has </span><span class="dt">$len</span><span class="st"> element</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb283-4"><a href="varible-in-perl.html#cb283-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Length of array: </span><span class="kw">&quot;</span>, <span class="dt">$len</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb279-1"><a href="varible-in-perl.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = ();</span>
+<span id="cb279-2"><a href="varible-in-perl.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">$len</span> = <span class="dt">$#gene_expr</span> + <span class="dv">1</span>;</span>
+<span id="cb279-3"><a href="varible-in-perl.html#cb279-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array has </span><span class="dt">$len</span><span class="st"> element</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb279-4"><a href="varible-in-perl.html#cb279-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Length of array: </span><span class="ot">&quot;</span>, <span class="dt">$len</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## Array has 0 element
 ## Length of array: 0</code></pre>
 </div>
-<div id="sort-arrays-in-perl" class="section level3">
+<div id="sort-arrays-in-perl" class="section level3" number="26.4.4">
 <h3><span class="header-section-number">26.4.4</span> Sort Arrays in Perl</h3>
-<div id="sort-alphebetically" class="section level4">
+<div id="sort-alphebetically" class="section level4" number="26.4.4.1">
 <h4><span class="header-section-number">26.4.4.1</span> Sort alphebetically</h4>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb285-1"><a href="varible-in-perl.html#cb285-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="kw">&#39;</span><span class="st">A</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">T</span><span class="kw">&#39;</span>, <span class="kw">&#39;</span><span class="st">C</span><span class="kw">&#39;</span>, <span class="kw">&quot;</span><span class="st">C</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">G</span><span class="kw">&quot;</span>);</span>
-<span id="cb285-2"><a href="varible-in-perl.html#cb285-2"></a><span class="kw">my</span> <span class="dt">@sorted_bp</span> = <span class="fu">sort</span> <span class="dt">@base_pair</span>;</span>
-<span id="cb285-3"><a href="varible-in-perl.html#cb285-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@base_pair</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb285-4"><a href="varible-in-perl.html#cb285-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_bp</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb281-1"><a href="varible-in-perl.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@base_pair</span> = (<span class="ot">&#39;</span><span class="ss">A</span><span class="ot">&#39;</span>, <span class="ot">&#39;</span><span class="ss">T</span><span class="ot">&#39;</span>, <span class="ot">&#39;</span><span class="ss">C</span><span class="ot">&#39;</span>, <span class="ot">&quot;</span><span class="st">C</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">G</span><span class="ot">&quot;</span>);</span>
+<span id="cb281-2"><a href="varible-in-perl.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@sorted_bp</span> = <span class="fu">sort</span> <span class="dt">@base_pair</span>;</span>
+<span id="cb281-3"><a href="varible-in-perl.html#cb281-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array before sorted: </span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="dt">@base_pair</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb281-4"><a href="varible-in-perl.html#cb281-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array after sorted: </span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="dt">@sorted_bp</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## Array before sorted: A T C C G
 ## Array after sorted: A C C G T</code></pre>
 </div>
-<div id="sort-numerically" class="section level4">
+<div id="sort-numerically" class="section level4" number="26.4.4.2">
 <h4><span class="header-section-number">26.4.4.2</span> Sort numerically</h4>
 <p>To sort an array numerically, we use <code>spaceship operator: &lt;=&gt;</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb287-1"><a href="varible-in-perl.html#cb287-1"></a><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);</span>
-<span id="cb287-2"><a href="varible-in-perl.html#cb287-2"></a><span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$a</span> &lt;=&gt; <span class="dt">$b</span>} <span class="dt">@genome_coor</span>;</span>
-<span id="cb287-3"><a href="varible-in-perl.html#cb287-3"></a></span>
-<span id="cb287-4"><a href="varible-in-perl.html#cb287-4"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@genome_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb287-5"><a href="varible-in-perl.html#cb287-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb283-1"><a href="varible-in-perl.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);</span>
+<span id="cb283-2"><a href="varible-in-perl.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$a</span> &lt;=&gt; <span class="dt">$b</span>} <span class="dt">@genome_coor</span>;</span>
+<span id="cb283-3"><a href="varible-in-perl.html#cb283-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb283-4"><a href="varible-in-perl.html#cb283-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array before sorted: </span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="dt">@genome_coor</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb283-5"><a href="varible-in-perl.html#cb283-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array after sorted: </span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="dt">@sorted_coor</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## Array before sorted: 100 300 200 500
 ## Array after sorted: 100 200 300 500</code></pre>
 <p>Similarly, array can be also sorted numerically in decreasing order.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb289-1"><a href="varible-in-perl.html#cb289-1"></a><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);</span>
-<span id="cb289-2"><a href="varible-in-perl.html#cb289-2"></a><span class="co">## {$a &lt;=&gt; $b} is modified as {$b &lt;=&gt; $a} </span></span>
-<span id="cb289-3"><a href="varible-in-perl.html#cb289-3"></a><span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$b</span> &lt;=&gt; <span class="dt">$a</span>} <span class="dt">@genome_coor</span>;  </span>
-<span id="cb289-4"><a href="varible-in-perl.html#cb289-4"></a></span>
-<span id="cb289-5"><a href="varible-in-perl.html#cb289-5"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array before sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@genome_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb289-6"><a href="varible-in-perl.html#cb289-6"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Array after sorted: </span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="dt">@sorted_coor</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb285-1"><a href="varible-in-perl.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@genome_coor</span> = (<span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">200</span>, <span class="dv">500</span>);</span>
+<span id="cb285-2"><a href="varible-in-perl.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="co">## {$a &lt;=&gt; $b} is modified as {$b &lt;=&gt; $a} </span></span>
+<span id="cb285-3"><a href="varible-in-perl.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@sorted_coor</span> = <span class="fu">sort</span> {<span class="dt">$b</span> &lt;=&gt; <span class="dt">$a</span>} <span class="dt">@genome_coor</span>;  </span>
+<span id="cb285-4"><a href="varible-in-perl.html#cb285-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb285-5"><a href="varible-in-perl.html#cb285-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array before sorted: </span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="dt">@genome_coor</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb285-6"><a href="varible-in-perl.html#cb285-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Array after sorted: </span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="dt">@sorted_coor</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## Array before sorted: 100 300 200 500
 ## Array after sorted: 500 300 200 100</code></pre>
 </div>
 </div>
-<div id="use-push-pop-shift-and-unshift-in-perl" class="section level3">
+<div id="use-push-pop-shift-and-unshift-in-perl" class="section level3" number="26.4.5">
 <h3><span class="header-section-number">26.4.5</span> Use <code>push</code>, <code>pop</code>, <code>shift</code> and <code>unshift</code> in Perl</h3>
 </div>
 </div>
-<div id="hash-in-perl" class="section level2">
+<div id="hash-in-perl" class="section level2" number="26.5">
 <h2><span class="header-section-number">26.5</span> Hash in Perl</h2>
 <p>A Perl hash is defined by key-value pairs. Perl stores elements of a hash in such an optimal way that you can look up its values based on keys very fast.</p>
 <p>With the array, you use indices to access its elements. However, you must use descriptive keys to access hash’s element. A hash is sometimes referred to as an associative array.</p>
 <p>Like a scalar or an array variable, a hash variable has its own prefix. A hash variable must begin with a percent sign ( %). The prefix % looks like key/value pair so remember this trick to name the hash variables.</p>
 <p>The following example defines a simple hash.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb291-1"><a href="varible-in-perl.html#cb291-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb291-2"><a href="varible-in-perl.html#cb291-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb291-3"><a href="varible-in-perl.html#cb291-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb291-4"><a href="varible-in-perl.html#cb291-4"></a>                );</span>
-<span id="cb291-5"><a href="varible-in-perl.html#cb291-5"></a></span>
-<span id="cb291-6"><a href="varible-in-perl.html#cb291-6"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene1}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb291-7"><a href="varible-in-perl.html#cb291-7"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene2}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb291-8"><a href="varible-in-perl.html#cb291-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene3}</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb287-1"><a href="varible-in-perl.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="ot">&quot;</span><span class="st">gene1</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">ROS</span><span class="ot">&quot;</span>,</span>
+<span id="cb287-2"><a href="varible-in-perl.html#cb287-2" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene2</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span>,</span>
+<span id="cb287-3"><a href="varible-in-perl.html#cb287-3" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene3</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span></span>
+<span id="cb287-4"><a href="varible-in-perl.html#cb287-4" aria-hidden="true" tabindex="-1"></a>                );</span>
+<span id="cb287-5"><a href="varible-in-perl.html#cb287-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-6"><a href="varible-in-perl.html#cb287-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene1}</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb287-7"><a href="varible-in-perl.html#cb287-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene2}</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb287-8"><a href="varible-in-perl.html#cb287-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$gene_info</span><span class="st">{gene3}</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span></code></pre></div>
 <pre><code>## ROS
 ## WRKY
 ## WRKY</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb293-1"><a href="varible-in-perl.html#cb293-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb293-2"><a href="varible-in-perl.html#cb293-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb293-3"><a href="varible-in-perl.html#cb293-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb293-4"><a href="varible-in-perl.html#cb293-4"></a>                );</span>
-<span id="cb293-5"><a href="varible-in-perl.html#cb293-5"></a><span class="kw">my</span> <span class="dt">@hash_key</span>  = <span class="fu">keys</span> <span class="dt">%gene_info</span>;</span>
-<span id="cb293-6"><a href="varible-in-perl.html#cb293-6"></a><span class="dt">@hash_key</span> = <span class="fu">sort</span> <span class="dt">@hash_key</span>;</span>
-<span id="cb293-7"><a href="varible-in-perl.html#cb293-7"></a><span class="co">#print &quot;Keys of \%gene_info: &quot;, @hash_key, &quot;\n&quot;;</span></span>
-<span id="cb293-8"><a href="varible-in-perl.html#cb293-8"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Keys of \%gene_info: </span><span class="kw">&quot;</span>, <span class="fu">join</span>(<span class="kw">&quot;</span><span class="ch">\t</span><span class="kw">&quot;</span>, <span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>), <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb293-9"><a href="varible-in-perl.html#cb293-9"></a><span class="co">#print &quot;Keys of \%gene_info: &quot;, keys %gene_info, &quot;\n&quot;;</span></span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb289-1"><a href="varible-in-perl.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="ot">&quot;</span><span class="st">gene1</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">ROS</span><span class="ot">&quot;</span>,</span>
+<span id="cb289-2"><a href="varible-in-perl.html#cb289-2" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene2</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span>,</span>
+<span id="cb289-3"><a href="varible-in-perl.html#cb289-3" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene3</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span></span>
+<span id="cb289-4"><a href="varible-in-perl.html#cb289-4" aria-hidden="true" tabindex="-1"></a>                );</span>
+<span id="cb289-5"><a href="varible-in-perl.html#cb289-5" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@hash_key</span>  = <span class="fu">keys</span> <span class="dt">%gene_info</span>;</span>
+<span id="cb289-6"><a href="varible-in-perl.html#cb289-6" aria-hidden="true" tabindex="-1"></a><span class="dt">@hash_key</span> = <span class="fu">sort</span> <span class="dt">@hash_key</span>;</span>
+<span id="cb289-7"><a href="varible-in-perl.html#cb289-7" aria-hidden="true" tabindex="-1"></a><span class="co">#print &quot;Keys of \%gene_info: &quot;, @hash_key, &quot;\n&quot;;</span></span>
+<span id="cb289-8"><a href="varible-in-perl.html#cb289-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="st">Keys of \%gene_info: </span><span class="ot">&quot;</span>, <span class="fu">join</span>(<span class="ot">&quot;</span><span class="ch">\t</span><span class="ot">&quot;</span>, <span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>), <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb289-9"><a href="varible-in-perl.html#cb289-9" aria-hidden="true" tabindex="-1"></a><span class="co">#print &quot;Keys of \%gene_info: &quot;, keys %gene_info, &quot;\n&quot;;</span></span></code></pre></div>
 <pre><code>## Keys of %gene_info: gene1    gene2   gene3</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb295-1"><a href="varible-in-perl.html#cb295-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb295-2"><a href="varible-in-perl.html#cb295-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb295-3"><a href="varible-in-perl.html#cb295-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb295-4"><a href="varible-in-perl.html#cb295-4"></a>                );</span>
-<span id="cb295-5"><a href="varible-in-perl.html#cb295-5"></a><span class="kw">foreach</span>(<span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>){</span>
-<span id="cb295-6"><a href="varible-in-perl.html#cb295-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$gene_info</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb295-7"><a href="varible-in-perl.html#cb295-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb291-1"><a href="varible-in-perl.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="ot">&quot;</span><span class="st">gene1</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">ROS</span><span class="ot">&quot;</span>,</span>
+<span id="cb291-2"><a href="varible-in-perl.html#cb291-2" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene2</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span>,</span>
+<span id="cb291-3"><a href="varible-in-perl.html#cb291-3" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene3</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span></span>
+<span id="cb291-4"><a href="varible-in-perl.html#cb291-4" aria-hidden="true" tabindex="-1"></a>                );</span>
+<span id="cb291-5"><a href="varible-in-perl.html#cb291-5" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span>(<span class="fu">sort</span> <span class="fu">keys</span> <span class="dt">%gene_info</span>){</span>
+<span id="cb291-6"><a href="varible-in-perl.html#cb291-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The value of </span><span class="wa">$_</span><span class="st"> is: </span><span class="ot">&quot;</span>, <span class="dt">$gene_info</span>{<span class="wa">$_</span>}, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb291-7"><a href="varible-in-perl.html#cb291-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## The value of gene1 is: ROS
 ## The value of gene2 is: WRKY
 ## The value of gene3 is: WRKY</code></pre>
-<div id="sort-keys-numerically-using-sort-ab" class="section level3">
+<div id="sort-keys-numerically-using-sort-ab" class="section level3" number="26.5.1">
 <h3><span class="header-section-number">26.5.1</span> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb297-1"><a href="varible-in-perl.html#cb297-1"></a><span class="kw">my</span> <span class="dt">%read_dep</span> = (<span class="kw">&quot;</span><span class="st">1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">100</span><span class="kw">&quot;</span>,</span>
-<span id="cb297-2"><a href="varible-in-perl.html#cb297-2"></a>                 <span class="kw">&quot;</span><span class="st">2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">200</span><span class="kw">&quot;</span>,</span>
-<span id="cb297-3"><a href="varible-in-perl.html#cb297-3"></a>                 <span class="kw">&quot;</span><span class="st">3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">50</span><span class="kw">&quot;</span>,</span>
-<span id="cb297-4"><a href="varible-in-perl.html#cb297-4"></a>                 <span class="kw">&quot;</span><span class="st">10</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">20</span><span class="kw">&quot;</span>,</span>
-<span id="cb297-5"><a href="varible-in-perl.html#cb297-5"></a>                );</span>
-<span id="cb297-6"><a href="varible-in-perl.html#cb297-6"></a></span>
-<span id="cb297-7"><a href="varible-in-perl.html#cb297-7"></a><span class="co">### sort in increasing order</span></span>
-<span id="cb297-8"><a href="varible-in-perl.html#cb297-8"></a><span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$a</span>&lt;=&gt;<span class="dt">$b</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){</span>
-<span id="cb297-9"><a href="varible-in-perl.html#cb297-9"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$read_dep</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb297-10"><a href="varible-in-perl.html#cb297-10"></a>}</span>
-<span id="cb297-11"><a href="varible-in-perl.html#cb297-11"></a></span>
-<span id="cb297-12"><a href="varible-in-perl.html#cb297-12"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="ch">\n</span><span class="st">Sort in descending order: </span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb297-13"><a href="varible-in-perl.html#cb297-13"></a><span class="co">### sort {$b&lt;=&gt;$a} if you want to sort in descending order python</span></span>
-<span id="cb297-14"><a href="varible-in-perl.html#cb297-14"></a><span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$b</span>&lt;=&gt;<span class="dt">$a</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){</span>
-<span id="cb297-15"><a href="varible-in-perl.html#cb297-15"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The value of </span><span class="dt">$_</span><span class="st"> is: </span><span class="kw">&quot;</span>, <span class="dt">$read_dep</span>{<span class="dt">$_</span>}, <span class="kw">&quot;</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb297-16"><a href="varible-in-perl.html#cb297-16"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb293-1"><a href="varible-in-perl.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">%read_dep</span> = (<span class="ot">&quot;</span><span class="st">1</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">100</span><span class="ot">&quot;</span>,</span>
+<span id="cb293-2"><a href="varible-in-perl.html#cb293-2" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">2</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">200</span><span class="ot">&quot;</span>,</span>
+<span id="cb293-3"><a href="varible-in-perl.html#cb293-3" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">3</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">50</span><span class="ot">&quot;</span>,</span>
+<span id="cb293-4"><a href="varible-in-perl.html#cb293-4" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">10</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">20</span><span class="ot">&quot;</span>,</span>
+<span id="cb293-5"><a href="varible-in-perl.html#cb293-5" aria-hidden="true" tabindex="-1"></a>                );</span>
+<span id="cb293-6"><a href="varible-in-perl.html#cb293-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-7"><a href="varible-in-perl.html#cb293-7" aria-hidden="true" tabindex="-1"></a><span class="co">### sort in increasing order</span></span>
+<span id="cb293-8"><a href="varible-in-perl.html#cb293-8" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$a</span>&lt;=&gt;<span class="dt">$b</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){</span>
+<span id="cb293-9"><a href="varible-in-perl.html#cb293-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The value of </span><span class="wa">$_</span><span class="st"> is: </span><span class="ot">&quot;</span>, <span class="dt">$read_dep</span>{<span class="wa">$_</span>}, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb293-10"><a href="varible-in-perl.html#cb293-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb293-11"><a href="varible-in-perl.html#cb293-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb293-12"><a href="varible-in-perl.html#cb293-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="ch">\n</span><span class="st">Sort in descending order: </span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb293-13"><a href="varible-in-perl.html#cb293-13" aria-hidden="true" tabindex="-1"></a><span class="co">### sort {$b&lt;=&gt;$a} if you want to sort in descending order python</span></span>
+<span id="cb293-14"><a href="varible-in-perl.html#cb293-14" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span>(<span class="fu">sort</span> {<span class="dt">$b</span>&lt;=&gt;<span class="dt">$a</span>} <span class="fu">keys</span> <span class="dt">%read_dep</span>){</span>
+<span id="cb293-15"><a href="varible-in-perl.html#cb293-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The value of </span><span class="wa">$_</span><span class="st"> is: </span><span class="ot">&quot;</span>, <span class="dt">$read_dep</span>{<span class="wa">$_</span>}, <span class="ot">&quot;</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb293-16"><a href="varible-in-perl.html#cb293-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## The value of 1 is: 100
 ## The value of 2 is: 200
 ## The value of 3 is: 50
@@ -843,16 +938,16 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
 ## The value of 2 is: 200
 ## The value of 1 is: 100</code></pre>
 </div>
-<div id="use-exists-function-on-a-hash" class="section level3">
+<div id="use-exists-function-on-a-hash" class="section level3" number="26.5.2">
 <h3><span class="header-section-number">26.5.2</span> Use <code>exists</code> function on a hash</h3>
 <p>Given an expression that specifies an element of a hash, <code>exists</code> returns true if the specified element in the hash has ever been initialized, even if the corresponding value is undefined.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb299-1"><a href="varible-in-perl.html#cb299-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">ROS</span><span class="kw">&quot;</span>,</span>
-<span id="cb299-2"><a href="varible-in-perl.html#cb299-2"></a>                 <span class="kw">&quot;</span><span class="st">gene2</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span>,</span>
-<span id="cb299-3"><a href="varible-in-perl.html#cb299-3"></a>                 <span class="kw">&quot;</span><span class="st">gene3</span><span class="kw">&quot;</span>=&gt;<span class="kw">&quot;</span><span class="st">WRKY</span><span class="kw">&quot;</span></span>
-<span id="cb299-4"><a href="varible-in-perl.html#cb299-4"></a>                );</span>
-<span id="cb299-5"><a href="varible-in-perl.html#cb299-5"></a><span class="kw">if</span>(<span class="fu">exists</span> <span class="dt">$gene_info</span>{<span class="kw">&quot;</span><span class="st">gene1</span><span class="kw">&quot;</span>}){</span>
-<span id="cb299-6"><a href="varible-in-perl.html#cb299-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">The key &#39;gene1&#39; exists in \%gene_info</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb299-7"><a href="varible-in-perl.html#cb299-7"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb295-1"><a href="varible-in-perl.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">%gene_info</span> = (<span class="ot">&quot;</span><span class="st">gene1</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">ROS</span><span class="ot">&quot;</span>,</span>
+<span id="cb295-2"><a href="varible-in-perl.html#cb295-2" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene2</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span>,</span>
+<span id="cb295-3"><a href="varible-in-perl.html#cb295-3" aria-hidden="true" tabindex="-1"></a>                 <span class="ot">&quot;</span><span class="st">gene3</span><span class="ot">&quot;</span>=&gt;<span class="ot">&quot;</span><span class="st">WRKY</span><span class="ot">&quot;</span></span>
+<span id="cb295-4"><a href="varible-in-perl.html#cb295-4" aria-hidden="true" tabindex="-1"></a>                );</span>
+<span id="cb295-5"><a href="varible-in-perl.html#cb295-5" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span>(<span class="fu">exists</span> <span class="dt">$gene_info</span>{<span class="ot">&quot;</span><span class="st">gene1</span><span class="ot">&quot;</span>}){</span>
+<span id="cb295-6"><a href="varible-in-perl.html#cb295-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> <span class="ot">&quot;</span><span class="st">The key &#39;gene1&#39; exists in \%gene_info</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb295-7"><a href="varible-in-perl.html#cb295-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## The key &#39;gene1&#39; exists in %gene_info</code></pre>
 
 </div>
@@ -868,12 +963,13 @@ Execution of code_perl/var_assign_strict_warnings.pl aborted
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -881,12 +977,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -901,7 +997,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["bioinfBookXIE186.pdf", "bioinfBookXIE186.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -916,8 +1020,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

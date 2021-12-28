@@ -184,5 +184,5 @@ cat(readLines('code_R/parse_aug_as.formula.R'), sep = '\n')
 
 
 ```{sh}
-/opt/R/3.5.3/lib/R/bin/Rscript code_R/parse_aug_as.formula.R time Time
+Rscript code_R/parse_aug_as.formula.R time Time
 ```

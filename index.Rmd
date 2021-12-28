@@ -1,19 +1,21 @@
-git dentical(knitr:::pandoc_to(), 'html'), fig.link=''}
+--- 
+title: "All things considered for Bioinformatics"
+subtitle: "Essential Linux, Python, Perl, R and Statistics in life science"
+author: "Shaojun Xie (解少俊)"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: xie186/Novice2Expert4Bioinformatics
+description: "This is a book for people who wants to learn Bioinformatics from scratch"
+cover-image: images/cover.jpg
+---
+
+# Preface {-}
+
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link=''}
 knitr::include_graphics('images/cover_fishingMan.jpg', dpi = NA)
 ```
-
-
-
-```{r echo=FALSE}
-
-# https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
-list.of.packages <- c("bookdown", "knitr", "pheatmap", "data.table", "UpSetR", "dplyr", "kableExtra", "BiocManager")
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages, dependencies = T)
-
-list.of.bioconductorpakg <- c("ropls")
-new.packages <- list.of.bioconductorpakg[!(list.of.bioconductorpakg %in% installed.packages()[,"Package"])]
-
-BiocManager::install(new.packages, suppressUpdates=TRUE)
-```
-

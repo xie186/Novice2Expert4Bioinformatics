@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Functions in Python | All things considered for Bioinformatics</title>
-  <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Functions in Python | All things considered for Bioinformatics" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:image" content="/images/cover.jpg" />
   <meta property="og:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
   <meta name="github-repo" content="xie186/Novice2Expert4Bioinformatics" />
 
@@ -20,27 +19,30 @@
   <meta name="twitter:title" content="Chapter 12 Functions in Python | All things considered for Bioinformatics" />
   
   <meta name="twitter:description" content="This is a book for people who wants to learn Bioinformatics from scratch" />
-  <meta name="twitter:image" content="images/cover.jpg" />
+  <meta name="twitter:image" content="/images/cover.jpg" />
 
-<meta name="author" content="Shaojun Xie (解少俊)">
+<meta name="author" content="Shaojun Xie (解少俊)" />
 
 
-<meta name="date" content="2020-10-28">
+<meta name="date" content="2021-12-28" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="varibles-in-python.html">
-<link rel="next" href="r-introduction.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="varibles-in-python.html"/>
+<link rel="next" href="r-introduction.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,23 +50,28 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +91,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +124,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -135,58 +165,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="part"><span><b>I Linux</b></span></li>
-<li class="chapter" data-level="1" data-path="why-linux.html"><a href="why-linux.html"><i class="fa fa-check"></i><b>1</b> Why Linux?</a><ul>
+<li class="chapter" data-level="1" data-path="why-linux.html"><a href="why-linux.html"><i class="fa fa-check"></i><b>1</b> Why Linux?</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="why-linux.html"><a href="why-linux.html#what-is-linux"><i class="fa fa-check"></i><b>1.1</b> What is Linux</a></li>
 <li class="chapter" data-level="1.2" data-path="why-linux.html"><a href="why-linux.html#linux-for-bioinformatics"><i class="fa fa-check"></i><b>1.2</b> Linux for bioinformatics</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html"><i class="fa fa-check"></i><b>2</b> Connecting to Linux</a><ul>
+<li class="chapter" data-level="2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html"><i class="fa fa-check"></i><b>2</b> Connecting to Linux</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#user-interfaces"><i class="fa fa-check"></i><b>2.1</b> User interfaces</a></li>
-<li class="chapter" data-level="2.2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#how-to-connect"><i class="fa fa-check"></i><b>2.2</b> How to connect</a><ul>
+<li class="chapter" data-level="2.2" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#how-to-connect"><i class="fa fa-check"></i><b>2.2</b> How to connect</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="connecting-to-linux.html"><a href="connecting-to-linux.html#alternative-ways-to-gain-access-to-a-linux-server"><i class="fa fa-check"></i><b>2.2.1</b> Alternative ways to gain access to a Linux Server</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html"><i class="fa fa-check"></i><b>3</b> Navigating in Linux file system</a><ul>
-<li class="chapter" data-level="3.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a><ul>
+<li class="chapter" data-level="3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html"><i class="fa fa-check"></i><b>3</b> Navigating in Linux file system</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path"><i class="fa fa-check"></i><b>3.1</b> Path</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#relative-and-absolute-path"><i class="fa fa-check"></i><b>3.1.1</b> Relative and absolute path</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
+<li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
 <li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
-<li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
+<li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-cp"><i class="fa fa-check"></i><b>3.4.1</b> Command <code>cp</code></a></li>
 <li class="chapter" data-level="3.4.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-mv"><i class="fa fa-check"></i><b>3.4.2</b> Command <code>mv</code></a></li>
 <li class="chapter" data-level="3.4.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-mkdir"><i class="fa fa-check"></i><b>3.4.3</b> Command <code>mkdir</code></a></li>
 <li class="chapter" data-level="3.4.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-rm"><i class="fa fa-check"></i><b>3.4.4</b> Command ‘rm’</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a><ul>
+<li class="chapter" data-level="3.5" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#viewing-text-files-in-linux"><i class="fa fa-check"></i><b>3.5</b> Viewing text files in Linux</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-cat"><i class="fa fa-check"></i><b>3.5.1</b> Command <code>cat</code></a></li>
 <li class="chapter" data-level="3.5.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-more-and-less"><i class="fa fa-check"></i><b>3.5.2</b> Command <code>more</code> and <code>less</code></a></li>
 <li class="chapter" data-level="3.5.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#command-head-and-tail"><i class="fa fa-check"></i><b>3.5.3</b> Command <code>head</code> and <code>tail</code></a></li>
 <li class="chapter" data-level="3.5.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#auto-completion"><i class="fa fa-check"></i><b>3.5.4</b> Auto-completion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a><ul>
+<li class="chapter" data-level="3.6" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#understand-standard-input-and-stardard-output"><i class="fa fa-check"></i><b>3.6</b> Understand standard input and stardard output</a>
+<ul>
 <li class="chapter" data-level="3.6.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#stdin"><i class="fa fa-check"></i><b>3.6.1</b> STDIN</a></li>
 <li class="chapter" data-level="3.6.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#stdout"><i class="fa fa-check"></i><b>3.6.2</b> STDOUT</a></li>
 <li class="chapter" data-level="3.6.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#stderr"><i class="fa fa-check"></i><b>3.6.3</b> STDERR</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#find-disk-usage-of-files-and-directories"><i class="fa fa-check"></i><b>3.7</b> Find Disk Usage of Files and Directories</a></li>
-<li class="chapter" data-level="3.8" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a><ul>
+<li class="chapter" data-level="3.8" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#advanced-topic"><i class="fa fa-check"></i><b>3.8</b> Advanced topic</a>
+<ul>
 <li class="chapter" data-level="3.8.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#linux-md5sum-command"><i class="fa fa-check"></i><b>3.8.1</b> Linux <code>md5sum</code> Command</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="file-content-filtering.html"><a href="file-content-filtering.html"><i class="fa fa-check"></i><b>4</b> File content filtering</a><ul>
-<li class="chapter" data-level="4.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#file-filtering"><i class="fa fa-check"></i><b>4.1</b> File Filtering</a><ul>
+<li class="chapter" data-level="4" data-path="file-content-filtering.html"><a href="file-content-filtering.html"><i class="fa fa-check"></i><b>4</b> File content filtering</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#file-filtering"><i class="fa fa-check"></i><b>4.1</b> File Filtering</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#column-filtering"><i class="fa fa-check"></i><b>4.1.1</b> Column filtering</a></li>
 <li class="chapter" data-level="4.1.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#cut"><i class="fa fa-check"></i><b>4.1.2</b> <code>cut</code></a></li>
 <li class="chapter" data-level="4.1.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#row-filtering"><i class="fa fa-check"></i><b>4.1.3</b> Row filtering</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#paste"><i class="fa fa-check"></i><b>4.2</b> <code>paste</code></a><ul>
+<li class="chapter" data-level="4.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#paste"><i class="fa fa-check"></i><b>4.2</b> <code>paste</code></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#advanced-topic-1"><i class="fa fa-check"></i><b>4.2.1</b> Advanced topic:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#finding-things"><i class="fa fa-check"></i><b>4.3</b> Finding Things</a><ul>
+<li class="chapter" data-level="4.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#finding-things"><i class="fa fa-check"></i><b>4.3</b> Finding Things</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="file-content-filtering.html"><a href="file-content-filtering.html#find-files-with-pattern-matching"><i class="fa fa-check"></i><b>4.3.1</b> Find files with pattern matching</a></li>
 <li class="chapter" data-level="4.3.2" data-path="file-content-filtering.html"><a href="file-content-filtering.html#count-file-numbers-in-a-folder-and-its-subdirectories"><i class="fa fa-check"></i><b>4.3.2</b> Count file numbers in a folder and its subdirectories</a></li>
 <li class="chapter" data-level="4.3.3" data-path="file-content-filtering.html"><a href="file-content-filtering.html#list-files-bigger-than-filesize-specified"><i class="fa fa-check"></i><b>4.3.3</b> List files bigger than filesize specified</a></li>
@@ -194,22 +238,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="file-content-filtering.html"><a href="file-content-filtering.html#check-you-job-status"><i class="fa fa-check"></i><b>4.4</b> Check you job status</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>5</b> Achiving and compressing files</a><ul>
+<li class="chapter" data-level="5" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html"><i class="fa fa-check"></i><b>5</b> Achiving and compressing files</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#common-compressed-file-format"><i class="fa fa-check"></i><b>5.1</b> Common compressed file format</a></li>
-<li class="chapter" data-level="5.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#how-to-work-with-different-format"><i class="fa fa-check"></i><b>5.2</b> How to work with different format</a><ul>
+<li class="chapter" data-level="5.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#how-to-work-with-different-format"><i class="fa fa-check"></i><b>5.2</b> How to work with different format</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#gz"><i class="fa fa-check"></i><b>5.2.1</b> <code>*.gz</code></a></li>
 <li class="chapter" data-level="5.2.2" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#tar.gz"><i class="fa fa-check"></i><b>5.2.2</b> <code>*.tar.gz</code></a></li>
 <li class="chapter" data-level="5.2.3" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#zip"><i class="fa fa-check"></i><b>5.2.3</b> <code>*.zip</code></a></li>
 <li class="chapter" data-level="5.2.4" data-path="achiving-and-compressing-files.html"><a href="achiving-and-compressing-files.html#tar.bz2"><i class="fa fa-check"></i><b>5.2.4</b> <code>*.tar.bz2</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html"><i class="fa fa-check"></i><b>6</b> Process management in Linux</a><ul>
+<li class="chapter" data-level="6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html"><i class="fa fa-check"></i><b>6</b> Process management in Linux</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#top"><i class="fa fa-check"></i><b>6.1</b> <code>top</code></a></li>
 <li class="chapter" data-level="6.2" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#ps"><i class="fa fa-check"></i><b>6.2</b> <code>ps</code></a></li>
 <li class="chapter" data-level="6.3" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#kill"><i class="fa fa-check"></i><b>6.3</b> <code>kill</code></a></li>
 <li class="chapter" data-level="6.4" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#df"><i class="fa fa-check"></i><b>6.4</b> <code>df</code></a></li>
 <li class="chapter" data-level="6.5" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#advanced-topic-free"><i class="fa fa-check"></i><b>6.5</b> Advanced topic <code>free</code></a></li>
-<li class="chapter" data-level="6.6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#commands-for-linux-administration-advanced-topic"><i class="fa fa-check"></i><b>6.6</b> Commands for Linux administration (Advanced topic)</a><ul>
+<li class="chapter" data-level="6.6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#commands-for-linux-administration-advanced-topic"><i class="fa fa-check"></i><b>6.6</b> Commands for Linux administration (Advanced topic)</a>
+<ul>
 <li class="chapter" data-level="6.6.1" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#w"><i class="fa fa-check"></i><b>6.6.1</b> <code>w</code></a></li>
 <li class="chapter" data-level="6.6.2" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#who"><i class="fa fa-check"></i><b>6.6.2</b> <code>who</code></a></li>
 <li class="chapter" data-level="6.6.3" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#uptime"><i class="fa fa-check"></i><b>6.6.3</b> <code>uptime</code></a></li>
@@ -218,59 +266,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6.6" data-path="process-management-in-linux.html"><a href="process-management-in-linux.html#useradd-and-passwd"><i class="fa fa-check"></i><b>6.6.6</b> <code>useradd</code> and <code>passwd</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="file-transfer.html"><a href="file-transfer.html"><i class="fa fa-check"></i><b>7</b> File transfer</a><ul>
-<li class="chapter" data-level="7.1" data-path="file-transfer.html"><a href="file-transfer.html#transferring-files-between-local-computer-and-linux-server"><i class="fa fa-check"></i><b>7.1</b> Transferring files between local computer and Linux server</a><ul>
+<li class="chapter" data-level="7" data-path="file-transfer.html"><a href="file-transfer.html"><i class="fa fa-check"></i><b>7</b> File transfer</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="file-transfer.html"><a href="file-transfer.html#transferring-files-between-local-computer-and-linux-server"><i class="fa fa-check"></i><b>7.1</b> Transferring files between local computer and Linux server</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="file-transfer.html"><a href="file-transfer.html#use-command-line-tools"><i class="fa fa-check"></i><b>7.1.1</b> Use command line tools</a></li>
 <li class="chapter" data-level="7.1.2" data-path="file-transfer.html"><a href="file-transfer.html#download-files"><i class="fa fa-check"></i><b>7.1.2</b> Download files</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html"><i class="fa fa-check"></i><b>8</b> Install Bioinformatics software in Linux</a><ul>
-<li class="chapter" data-level="8.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installation-from-source-code"><i class="fa fa-check"></i><b>8.1</b> Installation from source code</a><ul>
+<li class="chapter" data-level="8" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html"><i class="fa fa-check"></i><b>8</b> Install Bioinformatics software in Linux</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installation-from-source-code"><i class="fa fa-check"></i><b>8.1</b> Installation from source code</a>
+<ul>
 <li class="chapter" data-level="8.1.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-bwa"><i class="fa fa-check"></i><b>8.1.1</b> Install <code>bwa</code></a></li>
 <li class="chapter" data-level="8.1.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-samtools"><i class="fa fa-check"></i><b>8.1.2</b> Install <code>samtools</code></a></li>
 <li class="chapter" data-level="8.1.3" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#align-reads-to-genome-using-bwa-and-store-the-alignment-results-in-sambam-files"><i class="fa fa-check"></i><b>8.1.3</b> Align reads to genome using <code>bwa</code> and store the alignment results in SAM/BAM files</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installing-a-precompiled-binary-executable"><i class="fa fa-check"></i><b>8.2</b> Installing a precompiled binary (executable)</a><ul>
+<li class="chapter" data-level="8.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#installing-a-precompiled-binary-executable"><i class="fa fa-check"></i><b>8.2</b> Installing a precompiled binary (executable)</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-bwa-1"><i class="fa fa-check"></i><b>8.2.1</b> Install <code>bwa</code></a></li>
 <li class="chapter" data-level="8.2.2" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-with-conda-recommended-way"><i class="fa fa-check"></i><b>8.2.2</b> Install with <code>conda</code> (recommended way)</a></li>
 <li class="chapter" data-level="8.2.3" data-path="install-bioinformatics-software-in-linux.html"><a href="install-bioinformatics-software-in-linux.html#install-ussing-docker-advanced-topic"><i class="fa fa-check"></i><b>8.2.3</b> Install ussing <code>Docker</code> (Advanced topic)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html"><i class="fa fa-check"></i><b>9</b> Text editor in Linux</a><ul>
+<li class="chapter" data-level="9" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html"><i class="fa fa-check"></i><b>9</b> Text editor in Linux</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#basic-vi-skills"><i class="fa fa-check"></i><b>9.1</b> Basic vi skills</a></li>
 <li class="chapter" data-level="9.2" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#create-new-text-file-with-vi"><i class="fa fa-check"></i><b>9.2</b> Create new text file with <code>vi</code></a></li>
 <li class="chapter" data-level="9.3" data-path="text-editor-in-linux.html"><a href="text-editor-in-linux.html#an-example-for-using-editor-r"><i class="fa fa-check"></i><b>9.3</b> An example for using editor R</a></li>
 </ul></li>
 <li class="part"><span><b>II Python</b></span></li>
 <li class="chapter" data-level="10" data-path="first-python-program.html"><a href="first-python-program.html"><i class="fa fa-check"></i><b>10</b> First Python Program</a></li>
-<li class="chapter" data-level="11" data-path="varibles-in-python.html"><a href="varibles-in-python.html"><i class="fa fa-check"></i><b>11</b> Varibles in Python</a><ul>
+<li class="chapter" data-level="11" data-path="varibles-in-python.html"><a href="varibles-in-python.html"><i class="fa fa-check"></i><b>11</b> Varibles in Python</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="varibles-in-python.html"><a href="varibles-in-python.html#variable-names"><i class="fa fa-check"></i><b>11.1</b> Variable names</a></li>
 <li class="chapter" data-level="11.2" data-path="varibles-in-python.html"><a href="varibles-in-python.html#data-types-in-python"><i class="fa fa-check"></i><b>11.2</b> Data types in Python</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="functions-in-python.html"><a href="functions-in-python.html"><i class="fa fa-check"></i><b>12</b> Functions in Python</a><ul>
+<li class="chapter" data-level="12" data-path="functions-in-python.html"><a href="functions-in-python.html"><i class="fa fa-check"></i><b>12</b> Functions in Python</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="functions-in-python.html"><a href="functions-in-python.html#create-a-function-to-determine-the-gc-content-of-dna-sequence"><i class="fa fa-check"></i><b>12.1</b> Create a function to determine the GC-content of DNA sequence</a></li>
 <li class="chapter" data-level="12.2" data-path="functions-in-python.html"><a href="functions-in-python.html#reverse-complement"><i class="fa fa-check"></i><b>12.2</b> Reverse complement</a></li>
 </ul></li>
 <li class="part"><span><b>III Statistics and R</b></span></li>
-<li class="chapter" data-level="13" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>13</b> R introduction</a><ul>
+<li class="chapter" data-level="13" data-path="r-introduction.html"><a href="r-introduction.html"><i class="fa fa-check"></i><b>13</b> R introduction</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="r-introduction.html"><a href="r-introduction.html#basic-r-function"><i class="fa fa-check"></i><b>13.1</b> Basic R function</a></li>
-<li class="chapter" data-level="13.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>13.2</b> Producing Simple Graphs with R</a><ul>
+<li class="chapter" data-level="13.2" data-path="r-introduction.html"><a href="r-introduction.html#producing-simple-graphs-with-r"><i class="fa fa-check"></i><b>13.2</b> Producing Simple Graphs with R</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="r-introduction.html"><a href="r-introduction.html#line-charts"><i class="fa fa-check"></i><b>13.2.1</b> Line Charts</a></li>
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="r-introduction.html"><a href="r-introduction.html#xxx"><i class="fa fa-check"></i><b>13.3</b> XXX</a></li>
 <li class="chapter" data-level="13.4" data-path="r-introduction.html"><a href="r-introduction.html#logic-and"><i class="fa fa-check"></i><b>13.4</b> Logic <code>&amp;&amp;</code> and <code>|</code></a></li>
 <li class="chapter" data-level="13.5" data-path="r-introduction.html"><a href="r-introduction.html#list-as-dictionary"><i class="fa fa-check"></i><b>13.5</b> List as dictionary</a></li>
-<li class="chapter" data-level="13.6" data-path="r-introduction.html"><a href="r-introduction.html#parsing-arguments-as-string"><i class="fa fa-check"></i><b>13.6</b> Parsing arguments as string</a><ul>
+<li class="chapter" data-level="13.6" data-path="r-introduction.html"><a href="r-introduction.html#parsing-arguments-as-string"><i class="fa fa-check"></i><b>13.6</b> Parsing arguments as string</a>
+<ul>
 <li class="chapter" data-level="13.6.1" data-path="r-introduction.html"><a href="r-introduction.html#string-as-xlim"><i class="fa fa-check"></i><b>13.6.1</b> String as xlim</a></li>
 <li class="chapter" data-level="13.6.2" data-path="r-introduction.html"><a href="r-introduction.html#how-to-access-data-frame-column-using-variable"><i class="fa fa-check"></i><b>13.6.2</b> How to access data frame column using variable</a></li>
 <li class="chapter" data-level="13.6.3" data-path="r-introduction.html"><a href="r-introduction.html#how-to-create-a-formula-from-a"><i class="fa fa-check"></i><b>13.6.3</b> How to create a formula from a</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>14</b> <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="14" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>14</b> <code>ggplot2</code></a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-1"><i class="fa fa-check"></i><b>14.1</b> ggplot2</a></li>
 <li class="chapter" data-level="14.2" data-path="ggplot2.html"><a href="ggplot2.html#ggplot2-practical"><i class="fa fa-check"></i><b>14.2</b> ggplot2 practical</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>15</b> Heatmap Tutorial</a><ul>
+<li class="chapter" data-level="15" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html"><i class="fa fa-check"></i><b>15</b> Heatmap Tutorial</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#install-pheatmap-package"><i class="fa fa-check"></i><b>15.1</b> Install <code>pheatmap</code> package</a></li>
 <li class="chapter" data-level="15.2" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#draw-a-heatmap-for-gene-expression-of-rna-seq-data"><i class="fa fa-check"></i><b>15.2</b> Draw a heatmap for gene expression of RNA-seq data</a></li>
 <li class="chapter" data-level="15.3" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#add-the-annotation"><i class="fa fa-check"></i><b>15.3</b> Add the annotation</a></li>
@@ -279,16 +340,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15.6" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-add-annotations"><i class="fa fa-check"></i><b>15.6</b> How to add annotations</a></li>
 <li class="chapter" data-level="15.7" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-cut-the-trees"><i class="fa fa-check"></i><b>15.7</b> How to cut the trees</a></li>
 <li class="chapter" data-level="15.8" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#how-to-get-the-cluster-information-from-the-heatmap"><i class="fa fa-check"></i><b>15.8</b> How to get the cluster information from the heatmap</a></li>
-<li class="chapter" data-level="15.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#change-color"><i class="fa fa-check"></i><b>15.9</b> Change color</a><ul>
+<li class="chapter" data-level="15.9" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#change-color"><i class="fa fa-check"></i><b>15.9</b> Change color</a>
+<ul>
 <li class="chapter" data-level="15.9.1" data-path="heatmap-tutorial.html"><a href="heatmap-tutorial.html#use-brewer"><i class="fa fa-check"></i><b>15.9.1</b> Use Brewer</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>16</b> Preparation of figures for manuscript</a><ul>
+<li class="chapter" data-level="16" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html"><i class="fa fa-check"></i><b>16</b> Preparation of figures for manuscript</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="preparation-of-figures-for-manuscript.html"><a href="preparation-of-figures-for-manuscript.html#test1"><i class="fa fa-check"></i><b>16.1</b> test1</a></li>
 </ul></li>
 <li class="part"><span><b>IV Omics data</b></span></li>
-<li class="chapter" data-level="17" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>17</b> Introduction to NGS</a><ul>
-<li class="chapter" data-level="17.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>17.1</b> Introduction of Biology for Bioinformatics</a><ul>
+<li class="chapter" data-level="17" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html"><i class="fa fa-check"></i><b>17</b> Introduction to NGS</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#introduction-of-biology-for-bioinformatics"><i class="fa fa-check"></i><b>17.1</b> Introduction of Biology for Bioinformatics</a>
+<ul>
 <li class="chapter" data-level="17.1.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-dna"><i class="fa fa-check"></i><b>17.1.1</b> What is DNA</a></li>
 <li class="chapter" data-level="17.1.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-genome"><i class="fa fa-check"></i><b>17.1.2</b> What is genome</a></li>
 <li class="chapter" data-level="17.1.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#how-to-assemble-a-genome"><i class="fa fa-check"></i><b>17.1.3</b> How to assemble a genome</a></li>
@@ -297,7 +362,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#what-is-ngs"><i class="fa fa-check"></i><b>17.2</b> What is NGS</a></li>
 <li class="chapter" data-level="17.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#application-of-ngs"><i class="fa fa-check"></i><b>17.3</b> Application of NGS</a></li>
 <li class="chapter" data-level="17.4" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#section-1"><i class="fa fa-check"></i><b>17.4</b> </a></li>
-<li class="chapter" data-level="17.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>17.5</b> Data file formats to store the genomic information</a><ul>
+<li class="chapter" data-level="17.5" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#data-file-formats-to-store-the-genomic-information"><i class="fa fa-check"></i><b>17.5</b> Data file formats to store the genomic information</a>
+<ul>
 <li class="chapter" data-level="17.5.1" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#fasta-file"><i class="fa fa-check"></i><b>17.5.1</b> <code>fasta</code> file</a></li>
 <li class="chapter" data-level="17.5.2" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gff-file"><i class="fa fa-check"></i><b>17.5.2</b> GFF file</a></li>
 <li class="chapter" data-level="17.5.3" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#gtf-file"><i class="fa fa-check"></i><b>17.5.3</b> GTF file</a></li>
@@ -309,96 +375,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="17.6" data-path="introduction-to-ngs.html"><a href="introduction-to-ngs.html#usefull-links"><i class="fa fa-check"></i><b>17.6</b> Usefull links:</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>18</b> Start a project</a><ul>
-<li class="chapter" data-level="18.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>18.1</b> Experimetal design</a><ul>
+<li class="chapter" data-level="18" data-path="start-a-project.html"><a href="start-a-project.html"><i class="fa fa-check"></i><b>18</b> Start a project</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="start-a-project.html"><a href="start-a-project.html#experimetal-design"><i class="fa fa-check"></i><b>18.1</b> Experimetal design</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="start-a-project.html"><a href="start-a-project.html#how-many-biological-replicates"><i class="fa fa-check"></i><b>18.1.1</b> How many biological replicates</a></li>
 <li class="chapter" data-level="18.1.2" data-path="start-a-project.html"><a href="start-a-project.html#how-big"><i class="fa fa-check"></i><b>18.1.2</b> How big</a></li>
 <li class="chapter" data-level="18.1.3" data-path="start-a-project.html"><a href="start-a-project.html#how-much-data-to-generate"><i class="fa fa-check"></i><b>18.1.3</b> How much data to generate</a></li>
 <li class="chapter" data-level="18.1.4" data-path="start-a-project.html"><a href="start-a-project.html#section-2"><i class="fa fa-check"></i><b>18.1.4</b> </a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>19</b> Capstone project:</a><ul>
+<li class="chapter" data-level="19" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>19</b> Capstone project:</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction"><i class="fa fa-check"></i><b>19.1</b> Introduction</a></li>
 <li class="chapter" data-level="19.2" data-path="capstone-project.html"><a href="capstone-project.html#method"><i class="fa fa-check"></i><b>19.2</b> Method</a></li>
 <li class="chapter" data-level="19.3" data-path="capstone-project.html"><a href="capstone-project.html#pipelines"><i class="fa fa-check"></i><b>19.3</b> Pipelines</a></li>
 <li class="chapter" data-level="19.4" data-path="capstone-project.html"><a href="capstone-project.html#section-3"><i class="fa fa-check"></i><b>19.4</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html"><i class="fa fa-check"></i><b>20</b> Useful measurements in Bioinformatics</a><ul>
+<li class="chapter" data-level="20" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html"><i class="fa fa-check"></i><b>20</b> Useful measurements in Bioinformatics</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#k-mer"><i class="fa fa-check"></i><b>20.1</b> K-mer</a></li>
 <li class="chapter" data-level="20.2" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#shannon-entropy"><i class="fa fa-check"></i><b>20.2</b> Shannon Entropy</a></li>
 <li class="chapter" data-level="20.3" data-path="useful-measurements-in-bioinformatics.html"><a href="useful-measurements-in-bioinformatics.html#gini-index"><i class="fa fa-check"></i><b>20.3</b> Gini index</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="data-table.html"><a href="data-table.html"><i class="fa fa-check"></i><b>21</b> data.table</a><ul>
-<li class="chapter" data-level="21.1" data-path="data-table.html"><a href="data-table.html#split-data.table-into-chunks-in-a-list"><i class="fa fa-check"></i><b>21.1</b> Split data.table into chunks in a list</a><ul>
-<li class="chapter" data-level="21.1.1" data-path="data-table.html"><a href="data-table.html#nested-list-using-flatten-arguments"><i class="fa fa-check"></i><b>21.1.1</b> nested list using <code>flatten</code> arguments</a></li>
-<li class="chapter" data-level="21.1.2" data-path="data-table.html"><a href="data-table.html#example"><i class="fa fa-check"></i><b>21.1.2</b> Example</a></li>
+<li class="chapter" data-level="21" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>21</b> data.table</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="data.html"><a href="data.html#split-data.table-into-chunks-in-a-list"><i class="fa fa-check"></i><b>21.1</b> Split data.table into chunks in a list</a>
+<ul>
+<li class="chapter" data-level="21.1.1" data-path="data.html"><a href="data.html#nested-list-using-flatten-arguments"><i class="fa fa-check"></i><b>21.1.1</b> nested list using <code>flatten</code> arguments</a></li>
+<li class="chapter" data-level="21.1.2" data-path="data.html"><a href="data.html#example"><i class="fa fa-check"></i><b>21.1.2</b> Example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>22</b> Good resouces to learn Bioinformatics</a><ul>
+<li class="chapter" data-level="22" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html"><i class="fa fa-check"></i><b>22</b> Good resouces to learn Bioinformatics</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="good-resouces-to-learn-bioinformatics.html"><a href="good-resouces-to-learn-bioinformatics.html#references"><i class="fa fa-check"></i><b>22.1</b> References:</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html"><i class="fa fa-check"></i><b>23</b> Basic statistics - Descriptive Statistics</a><ul>
-<li class="chapter" data-level="23.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#probability-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability distribution</a><ul>
-<li class="chapter" data-level="23.1.1" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#geometirc-distribution"><i class="fa fa-check"></i><b>23.1.1</b> Geometirc distribution</a></li>
-<li class="chapter" data-level="23.1.2" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#bionomial-distribution"><i class="fa fa-check"></i><b>23.1.2</b> Bionomial distribution</a></li>
-<li class="chapter" data-level="23.1.3" data-path="basic-statistics-descriptive-statistics.html"><a href="basic-statistics-descriptive-statistics.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>23.1.3</b> Negative binomial distribution</a></li>
+<li class="chapter" data-level="23" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html"><i class="fa fa-check"></i><b>23</b> Basic statistics - Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#probability-distribution"><i class="fa fa-check"></i><b>23.1</b> Probability distribution</a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#geometirc-distribution"><i class="fa fa-check"></i><b>23.1.1</b> Geometirc distribution</a></li>
+<li class="chapter" data-level="23.1.2" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#bionomial-distribution"><i class="fa fa-check"></i><b>23.1.2</b> Bionomial distribution</a></li>
+<li class="chapter" data-level="23.1.3" data-path="basic-statistics---descriptive-statistics.html"><a href="basic-statistics---descriptive-statistics.html#negative-binomial-distribution"><i class="fa fa-check"></i><b>23.1.3</b> Negative binomial distribution</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>24</b> Inferential Statistics</a><ul>
-<li class="chapter" data-level="24.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-two-groups"><i class="fa fa-check"></i><b>24.1</b> Comparing two groups</a><ul>
+<li class="chapter" data-level="24" data-path="inferential-statistics.html"><a href="inferential-statistics.html"><i class="fa fa-check"></i><b>24</b> Inferential Statistics</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-two-groups"><i class="fa fa-check"></i><b>24.1</b> Comparing two groups</a>
+<ul>
 <li class="chapter" data-level="24.1.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#independent-groups"><i class="fa fa-check"></i><b>24.1.1</b> Independent groups</a></li>
 <li class="chapter" data-level="24.1.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#dependent-groups"><i class="fa fa-check"></i><b>24.1.2</b> Dependent groups</a></li>
 <li class="chapter" data-level="24.1.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#controlling-for-other-variables"><i class="fa fa-check"></i><b>24.1.3</b> Controlling for other variables</a></li>
 </ul></li>
-<li class="chapter" data-level="24.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association"><i class="fa fa-check"></i><b>24.2</b> Categorical association</a><ul>
+<li class="chapter" data-level="24.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association"><i class="fa fa-check"></i><b>24.2</b> Categorical association</a>
+<ul>
 <li class="chapter" data-level="24.2.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-association"><i class="fa fa-check"></i><b>24.2.1</b> Categorical association - Chi-squared test for association</a></li>
 <li class="chapter" data-level="24.2.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---chi-squared-test-for-goodness-of-fit"><i class="fa fa-check"></i><b>24.2.2</b> Categorical association - Chi-squared test for goodness of fit</a></li>
 <li class="chapter" data-level="24.2.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#categorical-association---sidenotes-and-an-alternative-to-the-chi-squared-test"><i class="fa fa-check"></i><b>24.2.3</b> Categorical association - Sidenotes and an alternative to the Chi-squared test</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#simple-regression"><i class="fa fa-check"></i><b>24.3</b> Simple regression</a><ul>
+<li class="chapter" data-level="24.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#simple-regression"><i class="fa fa-check"></i><b>24.3</b> Simple regression</a>
+<ul>
 <li class="chapter" data-level="24.3.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#describing-quantitative-association"><i class="fa fa-check"></i><b>24.3.1</b> Describing quantitative association</a></li>
 <li class="chapter" data-level="24.3.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#drawing-inferences"><i class="fa fa-check"></i><b>24.3.2</b> Drawing inferences</a></li>
 <li class="chapter" data-level="24.3.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#exponential-regression"><i class="fa fa-check"></i><b>24.3.3</b> Exponential regression</a></li>
 </ul></li>
 <li class="chapter" data-level="24.4" data-path="inferential-statistics.html"><a href="inferential-statistics.html#multiple-regression"><i class="fa fa-check"></i><b>24.4</b> Multiple regression</a></li>
 <li class="chapter" data-level="24.5" data-path="inferential-statistics.html"><a href="inferential-statistics.html#analysis-of-variance"><i class="fa fa-check"></i><b>24.5</b> Analysis of variance</a></li>
-<li class="chapter" data-level="24.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#non-parametric-tests"><i class="fa fa-check"></i><b>24.6</b> Non-parametric tests</a><ul>
+<li class="chapter" data-level="24.6" data-path="inferential-statistics.html"><a href="inferential-statistics.html#non-parametric-tests"><i class="fa fa-check"></i><b>24.6</b> Non-parametric tests</a>
+<ul>
 <li class="chapter" data-level="24.6.1" data-path="inferential-statistics.html"><a href="inferential-statistics.html#comparing-groups-with-respect-to-mean-rank"><i class="fa fa-check"></i><b>24.6.1</b> Comparing groups with respect to mean rank</a></li>
 <li class="chapter" data-level="24.6.2" data-path="inferential-statistics.html"><a href="inferential-statistics.html#rank-based-correlation-randomness"><i class="fa fa-check"></i><b>24.6.2</b> Rank-based correlation &amp; randomness</a></li>
 <li class="chapter" data-level="24.6.3" data-path="inferential-statistics.html"><a href="inferential-statistics.html#section-4"><i class="fa fa-check"></i><b>24.6.3</b> </a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Perl</b></span></li>
-<li class="chapter" data-level="25" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>25</b> First Perl Program</a><ul>
+<li class="chapter" data-level="25" data-path="first-perl-program.html"><a href="first-perl-program.html"><i class="fa fa-check"></i><b>25</b> First Perl Program</a>
+<ul>
 <li class="chapter" data-level="25.1" data-path="first-perl-program.html"><a href="first-perl-program.html#first-program"><i class="fa fa-check"></i><b>25.1</b> First Program</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>26</b> Varible in Perl</a><ul>
+<li class="chapter" data-level="26" data-path="varible-in-perl.html"><a href="varible-in-perl.html"><i class="fa fa-check"></i><b>26</b> Varible in Perl</a>
+<ul>
 <li class="chapter" data-level="26.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#scalar-variable"><i class="fa fa-check"></i><b>26.1</b> Scalar variable</a></li>
-<li class="chapter" data-level="26.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>26.2</b> Arithmetic operations in Perl</a><ul>
+<li class="chapter" data-level="26.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#arithmetic-operations-in-perl"><i class="fa fa-check"></i><b>26.2</b> Arithmetic operations in Perl</a>
+<ul>
 <li class="chapter" data-level="26.2.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#shorthand-operations"><i class="fa fa-check"></i><b>26.2.1</b> Shorthand operations</a></li>
 <li class="chapter" data-level="26.2.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#auto-increment-and-auto-decrement"><i class="fa fa-check"></i><b>26.2.2</b> Auto increment and auto decrement</a></li>
 <li class="chapter" data-level="26.2.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#inf-and--inf-in-perl"><i class="fa fa-check"></i><b>26.2.3</b> <code>inf</code> and <code>-inf</code> in Perl</a></li>
 </ul></li>
 <li class="chapter" data-level="26.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-strict-user-warnings-and-my"><i class="fa fa-check"></i><b>26.3</b> <code>use strict</code>; <code>user warnings</code> and <code>my</code></a></li>
-<li class="chapter" data-level="26.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>26.4</b> Array</a><ul>
+<li class="chapter" data-level="26.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array"><i class="fa fa-check"></i><b>26.4</b> Array</a>
+<ul>
 <li class="chapter" data-level="26.4.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#init-an-array"><i class="fa fa-check"></i><b>26.4.1</b> Init an array</a></li>
 <li class="chapter" data-level="26.4.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#array-index"><i class="fa fa-check"></i><b>26.4.2</b> Array index</a></li>
 <li class="chapter" data-level="26.4.3" data-path="varible-in-perl.html"><a href="varible-in-perl.html#length-of-the-array"><i class="fa fa-check"></i><b>26.4.3</b> Length of the array</a></li>
 <li class="chapter" data-level="26.4.4" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-arrays-in-perl"><i class="fa fa-check"></i><b>26.4.4</b> Sort Arrays in Perl</a></li>
 <li class="chapter" data-level="26.4.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-push-pop-shift-and-unshift-in-perl"><i class="fa fa-check"></i><b>26.4.5</b> Use <code>push</code>, <code>pop</code>, <code>shift</code> and <code>unshift</code> in Perl</a></li>
 </ul></li>
-<li class="chapter" data-level="26.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash-in-perl"><i class="fa fa-check"></i><b>26.5</b> Hash in Perl</a><ul>
+<li class="chapter" data-level="26.5" data-path="varible-in-perl.html"><a href="varible-in-perl.html#hash-in-perl"><i class="fa fa-check"></i><b>26.5</b> Hash in Perl</a>
+<ul>
 <li class="chapter" data-level="26.5.1" data-path="varible-in-perl.html"><a href="varible-in-perl.html#sort-keys-numerically-using-sort-ab"><i class="fa fa-check"></i><b>26.5.1</b> Sort keys numerically using <code>sort {$a&lt;=&gt;$b}</code></a></li>
 <li class="chapter" data-level="26.5.2" data-path="varible-in-perl.html"><a href="varible-in-perl.html#use-exists-function-on-a-hash"><i class="fa fa-check"></i><b>26.5.2</b> Use <code>exists</code> function on a hash</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>27</b> Linear regression</a><ul>
-<li class="chapter" data-level="27.1" data-path="linear-regression.html"><a href="linear-regression.html#interpreting-regression-parameters-in-a-basic-model"><i class="fa fa-check"></i><b>27.1</b> Interpreting regression parameters in a basic model</a><ul>
+<li class="chapter" data-level="27" data-path="linear-regression.html"><a href="linear-regression.html"><i class="fa fa-check"></i><b>27</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="linear-regression.html"><a href="linear-regression.html#interpreting-regression-parameters-in-a-basic-model"><i class="fa fa-check"></i><b>27.1</b> Interpreting regression parameters in a basic model</a>
+<ul>
 <li class="chapter" data-level="27.1.1" data-path="linear-regression.html"><a href="linear-regression.html#r-squared-and-correlation"><i class="fa fa-check"></i><b>27.1.1</b> R-squared and correlation</a></li>
 </ul></li>
 <li class="chapter" data-level="27.2" data-path="linear-regression.html"><a href="linear-regression.html#reference-1"><i class="fa fa-check"></i><b>27.2</b> Reference</a></li>
 </ul></li>
-<li class="chapter" data-level="28" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>28</b> Control structure</a><ul>
+<li class="chapter" data-level="28" data-path="control-structure.html"><a href="control-structure.html"><i class="fa fa-check"></i><b>28</b> Control structure</a>
+<ul>
 <li class="chapter" data-level="28.1" data-path="control-structure.html"><a href="control-structure.html#for-loop"><i class="fa fa-check"></i><b>28.1</b> <code>for</code> loop</a></li>
 <li class="chapter" data-level="28.2" data-path="control-structure.html"><a href="control-structure.html#foreach-loop"><i class="fa fa-check"></i><b>28.2</b> <code>foreach</code> loop</a></li>
 <li class="chapter" data-level="28.3" data-path="control-structure.html"><a href="control-structure.html#while-loop"><i class="fa fa-check"></i><b>28.3</b> <code>while</code> loop</a></li>
@@ -406,12 +494,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.5" data-path="control-structure.html"><a href="control-structure.html#operator-last-and-next"><i class="fa fa-check"></i><b>28.5</b> Operator <code>last</code> and <code>next</code></a></li>
 <li class="chapter" data-level="28.6" data-path="control-structure.html"><a href="control-structure.html#operator-redo"><i class="fa fa-check"></i><b>28.6</b> Operator <code>redo</code></a></li>
 </ul></li>
-<li class="chapter" data-level="29" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>29</b> String manipulation</a><ul>
+<li class="chapter" data-level="29" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>29</b> String manipulation</a>
+<ul>
 <li class="chapter" data-level="29.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-concatenation"><i class="fa fa-check"></i><b>29.1</b> String concatenation</a></li>
 <li class="chapter" data-level="29.2" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-extraction"><i class="fa fa-check"></i><b>29.2</b> Substring extraction</a></li>
 <li class="chapter" data-level="29.3" data-path="string-manipulation.html"><a href="string-manipulation.html#substring-search"><i class="fa fa-check"></i><b>29.3</b> Substring search</a></li>
 <li class="chapter" data-level="29.4" data-path="string-manipulation.html"><a href="string-manipulation.html#split-string"><i class="fa fa-check"></i><b>29.4</b> Split String</a></li>
-<li class="chapter" data-level="29.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>29.5</b> Regular expression</a><ul>
+<li class="chapter" data-level="29.5" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expression"><i class="fa fa-check"></i><b>29.5</b> Regular expression</a>
+<ul>
 <li class="chapter" data-level="29.5.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>29.5.1</b> Pattern matching</a></li>
 <li class="chapter" data-level="29.5.2" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-substitution"><i class="fa fa-check"></i><b>29.5.2</b> Pattern substitution</a></li>
 <li class="chapter" data-level="29.5.3" data-path="string-manipulation.html"><a href="string-manipulation.html#modifiers-to-pattern-matching-and-substitution"><i class="fa fa-check"></i><b>29.5.3</b> Modifiers to pattern matching and substitution</a></li>
@@ -419,8 +509,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.5.5" data-path="string-manipulation.html"><a href="string-manipulation.html#practical-perl-for-regular-expresssion-advanced"><i class="fa fa-check"></i><b>29.5.5</b> Practical Perl for regular expresssion (Advanced)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="30" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>30</b> Input and output in Perl</a><ul>
-<li class="chapter" data-level="30.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>30.1</b> Input</a><ul>
+<li class="chapter" data-level="30" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html"><i class="fa fa-check"></i><b>30</b> Input and output in Perl</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input"><i class="fa fa-check"></i><b>30.1</b> Input</a>
+<ul>
 <li class="chapter" data-level="30.1.1" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#standard-input"><i class="fa fa-check"></i><b>30.1.1</b> Standard input</a></li>
 <li class="chapter" data-level="30.1.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#input-from-a-file-on-the-disk"><i class="fa fa-check"></i><b>30.1.2</b> Input from a file on the disk</a></li>
 <li class="chapter" data-level="30.1.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#special-variable-_"><i class="fa fa-check"></i><b>30.1.3</b> Special variable <code>$_</code></a></li>
@@ -429,18 +521,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="30.2" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#output-to-a-file-on-the-disk"><i class="fa fa-check"></i><b>30.2</b> Output to a file on the disk</a></li>
 <li class="chapter" data-level="30.3" data-path="input-and-output-in-perl.html"><a href="input-and-output-in-perl.html#arguments-from-command-line"><i class="fa fa-check"></i><b>30.3</b> Arguments from command line</a></li>
 </ul></li>
-<li class="chapter" data-level="31" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>31</b> Practical Perl program</a><ul>
+<li class="chapter" data-level="31" data-path="practical-perl-program.html"><a href="practical-perl-program.html"><i class="fa fa-check"></i><b>31</b> Practical Perl program</a>
+<ul>
 <li class="chapter" data-level="31.1" data-path="practical-perl-program.html"><a href="practical-perl-program.html#add-annotation-information-to-deseq2-results"><i class="fa fa-check"></i><b>31.1</b> Add annotation information to DESeq2 results</a></li>
 <li class="chapter" data-level="31.2" data-path="practical-perl-program.html"><a href="practical-perl-program.html#merge-overlap-genomic-regions"><i class="fa fa-check"></i><b>31.2</b> Merge overlap genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="32" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>32</b> Perl modules</a><ul>
+<li class="chapter" data-level="32" data-path="perl-modules.html"><a href="perl-modules.html"><i class="fa fa-check"></i><b>32</b> Perl modules</a>
+<ul>
 <li class="chapter" data-level="32.1" data-path="perl-modules.html"><a href="perl-modules.html#what-is-a-perl-module"><i class="fa fa-check"></i><b>32.1</b> What is a Perl module</a></li>
 <li class="chapter" data-level="32.2" data-path="perl-modules.html"><a href="perl-modules.html#how-to-install-a-perl-module"><i class="fa fa-check"></i><b>32.2</b> How to install a Perl module</a></li>
 <li class="chapter" data-level="32.3" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-a-perl-module"><i class="fa fa-check"></i><b>32.3</b> How to use a Perl module</a></li>
 <li class="chapter" data-level="32.4" data-path="perl-modules.html"><a href="perl-modules.html#how-to-use-bioperl-module"><i class="fa fa-check"></i><b>32.4</b> How to use BioPerl module</a></li>
 <li class="chapter" data-level="32.5" data-path="perl-modules.html"><a href="perl-modules.html#how-to-write-a-module"><i class="fa fa-check"></i><b>32.5</b> How to write a module</a></li>
 </ul></li>
-<li class="chapter" data-level="33" data-path="perl-one-liner.html"><a href="perl-one-liner.html"><i class="fa fa-check"></i><b>33</b> Perl one-liner</a><ul>
+<li class="chapter" data-level="33" data-path="perl-one-liner.html"><a href="perl-one-liner.html"><i class="fa fa-check"></i><b>33</b> Perl one-liner</a>
+<ul>
 <li class="chapter" data-level="33.1" data-path="perl-one-liner.html"><a href="perl-one-liner.html#convert-a-fastq-file-from-fastq-to-fast"><i class="fa fa-check"></i><b>33.1</b> Convert a fastq file from FASTQ to FAST</a></li>
 <li class="chapter" data-level="33.2" data-path="perl-one-liner.html"><a href="perl-one-liner.html#escape-single-quote"><i class="fa fa-check"></i><b>33.2</b> Escape single quote</a></li>
 <li class="chapter" data-level="33.3" data-path="perl-one-liner.html"><a href="perl-one-liner.html#reference-2"><i class="fa fa-check"></i><b>33.3</b> Reference</a></li>
@@ -467,36 +562,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="functions-in-python" class="section level1">
+<div id="functions-in-python" class="section level1" number="12">
 <h1><span class="header-section-number">Chapter 12</span> Functions in Python</h1>
 <p>A function is a block of code which only run when it is called. Data can be passed as parameters into a function.</p>
 <p>A function can return data as a result.</p>
-<div id="create-a-function-to-determine-the-gc-content-of-dna-sequence" class="section level2">
+<div id="create-a-function-to-determine-the-gc-content-of-dna-sequence" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> Create a function to determine the GC-content of DNA sequence</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="functions-in-python.html#cb159-1"></a><span class="kw">def</span> cg_content(dna):</span>
-<span id="cb159-2"><a href="functions-in-python.html#cb159-2"></a>    cg_number <span class="op">=</span> dna.count(<span class="st">&#39;C&#39;</span>) <span class="op">+</span> dna.count(<span class="st">&#39;G&#39;</span>)</span>
-<span id="cb159-3"><a href="functions-in-python.html#cb159-3"></a>    length <span class="op">=</span> <span class="bu">len</span>(dna)</span>
-<span id="cb159-4"><a href="functions-in-python.html#cb159-4"></a>    <span class="cf">return</span> <span class="bu">float</span>(cg_number<span class="op">/</span>length)</span>
-<span id="cb159-5"><a href="functions-in-python.html#cb159-5"></a>DNA_seq <span class="op">=</span> <span class="st">&quot;CGCTAGTCAGT&quot;</span></span>
-<span id="cb159-6"><a href="functions-in-python.html#cb159-6"></a>cg_content_val <span class="op">=</span> cg_content(DNA_seq)</span>
-<span id="cb159-7"><a href="functions-in-python.html#cb159-7"></a><span class="bu">print</span>(<span class="st">&quot;CG content is: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(cg_content_val))</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="functions-in-python.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cg_content(dna):</span>
+<span id="cb155-2"><a href="functions-in-python.html#cb155-2" aria-hidden="true" tabindex="-1"></a>    cg_number <span class="op">=</span> dna.count(<span class="st">&#39;C&#39;</span>) <span class="op">+</span> dna.count(<span class="st">&#39;G&#39;</span>)</span>
+<span id="cb155-3"><a href="functions-in-python.html#cb155-3" aria-hidden="true" tabindex="-1"></a>    length <span class="op">=</span> <span class="bu">len</span>(dna)</span>
+<span id="cb155-4"><a href="functions-in-python.html#cb155-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(cg_number<span class="op">/</span>length)</span>
+<span id="cb155-5"><a href="functions-in-python.html#cb155-5" aria-hidden="true" tabindex="-1"></a>DNA_seq <span class="op">=</span> <span class="st">&quot;CGCTAGTCAGT&quot;</span></span>
+<span id="cb155-6"><a href="functions-in-python.html#cb155-6" aria-hidden="true" tabindex="-1"></a>cg_content_val <span class="op">=</span> cg_content(DNA_seq)</span>
+<span id="cb155-7"><a href="functions-in-python.html#cb155-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;CG content is: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(cg_content_val))</span></code></pre></div>
 <pre><code>## CG content is: 0.5454545454545454</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="functions-in-python.html#cb161-1"></a>DNA_seq2 <span class="op">=</span> <span class="st">&quot;CGCTAGTCAGTAAAAAAAAAAAAAAAAAAAAAAAAAATTT&quot;</span></span>
-<span id="cb161-2"><a href="functions-in-python.html#cb161-2"></a>cg_content_val <span class="op">=</span> cg_content(DNA_seq2)</span>
-<span id="cb161-3"><a href="functions-in-python.html#cb161-3"></a><span class="bu">print</span>(<span class="st">&quot;CG content is: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(cg_content_val))</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="functions-in-python.html#cb157-1" aria-hidden="true" tabindex="-1"></a>DNA_seq2 <span class="op">=</span> <span class="st">&quot;CGCTAGTCAGTAAAAAAAAAAAAAAAAAAAAAAAAAATTT&quot;</span></span>
+<span id="cb157-2"><a href="functions-in-python.html#cb157-2" aria-hidden="true" tabindex="-1"></a>cg_content_val <span class="op">=</span> cg_content(DNA_seq2)</span>
+<span id="cb157-3"><a href="functions-in-python.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;CG content is: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(cg_content_val))</span></code></pre></div>
 <pre><code>## CG content is: 0.15</code></pre>
 </div>
-<div id="reverse-complement" class="section level2">
+<div id="reverse-complement" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Reverse complement</h2>
-<pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="functions-in-python.html#cb163-1"></a><span class="kw">def</span> reverse_complement(seq):</span>
-<span id="cb163-2"><a href="functions-in-python.html#cb163-2"></a>    complement <span class="op">=</span> {<span class="st">&quot;A&quot;</span>: <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>:<span class="st">&quot;A&quot;</span> ,<span class="st">&quot;C&quot;</span>:<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>:<span class="st">&quot;C&quot;</span>}</span>
-<span id="cb163-3"><a href="functions-in-python.html#cb163-3"></a>    rc_seq <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb163-4"><a href="functions-in-python.html#cb163-4"></a>    <span class="cf">for</span> base <span class="kw">in</span> seq:</span>
-<span id="cb163-5"><a href="functions-in-python.html#cb163-5"></a>        rc_seq <span class="op">=</span> rc_seq<span class="op">+</span>complement[base]</span>
-<span id="cb163-6"><a href="functions-in-python.html#cb163-6"></a>    <span class="cf">return</span> rc_seq</span>
-<span id="cb163-7"><a href="functions-in-python.html#cb163-7"></a></span>
-<span id="cb163-8"><a href="functions-in-python.html#cb163-8"></a>DNA_seq <span class="op">=</span> <span class="st">&quot;ACGT&quot;</span></span>
-<span id="cb163-9"><a href="functions-in-python.html#cb163-9"></a><span class="bu">print</span>(<span class="st">&quot;After reverse complement, the sequence is: &quot;</span> <span class="op">+</span> reverse_complement(DNA_seq))</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="functions-in-python.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse_complement(seq):</span>
+<span id="cb159-2"><a href="functions-in-python.html#cb159-2" aria-hidden="true" tabindex="-1"></a>    complement <span class="op">=</span> {<span class="st">&quot;A&quot;</span>: <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>:<span class="st">&quot;A&quot;</span> ,<span class="st">&quot;C&quot;</span>:<span class="st">&quot;G&quot;</span>,<span class="st">&quot;G&quot;</span>:<span class="st">&quot;C&quot;</span>}</span>
+<span id="cb159-3"><a href="functions-in-python.html#cb159-3" aria-hidden="true" tabindex="-1"></a>    rc_seq <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb159-4"><a href="functions-in-python.html#cb159-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> base <span class="kw">in</span> seq:</span>
+<span id="cb159-5"><a href="functions-in-python.html#cb159-5" aria-hidden="true" tabindex="-1"></a>        rc_seq <span class="op">=</span> rc_seq<span class="op">+</span>complement[base]</span>
+<span id="cb159-6"><a href="functions-in-python.html#cb159-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rc_seq</span>
+<span id="cb159-7"><a href="functions-in-python.html#cb159-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-8"><a href="functions-in-python.html#cb159-8" aria-hidden="true" tabindex="-1"></a>DNA_seq <span class="op">=</span> <span class="st">&quot;ACGT&quot;</span></span>
+<span id="cb159-9"><a href="functions-in-python.html#cb159-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;After reverse complement, the sequence is: &quot;</span> <span class="op">+</span> reverse_complement(DNA_seq))</span></code></pre></div>
 <pre><code>## After reverse complement, the sequence is: TGCA</code></pre>
 
 
@@ -515,12 +610,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -528,12 +624,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -548,7 +644,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": ["bioinfBookXIE186.pdf", "bioinfBookXIE186.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -563,8 +667,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
