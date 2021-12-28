@@ -31,20 +31,14 @@ http://www.linuxnix.com/abslute-path-vs-relative-path-in-linuxunix/
 
 An absolute path is defined as the location of a file or directory from the root directory(/). An absolute path starts from the `root` of the tree (`/`).
 
-Here are some examples:
+Here are some examples: 
+>/home/xie186
+>/home/xie186/perl5
 
-```
-/home/xie186
-/home/xie186/perl5
-```
 * __Relative path__
 
-Relative path is a path related to the present working directory.
-
-```
-data/sample1/
-../doc/
-```
+Relative path is a path related to the present working directory: 
+`data/sample1/` and `../doc/`. 
 
 If you want to get the __absolute path__ based on __relative path__, you can use `readlink` with parameter `-f`: 
 
@@ -114,7 +108,7 @@ The following command is a faster way to use the l and a options and gives the s
 ls -la 
 ```
 
-###	Change directory using command `cd`
+###	Change directory using command 'cd'
 
 Command cd is used to change the current directory. It’s syntax is:
 
@@ -140,21 +134,11 @@ knitr::kable(tab, caption = '(ref:linuxPathShortcuts)', align='c')
 
 Here are some examples:
 
-```{sh}
+```{sh eval=FALSE}
 cd ~
 pwd
 ls
-
-```
-
-```{sh}
-
-ls ./
-
-```
-
-```{sh comment=NA}
-
+ls ../
 ## 
 pwd
 cd ../
@@ -170,18 +154,18 @@ Each directory has two entries in it at the start, with names . (a link to itsel
 Sometimes you go to a new directory and do something, then you remember that you need to go to the previous working direcotry. To get back instantly, use a dash. 
 
 ```{sh}
-echo "This is our current directory: "
+# This is our current directory
 pwd
 
-echo "Let's go our home diretory: "
+# Let us go our home diretory
 cd ~
 
-echo "Check where we are: "
+# Check where we are
 pwd
 
-echo "Let's go to your previous working direcotry: "
+# Let us go to your previous working directory
 cd -
-echo "Check where we're now: "
+# Check where we are now
 pwd
 
 ```
@@ -203,9 +187,7 @@ The command `mv` is short for move (or rename) files.
 Here is one common example of `mv`. 
 
 ```{sh eval=FALSE}
-
 mv file1 directory1/
-
 ```
 
 #### Move multiple files into a directory
@@ -250,9 +232,11 @@ mkdir -p foo/bar/baz
 ```
 
 > How to defining complex directory trees with one command
+
 ```
 mkdir -p project/{software,results,doc/{html,info,pdf},scripts}
 ```
+
 This will create a direcotry trees as shown below:
 
 ```

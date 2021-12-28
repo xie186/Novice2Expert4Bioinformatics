@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -472,15 +472,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="split-data.table-into-chunks-in-a-list" class="section level2">
 <h2><span class="header-section-number">21.1</span> Split data.table into chunks in a list</h2>
 <p>Split method for data.table. Faster and more flexible. Be aware that processing list of data.tables will be generally much slower than manipulation in single data.table by group using by argument, read more on data.table.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="data-table.html#cb224-1"></a><span class="kw">library</span>(data.table)</span>
-<span id="cb224-2"><a href="data-table.html#cb224-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb224-3"><a href="data-table.html#cb224-3"></a>dt =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">x1 =</span> <span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">6</span>), </span>
-<span id="cb224-4"><a href="data-table.html#cb224-4"></a>                <span class="dt">x2 =</span> <span class="kw">rep</span>(letters[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">4</span>), </span>
-<span id="cb224-5"><a href="data-table.html#cb224-5"></a>                <span class="dt">x3 =</span> <span class="kw">rep</span>(letters[<span class="dv">5</span><span class="op">:</span><span class="dv">8</span>], <span class="dv">3</span>), </span>
-<span id="cb224-6"><a href="data-table.html#cb224-6"></a>                <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dv">12</span>))</span>
-<span id="cb224-7"><a href="data-table.html#cb224-7"></a>dt =<span class="st"> </span>dt[<span class="kw">sample</span>(.N)]</span>
-<span id="cb224-8"><a href="data-table.html#cb224-8"></a>df =<span class="st"> </span><span class="kw">as.data.frame</span>(dt)</span>
-<span id="cb224-9"><a href="data-table.html#cb224-9"></a>df</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data-table.html#cb217-1"></a><span class="kw">library</span>(data.table)</span>
+<span id="cb217-2"><a href="data-table.html#cb217-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb217-3"><a href="data-table.html#cb217-3"></a>dt =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">x1 =</span> <span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">6</span>), </span>
+<span id="cb217-4"><a href="data-table.html#cb217-4"></a>                <span class="dt">x2 =</span> <span class="kw">rep</span>(letters[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>], <span class="dv">4</span>), </span>
+<span id="cb217-5"><a href="data-table.html#cb217-5"></a>                <span class="dt">x3 =</span> <span class="kw">rep</span>(letters[<span class="dv">5</span><span class="op">:</span><span class="dv">8</span>], <span class="dv">3</span>), </span>
+<span id="cb217-6"><a href="data-table.html#cb217-6"></a>                <span class="dt">y =</span> <span class="kw">rnorm</span>(<span class="dv">12</span>))</span>
+<span id="cb217-7"><a href="data-table.html#cb217-7"></a>dt =<span class="st"> </span>dt[<span class="kw">sample</span>(.N)]</span>
+<span id="cb217-8"><a href="data-table.html#cb217-8"></a>df =<span class="st"> </span><span class="kw">as.data.frame</span>(dt)</span>
+<span id="cb217-9"><a href="data-table.html#cb217-9"></a>df</span></code></pre></div>
 <pre><code>##    x1 x2 x3           y
 ## 1   b  d  h -1.26506123
 ## 2   b  e  h  0.35981383
@@ -496,8 +496,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 12  a  c  g  0.46091621</code></pre>
 <div id="nested-list-using-flatten-arguments" class="section level3">
 <h3><span class="header-section-number">21.1.1</span> nested list using <code>flatten</code> arguments</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="data-table.html#cb226-1"></a>new_list &lt;-<span class="st"> </span><span class="kw">split</span>(dt, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>))</span>
-<span id="cb226-2"><a href="data-table.html#cb226-2"></a>new_list</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data-table.html#cb219-1"></a>new_list &lt;-<span class="st"> </span><span class="kw">split</span>(dt, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>))</span>
+<span id="cb219-2"><a href="data-table.html#cb219-2"></a>new_list</span></code></pre></div>
 <pre><code>## $b.d
 ##    x1 x2 x3          y
 ## 1:  b  d  h -1.2650612
@@ -527,8 +527,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    x1 x2 x3          y
 ## 1:  a  c  e -0.5604756
 ## 2:  a  c  g  0.4609162</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="data-table.html#cb228-1"></a>new_list &lt;-<span class="st"> </span><span class="kw">split</span>(dt, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>), <span class="dt">flatten=</span><span class="ot">FALSE</span>)</span>
-<span id="cb228-2"><a href="data-table.html#cb228-2"></a>new_list</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data-table.html#cb221-1"></a>new_list &lt;-<span class="st"> </span><span class="kw">split</span>(dt, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;x1&quot;</span>, <span class="st">&quot;x2&quot;</span>), <span class="dt">flatten=</span><span class="ot">FALSE</span>)</span>
+<span id="cb221-2"><a href="data-table.html#cb221-2"></a>new_list</span></code></pre></div>
 <pre><code>## $b
 ## $b$d
 ##    x1 x2 x3          y
@@ -564,9 +564,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="example" class="section level3">
 <h3><span class="header-section-number">21.1.2</span> Example</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="data-table.html#cb230-1"></a>dt_example =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>), <span class="dv">4</span>), </span>
-<span id="cb230-2"><a href="data-table.html#cb230-2"></a>                <span class="dt">gene =</span> <span class="kw">c</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], letters[<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>]))</span>
-<span id="cb230-3"><a href="data-table.html#cb230-3"></a>dt</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data-table.html#cb223-1"></a>dt_example =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">group =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>), <span class="dv">4</span>), </span>
+<span id="cb223-2"><a href="data-table.html#cb223-2"></a>                <span class="dt">gene =</span> <span class="kw">c</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], letters[<span class="dv">3</span><span class="op">:</span><span class="dv">6</span>]))</span>
+<span id="cb223-3"><a href="data-table.html#cb223-3"></a>dt</span></code></pre></div>
 <pre><code>##     x1 x2 x3           y
 ##  1:  b  d  h -1.26506123
 ##  2:  b  e  h  0.35981383
@@ -582,9 +582,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 12:  a  c  g  0.46091621</code></pre>
 <div id="crate-a-matrix-from-data.table" class="section level4">
 <h4><span class="header-section-number">21.1.2.1</span> Crate a matrix from data.table</h4>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="data-table.html#cb232-1"></a><span class="kw">library</span>(UpSetR)</span>
-<span id="cb232-2"><a href="data-table.html#cb232-2"></a>list_group =<span class="st"> </span><span class="kw">split</span>(dt_example[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;z&quot;</span>)], <span class="dt">by=</span><span class="st">&quot;group&quot;</span>,  <span class="dt">drop=</span><span class="ot">TRUE</span>)</span>
-<span id="cb232-3"><a href="data-table.html#cb232-3"></a>list_group</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data-table.html#cb225-1"></a><span class="kw">library</span>(UpSetR)</span>
+<span id="cb225-2"><a href="data-table.html#cb225-2"></a>list_group =<span class="st"> </span><span class="kw">split</span>(dt_example[<span class="op">-</span><span class="kw">which</span>(<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;z&quot;</span>)], <span class="dt">by=</span><span class="st">&quot;group&quot;</span>,  <span class="dt">drop=</span><span class="ot">TRUE</span>)</span>
+<span id="cb225-3"><a href="data-table.html#cb225-3"></a>list_group</span></code></pre></div>
 <pre><code>## named list()</code></pre>
 
 </div>
@@ -627,7 +627,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/25_29_R_data.table.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/25_R_data.table.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -473,17 +473,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.cdc.gov/nchs/nhanes/index.htm">NHANES</a> data, allowing us
 to illustrate the use of these two regression methods for addressing
 meaningful questions with actual data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="linear-regression.html#cb308-1"></a><span class="co"># Read the 2015-2016 wave of NHANES data</span></span>
-<span id="cb308-2"><a href="linear-regression.html#cb308-2"></a>df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/nhanes_2015_2016.csv&quot;</span>)</span>
-<span id="cb308-3"><a href="linear-regression.html#cb308-3"></a></span>
-<span id="cb308-4"><a href="linear-regression.html#cb308-4"></a>col2keep &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BPXSY1&quot;</span>, <span class="st">&quot;RIDAGEYR&quot;</span>, <span class="st">&quot;RIAGENDR&quot;</span>, <span class="st">&quot;RIDRETH1&quot;</span>, <span class="st">&quot;DMDEDUC2&quot;</span>, <span class="st">&quot;BMXBMI&quot;</span>, <span class="st">&quot;SMQ020&quot;</span>)</span>
-<span id="cb308-5"><a href="linear-regression.html#cb308-5"></a>df_subset &lt;-<span class="st"> </span>df[, col2keep]</span>
-<span id="cb308-6"><a href="linear-regression.html#cb308-6"></a><span class="kw">dim</span>(df_subset)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="linear-regression.html#cb301-1"></a><span class="co"># Read the 2015-2016 wave of NHANES data</span></span>
+<span id="cb301-2"><a href="linear-regression.html#cb301-2"></a>df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/nhanes_2015_2016.csv&quot;</span>)</span>
+<span id="cb301-3"><a href="linear-regression.html#cb301-3"></a></span>
+<span id="cb301-4"><a href="linear-regression.html#cb301-4"></a>col2keep &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;BPXSY1&quot;</span>, <span class="st">&quot;RIDAGEYR&quot;</span>, <span class="st">&quot;RIAGENDR&quot;</span>, <span class="st">&quot;RIDRETH1&quot;</span>, <span class="st">&quot;DMDEDUC2&quot;</span>, <span class="st">&quot;BMXBMI&quot;</span>, <span class="st">&quot;SMQ020&quot;</span>)</span>
+<span id="cb301-5"><a href="linear-regression.html#cb301-5"></a>df_subset &lt;-<span class="st"> </span>df[, col2keep]</span>
+<span id="cb301-6"><a href="linear-regression.html#cb301-6"></a><span class="kw">dim</span>(df_subset)</span></code></pre></div>
 <pre><code>## [1] 5735    7</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="linear-regression.html#cb310-1"></a>df_subset &lt;-<span class="st"> </span>df_subset[<span class="kw">complete.cases</span>(df_subset), ]</span>
-<span id="cb310-2"><a href="linear-regression.html#cb310-2"></a><span class="kw">dim</span>(df_subset)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="linear-regression.html#cb303-1"></a>df_subset &lt;-<span class="st"> </span>df_subset[<span class="kw">complete.cases</span>(df_subset), ]</span>
+<span id="cb303-2"><a href="linear-regression.html#cb303-2"></a><span class="kw">dim</span>(df_subset)</span></code></pre></div>
 <pre><code>## [1] 5102    7</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="linear-regression.html#cb312-1"></a><span class="kw">head</span>(df_subset)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="linear-regression.html#cb305-1"></a><span class="kw">head</span>(df_subset)</span></code></pre></div>
 <pre><code>##   BPXSY1 RIDAGEYR RIAGENDR RIDRETH1 DMDEDUC2 BMXBMI SMQ020
 ## 1    128       62        1        3        5   27.8      1
 ## 2    146       53        1        3        3   30.8      1
@@ -496,9 +496,9 @@ meaningful questions with actual data.</p>
 <div id="interpreting-regression-parameters-in-a-basic-model" class="section level2">
 <h2><span class="header-section-number">27.1</span> Interpreting regression parameters in a basic model</h2>
 <p>We start with a simple linear regression model with only one covariate, age, predicting SBP. In the NHANES data, the variable BPXSY1 contains the first recorded measurement of SBP for a subject, and RIDAGEYR is the subject’s age in years. The model that is fit in the next cell expresses the expected SBP as a linear function of age:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="linear-regression.html#cb314-1"></a>simple.fit =<span class="st"> </span><span class="kw">lm</span>(BPXSY1 <span class="op">~</span><span class="st"> </span>RIDAGEYR, <span class="dt">data=</span>df_subset)</span>
-<span id="cb314-2"><a href="linear-regression.html#cb314-2"></a></span>
-<span id="cb314-3"><a href="linear-regression.html#cb314-3"></a><span class="kw">summary</span>(simple.fit)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="linear-regression.html#cb307-1"></a>simple.fit =<span class="st"> </span><span class="kw">lm</span>(BPXSY1 <span class="op">~</span><span class="st"> </span>RIDAGEYR, <span class="dt">data=</span>df_subset)</span>
+<span id="cb307-2"><a href="linear-regression.html#cb307-2"></a></span>
+<span id="cb307-3"><a href="linear-regression.html#cb307-3"></a><span class="kw">summary</span>(simple.fit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = BPXSY1 ~ RIDAGEYR, data = df_subset)
@@ -528,7 +528,7 @@ pressure and age in this population.</p>
 <p>SBP is measured in units of <em>millimeters of mercury</em>, expressed
 <em>mm/Hg</em>. In order to better understand the meaning of the estimated
 regression parameter 0.48, we can look at the standard deviation of SBP:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="linear-regression.html#cb316-1"></a><span class="kw">sd</span>(df_subset<span class="op">$</span>BPXSY1)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="linear-regression.html#cb309-1"></a><span class="kw">sd</span>(df_subset<span class="op">$</span>BPXSY1)</span></code></pre></div>
 <pre><code>## [1] 18.48656</code></pre>
 <p>The standard deviation of around 18.5 is large compared to the
 regression slope of 0.48. However the regression slope corresponds to
@@ -550,7 +550,7 @@ shown to be <code>0.207</code> in the regression output above. This means that 2
 of the variation in SBP is explained by age. Note that this value is
 exactly the same as the squared Pearson correlation coefficient
 between SBP and age, as shown below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="linear-regression.html#cb318-1"></a><span class="kw">cor.test</span>(df_subset<span class="op">$</span>BPXSY1, df_subset<span class="op">$</span>RIDAGEYR)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="linear-regression.html#cb311-1"></a><span class="kw">cor.test</span>(df_subset<span class="op">$</span>BPXSY1, df_subset<span class="op">$</span>RIDAGEYR)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -562,8 +562,8 @@ between SBP and age, as shown below.</p>
 ## sample estimates:
 ##       cor 
 ## 0.4551424</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="linear-regression.html#cb320-1"></a><span class="kw">plot</span>(BPXSY1 <span class="op">~</span><span class="st"> </span>RIDAGEYR, <span class="dt">data =</span> df_subset)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="linear-regression.html#cb313-1"></a><span class="kw">plot</span>(BPXSY1 <span class="op">~</span><span class="st"> </span>RIDAGEYR, <span class="dt">data =</span> df_subset)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
 </div>
 </div>
 <div id="reference-1" class="section level2">
@@ -608,7 +608,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/31_11_R_linear_regression.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/31_R_linear_regression.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -487,11 +487,11 @@ Figure 9.1: Three modes of vi.
 </div>
 <div id="create-new-text-file-with-vi" class="section level2">
 <h2><span class="header-section-number">9.2</span> Create new text file with <code>vi</code></h2>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb147-1"><a href="text-editor-in-linux.html#cb147-1"></a><span class="fu">mkdir</span> test_vi  <span class="co">## generate a new folder</span></span>
-<span id="cb147-2"><a href="text-editor-in-linux.html#cb147-2"></a><span class="bu">cd</span> test_vi     <span class="co">## go into the new folder</span></span>
-<span id="cb147-3"><a href="text-editor-in-linux.html#cb147-3"></a><span class="bu">echo</span> <span class="st">&quot;Using </span><span class="dt">\`</span><span class="st">ls</span><span class="dt">\`</span><span class="st"> we don&#39;t expect files in this folder.&quot;</span></span>
-<span id="cb147-4"><a href="text-editor-in-linux.html#cb147-4"></a><span class="fu">ls</span> </span>
-<span id="cb147-5"><a href="text-editor-in-linux.html#cb147-5"></a><span class="bu">echo</span> <span class="st">&quot;No file displayed!&quot;</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb140-1"><a href="text-editor-in-linux.html#cb140-1"></a><span class="fu">mkdir</span> test_vi  <span class="co">## generate a new folder</span></span>
+<span id="cb140-2"><a href="text-editor-in-linux.html#cb140-2"></a><span class="bu">cd</span> test_vi     <span class="co">## go into the new folder</span></span>
+<span id="cb140-3"><a href="text-editor-in-linux.html#cb140-3"></a><span class="bu">echo</span> <span class="st">&quot;Using </span><span class="dt">\`</span><span class="st">ls</span><span class="dt">\`</span><span class="st"> we don&#39;t expect files in this folder.&quot;</span></span>
+<span id="cb140-4"><a href="text-editor-in-linux.html#cb140-4"></a><span class="fu">ls</span> </span>
+<span id="cb140-5"><a href="text-editor-in-linux.html#cb140-5"></a><span class="bu">echo</span> <span class="st">&quot;No file displayed!&quot;</span></span></code></pre></div>
 <pre><code>## Using `ls` we don&#39;t expect files in this folder.
 ## No file displayed!</code></pre>
 <p>Using the code above, we made a new directory named <code>test_vi</code>. We didn’t see any file.</p>
@@ -522,27 +522,27 @@ Figure 9.4: A screentshot of the <code>vi test.pl</code>.
 </div>
 <p>Once you are done typing. You need to go to <code>Command mode</code>(Figure <a href="text-editor-in-linux.html#fig:workingModeVi">9.1</a>) if you want to save and exit the file. To do this, you need to press <code>ESC</code> button on the keyboard.</p>
 <p>Now we just wrote a Perl script. We can run this script.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb150-1"><a href="text-editor-in-linux.html#cb150-1"></a></span>
-<span id="cb150-2"><a href="text-editor-in-linux.html#cb150-2"></a><span class="fu">perl</span> test.pl</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb143-1"><a href="text-editor-in-linux.html#cb143-1"></a></span>
+<span id="cb143-2"><a href="text-editor-in-linux.html#cb143-2"></a><span class="fu">perl</span> test.pl</span></code></pre></div>
 <pre><code>## Hello Bioinformatics World!</code></pre>
 </div>
 <div id="an-example-for-using-editor-r" class="section level2">
 <h2><span class="header-section-number">9.3</span> An example for using editor R</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="text-editor-in-linux.html#cb152-1"></a><span class="kw">qnorm</span>(.<span class="dv">975</span>)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="text-editor-in-linux.html#cb145-1"></a><span class="kw">qnorm</span>(.<span class="dv">975</span>)</span></code></pre></div>
 <pre><code>## [1] 1.959964</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="text-editor-in-linux.html#cb154-1"></a>xval&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="fl">3.2</span>,<span class="fl">3.2</span>, <span class="dt">length=</span><span class="dv">1000</span>)</span>
-<span id="cb154-2"><a href="text-editor-in-linux.html#cb154-2"></a>yval&lt;-<span class="kw">dnorm</span>(xval)</span>
-<span id="cb154-3"><a href="text-editor-in-linux.html#cb154-3"></a><span class="kw">plot</span>(xval, yval, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">axes=</span>T,<span class="dt">lwd=</span><span class="dv">3</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb154-4"><a href="text-editor-in-linux.html#cb154-4"></a>x&lt;-<span class="kw">seq</span>(<span class="kw">qnorm</span>(.<span class="dv">975</span>), <span class="fl">3.2</span>, <span class="dt">length =</span> <span class="dv">100</span>)</span>
-<span id="cb154-5"><a href="text-editor-in-linux.html#cb154-5"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x,<span class="kw">rev</span>(x)), <span class="kw">c</span>(<span class="kw">dnorm</span>(x), <span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">length</span>(x))), <span class="dt">col=</span><span class="st">&quot;salmon&quot;</span>)</span>
-<span id="cb154-6"><a href="text-editor-in-linux.html#cb154-6"></a><span class="kw">text</span>(<span class="kw">mean</span>(x),<span class="kw">mean</span>(<span class="kw">dnorm</span>(x))<span class="op">+</span><span class="fl">0.02</span>, <span class="st">&quot;2.5%&quot;</span>, <span class="dt">cex=</span><span class="dv">2</span>)</span>
-<span id="cb154-7"><a href="text-editor-in-linux.html#cb154-7"></a><span class="kw">text</span>(<span class="kw">qnorm</span>(.<span class="dv">95</span>), <span class="fl">0.01</span>, <span class="st">&quot;1.645&quot;</span>,<span class="dt">cex=</span><span class="dv">2</span>)</span>
-<span id="cb154-8"><a href="text-editor-in-linux.html#cb154-8"></a></span>
-<span id="cb154-9"><a href="text-editor-in-linux.html#cb154-9"></a>x&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="fl">3.2</span>, <span class="kw">qnorm</span>(.<span class="dv">025</span>), <span class="dt">length =</span><span class="dv">100</span>)</span>
-<span id="cb154-10"><a href="text-editor-in-linux.html#cb154-10"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x,<span class="kw">rev</span>(x)), <span class="kw">c</span>(<span class="kw">dnorm</span>(x), <span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">length</span>(x))), <span class="dt">col=</span><span class="st">&quot;salmon&quot;</span>)</span>
-<span id="cb154-11"><a href="text-editor-in-linux.html#cb154-11"></a><span class="kw">text</span>(<span class="kw">mean</span>(x),<span class="kw">mean</span>(<span class="kw">dnorm</span>(x))<span class="op">+</span><span class="fl">0.02</span>, <span class="st">&quot;2.5%&quot;</span>, <span class="dt">cex=</span><span class="dv">2</span>)</span>
-<span id="cb154-12"><a href="text-editor-in-linux.html#cb154-12"></a><span class="kw">text</span>(<span class="kw">qnorm</span>(.<span class="dv">025</span>), <span class="fl">0.01</span>, <span class="st">&quot;1.645&quot;</span>,<span class="dt">cex=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="text-editor-in-linux.html#cb147-1"></a>xval&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="fl">3.2</span>,<span class="fl">3.2</span>, <span class="dt">length=</span><span class="dv">1000</span>)</span>
+<span id="cb147-2"><a href="text-editor-in-linux.html#cb147-2"></a>yval&lt;-<span class="kw">dnorm</span>(xval)</span>
+<span id="cb147-3"><a href="text-editor-in-linux.html#cb147-3"></a><span class="kw">plot</span>(xval, yval, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>,<span class="dt">axes=</span>T,<span class="dt">lwd=</span><span class="dv">3</span>,<span class="dt">xlab=</span><span class="st">&quot;&quot;</span>,<span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb147-4"><a href="text-editor-in-linux.html#cb147-4"></a>x&lt;-<span class="kw">seq</span>(<span class="kw">qnorm</span>(.<span class="dv">975</span>), <span class="fl">3.2</span>, <span class="dt">length =</span> <span class="dv">100</span>)</span>
+<span id="cb147-5"><a href="text-editor-in-linux.html#cb147-5"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x,<span class="kw">rev</span>(x)), <span class="kw">c</span>(<span class="kw">dnorm</span>(x), <span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">length</span>(x))), <span class="dt">col=</span><span class="st">&quot;salmon&quot;</span>)</span>
+<span id="cb147-6"><a href="text-editor-in-linux.html#cb147-6"></a><span class="kw">text</span>(<span class="kw">mean</span>(x),<span class="kw">mean</span>(<span class="kw">dnorm</span>(x))<span class="op">+</span><span class="fl">0.02</span>, <span class="st">&quot;2.5%&quot;</span>, <span class="dt">cex=</span><span class="dv">2</span>)</span>
+<span id="cb147-7"><a href="text-editor-in-linux.html#cb147-7"></a><span class="kw">text</span>(<span class="kw">qnorm</span>(.<span class="dv">95</span>), <span class="fl">0.01</span>, <span class="st">&quot;1.645&quot;</span>,<span class="dt">cex=</span><span class="dv">2</span>)</span>
+<span id="cb147-8"><a href="text-editor-in-linux.html#cb147-8"></a></span>
+<span id="cb147-9"><a href="text-editor-in-linux.html#cb147-9"></a>x&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="fl">3.2</span>, <span class="kw">qnorm</span>(.<span class="dv">025</span>), <span class="dt">length =</span><span class="dv">100</span>)</span>
+<span id="cb147-10"><a href="text-editor-in-linux.html#cb147-10"></a><span class="kw">polygon</span>(<span class="kw">c</span>(x,<span class="kw">rev</span>(x)), <span class="kw">c</span>(<span class="kw">dnorm</span>(x), <span class="kw">rep</span>(<span class="dv">0</span>,<span class="kw">length</span>(x))), <span class="dt">col=</span><span class="st">&quot;salmon&quot;</span>)</span>
+<span id="cb147-11"><a href="text-editor-in-linux.html#cb147-11"></a><span class="kw">text</span>(<span class="kw">mean</span>(x),<span class="kw">mean</span>(<span class="kw">dnorm</span>(x))<span class="op">+</span><span class="fl">0.02</span>, <span class="st">&quot;2.5%&quot;</span>, <span class="dt">cex=</span><span class="dv">2</span>)</span>
+<span id="cb147-12"><a href="text-editor-in-linux.html#cb147-12"></a><span class="kw">text</span>(<span class="kw">qnorm</span>(.<span class="dv">025</span>), <span class="fl">0.01</span>, <span class="st">&quot;1.645&quot;</span>,<span class="dt">cex=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -585,7 +585,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/09_09_TextEditorInLinux.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/09_TextEditorInLinux.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -494,15 +494,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">7.1.1.2</span> Copying Files with <code>scp</code></h4>
 <p>The command <code>scp</code> is short for secure copy. It can be used to copy files between hosts on a network. It uses ssh(1) for data transfer, and uses the same authentication and provides the same security as ssh(1).<code>Scp</code> will ask for passwords or passphrases if they are needed for authentication.</p>
 <p>File names may contain a user and host specification to indicate that the file is to be copied to/from that host. Local file names can be made explicit using absolute or relative pathnames to avoid scp treating file names containing ‘:’ as host specifiers. Copies between two remote hosts are also permitted.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb135-1"><a href="file-transfer.html#cb135-1"></a><span class="co"># Copy the file test.pl on 198.211.107.37 to the current directory.</span></span>
-<span id="cb135-2"><a href="file-transfer.html#cb135-2"></a><span class="fu">scp</span> guest4bioinfor@198.211.107.37:~/test.pl ./</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb128-1"><a href="file-transfer.html#cb128-1"></a><span class="co"># Copy the file test.pl on 198.211.107.37 to the current directory.</span></span>
+<span id="cb128-2"><a href="file-transfer.html#cb128-2"></a><span class="fu">scp</span> guest4bioinfor@198.211.107.37:~/test.pl ./</span></code></pre></div>
 <p>To copy files from a server to a client, you need to know where the files are located on the server. For example, to copy a single file <code>~/test.pl</code> from the server with IP address of 198.211.107.37 to the current directory.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb136-1"><a href="file-transfer.html#cb136-1"></a><span class="co"># Copy the file test.pl in the current directory to  198.211.107.37</span></span>
-<span id="cb136-2"><a href="file-transfer.html#cb136-2"></a><span class="fu">scp</span> ./test.pl guest4bioinfor@198.211.107.37:~/</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb129-1"><a href="file-transfer.html#cb129-1"></a><span class="co"># Copy the file test.pl in the current directory to  198.211.107.37</span></span>
+<span id="cb129-2"><a href="file-transfer.html#cb129-2"></a><span class="fu">scp</span> ./test.pl guest4bioinfor@198.211.107.37:~/</span></code></pre></div>
 <p>To copy files from a client to a server, you need to know where the files you want to put on the server. For example, to copy a single file <code>test.pl</code> from the current folder to the HOME folder of the server with IP address of 198.211.107.37.</p>
 <p>If you want to copy an entire directory recursively, you can use <code>-r</code> argument. See the example below:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb137-1"><a href="file-transfer.html#cb137-1"></a><span class="co"># Copy the file test.pl in the current directory to  198.211.107.37</span></span>
-<span id="cb137-2"><a href="file-transfer.html#cb137-2"></a><span class="fu">scp</span> -r guest4bioinfor@198.211.107.37:~/bioinfo/ ./</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb130-1"><a href="file-transfer.html#cb130-1"></a><span class="co"># Copy the file test.pl in the current directory to  198.211.107.37</span></span>
+<span id="cb130-2"><a href="file-transfer.html#cb130-2"></a><span class="fu">scp</span> -r guest4bioinfor@198.211.107.37:~/bioinfo/ ./</span></code></pre></div>
 </div>
 </div>
 <div id="download-files" class="section level3">

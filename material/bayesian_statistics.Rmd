@@ -1,0 +1,44 @@
+---
+title: "Bayesian Statistics"
+author: ""
+date: "10/28/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r echo=FALSE}
+
+# https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
+list.of.packages <- c("statsr", "BAS", "ggplot2", "dplyr", "BayesFactor", "knitr", "rjags", "coda", "latex2exp", "foreign", "BHH2", "scales", "logspline", "cowplot", "ggthemes")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages, dependencies = T)
+
+source("https://bioconductor.org/biocLite.R")
+list.of.bioconductorpakg <- c("ropls")
+new.packages <- list.of.bioconductorpakg[!(list.of.bioconductorpakg %in% installed.packages()[,"Package"])]
+
+BiocInstaller::biocLite(new.packages, suppressUpdates=TRUE)
+```
+
+
+```{r}
+library(statsr)
+library(BAS)
+library(ggplot2)
+library(dplyr)
+library(BayesFactor)
+library(knitr)
+library(rjags)
+library(coda) 
+library(latex2exp)
+library(foreign)
+library(BHH2)
+library(scales)
+library(logspline)
+library(cowplot)
+library(ggthemes)
+```

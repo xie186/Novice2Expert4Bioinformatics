@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -473,14 +473,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">31.1</span> Add annotation information to DESeq2 results</h2>
 <p>Imaging we have a table that stores that differentially expressed genes information.</p>
 <p>It includes three columns (tab-delimited):</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb357-1"><a href="practical-perl-program.html#cb357-1"></a><span class="fu">cat</span> data/DEG_list.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb350-1"><a href="practical-perl-program.html#cb350-1"></a><span class="fu">cat</span> data/DEG_list.txt</span></code></pre></div>
 <pre><code>## #gene_id log2fc  p-val
 ## gene1    2   0.01
 ## gene2    3   0.04
 ## gene3    -2  0.06
 ## gene4    -8  0.001</code></pre>
 <p>We have another table which has the annotation information of each gene:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb359-1"><a href="practical-perl-program.html#cb359-1"></a><span class="fu">cat</span> data/gene_annotation.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb352-1"><a href="practical-perl-program.html#cb352-1"></a><span class="fu">cat</span> data/gene_annotation.txt</span></code></pre></div>
 <pre><code>## gene_id  gene_shortname
 ## gene1    ROS
 ## gene2    WRKY
@@ -492,45 +492,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="merge-overlap-genomic-regions" class="section level2">
 <h2><span class="header-section-number">31.2</span> Merge overlap genomic regions</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb361-1"><a href="practical-perl-program.html#cb361-1"></a><span class="kw">#!/usr/bin/perl -w</span></span>
-<span id="cb361-2"><a href="practical-perl-program.html#cb361-2"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb361-3"><a href="practical-perl-program.html#cb361-3"></a></span>
-<span id="cb361-4"><a href="practical-perl-program.html#cb361-4"></a><span class="kw">my</span> (<span class="dt">$DMR</span>, <span class="dt">$out</span>) = <span class="dt">@ARGV</span>;</span>
-<span id="cb361-5"><a href="practical-perl-program.html#cb361-5"></a></span>
-<span id="cb361-6"><a href="practical-perl-program.html#cb361-6"></a><span class="fu">open</span> DMR, <span class="dt">$DMR</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="st">File not found: </span><span class="dt">$!</span><span class="kw">&quot;</span>;</span>
-<span id="cb361-7"><a href="practical-perl-program.html#cb361-7"></a><span class="fu">open</span> OUT, <span class="kw">&quot;</span><span class="st">+&gt;</span><span class="dt">$out</span><span class="kw">&quot;</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="dt">$!</span><span class="kw">&quot;</span>;</span>
-<span id="cb361-8"><a href="practical-perl-program.html#cb361-8"></a></span>
-<span id="cb361-9"><a href="practical-perl-program.html#cb361-9"></a><span class="co">#read  a  line,</span></span>
-<span id="cb361-10"><a href="practical-perl-program.html#cb361-10"></a><span class="co"># go to next line</span></span>
-<span id="cb361-11"><a href="practical-perl-program.html#cb361-11"></a><span class="co">#     check overlap</span></span>
-<span id="cb361-12"><a href="practical-perl-program.html#cb361-12"></a><span class="co">#      if overlap: merge two regions. Then go to the next line.</span></span>
-<span id="cb361-13"><a href="practical-perl-program.html#cb361-13"></a><span class="co">#      if not overlap: print whatever we have now; then start from a line</span></span>
-<span id="cb361-14"><a href="practical-perl-program.html#cb361-14"></a><span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$region</span> = <span class="kw">&lt;DMR&gt;</span>){</span>
-<span id="cb361-15"><a href="practical-perl-program.html#cb361-15"></a>    <span class="fu">chomp</span> <span class="dt">$region</span>;</span>
-<span id="cb361-16"><a href="practical-perl-program.html#cb361-16"></a>    <span class="kw">my</span> (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$region</span>);</span>
-<span id="cb361-17"><a href="practical-perl-program.html#cb361-17"></a>    BLOCK:{</span>
-<span id="cb361-18"><a href="practical-perl-program.html#cb361-18"></a>        <span class="kw">my</span> <span class="dt">$new_region</span> = <span class="kw">&lt;DMR&gt;</span>;</span>
-<span id="cb361-19"><a href="practical-perl-program.html#cb361-19"></a></span>
-<span id="cb361-20"><a href="practical-perl-program.html#cb361-20"></a>        <span class="kw">if</span>(!<span class="dt">$new_region</span>){</span>
-<span id="cb361-21"><a href="practical-perl-program.html#cb361-21"></a>            <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb361-22"><a href="practical-perl-program.html#cb361-22"></a>        }<span class="kw">else</span>{</span>
-<span id="cb361-23"><a href="practical-perl-program.html#cb361-23"></a>            <span class="fu">chomp</span> <span class="dt">$new_region</span>;</span>
-<span id="cb361-24"><a href="practical-perl-program.html#cb361-24"></a>            <span class="kw">my</span> (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$new_region</span>);</span>
-<span id="cb361-25"><a href="practical-perl-program.html#cb361-25"></a>             <span class="co">## start1===============end1</span></span>
-<span id="cb361-26"><a href="practical-perl-program.html#cb361-26"></a>             <span class="co">##           start2=====================end2</span></span>
-<span id="cb361-27"><a href="practical-perl-program.html#cb361-27"></a>             <span class="co">## start1===============================new_end1</span></span>
-<span id="cb361-28"><a href="practical-perl-program.html#cb361-28"></a>            <span class="kw">if</span>(<span class="dt">$chrom2</span> <span class="kw">eq</span> <span class="dt">$chrom1</span> &amp;&amp; <span class="dt">$start2</span> &gt;= <span class="dt">$start1</span> &amp;&amp; <span class="dt">$start2</span> &lt;=<span class="dt">$end1</span>){</span>
-<span id="cb361-29"><a href="practical-perl-program.html#cb361-29"></a>                <span class="dt">$end1</span> = <span class="dt">$end2</span>;</span>
-<span id="cb361-30"><a href="practical-perl-program.html#cb361-30"></a>                <span class="fu">redo</span> BLOCK;</span>
-<span id="cb361-31"><a href="practical-perl-program.html#cb361-31"></a>            }<span class="kw">else</span>{</span>
-<span id="cb361-32"><a href="practical-perl-program.html#cb361-32"></a>                <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb361-33"><a href="practical-perl-program.html#cb361-33"></a>                (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>);</span>
-<span id="cb361-34"><a href="practical-perl-program.html#cb361-34"></a>                <span class="fu">redo</span> BLOCK;</span>
-<span id="cb361-35"><a href="practical-perl-program.html#cb361-35"></a>            }</span>
-<span id="cb361-36"><a href="practical-perl-program.html#cb361-36"></a>        }</span>
-<span id="cb361-37"><a href="practical-perl-program.html#cb361-37"></a>    }</span>
-<span id="cb361-38"><a href="practical-perl-program.html#cb361-38"></a>}</span></code></pre></div>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb362-1"><a href="practical-perl-program.html#cb362-1"></a><span class="fu">cat</span> data/DMR_region.txt</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb354-1"><a href="practical-perl-program.html#cb354-1"></a><span class="kw">#!/usr/bin/perl -w</span></span>
+<span id="cb354-2"><a href="practical-perl-program.html#cb354-2"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb354-3"><a href="practical-perl-program.html#cb354-3"></a></span>
+<span id="cb354-4"><a href="practical-perl-program.html#cb354-4"></a><span class="kw">my</span> (<span class="dt">$DMR</span>, <span class="dt">$out</span>) = <span class="dt">@ARGV</span>;</span>
+<span id="cb354-5"><a href="practical-perl-program.html#cb354-5"></a></span>
+<span id="cb354-6"><a href="practical-perl-program.html#cb354-6"></a><span class="fu">open</span> DMR, <span class="dt">$DMR</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="st">File not found: </span><span class="dt">$!</span><span class="kw">&quot;</span>;</span>
+<span id="cb354-7"><a href="practical-perl-program.html#cb354-7"></a><span class="fu">open</span> OUT, <span class="kw">&quot;</span><span class="st">+&gt;</span><span class="dt">$out</span><span class="kw">&quot;</span> <span class="kw">or</span> <span class="fu">die</span> <span class="kw">&quot;</span><span class="dt">$!</span><span class="kw">&quot;</span>;</span>
+<span id="cb354-8"><a href="practical-perl-program.html#cb354-8"></a></span>
+<span id="cb354-9"><a href="practical-perl-program.html#cb354-9"></a><span class="co">#read  a  line,</span></span>
+<span id="cb354-10"><a href="practical-perl-program.html#cb354-10"></a><span class="co"># go to next line</span></span>
+<span id="cb354-11"><a href="practical-perl-program.html#cb354-11"></a><span class="co">#     check overlap</span></span>
+<span id="cb354-12"><a href="practical-perl-program.html#cb354-12"></a><span class="co">#      if overlap: merge two regions. Then go to the next line.</span></span>
+<span id="cb354-13"><a href="practical-perl-program.html#cb354-13"></a><span class="co">#      if not overlap: print whatever we have now; then start from a line</span></span>
+<span id="cb354-14"><a href="practical-perl-program.html#cb354-14"></a><span class="kw">while</span>(<span class="kw">my</span> <span class="dt">$region</span> = <span class="kw">&lt;DMR&gt;</span>){</span>
+<span id="cb354-15"><a href="practical-perl-program.html#cb354-15"></a>    <span class="fu">chomp</span> <span class="dt">$region</span>;</span>
+<span id="cb354-16"><a href="practical-perl-program.html#cb354-16"></a>    <span class="kw">my</span> (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$region</span>);</span>
+<span id="cb354-17"><a href="practical-perl-program.html#cb354-17"></a>    BLOCK:{</span>
+<span id="cb354-18"><a href="practical-perl-program.html#cb354-18"></a>        <span class="kw">my</span> <span class="dt">$new_region</span> = <span class="kw">&lt;DMR&gt;</span>;</span>
+<span id="cb354-19"><a href="practical-perl-program.html#cb354-19"></a></span>
+<span id="cb354-20"><a href="practical-perl-program.html#cb354-20"></a>        <span class="kw">if</span>(!<span class="dt">$new_region</span>){</span>
+<span id="cb354-21"><a href="practical-perl-program.html#cb354-21"></a>            <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb354-22"><a href="practical-perl-program.html#cb354-22"></a>        }<span class="kw">else</span>{</span>
+<span id="cb354-23"><a href="practical-perl-program.html#cb354-23"></a>            <span class="fu">chomp</span> <span class="dt">$new_region</span>;</span>
+<span id="cb354-24"><a href="practical-perl-program.html#cb354-24"></a>            <span class="kw">my</span> (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>) = <span class="fu">split</span>(<span class="kw">/</span><span class="ot">\t</span><span class="kw">/</span>, <span class="dt">$new_region</span>);</span>
+<span id="cb354-25"><a href="practical-perl-program.html#cb354-25"></a>             <span class="co">## start1===============end1</span></span>
+<span id="cb354-26"><a href="practical-perl-program.html#cb354-26"></a>             <span class="co">##           start2=====================end2</span></span>
+<span id="cb354-27"><a href="practical-perl-program.html#cb354-27"></a>             <span class="co">## start1===============================new_end1</span></span>
+<span id="cb354-28"><a href="practical-perl-program.html#cb354-28"></a>            <span class="kw">if</span>(<span class="dt">$chrom2</span> <span class="kw">eq</span> <span class="dt">$chrom1</span> &amp;&amp; <span class="dt">$start2</span> &gt;= <span class="dt">$start1</span> &amp;&amp; <span class="dt">$start2</span> &lt;=<span class="dt">$end1</span>){</span>
+<span id="cb354-29"><a href="practical-perl-program.html#cb354-29"></a>                <span class="dt">$end1</span> = <span class="dt">$end2</span>;</span>
+<span id="cb354-30"><a href="practical-perl-program.html#cb354-30"></a>                <span class="fu">redo</span> BLOCK;</span>
+<span id="cb354-31"><a href="practical-perl-program.html#cb354-31"></a>            }<span class="kw">else</span>{</span>
+<span id="cb354-32"><a href="practical-perl-program.html#cb354-32"></a>                <span class="fu">print</span> OUT <span class="kw">&quot;</span><span class="dt">$chrom1</span><span class="ch">\t</span><span class="dt">$start1</span><span class="ch">\t</span><span class="dt">$end1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb354-33"><a href="practical-perl-program.html#cb354-33"></a>                (<span class="dt">$chrom1</span>, <span class="dt">$start1</span>, <span class="dt">$end1</span>) = (<span class="dt">$chrom2</span>, <span class="dt">$start2</span>, <span class="dt">$end2</span>);</span>
+<span id="cb354-34"><a href="practical-perl-program.html#cb354-34"></a>                <span class="fu">redo</span> BLOCK;</span>
+<span id="cb354-35"><a href="practical-perl-program.html#cb354-35"></a>            }</span>
+<span id="cb354-36"><a href="practical-perl-program.html#cb354-36"></a>        }</span>
+<span id="cb354-37"><a href="practical-perl-program.html#cb354-37"></a>    }</span>
+<span id="cb354-38"><a href="practical-perl-program.html#cb354-38"></a>}</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb355-1"><a href="practical-perl-program.html#cb355-1"></a><span class="fu">cat</span> data/DMR_region.txt</span></code></pre></div>
 <pre><code>## chr1 100 200
 ## chr1 150 250
 ## chr1 200 300
@@ -539,8 +539,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## chr2 300 800
 ## chr2 400 1000
 ## chr3 500 1000</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb364-1"><a href="practical-perl-program.html#cb364-1"></a><span class="fu">perl</span> code_perl/genomic_coordinate_merge.pl  data/DMR_region.txt  data/DMR_region_merged.txt </span>
-<span id="cb364-2"><a href="practical-perl-program.html#cb364-2"></a><span class="fu">cat</span> data/DMR_region_merged.txt </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb357-1"><a href="practical-perl-program.html#cb357-1"></a><span class="fu">perl</span> code_perl/genomic_coordinate_merge.pl  data/DMR_region.txt  data/DMR_region_merged.txt </span>
+<span id="cb357-2"><a href="practical-perl-program.html#cb357-2"></a><span class="fu">cat</span> data/DMR_region_merged.txt </span></code></pre></div>
 <pre><code>## chr1 100 300
 ## chr1 500 650
 ## chr2 300 1000
@@ -584,7 +584,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/35_16_practicalPerlProgram.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/35_practicalPerlProgram.Rmd",
 "text": "Edit"
 },
 "history": {

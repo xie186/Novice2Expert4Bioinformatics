@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -474,27 +474,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">13.1</span> Basic R function</h2>
 <p><code>Data structures</code> are variables with informaton stored in. R operates on these data structures. Numberic vector is a single entity consisting of a collection of numbers.</p>
 <p><code>&lt;-</code> is call assignment operator.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="r-introduction.html#cb172-1"></a><span class="co"># semi-colon (‘;’) can be removed:</span></span>
-<span id="cb172-2"><a href="r-introduction.html#cb172-2"></a>gene1_count &lt;-<span class="st"> </span><span class="dv">100</span>;  </span>
-<span id="cb172-3"><a href="r-introduction.html#cb172-3"></a>gene1_count</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="r-introduction.html#cb165-1"></a><span class="co"># semi-colon (‘;’) can be removed:</span></span>
+<span id="cb165-2"><a href="r-introduction.html#cb165-2"></a>gene1_count &lt;-<span class="st"> </span><span class="dv">100</span>;  </span>
+<span id="cb165-3"><a href="r-introduction.html#cb165-3"></a>gene1_count</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="r-introduction.html#cb174-1"></a><span class="kw">class</span>(gene1_count)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="r-introduction.html#cb167-1"></a><span class="kw">class</span>(gene1_count)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="r-introduction.html#cb176-1"></a>gene1_count &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>)</span>
-<span id="cb176-2"><a href="r-introduction.html#cb176-2"></a>gene1_count</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="r-introduction.html#cb169-1"></a>gene1_count &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>)</span>
+<span id="cb169-2"><a href="r-introduction.html#cb169-2"></a>gene1_count</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="r-introduction.html#cb178-1"></a><span class="kw">class</span>(gene1_count)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="r-introduction.html#cb171-1"></a><span class="kw">class</span>(gene1_count)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <p>A semi-colon (<code>;</code>) or a newline are used to separate commands</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="r-introduction.html#cb180-1"></a>gene_counts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>)</span>
-<span id="cb180-2"><a href="r-introduction.html#cb180-2"></a>gene_counts</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="r-introduction.html#cb173-1"></a>gene_counts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">200</span>)</span>
+<span id="cb173-2"><a href="r-introduction.html#cb173-2"></a>gene_counts</span></code></pre></div>
 <pre><code>## [1]   5   6 100 100 200</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="r-introduction.html#cb182-1"></a><span class="kw">class</span>(gene_counts)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="r-introduction.html#cb175-1"></a><span class="kw">class</span>(gene_counts)</span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="r-introduction.html#cb184-1"></a>gene1_info &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>, <span class="st">&quot;TF&quot;</span>)</span>
-<span id="cb184-2"><a href="r-introduction.html#cb184-2"></a>gene1_info</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="r-introduction.html#cb177-1"></a>gene1_info &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>, <span class="st">&quot;TF&quot;</span>)</span>
+<span id="cb177-2"><a href="r-introduction.html#cb177-2"></a>gene1_info</span></code></pre></div>
 <pre><code>## [1] &quot;6&quot;  &quot;TF&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="r-introduction.html#cb186-1"></a><span class="kw">class</span>(gene1_info)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="r-introduction.html#cb179-1"></a><span class="kw">class</span>(gene1_info)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 </div>
 <div id="producing-simple-graphs-with-r" class="section level2">
@@ -502,46 +502,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The credit of this section goes to Dr. Frank McCown (<span class="citation">Frank McCown (<a href="#ref-simpleGraphR" role="doc-biblioref">2006</a>)</span>).</p>
 <div id="line-charts" class="section level3">
 <h3><span class="header-section-number">13.2.1</span> Line Charts</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="r-introduction.html#cb188-1"></a><span class="co"># Define the gene_expr_level vector with 5 values</span></span>
-<span id="cb188-2"><a href="r-introduction.html#cb188-2"></a>gene_expr_level &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">120</span>)</span>
-<span id="cb188-3"><a href="r-introduction.html#cb188-3"></a></span>
-<span id="cb188-4"><a href="r-introduction.html#cb188-4"></a><span class="co"># Graph the gene_expr_fpkm vector with all defaults</span></span>
-<span id="cb188-5"><a href="r-introduction.html#cb188-5"></a><span class="kw">plot</span>(gene_expr_level)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="r-introduction.html#cb181-1"></a><span class="co"># Define the gene_expr_level vector with 5 values</span></span>
+<span id="cb181-2"><a href="r-introduction.html#cb181-2"></a>gene_expr_level &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">120</span>)</span>
+<span id="cb181-3"><a href="r-introduction.html#cb181-3"></a></span>
+<span id="cb181-4"><a href="r-introduction.html#cb181-4"></a><span class="co"># Graph the gene_expr_fpkm vector with all defaults</span></span>
+<span id="cb181-5"><a href="r-introduction.html#cb181-5"></a><span class="kw">plot</span>(gene_expr_level)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <p>Let’s add a title, a line to connect the points, and some color:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="r-introduction.html#cb189-1"></a><span class="co"># Define the gene_expr_level vector with 5 values</span></span>
-<span id="cb189-2"><a href="r-introduction.html#cb189-2"></a>geneX_expr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">120</span>)</span>
-<span id="cb189-3"><a href="r-introduction.html#cb189-3"></a></span>
-<span id="cb189-4"><a href="r-introduction.html#cb189-4"></a><span class="co"># Graph cars using blue points overlayed by a line </span></span>
-<span id="cb189-5"><a href="r-introduction.html#cb189-5"></a><span class="kw">plot</span>(geneX_expr, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb189-6"><a href="r-introduction.html#cb189-6"></a></span>
-<span id="cb189-7"><a href="r-introduction.html#cb189-7"></a><span class="co"># Create a title with a red, bold/italic font</span></span>
-<span id="cb189-8"><a href="r-introduction.html#cb189-8"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;GeneX&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="r-introduction.html#cb182-1"></a><span class="co"># Define the gene_expr_level vector with 5 values</span></span>
+<span id="cb182-2"><a href="r-introduction.html#cb182-2"></a>geneX_expr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">120</span>)</span>
+<span id="cb182-3"><a href="r-introduction.html#cb182-3"></a></span>
+<span id="cb182-4"><a href="r-introduction.html#cb182-4"></a><span class="co"># Graph cars using blue points overlayed by a line </span></span>
+<span id="cb182-5"><a href="r-introduction.html#cb182-5"></a><span class="kw">plot</span>(geneX_expr, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb182-6"><a href="r-introduction.html#cb182-6"></a></span>
+<span id="cb182-7"><a href="r-introduction.html#cb182-7"></a><span class="co"># Create a title with a red, bold/italic font</span></span>
+<span id="cb182-8"><a href="r-introduction.html#cb182-8"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;GeneX&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <p>Now let’s add a red line for trucks and specify the y-axis range directly so it will be large enough to fit the truck data:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r-introduction.html#cb190-1"></a><span class="co"># Define the gene_expr_level vector with 5 values</span></span>
-<span id="cb190-2"><a href="r-introduction.html#cb190-2"></a>geneX_expr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">120</span>)</span>
-<span id="cb190-3"><a href="r-introduction.html#cb190-3"></a>geneY_expr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">300</span>, <span class="dv">280</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">12</span>)</span>
-<span id="cb190-4"><a href="r-introduction.html#cb190-4"></a></span>
-<span id="cb190-5"><a href="r-introduction.html#cb190-5"></a><span class="co"># Graph cars using blue points overlayed by a line </span></span>
-<span id="cb190-6"><a href="r-introduction.html#cb190-6"></a><span class="kw">plot</span>(geneX_expr, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))</span>
-<span id="cb190-7"><a href="r-introduction.html#cb190-7"></a><span class="co"># Graph trucks with red dashed line and square points</span></span>
-<span id="cb190-8"><a href="r-introduction.html#cb190-8"></a><span class="kw">lines</span>(geneY_expr, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">22</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
-<span id="cb190-9"><a href="r-introduction.html#cb190-9"></a><span class="co"># Create a title with a red, bold/italic font</span></span>
-<span id="cb190-10"><a href="r-introduction.html#cb190-10"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Gene expresion level&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="r-introduction.html#cb183-1"></a><span class="co"># Define the gene_expr_level vector with 5 values</span></span>
+<span id="cb183-2"><a href="r-introduction.html#cb183-2"></a>geneX_expr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">100</span>, <span class="dv">120</span>)</span>
+<span id="cb183-3"><a href="r-introduction.html#cb183-3"></a>geneY_expr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">300</span>, <span class="dv">280</span>, <span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">12</span>)</span>
+<span id="cb183-4"><a href="r-introduction.html#cb183-4"></a></span>
+<span id="cb183-5"><a href="r-introduction.html#cb183-5"></a><span class="co"># Graph cars using blue points overlayed by a line </span></span>
+<span id="cb183-6"><a href="r-introduction.html#cb183-6"></a><span class="kw">plot</span>(geneX_expr, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))</span>
+<span id="cb183-7"><a href="r-introduction.html#cb183-7"></a><span class="co"># Graph trucks with red dashed line and square points</span></span>
+<span id="cb183-8"><a href="r-introduction.html#cb183-8"></a><span class="kw">lines</span>(geneY_expr, <span class="dt">type=</span><span class="st">&quot;o&quot;</span>, <span class="dt">pch=</span><span class="dv">22</span>, <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb183-9"><a href="r-introduction.html#cb183-9"></a><span class="co"># Create a title with a red, bold/italic font</span></span>
+<span id="cb183-10"><a href="r-introduction.html#cb183-10"></a><span class="kw">title</span>(<span class="dt">main=</span><span class="st">&quot;Gene expresion level&quot;</span>, <span class="dt">col.main=</span><span class="st">&quot;red&quot;</span>, <span class="dt">font.main=</span><span class="dv">4</span>)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 </div>
 </div>
 <div id="xxx" class="section level2">
 <h2><span class="header-section-number">13.3</span> XXX</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="r-introduction.html#cb191-1"></a>fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb191-2"><a href="r-introduction.html#cb191-2"></a>fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span> </span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="r-introduction.html#cb184-1"></a>fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb184-2"><a href="r-introduction.html#cb184-2"></a>fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span> </span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="r-introduction.html#cb193-1"></a>fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb193-2"><a href="r-introduction.html#cb193-2"></a><span class="kw">which</span>(fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span>)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="r-introduction.html#cb186-1"></a>fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb186-2"><a href="r-introduction.html#cb186-2"></a><span class="kw">which</span>(fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 1 2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="r-introduction.html#cb195-1"></a>fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)</span>
-<span id="cb195-2"><a href="r-introduction.html#cb195-2"></a><span class="kw">which</span>(fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span> <span class="op">|</span><span class="st"> </span>fruit <span class="op">==</span><span class="st"> &quot;pear&quot;</span>)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="r-introduction.html#cb188-1"></a>fruit =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;apple&quot;</span>, <span class="st">&quot;pear&quot;</span>, <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb188-2"><a href="r-introduction.html#cb188-2"></a><span class="kw">which</span>(fruit <span class="op">==</span><span class="st"> &quot;apple&quot;</span> <span class="op">|</span><span class="st"> </span>fruit <span class="op">==</span><span class="st"> &quot;pear&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 </div>
 <div id="logic-and" class="section level2">
@@ -554,10 +554,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="list-as-dictionary" class="section level2">
 <h2><span class="header-section-number">13.5</span> List as dictionary</h2>
 <p>the list type is a good approximation. You can use names() on your list to set and retrieve the ‘keys’:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="r-introduction.html#cb197-1"></a>foo &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;list&quot;</span>, <span class="dt">length=</span><span class="dv">3</span>)</span>
-<span id="cb197-2"><a href="r-introduction.html#cb197-2"></a><span class="kw">names</span>(foo) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tic&quot;</span>, <span class="st">&quot;tac&quot;</span>, <span class="st">&quot;toe&quot;</span>)</span>
-<span id="cb197-3"><a href="r-introduction.html#cb197-3"></a>foo[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="dv">12</span>; foo[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="dv">22</span>; foo[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="dv">33</span></span>
-<span id="cb197-4"><a href="r-introduction.html#cb197-4"></a>foo</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="r-introduction.html#cb190-1"></a>foo &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="dt">mode=</span><span class="st">&quot;list&quot;</span>, <span class="dt">length=</span><span class="dv">3</span>)</span>
+<span id="cb190-2"><a href="r-introduction.html#cb190-2"></a><span class="kw">names</span>(foo) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;tic&quot;</span>, <span class="st">&quot;tac&quot;</span>, <span class="st">&quot;toe&quot;</span>)</span>
+<span id="cb190-3"><a href="r-introduction.html#cb190-3"></a>foo[[<span class="dv">1</span>]] &lt;-<span class="st"> </span><span class="dv">12</span>; foo[[<span class="dv">2</span>]] &lt;-<span class="st"> </span><span class="dv">22</span>; foo[[<span class="dv">3</span>]] &lt;-<span class="st"> </span><span class="dv">33</span></span>
+<span id="cb190-4"><a href="r-introduction.html#cb190-4"></a>foo</span></code></pre></div>
 <pre><code>## $tic
 ## [1] 12
 ## 
@@ -566,7 +566,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## $toe
 ## [1] 33</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="r-introduction.html#cb199-1"></a><span class="kw">names</span>(foo)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="r-introduction.html#cb192-1"></a><span class="kw">names</span>(foo)</span></code></pre></div>
 <pre><code>## [1] &quot;tic&quot; &quot;tac&quot; &quot;toe&quot;</code></pre>
 </div>
 <div id="parsing-arguments-as-string" class="section level2">
@@ -576,11 +576,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="how-to-access-data-frame-column-using-variable" class="section level3">
 <h3><span class="header-section-number">13.6.2</span> How to access data frame column using variable</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="r-introduction.html#cb201-1"></a>a =<span class="st"> &quot;col1&quot;</span></span>
-<span id="cb201-2"><a href="r-introduction.html#cb201-2"></a>b =<span class="st"> &quot;col2&quot;</span></span>
-<span id="cb201-3"><a href="r-introduction.html#cb201-3"></a>d =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">b=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span>
-<span id="cb201-4"><a href="r-introduction.html#cb201-4"></a><span class="kw">colnames</span>(d) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;col1&quot;</span>, <span class="st">&quot;col2&quot;</span>)</span>
-<span id="cb201-5"><a href="r-introduction.html#cb201-5"></a>d[[a]]</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="r-introduction.html#cb194-1"></a>a =<span class="st"> &quot;col1&quot;</span></span>
+<span id="cb194-2"><a href="r-introduction.html#cb194-2"></a>b =<span class="st"> &quot;col2&quot;</span></span>
+<span id="cb194-3"><a href="r-introduction.html#cb194-3"></a>d =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="dt">b=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>))</span>
+<span id="cb194-4"><a href="r-introduction.html#cb194-4"></a><span class="kw">colnames</span>(d) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;col1&quot;</span>, <span class="st">&quot;col2&quot;</span>)</span>
+<span id="cb194-5"><a href="r-introduction.html#cb194-5"></a>d[[a]]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <p>This is useful when you parse a variable from the command line</p>
 </div>
@@ -588,12 +588,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">13.6.3</span> How to create a formula from a</h3>
 <p>It can be useful to create a formula from a string. This often occurs in functions where the formula arguments are passed in as strings.</p>
 <p>It can be useful to create a formula from a string. This often occurs in functions where the formula arguments are passed in as strings.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="r-introduction.html#cb203-1"></a>design1 =<span class="st"> &quot;diet&quot;</span></span>
-<span id="cb203-2"><a href="r-introduction.html#cb203-2"></a>design2 =<span class="st"> &quot;age&quot;</span></span>
-<span id="cb203-3"><a href="r-introduction.html#cb203-3"></a><span class="co">## `~ diet + age`</span></span>
-<span id="cb203-4"><a href="r-introduction.html#cb203-4"></a><span class="kw">as.formula</span>(<span class="kw">paste0</span>(<span class="st">&quot;~ &quot;</span> , design1, <span class="st">&quot; + &quot;</span>, design2))</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="r-introduction.html#cb196-1"></a>design1 =<span class="st"> &quot;diet&quot;</span></span>
+<span id="cb196-2"><a href="r-introduction.html#cb196-2"></a>design2 =<span class="st"> &quot;age&quot;</span></span>
+<span id="cb196-3"><a href="r-introduction.html#cb196-3"></a><span class="co">## `~ diet + age`</span></span>
+<span id="cb196-4"><a href="r-introduction.html#cb196-4"></a><span class="kw">as.formula</span>(<span class="kw">paste0</span>(<span class="st">&quot;~ &quot;</span> , design1, <span class="st">&quot; + &quot;</span>, design2))</span></code></pre></div>
 <pre><code>## ~diet + age</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="r-introduction.html#cb205-1"></a><span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="st">&#39;code_R/parse_aug_as.formula.R&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="r-introduction.html#cb198-1"></a><span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="st">&#39;code_R/parse_aug_as.formula.R&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
 <pre><code>argv &lt;- commandArgs(trailingOnly = T)
 
 level1 &lt;- argv[1]
@@ -605,7 +605,7 @@ level2 &lt;- argv[2]
 d &lt;- data.frame(level1 = factor(1:4), level2 = 1:4)
 colnames(d)&lt;-c(level1, level2)
 summary(d)</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb207-1"><a href="r-introduction.html#cb207-1"></a><span class="ex">/opt/R/3.5.3/lib/R/bin/Rscript</span> code_R/parse_aug_as.formula.R time Time</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb200-1"><a href="r-introduction.html#cb200-1"></a><span class="ex">/opt/R/3.5.3/lib/R/bin/Rscript</span> code_R/parse_aug_as.formula.R time Time</span></code></pre></div>
 <pre><code>##  time       Time     
 ##  1:1   Min.   :1.00  
 ##  2:1   1st Qu.:1.75  
@@ -659,7 +659,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/16_18_R_intro.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/16_R_intro.Rmd",
 "text": "Edit"
 },
 "history": {

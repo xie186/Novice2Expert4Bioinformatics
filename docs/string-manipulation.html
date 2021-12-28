@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -472,20 +472,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="string-concatenation" class="section level2">
 <h2><span class="header-section-number">29.1</span> String concatenation</h2>
 <p>Dot (<code>.</code>) can be used to concatenate two strings together.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb330-1"><a href="string-manipulation.html#cb330-1"></a><span class="co"># concatenate two strings together and assing to $z</span></span>
-<span id="cb330-2"><a href="string-manipulation.html#cb330-2"></a><span class="dt">$z</span> = <span class="dt">$x</span> . <span class="dt">$y</span>;</span>
-<span id="cb330-3"><a href="string-manipulation.html#cb330-3"></a><span class="co"># Append $y to $x</span></span>
-<span id="cb330-4"><a href="string-manipulation.html#cb330-4"></a><span class="dt">$x</span> = <span class="dt">$x</span> . <span class="dt">$y</span>;</span>
-<span id="cb330-5"><a href="string-manipulation.html#cb330-5"></a><span class="co"># Append $y to $x</span></span>
-<span id="cb330-6"><a href="string-manipulation.html#cb330-6"></a><span class="dt">$x</span> .= <span class="dt">$y</span>;</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb323-1"><a href="string-manipulation.html#cb323-1"></a><span class="co"># concatenate two strings together and assing to $z</span></span>
+<span id="cb323-2"><a href="string-manipulation.html#cb323-2"></a><span class="dt">$z</span> = <span class="dt">$x</span> . <span class="dt">$y</span>;</span>
+<span id="cb323-3"><a href="string-manipulation.html#cb323-3"></a><span class="co"># Append $y to $x</span></span>
+<span id="cb323-4"><a href="string-manipulation.html#cb323-4"></a><span class="dt">$x</span> = <span class="dt">$x</span> . <span class="dt">$y</span>;</span>
+<span id="cb323-5"><a href="string-manipulation.html#cb323-5"></a><span class="co"># Append $y to $x</span></span>
+<span id="cb323-6"><a href="string-manipulation.html#cb323-6"></a><span class="dt">$x</span> .= <span class="dt">$y</span>;</span></code></pre></div>
 <p>A more convenient way is to use operator <code>.=</code> to append one variable to another.</p>
 <p>As is any other assignments in Perl, if you see an assignment written this way <code>$x = $x</code> op expr, where op stands for any operator and expr stands for the rest of the statement, you can make a shorter version by moving the op to the front of the assignment, e.g., <code>$x op= expr</code>. The string concatenation operator <code>.</code> is just one possible op among many others such as <code>+</code>, <code>-</code>, <code>*</code> and <code>/</code>.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb331-1"><a href="string-manipulation.html#cb331-1"></a><span class="kw">my</span> <span class="dt">$x</span> = <span class="dv">5</span>;</span>
-<span id="cb331-2"><a href="string-manipulation.html#cb331-2"></a><span class="kw">my</span> <span class="dt">$y</span> = <span class="dv">6</span>;</span>
-<span id="cb331-3"><a href="string-manipulation.html#cb331-3"></a><span class="co"># Add $y to $x</span></span>
-<span id="cb331-4"><a href="string-manipulation.html#cb331-4"></a><span class="dt">$x</span> = <span class="dt">$x</span> + <span class="dt">$y</span>;</span>
-<span id="cb331-5"><a href="string-manipulation.html#cb331-5"></a><span class="co"># Add $y to $x</span></span>
-<span id="cb331-6"><a href="string-manipulation.html#cb331-6"></a><span class="dt">$x</span> += <span class="dt">$y</span>;</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb324-1"><a href="string-manipulation.html#cb324-1"></a><span class="kw">my</span> <span class="dt">$x</span> = <span class="dv">5</span>;</span>
+<span id="cb324-2"><a href="string-manipulation.html#cb324-2"></a><span class="kw">my</span> <span class="dt">$y</span> = <span class="dv">6</span>;</span>
+<span id="cb324-3"><a href="string-manipulation.html#cb324-3"></a><span class="co"># Add $y to $x</span></span>
+<span id="cb324-4"><a href="string-manipulation.html#cb324-4"></a><span class="dt">$x</span> = <span class="dt">$x</span> + <span class="dt">$y</span>;</span>
+<span id="cb324-5"><a href="string-manipulation.html#cb324-5"></a><span class="co"># Add $y to $x</span></span>
+<span id="cb324-6"><a href="string-manipulation.html#cb324-6"></a><span class="dt">$x</span> += <span class="dt">$y</span>;</span></code></pre></div>
 </div>
 <div id="substring-extraction" class="section level2">
 <h2><span class="header-section-number">29.2</span> Substring extraction</h2>
@@ -514,14 +514,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">29.5.1</span> Pattern matching</h3>
 <p>In Perl, <code>m//</code> is used to match a string (could be sequence in Bioinformatics) to a regular expression. For example, to match a mRNA sequence <code>$mRNA</code> against the mRNA sequence ‘$mRNA’</p>
 <p>The match operator, m//, is used to match a string or statement to a regular expression. For example, to match the character sequence “foo” against the scalar $bar, you might use a statement like this −</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb332-1"><a href="string-manipulation.html#cb332-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb332-2"><a href="string-manipulation.html#cb332-2"></a></span>
-<span id="cb332-3"><a href="string-manipulation.html#cb332-3"></a><span class="dt">$mRNA</span> = <span class="kw">&quot;</span><span class="st">ATG</span><span class="kw">&quot;</span>;</span>
-<span id="cb332-4"><a href="string-manipulation.html#cb332-4"></a><span class="kw">if</span> (<span class="dt">$bar</span> =~ <span class="kw">/</span><span class="ot">foo</span><span class="kw">/</span>) {</span>
-<span id="cb332-5"><a href="string-manipulation.html#cb332-5"></a>   <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First time is matching</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb332-6"><a href="string-manipulation.html#cb332-6"></a>} <span class="kw">else</span> {</span>
-<span id="cb332-7"><a href="string-manipulation.html#cb332-7"></a>   <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First time is not matching</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb332-8"><a href="string-manipulation.html#cb332-8"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb325-1"><a href="string-manipulation.html#cb325-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb325-2"><a href="string-manipulation.html#cb325-2"></a></span>
+<span id="cb325-3"><a href="string-manipulation.html#cb325-3"></a><span class="dt">$mRNA</span> = <span class="kw">&quot;</span><span class="st">ATG</span><span class="kw">&quot;</span>;</span>
+<span id="cb325-4"><a href="string-manipulation.html#cb325-4"></a><span class="kw">if</span> (<span class="dt">$bar</span> =~ <span class="kw">/</span><span class="ot">foo</span><span class="kw">/</span>) {</span>
+<span id="cb325-5"><a href="string-manipulation.html#cb325-5"></a>   <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First time is matching</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb325-6"><a href="string-manipulation.html#cb325-6"></a>} <span class="kw">else</span> {</span>
+<span id="cb325-7"><a href="string-manipulation.html#cb325-7"></a>   <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">First time is not matching</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb325-8"><a href="string-manipulation.html#cb325-8"></a>}</span></code></pre></div>
 <pre><code>## First time is not matching</code></pre>
 <p>Several special variables also refer back to portions of the previous match.</p>
 <p>(ref:regexp_perl) Several special variables</p>
@@ -568,49 +568,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="practical-perl-for-regular-expresssion-advanced" class="section level3">
 <h3><span class="header-section-number">29.5.5</span> Practical Perl for regular expresssion (Advanced)</h3>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb334-1"><a href="string-manipulation.html#cb334-1"></a><span class="kw">#!/usr/bin/perl -l</span></span>
-<span id="cb334-2"><a href="string-manipulation.html#cb334-2"></a></span>
-<span id="cb334-3"><a href="string-manipulation.html#cb334-3"></a><span class="co"># http://perlmonks.org/?node_id=1146191</span></span>
-<span id="cb334-4"><a href="string-manipulation.html#cb334-4"></a></span>
-<span id="cb334-5"><a href="string-manipulation.html#cb334-5"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb334-6"><a href="string-manipulation.html#cb334-6"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb334-7"><a href="string-manipulation.html#cb334-7"></a></span>
-<span id="cb334-8"><a href="string-manipulation.html#cb334-8"></a><span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;</span>
-<span id="cb334-9"><a href="string-manipulation.html#cb334-9"></a></span>
-<span id="cb334-10"><a href="string-manipulation.html#cb334-10"></a><span class="kw">while</span>( <span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ot">ATG</span><span class="kw">/g</span> ){</span>
-<span id="cb334-11"><a href="string-manipulation.html#cb334-11"></a>    <span class="co">## Post match: $&#39;:</span></span>
-<span id="cb334-12"><a href="string-manipulation.html#cb334-12"></a>    <span class="co">## The string following whatever was matched by the last successful pattern match </span></span>
-<span id="cb334-13"><a href="string-manipulation.html#cb334-13"></a>    <span class="kw">my</span> <span class="dt">$rest</span> = <span class="dt">$&#39;</span>;</span>
-<span id="cb334-14"><a href="string-manipulation.html#cb334-14"></a>    <span class="kw">while</span>(<span class="dt">$rest</span> =~ <span class="kw">/</span><span class="ch">(</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">)</span><span class="kw">/g</span>){</span>
-<span id="cb334-15"><a href="string-manipulation.html#cb334-15"></a>        <span class="kw">my</span> <span class="dt">$output</span> = <span class="kw">&#39;</span><span class="st">ATG</span><span class="kw">&#39;</span> . <span class="dt">$`</span> . <span class="dt">$1</span>;</span>
-<span id="cb334-16"><a href="string-manipulation.html#cb334-16"></a>        <span class="fu">print</span> <span class="dt">$output</span>;</span>
-<span id="cb334-17"><a href="string-manipulation.html#cb334-17"></a>    }</span>
-<span id="cb334-18"><a href="string-manipulation.html#cb334-18"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb327-1"><a href="string-manipulation.html#cb327-1"></a><span class="kw">#!/usr/bin/perl -l</span></span>
+<span id="cb327-2"><a href="string-manipulation.html#cb327-2"></a></span>
+<span id="cb327-3"><a href="string-manipulation.html#cb327-3"></a><span class="co"># http://perlmonks.org/?node_id=1146191</span></span>
+<span id="cb327-4"><a href="string-manipulation.html#cb327-4"></a></span>
+<span id="cb327-5"><a href="string-manipulation.html#cb327-5"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb327-6"><a href="string-manipulation.html#cb327-6"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb327-7"><a href="string-manipulation.html#cb327-7"></a></span>
+<span id="cb327-8"><a href="string-manipulation.html#cb327-8"></a><span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;</span>
+<span id="cb327-9"><a href="string-manipulation.html#cb327-9"></a></span>
+<span id="cb327-10"><a href="string-manipulation.html#cb327-10"></a><span class="kw">while</span>( <span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ot">ATG</span><span class="kw">/g</span> ){</span>
+<span id="cb327-11"><a href="string-manipulation.html#cb327-11"></a>    <span class="co">## Post match: $&#39;:</span></span>
+<span id="cb327-12"><a href="string-manipulation.html#cb327-12"></a>    <span class="co">## The string following whatever was matched by the last successful pattern match </span></span>
+<span id="cb327-13"><a href="string-manipulation.html#cb327-13"></a>    <span class="kw">my</span> <span class="dt">$rest</span> = <span class="dt">$&#39;</span>;</span>
+<span id="cb327-14"><a href="string-manipulation.html#cb327-14"></a>    <span class="kw">while</span>(<span class="dt">$rest</span> =~ <span class="kw">/</span><span class="ch">(</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">)</span><span class="kw">/g</span>){</span>
+<span id="cb327-15"><a href="string-manipulation.html#cb327-15"></a>        <span class="kw">my</span> <span class="dt">$output</span> = <span class="kw">&#39;</span><span class="st">ATG</span><span class="kw">&#39;</span> . <span class="dt">$`</span> . <span class="dt">$1</span>;</span>
+<span id="cb327-16"><a href="string-manipulation.html#cb327-16"></a>        <span class="fu">print</span> <span class="dt">$output</span>;</span>
+<span id="cb327-17"><a href="string-manipulation.html#cb327-17"></a>    }</span>
+<span id="cb327-18"><a href="string-manipulation.html#cb327-18"></a>}</span></code></pre></div>
 <pre><code>## ATGGTTTCTCCCATCTCTCCATCGGCATAA
 ## ATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGA
 ## ATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAA
 ## ATGATCTAA</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb336-1"><a href="string-manipulation.html#cb336-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb336-2"><a href="string-manipulation.html#cb336-2"></a></span>
-<span id="cb336-3"><a href="string-manipulation.html#cb336-3"></a><span class="co"># http://perlmonks.org/?node_id=1146191</span></span>
-<span id="cb336-4"><a href="string-manipulation.html#cb336-4"></a></span>
-<span id="cb336-5"><a href="string-manipulation.html#cb336-5"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb336-6"><a href="string-manipulation.html#cb336-6"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb336-7"><a href="string-manipulation.html#cb336-7"></a></span>
-<span id="cb336-8"><a href="string-manipulation.html#cb336-8"></a><span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;</span>
-<span id="cb336-9"><a href="string-manipulation.html#cb336-9"></a></span>
-<span id="cb336-10"><a href="string-manipulation.html#cb336-10"></a><span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ch">(</span><span class="ot">ATG.</span><span class="ch">*?(?:</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">))(??{print &quot;$1\n&quot; if (length $1)</span><span class="ot">%3 == 0}</span><span class="ch">)</span><span class="kw">/</span>;</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb329-1"><a href="string-manipulation.html#cb329-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb329-2"><a href="string-manipulation.html#cb329-2"></a></span>
+<span id="cb329-3"><a href="string-manipulation.html#cb329-3"></a><span class="co"># http://perlmonks.org/?node_id=1146191</span></span>
+<span id="cb329-4"><a href="string-manipulation.html#cb329-4"></a></span>
+<span id="cb329-5"><a href="string-manipulation.html#cb329-5"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb329-6"><a href="string-manipulation.html#cb329-6"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb329-7"><a href="string-manipulation.html#cb329-7"></a></span>
+<span id="cb329-8"><a href="string-manipulation.html#cb329-8"></a><span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;</span>
+<span id="cb329-9"><a href="string-manipulation.html#cb329-9"></a></span>
+<span id="cb329-10"><a href="string-manipulation.html#cb329-10"></a><span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ch">(</span><span class="ot">ATG.</span><span class="ch">*?(?:</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">))(??{print &quot;$1\n&quot; if (length $1)</span><span class="ot">%3 == 0}</span><span class="ch">)</span><span class="kw">/</span>;</span></code></pre></div>
 <pre><code>## ATGGTTTCTCCCATCTCTCCATCGGCATAA</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb338-1"><a href="string-manipulation.html#cb338-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb338-2"><a href="string-manipulation.html#cb338-2"></a></span>
-<span id="cb338-3"><a href="string-manipulation.html#cb338-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb338-4"><a href="string-manipulation.html#cb338-4"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb338-5"><a href="string-manipulation.html#cb338-5"></a><span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;</span>
-<span id="cb338-6"><a href="string-manipulation.html#cb338-6"></a></span>
-<span id="cb338-7"><a href="string-manipulation.html#cb338-7"></a><span class="kw">while</span>(<span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ot">ATG</span><span class="ch">(([</span><span class="bn">ATGC</span><span class="ch">]{3})+?)(</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">)</span><span class="kw">/g</span>){</span>
-<span id="cb338-8"><a href="string-manipulation.html#cb338-8"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">ATG</span><span class="dt">$1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb338-9"><a href="string-manipulation.html#cb338-9"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$2</span><span class="kw">&quot;</span>;</span>
-<span id="cb338-10"><a href="string-manipulation.html#cb338-10"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb331-1"><a href="string-manipulation.html#cb331-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb331-2"><a href="string-manipulation.html#cb331-2"></a></span>
+<span id="cb331-3"><a href="string-manipulation.html#cb331-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb331-4"><a href="string-manipulation.html#cb331-4"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb331-5"><a href="string-manipulation.html#cb331-5"></a><span class="kw">my</span> <span class="dt">$sequence</span> = <span class="kw">&#39;</span><span class="st">AATGGTTTCTCCCATCTCTCCATCGGCATAAAAATACAGAATGATCTAACGAA</span><span class="kw">&#39;</span>;</span>
+<span id="cb331-6"><a href="string-manipulation.html#cb331-6"></a></span>
+<span id="cb331-7"><a href="string-manipulation.html#cb331-7"></a><span class="kw">while</span>(<span class="dt">$sequence</span> =~ <span class="kw">/</span><span class="ot">ATG</span><span class="ch">(([</span><span class="bn">ATGC</span><span class="ch">]{3})+?)(</span><span class="ot">TAG</span><span class="ch">|</span><span class="ot">TAA</span><span class="ch">|</span><span class="ot">TGA</span><span class="ch">)</span><span class="kw">/g</span>){</span>
+<span id="cb331-8"><a href="string-manipulation.html#cb331-8"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">ATG</span><span class="dt">$1</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb331-9"><a href="string-manipulation.html#cb331-9"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$2</span><span class="kw">&quot;</span>;</span>
+<span id="cb331-10"><a href="string-manipulation.html#cb331-10"></a>}</span></code></pre></div>
 <pre><code>## ATGGTTTCTCCCATCTCTCCATCGGCA
 ## GCAATGATC
 ## ATC</code></pre>
@@ -663,7 +663,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/33_14_StringManipulationRegExp.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/33_StringManipulationRegExp.Rmd",
 "text": "Edit"
 },
 "history": {

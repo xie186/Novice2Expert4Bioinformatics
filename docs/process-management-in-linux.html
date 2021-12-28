@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -556,18 +556,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="df" class="section level2">
 <h2><span class="header-section-number">6.4</span> <code>df</code></h2>
 <p><code>df</code> can be used to report file system disk space usage.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb121-1"><a href="process-management-in-linux.html#cb121-1"></a><span class="fu">df</span> -h </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb114-1"><a href="process-management-in-linux.html#cb114-1"></a><span class="fu">df</span> -h </span></code></pre></div>
 <pre><code>## Filesystem      Size  Used Avail Use% Mounted on
-## overlay         125G   40G   85G  33% /
+## overlay         125G   41G   84G  33% /
 ## tmpfs            64M     0   64M   0% /dev
 ## tmpfs            16G     0   16G   0% /sys/fs/cgroup
-## /dev/nvme0n1p1  125G   40G   85G  33% /opt/R
-## /dev/nbd34      2.7G  1.2G  1.4G  45% /home/rstudio-user
-## /dev/nbd32      2.7G  348M  2.2G  14% /cloud/project
+## /dev/nbd4       2.7G  1.2G  1.4G  45% /home/rstudio-user
+## /dev/nbd5       2.7G  333M  2.3G  13% /cloud/project
+## /dev/nvme0n1p1  125G   41G   84G  33% /opt/R
 ## shm              64M     0   64M   0% /dev/shm
-## /dev/nbd33      2.7G   12M  2.6G   1% /home/rstudio-user/.rstudio
-## /dev/nbd35      2.7G  411M  2.2G  16% /home/rstudio-user/R
+## /dev/nbd6       2.7G  726M  1.9G  28% /home/rstudio-user/R
 ## tmpfs            16G  4.0K   16G   1% /etc/rstudio/license
+## /dev/nbd7       2.7G   16M  2.6G   1% /home/rstudio-user/.rstudio
 ## tmpfs            16G     0   16G   0% /proc/scsi
 ## tmpfs            16G     0   16G   0% /sys/firmware</code></pre>
 <p>If you Linux cluster, you might need to check other command like <code>myquota</code>.</p>
@@ -613,24 +613,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="w" class="section level3">
 <h3><span class="header-section-number">6.6.1</span> <code>w</code></h3>
 <p><code>w</code> shows who is logged on and what they are doing.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb124-1"><a href="process-management-in-linux.html#cb124-1"></a><span class="fu">w</span></span></code></pre></div>
-<pre><code>##  03:45:12 up 110 days, 13:14,  0 users,  load average: 0.10, 0.18, 0.27
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb117-1"><a href="process-management-in-linux.html#cb117-1"></a><span class="fu">w</span></span></code></pre></div>
+<pre><code>##  12:55:31 up 50 days, 15 min,  0 users,  load average: 0.09, 0.32, 0.44
 ## USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT</code></pre>
 </div>
 <div id="who" class="section level3">
 <h3><span class="header-section-number">6.6.2</span> <code>who</code></h3>
 <p><code>who</code> shows who is logged on</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb126-1"><a href="process-management-in-linux.html#cb126-1"></a><span class="fu">who</span> -a</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb119-1"><a href="process-management-in-linux.html#cb119-1"></a><span class="fu">who</span> -a</span></code></pre></div>
 </div>
 <div id="uptime" class="section level3">
 <h3><span class="header-section-number">6.6.3</span> <code>uptime</code></h3>
 <p>In Linux uptime command shows since how long your system is running and the number of users are currently logged in and also displays load average for 1,5 and 15 minutes intervals.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb127-1"><a href="process-management-in-linux.html#cb127-1"></a><span class="fu">uptime</span></span></code></pre></div>
-<pre><code>##  03:45:12 up 110 days, 13:14,  0 users,  load average: 0.10, 0.18, 0.27</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb120-1"><a href="process-management-in-linux.html#cb120-1"></a><span class="fu">uptime</span></span></code></pre></div>
+<pre><code>##  12:55:31 up 50 days, 15 min,  0 users,  load average: 0.09, 0.32, 0.44</code></pre>
 </div>
 <div id="whoami" class="section level3">
 <h3><span class="header-section-number">6.6.4</span> <code>whoami</code></h3>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb129-1"><a href="process-management-in-linux.html#cb129-1"></a><span class="fu">whoami</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb122-1"><a href="process-management-in-linux.html#cb122-1"></a><span class="fu">whoami</span></span></code></pre></div>
 <pre><code>## rstudio-user</code></pre>
 </div>
 <div id="ifconfig" class="section level3">
@@ -685,7 +685,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/06_06_procManageLinux.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/06_procManageLinux.Rmd",
 "text": "Edit"
 },
 "history": {

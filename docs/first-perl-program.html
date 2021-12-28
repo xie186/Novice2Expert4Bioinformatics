@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -473,13 +473,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="first-program" class="section level2">
 <h2><span class="header-section-number">25.1</span> First Program</h2>
 <p>As all other programming books, we begin with a “Hello world” program.</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb249-1"><a href="first-perl-program.html#cb249-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb249-2"><a href="first-perl-program.html#cb249-2"></a><span class="co">#Printing a line of text “Hello, Bioinformatics”</span></span>
-<span id="cb249-3"><a href="first-perl-program.html#cb249-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Hello, Bioinformatics!</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb242-1"><a href="first-perl-program.html#cb242-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb242-2"><a href="first-perl-program.html#cb242-2"></a><span class="co">#Printing a line of text “Hello, Bioinformatics”</span></span>
+<span id="cb242-3"><a href="first-perl-program.html#cb242-3"></a><span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Hello, Bioinformatics!</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span></code></pre></div>
 <p>This program show how to display a line a text in Perl. It have several features. We go through each line in detail.</p>
 <p>Line 1 is what we call shebang line. This line starts with shebang construct (<code>#!</code>). <code>/usr/bin/perl</code> indicates the path of the Perl interpreter.</p>
 <p>Line 3 shows how to print a line of text in Perl. Nearly all programming language use print to display texts on the screen. Here, print is a built-in function in Perl. It print the string of characters (its arguments) between quotation marks (“” or ‘’).</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb250-1"><a href="first-perl-program.html#cb250-1"></a><span class="fu">perl</span> code_perl/hello_bioinfor.pl</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb243-1"><a href="first-perl-program.html#cb243-1"></a><span class="fu">perl</span> code_perl/hello_bioinfor.pl</span></code></pre></div>
 <pre><code>## Hello, Bioinformatics!</code></pre>
 <p>However the characters <code>\n</code> are not displayed. Here backslash <code>\</code> is a start of an escape sequence. It changes the meaning of the character after it. The backslash <code>\</code> and <code>n</code> together (<code>\n</code>) form an escape sequence and signify a newline. Other examples are <code>\t</code> (tab) or <code>\$</code> (= print an actual dollar sign, normally a dollar sign has a special meaning). We’ll see more escape sequences in 7.1.</p>
 <p>You can try to remove <code>\n</code> in the program to see what will happen. This will give you a dee per understanding of the program.</p>
@@ -522,7 +522,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/29_10_FirstPerlProgram.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/29_FirstPerlProgram.Rmd",
 "text": "Edit"
 },
 "history": {

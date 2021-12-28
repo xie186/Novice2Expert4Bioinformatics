@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -506,71 +506,71 @@ P(X=x) &amp;=p \times\left(\begin{array}{c}
 <p>R function <code>dnbinom</code> gives the density. <code>dnbbinom(x, size, prob)</code> calculate the probability that a number of failures <em>x</em> occurs before <em>r</em>-th success, in a sequence of Bernoulli trials, for which the probability of individual success is p.</p>
 <p>Example 1 (<span class="citation">Foley (<a href="#ref-NBblogMichael" role="doc-biblioref">2019</a>)</span>):</p>
 <p>An oil company has a <code>p = 0.20</code> chance of striking oil when drilling a well. What is the probability the company drills x = 7 wells to strike oil r = 3 times?</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="basic-statistics-descriptive-statistics.html#cb234-1"></a>r =<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb234-2"><a href="basic-statistics-descriptive-statistics.html#cb234-2"></a>p =<span class="st"> </span><span class="fl">0.20</span></span>
-<span id="cb234-3"><a href="basic-statistics-descriptive-statistics.html#cb234-3"></a>n =<span class="st"> </span><span class="dv">7</span> <span class="op">-</span><span class="st"> </span>r</span>
-<span id="cb234-4"><a href="basic-statistics-descriptive-statistics.html#cb234-4"></a><span class="co"># exact</span></span>
-<span id="cb234-5"><a href="basic-statistics-descriptive-statistics.html#cb234-5"></a><span class="kw">dnbinom</span>(<span class="dt">x =</span> n, <span class="dt">size =</span> r, <span class="dt">prob =</span> p)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="basic-statistics-descriptive-statistics.html#cb227-1"></a>r =<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb227-2"><a href="basic-statistics-descriptive-statistics.html#cb227-2"></a>p =<span class="st"> </span><span class="fl">0.20</span></span>
+<span id="cb227-3"><a href="basic-statistics-descriptive-statistics.html#cb227-3"></a>n =<span class="st"> </span><span class="dv">7</span> <span class="op">-</span><span class="st"> </span>r</span>
+<span id="cb227-4"><a href="basic-statistics-descriptive-statistics.html#cb227-4"></a><span class="co"># exact</span></span>
+<span id="cb227-5"><a href="basic-statistics-descriptive-statistics.html#cb227-5"></a><span class="kw">dnbinom</span>(<span class="dt">x =</span> n, <span class="dt">size =</span> r, <span class="dt">prob =</span> p)</span></code></pre></div>
 <pre><code>## [1] 0.049152</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="basic-statistics-descriptive-statistics.html#cb236-1"></a><span class="co"># simulated</span></span>
-<span id="cb236-2"><a href="basic-statistics-descriptive-statistics.html#cb236-2"></a><span class="kw">mean</span>(<span class="kw">rnbinom</span>(<span class="dt">n =</span> <span class="dv">10000</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p) <span class="op">==</span><span class="st"> </span>n)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="basic-statistics-descriptive-statistics.html#cb229-1"></a><span class="co"># simulated</span></span>
+<span id="cb229-2"><a href="basic-statistics-descriptive-statistics.html#cb229-2"></a><span class="kw">mean</span>(<span class="kw">rnbinom</span>(<span class="dt">n =</span> <span class="dv">10000</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p) <span class="op">==</span><span class="st"> </span>n)</span></code></pre></div>
 <pre><code>## [1] 0.05</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="basic-statistics-descriptive-statistics.html#cb238-1"></a><span class="kw">barplot</span>(<span class="kw">dnbinom</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,<span class="dv">2</span>,<span class="fl">0.5</span>), <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">names.arg=</span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span>)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="basic-statistics-descriptive-statistics.html#cb239-1"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</span>
-<span id="cb239-2"><a href="basic-statistics-descriptive-statistics.html#cb239-2"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))</span>
-<span id="cb239-3"><a href="basic-statistics-descriptive-statistics.html#cb239-3"></a></span>
-<span id="cb239-4"><a href="basic-statistics-descriptive-statistics.html#cb239-4"></a><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">prob =</span> <span class="kw">dnbinom</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p)) <span class="op">%&gt;%</span></span>
-<span id="cb239-5"><a href="basic-statistics-descriptive-statistics.html#cb239-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Failures =</span> <span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> </span>n, n, <span class="st">&quot;other&quot;</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb239-6"><a href="basic-statistics-descriptive-statistics.html#cb239-6"></a><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(x), <span class="dt">y =</span> prob, <span class="dt">fill =</span> Failures)) <span class="op">+</span></span>
-<span id="cb239-7"><a href="basic-statistics-descriptive-statistics.html#cb239-7"></a><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></span>
-<span id="cb239-8"><a href="basic-statistics-descriptive-statistics.html#cb239-8"></a><span class="st">  </span><span class="kw">geom_text</span>(</span>
-<span id="cb239-9"><a href="basic-statistics-descriptive-statistics.html#cb239-9"></a>    <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(prob,<span class="dv">2</span>), <span class="dt">y =</span> prob <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),</span>
-<span id="cb239-10"><a href="basic-statistics-descriptive-statistics.html#cb239-10"></a>    <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="fl">0.9</span>),</span>
-<span id="cb239-11"><a href="basic-statistics-descriptive-statistics.html#cb239-11"></a>    <span class="dt">size =</span> <span class="dv">3</span>,</span>
-<span id="cb239-12"><a href="basic-statistics-descriptive-statistics.html#cb239-12"></a>    <span class="dt">vjust =</span> <span class="dv">0</span></span>
-<span id="cb239-13"><a href="basic-statistics-descriptive-statistics.html#cb239-13"></a>  ) <span class="op">+</span></span>
-<span id="cb239-14"><a href="basic-statistics-descriptive-statistics.html#cb239-14"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Probability of r = 3 Successes in X = 7 Trials&quot;</span>,</span>
-<span id="cb239-15"><a href="basic-statistics-descriptive-statistics.html#cb239-15"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;NB(3,.2)&quot;</span>,</span>
-<span id="cb239-16"><a href="basic-statistics-descriptive-statistics.html#cb239-16"></a>       <span class="dt">x =</span> <span class="st">&quot;Failed Trials (X - r)&quot;</span>,</span>
-<span id="cb239-17"><a href="basic-statistics-descriptive-statistics.html#cb239-17"></a>       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) </span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="basic-statistics-descriptive-statistics.html#cb240-1"></a><span class="co">#What is the expected number of trials to achieve r = 3 successes when the probability of success is p = 0.2?</span></span>
-<span id="cb240-2"><a href="basic-statistics-descriptive-statistics.html#cb240-2"></a>r =<span class="st"> </span><span class="dv">3</span></span>
-<span id="cb240-3"><a href="basic-statistics-descriptive-statistics.html#cb240-3"></a>p =<span class="st"> </span><span class="fl">0.20</span></span>
-<span id="cb240-4"><a href="basic-statistics-descriptive-statistics.html#cb240-4"></a><span class="co"># mean</span></span>
-<span id="cb240-5"><a href="basic-statistics-descriptive-statistics.html#cb240-5"></a><span class="co"># exact</span></span>
-<span id="cb240-6"><a href="basic-statistics-descriptive-statistics.html#cb240-6"></a>r <span class="op">/</span><span class="st"> </span>p</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="basic-statistics-descriptive-statistics.html#cb231-1"></a><span class="kw">barplot</span>(<span class="kw">dnbinom</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">25</span>,<span class="dv">2</span>,<span class="fl">0.5</span>), <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>, <span class="dt">names.arg=</span><span class="dv">1</span><span class="op">:</span><span class="dv">25</span>)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="basic-statistics-descriptive-statistics.html#cb232-1"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</span>
+<span id="cb232-2"><a href="basic-statistics-descriptive-statistics.html#cb232-2"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))</span>
+<span id="cb232-3"><a href="basic-statistics-descriptive-statistics.html#cb232-3"></a></span>
+<span id="cb232-4"><a href="basic-statistics-descriptive-statistics.html#cb232-4"></a><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">prob =</span> <span class="kw">dnbinom</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p)) <span class="op">%&gt;%</span></span>
+<span id="cb232-5"><a href="basic-statistics-descriptive-statistics.html#cb232-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Failures =</span> <span class="kw">ifelse</span>(x <span class="op">==</span><span class="st"> </span>n, n, <span class="st">&quot;other&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb232-6"><a href="basic-statistics-descriptive-statistics.html#cb232-6"></a><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(x), <span class="dt">y =</span> prob, <span class="dt">fill =</span> Failures)) <span class="op">+</span></span>
+<span id="cb232-7"><a href="basic-statistics-descriptive-statistics.html#cb232-7"></a><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></span>
+<span id="cb232-8"><a href="basic-statistics-descriptive-statistics.html#cb232-8"></a><span class="st">  </span><span class="kw">geom_text</span>(</span>
+<span id="cb232-9"><a href="basic-statistics-descriptive-statistics.html#cb232-9"></a>    <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(prob,<span class="dv">2</span>), <span class="dt">y =</span> prob <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),</span>
+<span id="cb232-10"><a href="basic-statistics-descriptive-statistics.html#cb232-10"></a>    <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="fl">0.9</span>),</span>
+<span id="cb232-11"><a href="basic-statistics-descriptive-statistics.html#cb232-11"></a>    <span class="dt">size =</span> <span class="dv">3</span>,</span>
+<span id="cb232-12"><a href="basic-statistics-descriptive-statistics.html#cb232-12"></a>    <span class="dt">vjust =</span> <span class="dv">0</span></span>
+<span id="cb232-13"><a href="basic-statistics-descriptive-statistics.html#cb232-13"></a>  ) <span class="op">+</span></span>
+<span id="cb232-14"><a href="basic-statistics-descriptive-statistics.html#cb232-14"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Probability of r = 3 Successes in X = 7 Trials&quot;</span>,</span>
+<span id="cb232-15"><a href="basic-statistics-descriptive-statistics.html#cb232-15"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;NB(3,.2)&quot;</span>,</span>
+<span id="cb232-16"><a href="basic-statistics-descriptive-statistics.html#cb232-16"></a>       <span class="dt">x =</span> <span class="st">&quot;Failed Trials (X - r)&quot;</span>,</span>
+<span id="cb232-17"><a href="basic-statistics-descriptive-statistics.html#cb232-17"></a>       <span class="dt">y =</span> <span class="st">&quot;Probability&quot;</span>) </span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="basic-statistics-descriptive-statistics.html#cb233-1"></a><span class="co">#What is the expected number of trials to achieve r = 3 successes when the probability of success is p = 0.2?</span></span>
+<span id="cb233-2"><a href="basic-statistics-descriptive-statistics.html#cb233-2"></a>r =<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb233-3"><a href="basic-statistics-descriptive-statistics.html#cb233-3"></a>p =<span class="st"> </span><span class="fl">0.20</span></span>
+<span id="cb233-4"><a href="basic-statistics-descriptive-statistics.html#cb233-4"></a><span class="co"># mean</span></span>
+<span id="cb233-5"><a href="basic-statistics-descriptive-statistics.html#cb233-5"></a><span class="co"># exact</span></span>
+<span id="cb233-6"><a href="basic-statistics-descriptive-statistics.html#cb233-6"></a>r <span class="op">/</span><span class="st"> </span>p</span></code></pre></div>
 <pre><code>## [1] 15</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="basic-statistics-descriptive-statistics.html#cb242-1"></a><span class="co"># simulated</span></span>
-<span id="cb242-2"><a href="basic-statistics-descriptive-statistics.html#cb242-2"></a><span class="kw">mean</span>(<span class="kw">rnbinom</span>(<span class="dt">n =</span> <span class="dv">10000</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">prob =</span> p)) <span class="op">+</span><span class="st"> </span>r</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="basic-statistics-descriptive-statistics.html#cb235-1"></a><span class="co"># simulated</span></span>
+<span id="cb235-2"><a href="basic-statistics-descriptive-statistics.html#cb235-2"></a><span class="kw">mean</span>(<span class="kw">rnbinom</span>(<span class="dt">n =</span> <span class="dv">10000</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">prob =</span> p)) <span class="op">+</span><span class="st"> </span>r</span></code></pre></div>
 <pre><code>## [1] 14.9629</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="basic-statistics-descriptive-statistics.html#cb244-1"></a><span class="co"># Variance</span></span>
-<span id="cb244-2"><a href="basic-statistics-descriptive-statistics.html#cb244-2"></a><span class="co"># exact</span></span>
-<span id="cb244-3"><a href="basic-statistics-descriptive-statistics.html#cb244-3"></a>r <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p) <span class="op">/</span><span class="st"> </span>p<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="basic-statistics-descriptive-statistics.html#cb237-1"></a><span class="co"># Variance</span></span>
+<span id="cb237-2"><a href="basic-statistics-descriptive-statistics.html#cb237-2"></a><span class="co"># exact</span></span>
+<span id="cb237-3"><a href="basic-statistics-descriptive-statistics.html#cb237-3"></a>r <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>p) <span class="op">/</span><span class="st"> </span>p<span class="op">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 60</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="basic-statistics-descriptive-statistics.html#cb246-1"></a><span class="co"># simulated</span></span>
-<span id="cb246-2"><a href="basic-statistics-descriptive-statistics.html#cb246-2"></a><span class="kw">var</span>(<span class="kw">rnbinom</span>(<span class="dt">n =</span> <span class="dv">100000</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p))</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="basic-statistics-descriptive-statistics.html#cb239-1"></a><span class="co"># simulated</span></span>
+<span id="cb239-2"><a href="basic-statistics-descriptive-statistics.html#cb239-2"></a><span class="kw">var</span>(<span class="kw">rnbinom</span>(<span class="dt">n =</span> <span class="dv">100000</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p))</span></code></pre></div>
 <pre><code>## [1] 60.21722</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="basic-statistics-descriptive-statistics.html#cb248-1"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</span>
-<span id="cb248-2"><a href="basic-statistics-descriptive-statistics.html#cb248-2"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))</span>
-<span id="cb248-3"><a href="basic-statistics-descriptive-statistics.html#cb248-3"></a></span>
-<span id="cb248-4"><a href="basic-statistics-descriptive-statistics.html#cb248-4"></a><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, </span>
-<span id="cb248-5"><a href="basic-statistics-descriptive-statistics.html#cb248-5"></a>           <span class="dt">pmf =</span> <span class="kw">dnbinom</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p),</span>
-<span id="cb248-6"><a href="basic-statistics-descriptive-statistics.html#cb248-6"></a>           <span class="dt">cdf =</span> <span class="kw">pnbinom</span>(<span class="dt">q =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb248-7"><a href="basic-statistics-descriptive-statistics.html#cb248-7"></a><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(x), <span class="dt">y =</span> cdf)) <span class="op">+</span></span>
-<span id="cb248-8"><a href="basic-statistics-descriptive-statistics.html#cb248-8"></a><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></span>
-<span id="cb248-9"><a href="basic-statistics-descriptive-statistics.html#cb248-9"></a><span class="st">  </span><span class="kw">geom_text</span>(</span>
-<span id="cb248-10"><a href="basic-statistics-descriptive-statistics.html#cb248-10"></a>    <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(cdf,<span class="dv">2</span>), <span class="dt">y =</span> cdf <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),</span>
-<span id="cb248-11"><a href="basic-statistics-descriptive-statistics.html#cb248-11"></a>    <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="fl">0.9</span>),</span>
-<span id="cb248-12"><a href="basic-statistics-descriptive-statistics.html#cb248-12"></a>    <span class="dt">size =</span> <span class="dv">3</span>,</span>
-<span id="cb248-13"><a href="basic-statistics-descriptive-statistics.html#cb248-13"></a>    <span class="dt">vjust =</span> <span class="dv">0</span></span>
-<span id="cb248-14"><a href="basic-statistics-descriptive-statistics.html#cb248-14"></a>  ) <span class="op">+</span></span>
-<span id="cb248-15"><a href="basic-statistics-descriptive-statistics.html#cb248-15"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Cumulative Probability of X = x failed trials to achieve 3rd success&quot;</span>,</span>
-<span id="cb248-16"><a href="basic-statistics-descriptive-statistics.html#cb248-16"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;NB(3,.2)&quot;</span>,</span>
-<span id="cb248-17"><a href="basic-statistics-descriptive-statistics.html#cb248-17"></a>       <span class="dt">x =</span> <span class="st">&quot;Failed Trials (x)&quot;</span>,</span>
-<span id="cb248-18"><a href="basic-statistics-descriptive-statistics.html#cb248-18"></a>       <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>) </span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="basic-statistics-descriptive-statistics.html#cb241-1"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</span>
+<span id="cb241-2"><a href="basic-statistics-descriptive-statistics.html#cb241-2"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))</span>
+<span id="cb241-3"><a href="basic-statistics-descriptive-statistics.html#cb241-3"></a></span>
+<span id="cb241-4"><a href="basic-statistics-descriptive-statistics.html#cb241-4"></a><span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, </span>
+<span id="cb241-5"><a href="basic-statistics-descriptive-statistics.html#cb241-5"></a>           <span class="dt">pmf =</span> <span class="kw">dnbinom</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p),</span>
+<span id="cb241-6"><a href="basic-statistics-descriptive-statistics.html#cb241-6"></a>           <span class="dt">cdf =</span> <span class="kw">pnbinom</span>(<span class="dt">q =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> r, <span class="dt">prob =</span> p, <span class="dt">lower.tail =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb241-7"><a href="basic-statistics-descriptive-statistics.html#cb241-7"></a><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(x), <span class="dt">y =</span> cdf)) <span class="op">+</span></span>
+<span id="cb241-8"><a href="basic-statistics-descriptive-statistics.html#cb241-8"></a><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></span>
+<span id="cb241-9"><a href="basic-statistics-descriptive-statistics.html#cb241-9"></a><span class="st">  </span><span class="kw">geom_text</span>(</span>
+<span id="cb241-10"><a href="basic-statistics-descriptive-statistics.html#cb241-10"></a>    <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(cdf,<span class="dv">2</span>), <span class="dt">y =</span> cdf <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>),</span>
+<span id="cb241-11"><a href="basic-statistics-descriptive-statistics.html#cb241-11"></a>    <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="fl">0.9</span>),</span>
+<span id="cb241-12"><a href="basic-statistics-descriptive-statistics.html#cb241-12"></a>    <span class="dt">size =</span> <span class="dv">3</span>,</span>
+<span id="cb241-13"><a href="basic-statistics-descriptive-statistics.html#cb241-13"></a>    <span class="dt">vjust =</span> <span class="dv">0</span></span>
+<span id="cb241-14"><a href="basic-statistics-descriptive-statistics.html#cb241-14"></a>  ) <span class="op">+</span></span>
+<span id="cb241-15"><a href="basic-statistics-descriptive-statistics.html#cb241-15"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Cumulative Probability of X = x failed trials to achieve 3rd success&quot;</span>,</span>
+<span id="cb241-16"><a href="basic-statistics-descriptive-statistics.html#cb241-16"></a>       <span class="dt">subtitle =</span> <span class="st">&quot;NB(3,.2)&quot;</span>,</span>
+<span id="cb241-17"><a href="basic-statistics-descriptive-statistics.html#cb241-17"></a>       <span class="dt">x =</span> <span class="st">&quot;Failed Trials (x)&quot;</span>,</span>
+<span id="cb241-18"><a href="basic-statistics-descriptive-statistics.html#cb241-18"></a>       <span class="dt">y =</span> <span class="st">&quot;probability&quot;</span>) </span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 <div id="why-is-it-called-negative-binomial" class="section level4">
 <h4><span class="header-section-number">23.1.3.1</span> Why is it called Negative Binomial?</h4>
 <p>The “negative” part of negative binomial stems from the fact that one facet of the binomial distribution is reversed: in a binomial experiment, we count the number of successes in a fixed number of trials. In a negative binomial experiment, we’re counting the failures, or how many cards it takes you to pick two aces.</p>
@@ -624,7 +624,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/27_41_basic_statistics_R.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/27_basic_statistics_R.Rmd",
 "text": "Edit"
 },
 "history": {

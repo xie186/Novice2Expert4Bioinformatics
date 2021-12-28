@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -510,7 +510,7 @@ gunzip Arabidopsis_thaliana.TAIR10.37.gff3.gz</code></pre>
 <h3><span class="header-section-number">5.2.2</span> <code>*.tar.gz</code></h3>
 <div id="how-to-decompress-the-.tar.gz-file" class="section level4">
 <h4><span class="header-section-number">5.2.2.1</span> How to decompress the <code>*.tar.gz</code> file</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb109-1"><a href="achiving-and-compressing-files.html#cb109-1"></a><span class="fu">tar</span> zxvf file.tar.gz</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb102-1"><a href="achiving-and-compressing-files.html#cb102-1"></a><span class="fu">tar</span> zxvf file.tar.gz</span></code></pre></div>
 <ul>
 <li><code>z</code> means (un)z̲ip.</li>
 <li><code>x</code> means ex̲tract files from the archive.</li>
@@ -520,24 +520,24 @@ gunzip Arabidopsis_thaliana.TAIR10.37.gff3.gz</code></pre>
 </div>
 <div id="how-to-view-the-content-without-extract-the-files" class="section level4">
 <h4><span class="header-section-number">5.2.2.2</span> How to view the content without extract the files</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb110-1"><a href="achiving-and-compressing-files.html#cb110-1"></a><span class="fu">tar</span> -tf file.tar.gz</span></code></pre></div>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb111-1"><a href="achiving-and-compressing-files.html#cb111-1"></a><span class="fu">tar</span> -tvf file.tar.gz</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb103-1"><a href="achiving-and-compressing-files.html#cb103-1"></a><span class="fu">tar</span> -tf file.tar.gz</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb104-1"><a href="achiving-and-compressing-files.html#cb104-1"></a><span class="fu">tar</span> -tvf file.tar.gz</span></code></pre></div>
 </div>
 <div id="how-to-create-a-.tar.gz-file" class="section level4">
 <h4><span class="header-section-number">5.2.2.3</span> How to create a <code>*.tar.gz</code> file</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb112-1"><a href="achiving-and-compressing-files.html#cb112-1"></a><span class="fu">tar</span> zcvf file_new.tar.gz file1 file2 folder1 folder2</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb105-1"><a href="achiving-and-compressing-files.html#cb105-1"></a><span class="fu">tar</span> zcvf file_new.tar.gz file1 file2 folder1 folder2</span></code></pre></div>
 </div>
 <div id="how-to-extract-a-specific-file-from-a-.tar.gz-file" class="section level4">
 <h4><span class="header-section-number">5.2.2.4</span> How to extract a specific file from a <code>*.tar.gz</code> file</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb113-1"><a href="achiving-and-compressing-files.html#cb113-1"></a><span class="co">#tar -xvf {tarball.tar} {path/to/file}</span></span>
-<span id="cb113-2"><a href="achiving-and-compressing-files.html#cb113-2"></a><span class="fu">tar</span> -zxvf config.tar.gz etc/default/sysstat</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb106-1"><a href="achiving-and-compressing-files.html#cb106-1"></a><span class="co">#tar -xvf {tarball.tar} {path/to/file}</span></span>
+<span id="cb106-2"><a href="achiving-and-compressing-files.html#cb106-2"></a><span class="fu">tar</span> -zxvf config.tar.gz etc/default/sysstat</span></code></pre></div>
 </div>
 </div>
 <div id="zip" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> <code>*.zip</code></h3>
 <div id="how-to-unzip-a-.zip-file" class="section level4">
 <h4><span class="header-section-number">5.2.3.1</span> How to unzip a <code>*.zip</code> file</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb114-1"><a href="achiving-and-compressing-files.html#cb114-1"></a><span class="fu">unzip</span> file.zip</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb107-1"><a href="achiving-and-compressing-files.html#cb107-1"></a><span class="fu">unzip</span> file.zip</span></code></pre></div>
 </div>
 <div id="how-to-create-a-.zip-file" class="section level4">
 <h4><span class="header-section-number">5.2.3.2</span> How to create a <code>*.zip</code> file</h4>
@@ -548,13 +548,13 @@ gunzip Arabidopsis_thaliana.TAIR10.37.gff3.gz</code></pre>
 <h3><span class="header-section-number">5.2.4</span> <code>*.tar.bz2</code></h3>
 <div id="how-to-decompress-a-.tar.bz2-file" class="section level4">
 <h4><span class="header-section-number">5.2.4.1</span> How to decompress a <code>*.tar.bz2</code> file</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb116-1"><a href="achiving-and-compressing-files.html#cb116-1"></a><span class="fu">mkdir</span> tmp</span>
-<span id="cb116-2"><a href="achiving-and-compressing-files.html#cb116-2"></a><span class="bu">cd</span> tmp</span>
-<span id="cb116-3"><a href="achiving-and-compressing-files.html#cb116-3"></a><span class="bu">pwd</span></span>
-<span id="cb116-4"><a href="achiving-and-compressing-files.html#cb116-4"></a><span class="fu">ls</span> </span>
-<span id="cb116-5"><a href="achiving-and-compressing-files.html#cb116-5"></a><span class="fu">wget</span> https://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2</span>
-<span id="cb116-6"><a href="achiving-and-compressing-files.html#cb116-6"></a><span class="fu">ls</span></span>
-<span id="cb116-7"><a href="achiving-and-compressing-files.html#cb116-7"></a><span class="fu">tar</span> -jxvf bwa-0.7.17.tar.bz2</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb109-1"><a href="achiving-and-compressing-files.html#cb109-1"></a><span class="fu">mkdir</span> tmp</span>
+<span id="cb109-2"><a href="achiving-and-compressing-files.html#cb109-2"></a><span class="bu">cd</span> tmp</span>
+<span id="cb109-3"><a href="achiving-and-compressing-files.html#cb109-3"></a><span class="bu">pwd</span></span>
+<span id="cb109-4"><a href="achiving-and-compressing-files.html#cb109-4"></a><span class="fu">ls</span> </span>
+<span id="cb109-5"><a href="achiving-and-compressing-files.html#cb109-5"></a><span class="fu">wget</span> https://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.17.tar.bz2</span>
+<span id="cb109-6"><a href="achiving-and-compressing-files.html#cb109-6"></a><span class="fu">ls</span></span>
+<span id="cb109-7"><a href="achiving-and-compressing-files.html#cb109-7"></a><span class="fu">tar</span> -jxvf bwa-0.7.17.tar.bz2</span></code></pre></div>
 </div>
 <div id="how-to-create-a-.tar.bz2-file" class="section level4">
 <h4><span class="header-section-number">5.2.4.2</span> How to create a <code>*.tar.bz2</code> file</h4>
@@ -600,7 +600,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/05_05_AchivingAndCompressingFiles.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/05_AchivingAndCompressingFiles.Rmd",
 "text": "Edit"
 },
 "history": {

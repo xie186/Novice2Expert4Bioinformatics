@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -472,7 +472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more.</p>
 <div id="convert-a-fastq-file-from-fastq-to-fast" class="section level2">
 <h2><span class="header-section-number">33.1</span> Convert a fastq file from FASTQ to FAST</h2>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb367-1"><a href="perl-one-liner.html#cb367-1"></a><span class="fu">perl</span> -e <span class="st">&#39;while(&lt;&gt;){$id=$_; $seq=&lt;&gt;;&lt;&gt;;&lt;&gt;; print &quot;&gt;$id$seq&quot;;}&#39;</span> ./data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">head</span> -10</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb360-1"><a href="perl-one-liner.html#cb360-1"></a><span class="fu">perl</span> -e <span class="st">&#39;while(&lt;&gt;){$id=$_; $seq=&lt;&gt;;&lt;&gt;;&lt;&gt;; print &quot;&gt;$id$seq&quot;;}&#39;</span> ./data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">head</span> -10</span></code></pre></div>
 <pre><code>## &gt;@EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51
 ## TGTTTTTGGGTTAATTAATATTAATTAAATATTTTAATATATTTTTATATA
 ## &gt;@EV1.2 SN603_WB082:5:1101:30.70:119.80 length=51
@@ -484,15 +484,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## &gt;@EV1.5 SN603_WB082:5:1101:108.00:120.40 length=51
 ## TGATTATTTTGAAGTAAAAAGGGGTGATTTAGTTTGTGTTGTTGGTTGGGT</code></pre>
 <p>Now how about finding all repeated lines in a file?</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb369-1"><a href="perl-one-liner.html#cb369-1"></a><span class="fu">perl</span> -ne <span class="st">&#39;print $_ if $record{$_}++&#39;</span> ./data/WGBS_example_data/EV1.fastq</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb362-1"><a href="perl-one-liner.html#cb362-1"></a><span class="fu">perl</span> -ne <span class="st">&#39;print $_ if $record{$_}++&#39;</span> ./data/WGBS_example_data/EV1.fastq</span></code></pre></div>
 <p>How about numbering lines? Super simple! Perl has the <code>$.</code> special
 variable that maintains the current line number. You can just print it out together with the line:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb370-1"><a href="perl-one-liner.html#cb370-1"></a><span class="fu">perl</span> -ne <span class="st">&#39;print &quot;$.:$_&quot; if /gene3/&#39;</span> ./data/DEG_list.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb363-1"><a href="perl-one-liner.html#cb363-1"></a><span class="fu">perl</span> -ne <span class="st">&#39;print &quot;$.:$_&quot; if /gene3/&#39;</span> ./data/DEG_list.txt</span></code></pre></div>
 <pre><code>## 4:gene3  -2  0.06</code></pre>
 <p>This is equivalent of the <code>grep</code> comand line shown below:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb372-1"><a href="perl-one-liner.html#cb372-1"></a><span class="fu">grep</span> -n <span class="st">&#39;gene3&#39;</span>  ./data/DEG_list.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb365-1"><a href="perl-one-liner.html#cb365-1"></a><span class="fu">grep</span> -n <span class="st">&#39;gene3&#39;</span>  ./data/DEG_list.txt</span></code></pre></div>
 <pre><code>## 4:gene3  -2  0.06</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb374-1"><a href="perl-one-liner.html#cb374-1"></a><span class="fu">perl</span> -e <span class="st">&#39;while(&lt;&gt;){$id=$_; $seq=&lt;&gt;;&lt;&gt;;&lt;&gt;; print &quot;&gt;$id$seq&quot;;}&#39;</span> ./data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">head</span> -10</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb367-1"><a href="perl-one-liner.html#cb367-1"></a><span class="fu">perl</span> -e <span class="st">&#39;while(&lt;&gt;){$id=$_; $seq=&lt;&gt;;&lt;&gt;;&lt;&gt;; print &quot;&gt;$id$seq&quot;;}&#39;</span> ./data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">head</span> -10</span></code></pre></div>
 <pre><code>## &gt;@EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51
 ## TGTTTTTGGGTTAATTAATATTAATTAAATATTTTAATATATTTTTATATA
 ## &gt;@EV1.2 SN603_WB082:5:1101:30.70:119.80 length=51
@@ -507,10 +507,10 @@ variable that maintains the current line number. You can just print it out toget
 <div id="escape-single-quote" class="section level2">
 <h2><span class="header-section-number">33.2</span> Escape single quote</h2>
 <p>You can’t use single quotes alone. You need to escape them correctly using ‘'’ This works:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb376-1"><a href="perl-one-liner.html#cb376-1"></a><span class="bu">echo</span> <span class="st">&quot;a,b&quot;</span> <span class="kw">|</span> <span class="fu">perl</span> -F<span class="st">&#39;,&#39;</span> -lane <span class="st">&#39;print &quot;&#39;</span><span class="dt">\&#39;</span><span class="st">&#39;$F[0]&#39;</span><span class="dt">\&#39;</span><span class="st">&#39;&quot;;&#39;</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb369-1"><a href="perl-one-liner.html#cb369-1"></a><span class="bu">echo</span> <span class="st">&quot;a,b&quot;</span> <span class="kw">|</span> <span class="fu">perl</span> -F<span class="st">&#39;,&#39;</span> -lane <span class="st">&#39;print &quot;&#39;</span><span class="dt">\&#39;</span><span class="st">&#39;$F[0]&#39;</span><span class="dt">\&#39;</span><span class="st">&#39;&quot;;&#39;</span></span></code></pre></div>
 <pre><code>## &#39;a&#39;</code></pre>
 <p>The <code>\047</code> is an octal escape. it’s actually just a single quote. when working with embedded quotes, it’s sometimes easier to just write \047 rather than something like <code>'\''</code>.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb378-1"><a href="perl-one-liner.html#cb378-1"></a><span class="bu">echo</span> <span class="st">&quot;a,b&quot;</span> <span class="kw">|</span> <span class="fu">perl</span> -F<span class="st">&#39;,&#39;</span> -lane <span class="st">&#39;print &quot;\047$F[0]\047&quot;;&#39;</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb371-1"><a href="perl-one-liner.html#cb371-1"></a><span class="bu">echo</span> <span class="st">&quot;a,b&quot;</span> <span class="kw">|</span> <span class="fu">perl</span> -F<span class="st">&#39;,&#39;</span> -lane <span class="st">&#39;print &quot;\047$F[0]\047&quot;;&#39;</span></span></code></pre></div>
 <pre><code>## &#39;a&#39;</code></pre>
 </div>
 <div id="reference-2" class="section level2">
@@ -555,7 +555,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/37_100_Perl_oneliner.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/37_Perl_oneliner.Rmd",
 "text": "Edit"
 },
 "history": {

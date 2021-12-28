@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -486,22 +486,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.1.3.1</span> <code>grep</code></h4>
 <hr />
 <p>The <code>grep</code> command which stands for “global regular expression print,” processes text line by line and prints any lines which match a specified pattern. The grep command is used to search text or searches the given file for lines containing a match to the given strings or words. By default, grep displays the matching lines.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb68-1"><a href="file-content-filtering.html#cb68-1"></a><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb61-1"><a href="file-content-filtering.html#cb61-1"></a><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt</span></code></pre></div>
 <pre><code>## gene2    WRKY
 ## gene4    WRKY1
 ## gene5    WRKY2</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb70-1"><a href="file-content-filtering.html#cb70-1"></a><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt  <span class="kw">|</span><span class="fu">wc</span> -l </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb63-1"><a href="file-content-filtering.html#cb63-1"></a><span class="fu">grep</span> <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt  <span class="kw">|</span><span class="fu">wc</span> -l </span></code></pre></div>
 <pre><code>## 3</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb72-1"><a href="file-content-filtering.html#cb72-1"></a><span class="fu">grep</span> -i <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb65-1"><a href="file-content-filtering.html#cb65-1"></a><span class="fu">grep</span> -i <span class="st">&#39;WRKY&#39;</span> data/gene_annotation.txt </span></code></pre></div>
 <pre><code>## gene2    WRKY
 ## gene4    WRKY1
 ## gene5    WRKY2
 ## gene6    wrky</code></pre>
 <p>If you want to search for a word, and avoid matching substrings use ‘-w ‘option.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb74-1"><a href="file-content-filtering.html#cb74-1"></a><span class="fu">grep</span> <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb67-1"><a href="file-content-filtering.html#cb67-1"></a><span class="fu">grep</span> <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </span></code></pre></div>
 <pre><code>## gene1    ROS
 ## gene10   MCU</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb76-1"><a href="file-content-filtering.html#cb76-1"></a><span class="fu">grep</span> -w <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb69-1"><a href="file-content-filtering.html#cb69-1"></a><span class="fu">grep</span> -w <span class="st">&#39;gene1&#39;</span> data/gene_annotation.txt </span></code></pre></div>
 <pre><code>## gene1    ROS</code></pre>
 </div>
 <div id="awk" class="section level4">
@@ -511,29 +511,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="paste" class="section level2">
 <h2><span class="header-section-number">4.2</span> <code>paste</code></h2>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb78-1"><a href="file-content-filtering.html#cb78-1"></a><span class="ex">paste</span> data/DEG_list.txt data/gene_annotation.txt <span class="kw">|</span><span class="fu">head</span> -5</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb71-1"><a href="file-content-filtering.html#cb71-1"></a><span class="ex">paste</span> data/DEG_list.txt data/gene_annotation.txt <span class="kw">|</span><span class="fu">head</span> -5</span></code></pre></div>
 <pre><code>## #gene_id log2fc  p-val   gene_id gene_shortname
 ## gene1    2   0.01    gene1   ROS
 ## gene2    3   0.04    gene2   WRKY
 ## gene3    -2  0.06    gene3   ZmCCT
 ## gene4    -8  0.001   gene4   WRKY1</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb80-1"><a href="file-content-filtering.html#cb80-1"></a><span class="ex">paste</span> data/DEG_list.txt data/gene_annotation.txt <span class="kw">|</span><span class="fu">head</span> -5 <span class="kw">|</span><span class="fu">cut</span> -f 1-3,5</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb73-1"><a href="file-content-filtering.html#cb73-1"></a><span class="ex">paste</span> data/DEG_list.txt data/gene_annotation.txt <span class="kw">|</span><span class="fu">head</span> -5 <span class="kw">|</span><span class="fu">cut</span> -f 1-3,5</span></code></pre></div>
 <pre><code>## #gene_id log2fc  p-val   gene_shortname
 ## gene1    2   0.01    ROS
 ## gene2    3   0.04    WRKY
 ## gene3    -2  0.06    ZmCCT
 ## gene4    -8  0.001   WRKY1</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb82-1"><a href="file-content-filtering.html#cb82-1"></a><span class="fu">head</span> -2 data/WGBS_example_data/EV1.fastq</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb75-1"><a href="file-content-filtering.html#cb75-1"></a><span class="fu">head</span> -2 data/WGBS_example_data/EV1.fastq</span></code></pre></div>
 <pre><code>## @EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51
 ## TGTTTTTGGGTTAATTAATATTAATTAAATATTTTAATATATTTTTATATA</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb84-1"><a href="file-content-filtering.html#cb84-1"></a><span class="ex">paste</span> - - - - <span class="op">&lt;</span>data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">head</span> -2 </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb77-1"><a href="file-content-filtering.html#cb77-1"></a><span class="ex">paste</span> - - - - <span class="op">&lt;</span>data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">head</span> -2 </span></code></pre></div>
 <pre><code>## @EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51 TGTTTTTGGGTTAATTAATATTAATTAAATATTTTAATATATTTTTATATA +EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51    BCBDFFFFHHFHHIJJJJJJJJHHIICEFGHIIJJC?FDFHIIJJJHHFHG
 ## @EV1.2 SN603_WB082:5:1101:30.70:119.80 length=51 TTGATGGGTATTTTAATTGGTATTTAATTTATTGTTGAGGGTTTTATTATT +EV1.2 SN603_WB082:5:1101:30.70:119.80 length=51    BCCDFFFFCFHHHJIIJJJIFHHGJIGJJJGIJJIIJGIJIDGIJEHJGIJ</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb86-1"><a href="file-content-filtering.html#cb86-1"></a><span class="ex">paste</span> - - - - <span class="op">&lt;</span>data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">cut</span> -f1-2 <span class="kw">|</span><span class="fu">head</span> -2</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb79-1"><a href="file-content-filtering.html#cb79-1"></a><span class="ex">paste</span> - - - - <span class="op">&lt;</span>data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">cut</span> -f1-2 <span class="kw">|</span><span class="fu">head</span> -2</span></code></pre></div>
 <pre><code>## @EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51 TGTTTTTGGGTTAATTAATATTAATTAAATATTTTAATATATTTTTATATA
 ## @EV1.2 SN603_WB082:5:1101:30.70:119.80 length=51 TTGATGGGTATTTTAATTGGTATTTAATTTATTGTTGAGGGTTTTATTATT</code></pre>
 <p>Convert fastq file to fasta file using paste:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb88-1"><a href="file-content-filtering.html#cb88-1"></a><span class="ex">paste</span> - - - - <span class="op">&lt;</span>data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">cut</span> -f1-2 <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s/^@/&gt;/&#39;</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="st">&quot;\t&quot;</span> <span class="st">&quot;\n&quot;</span>  <span class="kw">|</span><span class="fu">head</span> -4</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb81-1"><a href="file-content-filtering.html#cb81-1"></a><span class="ex">paste</span> - - - - <span class="op">&lt;</span>data/WGBS_example_data/EV1.fastq <span class="kw">|</span><span class="fu">cut</span> -f1-2 <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s/^@/&gt;/&#39;</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="st">&quot;\t&quot;</span> <span class="st">&quot;\n&quot;</span>  <span class="kw">|</span><span class="fu">head</span> -4</span></code></pre></div>
 <pre><code>## &gt;EV1.1 SN603_WB082:5:1101:49.70:115.70 length=51
 ## TGTTTTTGGGTTAATTAATATTAATTAAATATTTTAATATATTTTTATATA
 ## &gt;EV1.2 SN603_WB082:5:1101:30.70:119.80 length=51
@@ -556,36 +556,36 @@ sh code_shell/deinterleave_fastq.sh &lt; </code></pre>
 <h2><span class="header-section-number">4.3</span> Finding Things</h2>
 <div id="find-files-with-pattern-matching" class="section level3">
 <h3><span class="header-section-number">4.3.1</span> Find files with pattern matching</h3>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb92-1"><a href="file-content-filtering.html#cb92-1"></a><span class="co">## Find any files with &quot;Linux&quot; and &quot;.Rmd&quot; in the file names</span></span>
-<span id="cb92-2"><a href="file-content-filtering.html#cb92-2"></a><span class="fu">find</span> . -type f -name <span class="st">&quot;*Linux*.Rmd&quot;</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb85-1"><a href="file-content-filtering.html#cb85-1"></a><span class="co">## Find any files with &quot;Linux&quot; and &quot;.Rmd&quot; in the file names</span></span>
+<span id="cb85-2"><a href="file-content-filtering.html#cb85-2"></a><span class="fu">find</span> . -type f -name <span class="st">&quot;*Linux*.Rmd&quot;</span></span></code></pre></div>
 <pre><code>## ./slides/slides01_Linux.Rmd
-## ./09_09_TextEditorInLinux.Rmd
 ## ./04_Linux_FilteringOutputandFindingThings.Rmd
-## ./06_06_procManageLinux.Rmd
-## ./08_08_InstallationOfSoftwareInLinux.Rmd
 ## ./01_WhyLinux.Rmd
 ## ./02_Connect2Linux.Rmd
+## ./09_TextEditorInLinux.Rmd
+## ./08_InstallationOfSoftwareInLinux.Rmd
+## ./06_procManageLinux.Rmd
 ## ./03_FileSystemLinux.Rmd</code></pre>
 </div>
 <div id="count-file-numbers-in-a-folder-and-its-subdirectories" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Count file numbers in a folder and its subdirectories</h3>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb94-1"><a href="file-content-filtering.html#cb94-1"></a><span class="fu">find</span> . -type f <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
-<pre><code>## 2241</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb87-1"><a href="file-content-filtering.html#cb87-1"></a><span class="fu">find</span> . -type f <span class="kw">|</span> <span class="fu">wc</span> -l</span></code></pre></div>
+<pre><code>## 1983</code></pre>
 </div>
 <div id="list-files-bigger-than-filesize-specified" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> List files bigger than filesize specified</h3>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb96-1"><a href="file-content-filtering.html#cb96-1"></a><span class="co">#To find files larger than 10MB:</span></span>
-<span id="cb96-2"><a href="file-content-filtering.html#cb96-2"></a><span class="fu">find</span> . -type f -size +10M</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb89-1"><a href="file-content-filtering.html#cb89-1"></a><span class="co">#To find files larger than 10MB:</span></span>
+<span id="cb89-2"><a href="file-content-filtering.html#cb89-2"></a><span class="fu">find</span> . -type f -size +10M</span></code></pre></div>
 <pre><code>## ./.git/objects/pack/pack-b6b6179d7bb7190bc99389e158b2a8e4cbd98d2f.pack
 ## ./data/ESP6500-African_American.vcf.gz
 ## ./download</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb98-1"><a href="file-content-filtering.html#cb98-1"></a><span class="co"># If you want the current dir only:</span></span>
-<span id="cb98-2"><a href="file-content-filtering.html#cb98-2"></a><span class="fu">find</span> . -maxdepth 1 -type f -size +1M</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb91-1"><a href="file-content-filtering.html#cb91-1"></a><span class="co"># If you want the current dir only:</span></span>
+<span id="cb91-2"><a href="file-content-filtering.html#cb91-2"></a><span class="fu">find</span> . -maxdepth 1 -type f -size +1M</span></code></pre></div>
 <pre><code>## ./download</code></pre>
 </div>
 <div id="find-files-and-do-someting" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Find files and do someting</h3>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb100-1"><a href="file-content-filtering.html#cb100-1"></a><span class="fu">find</span> . -type f -name <span class="st">&quot;*fa*.pl&quot;</span> -exec ls -l {} <span class="ex">+</span><span class="kw">;</span> </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb93-1"><a href="file-content-filtering.html#cb93-1"></a><span class="fu">find</span> . -type f -name <span class="st">&quot;*fa*.pl&quot;</span> -exec ls -l {} <span class="ex">+</span><span class="kw">;</span> </span></code></pre></div>
 <pre><code>## -rw-rw-r-- 1 rstudio-user rstudio-user 642 Apr 15  2019 ./code_perl/fa_seq_len.pl
 ## -rw-rw-r-- 1 rstudio-user rstudio-user 809 Apr 15  2019 ./code_perl/fa_seq_len_out.pl
 ## -rw-rw-r-- 1 rstudio-user rstudio-user 810 Apr 15  2019 ./code_perl/fa_seq_len_out_argv.pl

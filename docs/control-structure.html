@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -474,14 +474,14 @@ Perl is an iterative language in which control flows from the first statement in
 ….</p>
 <div id="for-loop" class="section level2">
 <h2><span class="header-section-number">28.1</span> <code>for</code> loop</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb321-1"><a href="control-structure.html#cb321-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);</span>
-<span id="cb321-2"><a href="control-structure.html#cb321-2"></a></span>
-<span id="cb321-3"><a href="control-structure.html#cb321-3"></a><span class="co"># This is an example of  for loop </span></span>
-<span id="cb321-4"><a href="control-structure.html#cb321-4"></a><span class="kw">for</span>(<span class="kw">my</span> <span class="dt">$i</span>=<span class="dv">0</span>; <span class="dt">$i</span>&lt;<span class="dt">@gene_expr</span>; ++<span class="dt">$i</span>){</span>
-<span id="cb321-5"><a href="control-structure.html#cb321-5"></a>    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$i</span>]/<span class="dv">2</span>;</span>
-<span id="cb321-6"><a href="control-structure.html#cb321-6"></a></span>
-<span id="cb321-7"><a href="control-structure.html#cb321-7"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$i</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;    </span>
-<span id="cb321-8"><a href="control-structure.html#cb321-8"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb314-1"><a href="control-structure.html#cb314-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);</span>
+<span id="cb314-2"><a href="control-structure.html#cb314-2"></a></span>
+<span id="cb314-3"><a href="control-structure.html#cb314-3"></a><span class="co"># This is an example of  for loop </span></span>
+<span id="cb314-4"><a href="control-structure.html#cb314-4"></a><span class="kw">for</span>(<span class="kw">my</span> <span class="dt">$i</span>=<span class="dv">0</span>; <span class="dt">$i</span>&lt;<span class="dt">@gene_expr</span>; ++<span class="dt">$i</span>){</span>
+<span id="cb314-5"><a href="control-structure.html#cb314-5"></a>    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$i</span>]/<span class="dv">2</span>;</span>
+<span id="cb314-6"><a href="control-structure.html#cb314-6"></a></span>
+<span id="cb314-7"><a href="control-structure.html#cb314-7"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$i</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;    </span>
+<span id="cb314-8"><a href="control-structure.html#cb314-8"></a>}</span></code></pre></div>
 <pre><code>## At 0 place, the number devided by 2 equals: 1
 ## At 1 place, the number devided by 2 equals: 3
 ## At 2 place, the number devided by 2 equals: 4
@@ -489,15 +489,15 @@ Perl is an iterative language in which control flows from the first statement in
 </div>
 <div id="foreach-loop" class="section level2">
 <h2><span class="header-section-number">28.2</span> <code>foreach</code> loop</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb323-1"><a href="control-structure.html#cb323-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);</span>
-<span id="cb323-2"><a href="control-structure.html#cb323-2"></a></span>
-<span id="cb323-3"><a href="control-structure.html#cb323-3"></a><span class="kw">my</span> <span class="dt">$j</span> = <span class="dv">0</span>;</span>
-<span id="cb323-4"><a href="control-structure.html#cb323-4"></a><span class="kw">foreach</span>(<span class="dt">@gene_expr</span>){</span>
-<span id="cb323-5"><a href="control-structure.html#cb323-5"></a>    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$j</span>]/<span class="dv">2</span>;</span>
-<span id="cb323-6"><a href="control-structure.html#cb323-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$j</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb323-7"><a href="control-structure.html#cb323-7"></a>    <span class="co">#$j = $j +1</span></span>
-<span id="cb323-8"><a href="control-structure.html#cb323-8"></a>    ++<span class="dt">$j</span>;</span>
-<span id="cb323-9"><a href="control-structure.html#cb323-9"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb316-1"><a href="control-structure.html#cb316-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);</span>
+<span id="cb316-2"><a href="control-structure.html#cb316-2"></a></span>
+<span id="cb316-3"><a href="control-structure.html#cb316-3"></a><span class="kw">my</span> <span class="dt">$j</span> = <span class="dv">0</span>;</span>
+<span id="cb316-4"><a href="control-structure.html#cb316-4"></a><span class="kw">foreach</span>(<span class="dt">@gene_expr</span>){</span>
+<span id="cb316-5"><a href="control-structure.html#cb316-5"></a>    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$j</span>]/<span class="dv">2</span>;</span>
+<span id="cb316-6"><a href="control-structure.html#cb316-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$j</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb316-7"><a href="control-structure.html#cb316-7"></a>    <span class="co">#$j = $j +1</span></span>
+<span id="cb316-8"><a href="control-structure.html#cb316-8"></a>    ++<span class="dt">$j</span>;</span>
+<span id="cb316-9"><a href="control-structure.html#cb316-9"></a>}</span></code></pre></div>
 <pre><code>## At 0 place, the number devided by 2 equals: 1
 ## At 1 place, the number devided by 2 equals: 3
 ## At 2 place, the number devided by 2 equals: 4
@@ -505,14 +505,14 @@ Perl is an iterative language in which control flows from the first statement in
 </div>
 <div id="while-loop" class="section level2">
 <h2><span class="header-section-number">28.3</span> <code>while</code> loop</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb325-1"><a href="control-structure.html#cb325-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);</span>
-<span id="cb325-2"><a href="control-structure.html#cb325-2"></a></span>
-<span id="cb325-3"><a href="control-structure.html#cb325-3"></a><span class="kw">my</span> <span class="dt">$k</span> = <span class="dv">0</span>;</span>
-<span id="cb325-4"><a href="control-structure.html#cb325-4"></a><span class="kw">while</span>(<span class="dt">$k</span>&lt;<span class="dt">@gene_expr</span>){</span>
-<span id="cb325-5"><a href="control-structure.html#cb325-5"></a>    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$k</span>]/<span class="dv">2</span>;</span>
-<span id="cb325-6"><a href="control-structure.html#cb325-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$k</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb325-7"><a href="control-structure.html#cb325-7"></a>    ++<span class="dt">$k</span>;</span>
-<span id="cb325-8"><a href="control-structure.html#cb325-8"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb318-1"><a href="control-structure.html#cb318-1"></a><span class="kw">my</span> <span class="dt">@gene_expr</span> = (<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>, <span class="dv">9</span>);</span>
+<span id="cb318-2"><a href="control-structure.html#cb318-2"></a></span>
+<span id="cb318-3"><a href="control-structure.html#cb318-3"></a><span class="kw">my</span> <span class="dt">$k</span> = <span class="dv">0</span>;</span>
+<span id="cb318-4"><a href="control-structure.html#cb318-4"></a><span class="kw">while</span>(<span class="dt">$k</span>&lt;<span class="dt">@gene_expr</span>){</span>
+<span id="cb318-5"><a href="control-structure.html#cb318-5"></a>    <span class="kw">my</span> <span class="dt">$tem_var</span>= <span class="dt">$gene_expr</span>[<span class="dt">$k</span>]/<span class="dv">2</span>;</span>
+<span id="cb318-6"><a href="control-structure.html#cb318-6"></a>    <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">At </span><span class="dt">$k</span><span class="st"> place, the number devided by 2 equals: </span><span class="dt">$tem_var</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb318-7"><a href="control-structure.html#cb318-7"></a>    ++<span class="dt">$k</span>;</span>
+<span id="cb318-8"><a href="control-structure.html#cb318-8"></a>}</span></code></pre></div>
 <pre><code>## At 0 place, the number devided by 2 equals: 1
 ## At 1 place, the number devided by 2 equals: 3
 ## At 2 place, the number devided by 2 equals: 4
@@ -520,18 +520,18 @@ Perl is an iterative language in which control flows from the first statement in
 </div>
 <div id="statement-if-else" class="section level2">
 <h2><span class="header-section-number">28.4</span> Statement if-else</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb327-1"><a href="control-structure.html#cb327-1"></a><span class="kw">#!/usr/bin/perl</span></span>
-<span id="cb327-2"><a href="control-structure.html#cb327-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
-<span id="cb327-3"><a href="control-structure.html#cb327-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
-<span id="cb327-4"><a href="control-structure.html#cb327-4"></a></span>
-<span id="cb327-5"><a href="control-structure.html#cb327-5"></a><span class="kw">my</span> <span class="dt">@gene_exp_lev</span> = (<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">10</span>);</span>
-<span id="cb327-6"><a href="control-structure.html#cb327-6"></a></span>
-<span id="cb327-7"><a href="control-structure.html#cb327-7"></a><span class="co"># for (my $i = 0; $i &lt; @gene_exp_lev; $i++) {</span></span>
-<span id="cb327-8"><a href="control-structure.html#cb327-8"></a><span class="kw">for</span> (<span class="kw">my</span> <span class="dt">$i</span> = <span class="dv">0</span>; <span class="dt">$i</span> &lt; <span class="fu">scalar</span> <span class="dt">@gene_exp_lev</span>; <span class="dt">$i</span>++) {</span>
-<span id="cb327-9"><a href="control-structure.html#cb327-9"></a>    <span class="kw">if</span> (<span class="dt">$gene_exp_lev</span>[<span class="dt">$i</span>] &gt; <span class="dv">4</span>) {</span>
-<span id="cb327-10"><a href="control-structure.html#cb327-10"></a>        <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Index </span><span class="dt">$i</span><span class="st">: </span><span class="dt">$gene_exp_lev</span><span class="st">[</span><span class="dt">$i</span><span class="st">]</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
-<span id="cb327-11"><a href="control-structure.html#cb327-11"></a>    }</span>
-<span id="cb327-12"><a href="control-structure.html#cb327-12"></a>}</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb320-1"><a href="control-structure.html#cb320-1"></a><span class="kw">#!/usr/bin/perl</span></span>
+<span id="cb320-2"><a href="control-structure.html#cb320-2"></a><span class="fu">use</span> <span class="kw">warnings</span>;</span>
+<span id="cb320-3"><a href="control-structure.html#cb320-3"></a><span class="fu">use</span> <span class="kw">strict</span>;</span>
+<span id="cb320-4"><a href="control-structure.html#cb320-4"></a></span>
+<span id="cb320-5"><a href="control-structure.html#cb320-5"></a><span class="kw">my</span> <span class="dt">@gene_exp_lev</span> = (<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">10</span>);</span>
+<span id="cb320-6"><a href="control-structure.html#cb320-6"></a></span>
+<span id="cb320-7"><a href="control-structure.html#cb320-7"></a><span class="co"># for (my $i = 0; $i &lt; @gene_exp_lev; $i++) {</span></span>
+<span id="cb320-8"><a href="control-structure.html#cb320-8"></a><span class="kw">for</span> (<span class="kw">my</span> <span class="dt">$i</span> = <span class="dv">0</span>; <span class="dt">$i</span> &lt; <span class="fu">scalar</span> <span class="dt">@gene_exp_lev</span>; <span class="dt">$i</span>++) {</span>
+<span id="cb320-9"><a href="control-structure.html#cb320-9"></a>    <span class="kw">if</span> (<span class="dt">$gene_exp_lev</span>[<span class="dt">$i</span>] &gt; <span class="dv">4</span>) {</span>
+<span id="cb320-10"><a href="control-structure.html#cb320-10"></a>        <span class="fu">print</span> <span class="kw">&quot;</span><span class="st">Index </span><span class="dt">$i</span><span class="st">: </span><span class="dt">$gene_exp_lev</span><span class="st">[</span><span class="dt">$i</span><span class="st">]</span><span class="ch">\n</span><span class="kw">&quot;</span>;</span>
+<span id="cb320-11"><a href="control-structure.html#cb320-11"></a>    }</span>
+<span id="cb320-12"><a href="control-structure.html#cb320-12"></a>}</span></code></pre></div>
 <pre><code>Index 1: 5
 Index 4: 9
 Index 5: 10</code></pre>
@@ -544,7 +544,7 @@ Index 5: 10</code></pre>
 <p>Before we use <code>redo</code>, first let’s see what is <code>BLOCK</code> in Perl. In Perl, a <code>BLOCK</code> by itself (labeled or not) is semantically equivalent to a loop that executes once. Thus you can use any of the loop control statements in it to leave or restart the block.</p>
 <p>The redo command restarts the loop block without evaluating the conditional again.</p>
 <p>Let’s say we have some postitions on the genome where a few</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb329-1"><a href="control-structure.html#cb329-1"></a><span class="kw">my</span> <span class="dt">@read_depth</span> = (<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">7</span>);</span></code></pre></div>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb322-1"><a href="control-structure.html#cb322-1"></a><span class="kw">my</span> <span class="dt">@read_depth</span> = (<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">7</span>);</span></code></pre></div>
 
 </div>
 </div>
@@ -584,7 +584,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/32_13_PerlControlStructure.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/32_PerlControlStructure.Rmd",
 "text": "Edit"
 },
 "history": {

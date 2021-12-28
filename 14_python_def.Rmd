@@ -27,7 +27,6 @@ print("CG content is: " + str(cg_content_val))
 
 ## Reverse complement
 
-
 ```{python}
 def reverse_complement(seq):
     complement = {"A": "T", "T":"A" ,"C":"G","G":"C"}
@@ -39,7 +38,3 @@ def reverse_complement(seq):
 DNA_seq = "ACGT"
 print("After reverse complement, the sequence is: " + reverse_complement(DNA_seq))
 ```
-
-
-
-

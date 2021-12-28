@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -474,28 +474,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nearly all of the Bioinformatics softwares will be downloaded as a compressed files. So the first thing you need to do is to uncompress the file. Then the source codes will be included in a folder. You can <code>cd</code> to the folder and <code>ls</code> the files/directories. Mostly you will find either a file named <code>README</code> or <code>INSTALL</code> or both. If you read this file to know how to install the software.</p>
 <div id="install-bwa" class="section level3">
 <h3><span class="header-section-number">8.1.1</span> Install <code>bwa</code></h3>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb140-1"><a href="install-bioinformatics-software-in-linux.html#cb140-1"></a><span class="fu">wget</span> https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2</span>
-<span id="cb140-2"><a href="install-bioinformatics-software-in-linux.html#cb140-2"></a><span class="fu">tar</span> xjvf bwa-0.7.15.tar.bz2</span>
-<span id="cb140-3"><a href="install-bioinformatics-software-in-linux.html#cb140-3"></a><span class="bu">cd</span> bwa-0.7.15</span>
-<span id="cb140-4"><a href="install-bioinformatics-software-in-linux.html#cb140-4"></a><span class="fu">make</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb133-1"><a href="install-bioinformatics-software-in-linux.html#cb133-1"></a><span class="fu">wget</span> https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2</span>
+<span id="cb133-2"><a href="install-bioinformatics-software-in-linux.html#cb133-2"></a><span class="fu">tar</span> xjvf bwa-0.7.15.tar.bz2</span>
+<span id="cb133-3"><a href="install-bioinformatics-software-in-linux.html#cb133-3"></a><span class="bu">cd</span> bwa-0.7.15</span>
+<span id="cb133-4"><a href="install-bioinformatics-software-in-linux.html#cb133-4"></a><span class="fu">make</span></span></code></pre></div>
 </div>
 <div id="install-samtools" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Install <code>samtools</code></h3>
 <p>Installation of <code>Samtools</code> is one of the best representatives of how to instsall a Bioinformatics tool.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb141-1"><a href="install-bioinformatics-software-in-linux.html#cb141-1"></a><span class="co"># Download the source code</span></span>
-<span id="cb141-2"><a href="install-bioinformatics-software-in-linux.html#cb141-2"></a><span class="fu">wget</span> https://iweb.dl.sourceforge.net/project/samtools/samtools/1.3.1/samtools-1.3.1.tar.bz2</span>
-<span id="cb141-3"><a href="install-bioinformatics-software-in-linux.html#cb141-3"></a><span class="co"># Uncompress the source code</span></span>
-<span id="cb141-4"><a href="install-bioinformatics-software-in-linux.html#cb141-4"></a><span class="fu">tar</span> xjvf samtools-1.3.1.tar.bz2</span>
-<span id="cb141-5"><a href="install-bioinformatics-software-in-linux.html#cb141-5"></a><span class="co"># Enter the source code directory.</span></span>
-<span id="cb141-6"><a href="install-bioinformatics-software-in-linux.html#cb141-6"></a><span class="bu">cd</span> samtools-1.3.1</span>
-<span id="cb141-7"><a href="install-bioinformatics-software-in-linux.html#cb141-7"></a><span class="co"># Configure the build system</span></span>
-<span id="cb141-8"><a href="install-bioinformatics-software-in-linux.html#cb141-8"></a><span class="ex">./configure</span></span>
-<span id="cb141-9"><a href="install-bioinformatics-software-in-linux.html#cb141-9"></a><span class="co"># Build samtools</span></span>
-<span id="cb141-10"><a href="install-bioinformatics-software-in-linux.html#cb141-10"></a><span class="fu">make</span></span>
-<span id="cb141-11"><a href="install-bioinformatics-software-in-linux.html#cb141-11"></a><span class="co"># Become a `root` user for system-wide install:</span></span>
-<span id="cb141-12"><a href="install-bioinformatics-software-in-linux.html#cb141-12"></a><span class="fu">su</span> root</span>
-<span id="cb141-13"><a href="install-bioinformatics-software-in-linux.html#cb141-13"></a><span class="co"># Install `Samtools`</span></span>
-<span id="cb141-14"><a href="install-bioinformatics-software-in-linux.html#cb141-14"></a><span class="fu">make</span> install</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb134-1"><a href="install-bioinformatics-software-in-linux.html#cb134-1"></a><span class="co"># Download the source code</span></span>
+<span id="cb134-2"><a href="install-bioinformatics-software-in-linux.html#cb134-2"></a><span class="fu">wget</span> https://iweb.dl.sourceforge.net/project/samtools/samtools/1.3.1/samtools-1.3.1.tar.bz2</span>
+<span id="cb134-3"><a href="install-bioinformatics-software-in-linux.html#cb134-3"></a><span class="co"># Uncompress the source code</span></span>
+<span id="cb134-4"><a href="install-bioinformatics-software-in-linux.html#cb134-4"></a><span class="fu">tar</span> xjvf samtools-1.3.1.tar.bz2</span>
+<span id="cb134-5"><a href="install-bioinformatics-software-in-linux.html#cb134-5"></a><span class="co"># Enter the source code directory.</span></span>
+<span id="cb134-6"><a href="install-bioinformatics-software-in-linux.html#cb134-6"></a><span class="bu">cd</span> samtools-1.3.1</span>
+<span id="cb134-7"><a href="install-bioinformatics-software-in-linux.html#cb134-7"></a><span class="co"># Configure the build system</span></span>
+<span id="cb134-8"><a href="install-bioinformatics-software-in-linux.html#cb134-8"></a><span class="ex">./configure</span></span>
+<span id="cb134-9"><a href="install-bioinformatics-software-in-linux.html#cb134-9"></a><span class="co"># Build samtools</span></span>
+<span id="cb134-10"><a href="install-bioinformatics-software-in-linux.html#cb134-10"></a><span class="fu">make</span></span>
+<span id="cb134-11"><a href="install-bioinformatics-software-in-linux.html#cb134-11"></a><span class="co"># Become a `root` user for system-wide install:</span></span>
+<span id="cb134-12"><a href="install-bioinformatics-software-in-linux.html#cb134-12"></a><span class="fu">su</span> root</span>
+<span id="cb134-13"><a href="install-bioinformatics-software-in-linux.html#cb134-13"></a><span class="co"># Install `Samtools`</span></span>
+<span id="cb134-14"><a href="install-bioinformatics-software-in-linux.html#cb134-14"></a><span class="fu">make</span> install</span></code></pre></div>
 
 <div class="rmdtip">
 <p><strong>Install <code>samtools</code> without root previledges</strong></p>
@@ -618,7 +618,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/08_08_InstallationOfSoftwareInLinux.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/08_InstallationOfSoftwareInLinux.Rmd",
 "text": "Edit"
 },
 "history": {

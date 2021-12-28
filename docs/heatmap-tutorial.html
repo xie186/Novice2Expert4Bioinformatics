@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -476,16 +476,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="draw-a-heatmap-for-gene-expression-of-rna-seq-data" class="section level2">
 <h2><span class="header-section-number">15.2</span> Draw a heatmap for gene expression of RNA-seq data</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="heatmap-tutorial.html#cb210-1"></a><span class="kw">library</span>(pheatmap)</span>
-<span id="cb210-2"><a href="heatmap-tutorial.html#cb210-2"></a>gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/maize_embryo_specific_gene_Sheet1.tsv&quot;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>)</span>
-<span id="cb210-3"><a href="heatmap-tutorial.html#cb210-3"></a><span class="kw">pheatmap</span>(gene_exp)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="heatmap-tutorial.html#cb211-1"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb211-2"><a href="heatmap-tutorial.html#cb211-2"></a><span class="co"># Set the theme for all the following plots.</span></span>
-<span id="cb211-3"><a href="heatmap-tutorial.html#cb211-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>(<span class="dt">base_size =</span> <span class="dv">16</span>))</span>
-<span id="cb211-4"><a href="heatmap-tutorial.html#cb211-4"></a></span>
-<span id="cb211-5"><a href="heatmap-tutorial.html#cb211-5"></a>dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">values =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(gene_exp)))</span>
-<span id="cb211-6"><a href="heatmap-tutorial.html#cb211-6"></a><span class="kw">summary</span>(dat)</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="heatmap-tutorial.html#cb203-1"></a><span class="kw">library</span>(pheatmap)</span>
+<span id="cb203-2"><a href="heatmap-tutorial.html#cb203-2"></a>gene_exp &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;data/maize_embryo_specific_gene_Sheet1.tsv&quot;</span>, <span class="dt">header=</span>T, <span class="dt">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb203-3"><a href="heatmap-tutorial.html#cb203-3"></a><span class="kw">pheatmap</span>(gene_exp)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="heatmap-tutorial.html#cb204-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb204-2"><a href="heatmap-tutorial.html#cb204-2"></a><span class="co"># Set the theme for all the following plots.</span></span>
+<span id="cb204-3"><a href="heatmap-tutorial.html#cb204-3"></a><span class="kw">theme_set</span>(<span class="kw">theme_bw</span>(<span class="dt">base_size =</span> <span class="dv">16</span>))</span>
+<span id="cb204-4"><a href="heatmap-tutorial.html#cb204-4"></a></span>
+<span id="cb204-5"><a href="heatmap-tutorial.html#cb204-5"></a>dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">values =</span> <span class="kw">as.numeric</span>(<span class="kw">unlist</span>(gene_exp)))</span>
+<span id="cb204-6"><a href="heatmap-tutorial.html#cb204-6"></a><span class="kw">summary</span>(dat)</span></code></pre></div>
 <pre><code>##      values        
 ##  Min.   :    0.00  
 ##  1st Qu.:    0.00  
@@ -493,16 +493,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Mean   :   38.91  
 ##  3rd Qu.:    6.22  
 ##  Max.   :25534.25</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="heatmap-tutorial.html#cb213-1"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(values)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">bw =</span> <span class="st">&quot;SJ&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="heatmap-tutorial.html#cb206-1"></a><span class="kw">ggplot</span>(dat, <span class="kw">aes</span>(values)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>(<span class="dt">bw =</span> <span class="st">&quot;SJ&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</span></code></pre></div>
 <pre><code>## Warning: Removed 958 rows containing non-finite values (stat_density).</code></pre>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 <p>The data is skewed.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="heatmap-tutorial.html#cb215-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.000001</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="heatmap-tutorial.html#cb216-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> T, <span class="dt">show_colnames =</span> F)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-95-2.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="heatmap-tutorial.html#cb217-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-95-3.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="heatmap-tutorial.html#cb208-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.000001</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="heatmap-tutorial.html#cb209-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> T, <span class="dt">show_colnames =</span> F)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-93-2.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="heatmap-tutorial.html#cb210-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-93-3.png" width="672" /></p>
 </div>
 <div id="add-the-annotation" class="section level2">
 <h2><span class="header-section-number">15.3</span> Add the annotation</h2>
@@ -512,8 +512,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="transfrom-the-data" class="section level2">
 <h2><span class="header-section-number">15.5</span> Transfrom the data</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="heatmap-tutorial.html#cb218-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">show_rownames =</span> F) </span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="heatmap-tutorial.html#cb211-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">show_rownames =</span> F) </span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
 </div>
 <div id="how-to-add-annotations" class="section level2">
 <h2><span class="header-section-number">15.6</span> How to add annotations</h2>
@@ -528,16 +528,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">15.9</span> Change color</h2>
 <div id="use-brewer" class="section level3">
 <h3><span class="header-section-number">15.9.1</span> Use Brewer</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="heatmap-tutorial.html#cb219-1"></a>col.pal &lt;-<span class="st"> </span>RColorBrewer<span class="op">::</span><span class="kw">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Reds&quot;</span>)</span>
-<span id="cb219-2"><a href="heatmap-tutorial.html#cb219-2"></a>col.pal </span></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="heatmap-tutorial.html#cb212-1"></a>col.pal &lt;-<span class="st"> </span>RColorBrewer<span class="op">::</span><span class="kw">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Reds&quot;</span>)</span>
+<span id="cb212-2"><a href="heatmap-tutorial.html#cb212-2"></a>col.pal </span></code></pre></div>
 <pre><code>## [1] &quot;#FFF5F0&quot; &quot;#FEE0D2&quot; &quot;#FCBBA1&quot; &quot;#FC9272&quot; &quot;#FB6A4A&quot; &quot;#EF3B2C&quot; &quot;#CB181D&quot;
 ## [8] &quot;#A50F15&quot; &quot;#67000D&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="heatmap-tutorial.html#cb221-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>,</span>
-<span id="cb221-2"><a href="heatmap-tutorial.html#cb221-2"></a>         <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="heatmap-tutorial.html#cb222-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">color =</span> col.pal,</span>
-<span id="cb222-2"><a href="heatmap-tutorial.html#cb222-2"></a>         <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</span></code></pre></div>
-<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-97-2.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="heatmap-tutorial.html#cb214-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>,</span>
+<span id="cb214-2"><a href="heatmap-tutorial.html#cb214-2"></a>         <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="heatmap-tutorial.html#cb215-1"></a><span class="kw">pheatmap</span>(<span class="kw">log2</span>(gene_exp <span class="op">+</span><span class="st"> </span><span class="fl">0.01</span>), <span class="dt">scale=</span><span class="st">&quot;row&quot;</span>, <span class="dt">color =</span> col.pal,</span>
+<span id="cb215-2"><a href="heatmap-tutorial.html#cb215-2"></a>         <span class="dt">show_rownames =</span> F, <span class="dt">show_colnames =</span> T)</span></code></pre></div>
+<p><img src="bioinfBookXIE186_files/figure-html/unnamed-chunk-95-2.png" width="672" /></p>
 
 </div>
 </div>
@@ -578,7 +578,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/18_21_GenerateHeatmap.Rmd",
+"link": "https://github.com/OmicsAcademy/Novice2Expert4Bioinformatics/edit/master/18_GenerateHeatmap.Rmd",
 "text": "Edit"
 },
 "history": {

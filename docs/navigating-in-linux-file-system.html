@@ -25,7 +25,7 @@
 <meta name="author" content="Shaojun Xie (解少俊)">
 
 
-<meta name="date" content="2020-09-15">
+<meta name="date" content="2020-10-28">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#surfing-in-linux-file-system"><i class="fa fa-check"></i><b>3.2</b> Surfing in Linux file system</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#check-where-you-are-using-command-pwd"><i class="fa fa-check"></i><b>3.2.1</b> Check where you are using command <code>pwd</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#listing-the-contents-using-command-ls"><i class="fa fa-check"></i><b>3.2.2</b> Listing the contents using command <code>ls</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command <code>cd</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#change-directory-using-command-cd"><i class="fa fa-check"></i><b>3.2.3</b> Change directory using command ‘cd’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#path-shortcuts"><i class="fa fa-check"></i><b>3.3</b> Path shortcuts</a></li>
 <li class="chapter" data-level="3.4" data-path="navigating-in-linux-file-system.html"><a href="navigating-in-linux-file-system.html#manipulations-of-files-and-directories"><i class="fa fa-check"></i><b>3.4</b> Manipulations of files and directories</a><ul>
@@ -490,18 +490,17 @@ Figure 3.1: Tree structure of Linux system.
 <li><strong>Absolute path</strong></li>
 </ul>
 <p>An absolute path is defined as the location of a file or directory from the root directory(/). An absolute path starts from the <code>root</code> of the tree (<code>/</code>).</p>
-<p>Here are some examples:</p>
-<pre><code>/home/xie186
-/home/xie186/perl5</code></pre>
+<p>Here are some examples:
+&gt;/home/xie186
+&gt;/home/xie186/perl5</p>
 <ul>
 <li><strong>Relative path</strong></li>
 </ul>
-<p>Relative path is a path related to the present working directory.</p>
-<pre><code>data/sample1/
-../doc/</code></pre>
+<p>Relative path is a path related to the present working directory:
+<code>data/sample1/</code> and <code>../doc/</code>.</p>
 <p>If you want to get the <strong>absolute path</strong> based on <strong>relative path</strong>, you can use <code>readlink</code> with parameter <code>-f</code>:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="navigating-in-linux-file-system.html#cb8-1"></a><span class="bu">pwd</span></span>
-<span id="cb8-2"><a href="navigating-in-linux-file-system.html#cb8-2"></a><span class="fu">readlink</span> -f ../</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="navigating-in-linux-file-system.html#cb6-1"></a><span class="bu">pwd</span></span>
+<span id="cb6-2"><a href="navigating-in-linux-file-system.html#cb6-2"></a><span class="fu">readlink</span> -f ../</span></code></pre></div>
 <pre><code>## /cloud/project
 ## /cloud</code></pre>
 </div>
@@ -534,14 +533,14 @@ Figure 3.3: ref:linuxCMDls
 </p>
 </div>
 <p><code>ls</code> with no option will list files and directories in bare format. Bare format means the detailed information (type, size, modified date and time, permissions and links etc) won’t be viewed. When you use <code>ls</code> by itself (Figure <a href="navigating-in-linux-file-system.html#fig:linuxCMDls">3.3</a>), it will list files and directories in the current directory.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="navigating-in-linux-file-system.html#cb11-1"></a><span class="bu">cd</span> tables</span>
-<span id="cb11-2"><a href="navigating-in-linux-file-system.html#cb11-2"></a><span class="fu">ls</span></span>
-<span id="cb11-3"><a href="navigating-in-linux-file-system.html#cb11-3"></a></span>
-<span id="cb11-4"><a href="navigating-in-linux-file-system.html#cb11-4"></a><span class="bu">echo</span> <span class="st">&quot;ls -a&quot;</span></span>
-<span id="cb11-5"><a href="navigating-in-linux-file-system.html#cb11-5"></a><span class="fu">ls</span> -a </span>
-<span id="cb11-6"><a href="navigating-in-linux-file-system.html#cb11-6"></a></span>
-<span id="cb11-7"><a href="navigating-in-linux-file-system.html#cb11-7"></a><span class="bu">echo</span> <span class="st">&quot;ls -t&quot;</span></span>
-<span id="cb11-8"><a href="navigating-in-linux-file-system.html#cb11-8"></a><span class="fu">ls</span> -t</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="navigating-in-linux-file-system.html#cb9-1"></a><span class="bu">cd</span> tables</span>
+<span id="cb9-2"><a href="navigating-in-linux-file-system.html#cb9-2"></a><span class="fu">ls</span></span>
+<span id="cb9-3"><a href="navigating-in-linux-file-system.html#cb9-3"></a></span>
+<span id="cb9-4"><a href="navigating-in-linux-file-system.html#cb9-4"></a><span class="bu">echo</span> <span class="st">&quot;ls -a&quot;</span></span>
+<span id="cb9-5"><a href="navigating-in-linux-file-system.html#cb9-5"></a><span class="fu">ls</span> -a </span>
+<span id="cb9-6"><a href="navigating-in-linux-file-system.html#cb9-6"></a></span>
+<span id="cb9-7"><a href="navigating-in-linux-file-system.html#cb9-7"></a><span class="bu">echo</span> <span class="st">&quot;ls -t&quot;</span></span>
+<span id="cb9-8"><a href="navigating-in-linux-file-system.html#cb9-8"></a><span class="fu">ls</span> -t</span></code></pre></div>
 <pre><code>## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
 ## regexp_perl.tsv
@@ -558,10 +557,10 @@ Figure 3.3: ref:linuxCMDls
 ## 10_PerlInputOutput_bak.Rmd
 ## linuxPathShortcuts.tsv
 ## textEditorLinuxVi3modes.csv</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="navigating-in-linux-file-system.html#cb13-1"></a><span class="fu">ls</span> -l -a tables/</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="navigating-in-linux-file-system.html#cb11-1"></a><span class="fu">ls</span> -l -a tables/</span></code></pre></div>
 <pre><code>## total 28
 ## drwxrwxr-x  2 rstudio-user rstudio-user 4096 May 18  2019 .
-## drwxr-xr-x 20 rstudio-user rstudio-user 4096 Sep 15 03:45 ..
+## drwxr-xr-x 20 rstudio-user rstudio-user 4096 Oct 28 12:55 ..
 ## -rw-rw-r--  1 rstudio-user rstudio-user 4139 Apr 15  2019 10_PerlInputOutput_bak.Rmd
 ## -rw-rw-r--  1 rstudio-user rstudio-user  223 Apr 15  2019 linuxPathShortcuts.tsv
 ## -rw-rw-r--  1 rstudio-user rstudio-user  259 May 18  2019 regexp_perl.tsv
@@ -571,7 +570,7 @@ Figure 3.3: ref:linuxCMDls
 <pre><code>ls -la </code></pre>
 </div>
 <div id="change-directory-using-command-cd" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> Change directory using command <code>cd</code></h3>
+<h3><span class="header-section-number">3.2.3</span> Change directory using command ‘cd’</h3>
 <p>Command cd is used to change the current directory. It’s syntax is:</p>
 <pre><code>cd [option] [directory]</code></pre>
 <p>Unlike <code>pwd</code>, when you use <code>cd</code> you usually need to provide the path (either absolute or relative path) which we want to enter.</p>
@@ -615,132 +614,34 @@ Figure 3.3: ref:linuxCMDls
 </tbody>
 </table>
 <p>Here are some examples:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="navigating-in-linux-file-system.html#cb17-1"></a><span class="bu">cd</span> ~</span>
-<span id="cb17-2"><a href="navigating-in-linux-file-system.html#cb17-2"></a><span class="bu">pwd</span></span>
-<span id="cb17-3"><a href="navigating-in-linux-file-system.html#cb17-3"></a><span class="fu">ls</span></span></code></pre></div>
-<pre><code>## /home/rstudio-user
-## R</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="navigating-in-linux-file-system.html#cb19-1"></a></span>
-<span id="cb19-2"><a href="navigating-in-linux-file-system.html#cb19-2"></a><span class="fu">ls</span> ./</span></code></pre></div>
-<pre><code>## 00_about_me_acknowledge.Rmd
-## 01_WhyLinux.Rmd
-## 02_Connect2Linux.Rmd
-## 03_FileSystemLinux.Rmd
-## 04_Linux_FilteringOutputandFindingThings.Rmd
-## 05_05_AchivingAndCompressingFiles.Rmd
-## 06_06_procManageLinux.Rmd
-## 07_fileTransfer.Rmd
-## 08_08_InstallationOfSoftwareInLinux.Rmd
-## 09_09_TextEditorInLinux.Rmd
-## 10_python_first_python.Rmd
-## 11_python_variable_type.Rmd
-## 12_11_python_flow_control.Rmd
-## 13_11_python_reading_files.Rmd
-## 14_11_python_def.Rmd
-## 15_11_pyhton_reg_expr.Rmd
-## 16_18_R_intro.Rmd
-## 17_20_GraphGgplot2.Rmd
-## 18_21_GenerateHeatmap.Rmd
-## 19_22_FigureManuscript.Rmd
-## 20_23_IntroNGS.Rmd
-## 21_24_introRNA-seq.Rmd
-## 22_27_ExpDesign.Rmd
-## 23_28_CapstoneProjectRNA-seq.Rmd
-## 24_28_common_measurement.Rmd
-## 25_29_R_data.table.Rmd
-## 26_31_Good_resource.Rmd
-## 27_41_basic_statistics_R.Rmd
-## 28_42_R_inferential_statistics.Rmd
-## 29_10_FirstPerlProgram.Rmd
-## 30_PerlVariableOperator.Rmd
-## 31_11_R_linear_regression.Rmd
-## 32_13_PerlControlStructure.Rmd
-## 33_14_StringManipulationRegExp.Rmd
-## 34_15_PerlInputOutput.Rmd
-## 35_16_practicalPerlProgram.Rmd
-## 36_17_PerlModules.Rmd
-## 37_100_Perl_oneliner.Rmd
-## 38_famous_people_blog2follow.Rmd
-## 39_32_Reference.Rmd
-## DESCRIPTION
-## LICENSE
-## README.md
-## Rmd_list.txt
-## TODO
-## _bookdown.yml
-## _bookdown_files
-## _build.sh
-## _deploy.sh
-## _output.yml
-## bak
-## bioinfBookXIE186.Rmd
-## bioinfBookXIE186.log
-## bioinfBookXIE186_files
-## book.bib
-## bookdown-demo.Rproj
-## bookdown-demo.log
-## code_R
-## code_perl
-## code_python
-## code_shell
-## data
-## docs
-## download
-## figures
-## images
-## index.Rmd
-## index.Rmd_bak
-## index.log
-## lib
-## material
-## order_Rmd.sh
-## order_Rmd.sh.README
-## order_Rmd.txt
-## order_Rmd_file.sh
-## packages.bib
-## preamble.tex
-## preamble_bak.tex
-## rpres.css
-## scripts
-## slides
-## style.css
-## tables
-## test.pl
-## test.sh
-## toc.css</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="navigating-in-linux-file-system.html#cb21-1"></a></span>
-<span id="cb21-2"><a href="navigating-in-linux-file-system.html#cb21-2"></a><span class="co">## </span></span>
-<span id="cb21-3"><a href="navigating-in-linux-file-system.html#cb21-3"></a><span class="bu">pwd</span></span>
-<span id="cb21-4"><a href="navigating-in-linux-file-system.html#cb21-4"></a><span class="bu">cd</span> ../</span>
-<span id="cb21-5"><a href="navigating-in-linux-file-system.html#cb21-5"></a><span class="bu">pwd</span></span>
-<span id="cb21-6"><a href="navigating-in-linux-file-system.html#cb21-6"></a><span class="bu">cd</span> ./</span>
-<span id="cb21-7"><a href="navigating-in-linux-file-system.html#cb21-7"></a><span class="bu">pwd</span></span></code></pre></div>
-<pre><code>/cloud/project
-/cloud
-/cloud</code></pre>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="navigating-in-linux-file-system.html#cb15-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb15-2"><a href="navigating-in-linux-file-system.html#cb15-2"></a><span class="bu">pwd</span></span>
+<span id="cb15-3"><a href="navigating-in-linux-file-system.html#cb15-3"></a><span class="fu">ls</span></span>
+<span id="cb15-4"><a href="navigating-in-linux-file-system.html#cb15-4"></a><span class="fu">ls</span> ../</span>
+<span id="cb15-5"><a href="navigating-in-linux-file-system.html#cb15-5"></a><span class="co">## </span></span>
+<span id="cb15-6"><a href="navigating-in-linux-file-system.html#cb15-6"></a><span class="bu">pwd</span></span>
+<span id="cb15-7"><a href="navigating-in-linux-file-system.html#cb15-7"></a><span class="bu">cd</span> ../</span>
+<span id="cb15-8"><a href="navigating-in-linux-file-system.html#cb15-8"></a><span class="bu">pwd</span></span>
+<span id="cb15-9"><a href="navigating-in-linux-file-system.html#cb15-9"></a><span class="bu">cd</span> ./</span>
+<span id="cb15-10"><a href="navigating-in-linux-file-system.html#cb15-10"></a><span class="bu">pwd</span></span></code></pre></div>
 <p>Each directory has two entries in it at the start, with names . (a link to itself) and .. (a link to its parent directory). The exception, of course, is the root directory, where the .. directory also refers to the root directory.</p>
 <p>Sometimes you go to a new directory and do something, then you remember that you need to go to the previous working direcotry. To get back instantly, use a dash.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="navigating-in-linux-file-system.html#cb23-1"></a><span class="bu">echo</span> <span class="st">&quot;This is our current directory: &quot;</span></span>
-<span id="cb23-2"><a href="navigating-in-linux-file-system.html#cb23-2"></a><span class="bu">pwd</span></span>
-<span id="cb23-3"><a href="navigating-in-linux-file-system.html#cb23-3"></a></span>
-<span id="cb23-4"><a href="navigating-in-linux-file-system.html#cb23-4"></a><span class="bu">echo</span> <span class="st">&quot;Let&#39;s go our home diretory: &quot;</span></span>
-<span id="cb23-5"><a href="navigating-in-linux-file-system.html#cb23-5"></a><span class="bu">cd</span> ~</span>
-<span id="cb23-6"><a href="navigating-in-linux-file-system.html#cb23-6"></a></span>
-<span id="cb23-7"><a href="navigating-in-linux-file-system.html#cb23-7"></a><span class="bu">echo</span> <span class="st">&quot;Check where we are: &quot;</span></span>
-<span id="cb23-8"><a href="navigating-in-linux-file-system.html#cb23-8"></a><span class="bu">pwd</span></span>
-<span id="cb23-9"><a href="navigating-in-linux-file-system.html#cb23-9"></a></span>
-<span id="cb23-10"><a href="navigating-in-linux-file-system.html#cb23-10"></a><span class="bu">echo</span> <span class="st">&quot;Let&#39;s go to your previous working direcotry: &quot;</span></span>
-<span id="cb23-11"><a href="navigating-in-linux-file-system.html#cb23-11"></a><span class="bu">cd</span> -</span>
-<span id="cb23-12"><a href="navigating-in-linux-file-system.html#cb23-12"></a><span class="bu">echo</span> <span class="st">&quot;Check where we&#39;re now: &quot;</span></span>
-<span id="cb23-13"><a href="navigating-in-linux-file-system.html#cb23-13"></a><span class="bu">pwd</span></span></code></pre></div>
-<pre><code>## This is our current directory: 
-## /cloud/project
-## Let&#39;s go our home diretory: 
-## Check where we are: 
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="navigating-in-linux-file-system.html#cb16-1"></a><span class="co"># This is our current directory</span></span>
+<span id="cb16-2"><a href="navigating-in-linux-file-system.html#cb16-2"></a><span class="bu">pwd</span></span>
+<span id="cb16-3"><a href="navigating-in-linux-file-system.html#cb16-3"></a></span>
+<span id="cb16-4"><a href="navigating-in-linux-file-system.html#cb16-4"></a><span class="co"># Let us go our home diretory</span></span>
+<span id="cb16-5"><a href="navigating-in-linux-file-system.html#cb16-5"></a><span class="bu">cd</span> ~</span>
+<span id="cb16-6"><a href="navigating-in-linux-file-system.html#cb16-6"></a></span>
+<span id="cb16-7"><a href="navigating-in-linux-file-system.html#cb16-7"></a><span class="co"># Check where we are</span></span>
+<span id="cb16-8"><a href="navigating-in-linux-file-system.html#cb16-8"></a><span class="bu">pwd</span></span>
+<span id="cb16-9"><a href="navigating-in-linux-file-system.html#cb16-9"></a></span>
+<span id="cb16-10"><a href="navigating-in-linux-file-system.html#cb16-10"></a><span class="co"># Let us go to your previous working directory</span></span>
+<span id="cb16-11"><a href="navigating-in-linux-file-system.html#cb16-11"></a><span class="bu">cd</span> -</span>
+<span id="cb16-12"><a href="navigating-in-linux-file-system.html#cb16-12"></a><span class="co"># Check where we are now</span></span>
+<span id="cb16-13"><a href="navigating-in-linux-file-system.html#cb16-13"></a><span class="bu">pwd</span></span></code></pre></div>
+<pre><code>## /cloud/project
 ## /home/rstudio-user
-## Let&#39;s go to your previous working direcotry: 
 ## /cloud/project
-## Check where we&#39;re now: 
 ## /cloud/project</code></pre>
 </div>
 <div id="manipulations-of-files-and-directories" class="section level2">
@@ -756,16 +657,15 @@ Figure 3.3: ref:linuxCMDls
 <div id="move-one-file" class="section level4">
 <h4><span class="header-section-number">3.4.2.1</span> Move one file</h4>
 <p>Here is one common example of <code>mv</code>.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="navigating-in-linux-file-system.html#cb25-1"></a></span>
-<span id="cb25-2"><a href="navigating-in-linux-file-system.html#cb25-2"></a><span class="fu">mv</span> file1 directory1/</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="navigating-in-linux-file-system.html#cb18-1"></a><span class="fu">mv</span> file1 directory1/</span></code></pre></div>
 </div>
 <div id="move-multiple-files-into-a-directory" class="section level4">
 <h4><span class="header-section-number">3.4.2.2</span> Move multiple files into a directory</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="navigating-in-linux-file-system.html#cb26-1"></a><span class="fu">mv</span> file1 file2 file3 target_direcotry/</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="navigating-in-linux-file-system.html#cb19-1"></a><span class="fu">mv</span> file1 file2 file3 target_direcotry/</span></code></pre></div>
 </div>
 <div id="move-a-directory" class="section level4">
 <h4><span class="header-section-number">3.4.2.3</span> Move a directory</h4>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="navigating-in-linux-file-system.html#cb27-1"></a><span class="fu">mv</span> dir1</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="navigating-in-linux-file-system.html#cb20-1"></a><span class="fu">mv</span> dir1</span></code></pre></div>
 </div>
 <div id="rename-a-file-or-a-directory" class="section level4">
 <h4><span class="header-section-number">3.4.2.4</span> Rename a file or a directory</h4>
@@ -776,9 +676,9 @@ Figure 3.3: ref:linuxCMDls
 <p>Command <code>mkdir</code> is short for make directory.</p>
 <p>The syntax is shown as below:</p>
 <pre><code>mkdir [OPTION ...] DIRECTORY ...</code></pre>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="navigating-in-linux-file-system.html#cb29-1"></a><span class="fu">mkdir</span> directory</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="navigating-in-linux-file-system.html#cb22-1"></a><span class="fu">mkdir</span> directory</span></code></pre></div>
 <p>Multiple directories can be specified when calling <code>mkdir</code>.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="navigating-in-linux-file-system.html#cb30-1"></a><span class="fu">mkdir</span> directory1 directory2</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="navigating-in-linux-file-system.html#cb23-1"></a><span class="fu">mkdir</span> directory1 directory2</span></code></pre></div>
 <div id="how-to-create-a-directory" class="section level4">
 <h4><span class="header-section-number">3.4.3.1</span> How to create a directory</h4>
 <pre><code>mkdir -p foo/bar/baz</code></pre>
@@ -829,7 +729,7 @@ rm -r test_folder</code></pre>
 <p>The syntax is shown as below:</p>
 <pre><code>cat [OPTION]... [FILE]...</code></pre>
 <p>For small text file, <code>cat</code> can be used to view the files on the standard output.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb38-1"><a href="navigating-in-linux-file-system.html#cb38-1"></a><span class="fu">cat</span> data/testdata4linux_cmd.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="navigating-in-linux-file-system.html#cb31-1"></a><span class="fu">cat</span> data/testdata4linux_cmd.txt</span></code></pre></div>
 <pre><code>## gene1
 ## gene2
 ## gene3
@@ -847,7 +747,7 @@ rm -r test_folder</code></pre>
 ## gene15
 ## gene16</code></pre>
 <p>You can also use <code>cat</code> to merge two text files.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb40-1"><a href="navigating-in-linux-file-system.html#cb40-1"></a><span class="fu">cat</span> file1 file2 <span class="op">&gt;</span> merged_file</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="navigating-in-linux-file-system.html#cb33-1"></a><span class="fu">cat</span> file1 file2 <span class="op">&gt;</span> merged_file</span></code></pre></div>
 </div>
 <div id="command-more-and-less" class="section level3">
 <h3><span class="header-section-number">3.5.2</span> Command <code>more</code> and <code>less</code></h3>
@@ -863,14 +763,14 @@ rm -r test_folder</code></pre>
 <p>The command <code>head</code> is used to output the first part of files. By default, it outputs the first 10 lines of the file.</p>
 <pre><code>head [OPTION]... [FILE]...</code></pre>
 <p>Here is an exmaple of printing the first 5 files of the file:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb44-1"><a href="navigating-in-linux-file-system.html#cb44-1"></a><span class="fu">head</span> -n 5 code_perl/variable_assign.pl</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="navigating-in-linux-file-system.html#cb37-1"></a><span class="fu">head</span> -n 5 code_perl/variable_assign.pl</span></code></pre></div>
 <pre><code>## #!/usr/bin/perl
 ## use warnings;
 ## use strict;
 ## 
 ## #assign two strings to two variables</code></pre>
 <p>In fact, the letter n does not even need to be used at all. Just the hyphen and the integer (with no intervening space) are sufficient to tell head how many lines to return. Thus, the following would produce the same result as the above commands:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb46-1"><a href="navigating-in-linux-file-system.html#cb46-1"></a><span class="fu">head</span> -5 data/testdata4linux_cmd.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb39-1"><a href="navigating-in-linux-file-system.html#cb39-1"></a><span class="fu">head</span> -5 data/testdata4linux_cmd.txt</span></code></pre></div>
 <pre><code>## gene1
 ## gene2
 ## gene3
@@ -880,14 +780,14 @@ rm -r test_folder</code></pre>
 <p>The syntax is shown below:</p>
 <pre><code>tail [OPTION]... [FILE]...</code></pre>
 <p>Here is an exmaple of printing the last 5 files of the file:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb49-1"><a href="navigating-in-linux-file-system.html#cb49-1"></a><span class="fu">tail</span> -5 data/testdata4linux_cmd.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb42-1"><a href="navigating-in-linux-file-system.html#cb42-1"></a><span class="fu">tail</span> -5 data/testdata4linux_cmd.txt</span></code></pre></div>
 <pre><code>## gene12
 ## gene13
 ## gene14
 ## gene15
 ## gene16</code></pre>
 <p>To view lines from a specific point in a file, you can use <code>-n +NUMBER</code> with the <code>tail</code> command. For example, here is an example of viewing the file from the 2nd line of the line.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb51-1"><a href="navigating-in-linux-file-system.html#cb51-1"></a><span class="fu">tail</span> -n +2 data/testdata4linux_cmd.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb44-1"><a href="navigating-in-linux-file-system.html#cb44-1"></a><span class="fu">tail</span> -n +2 data/testdata4linux_cmd.txt</span></code></pre></div>
 <pre><code>## gene2
 ## gene3
 ## gene4
@@ -937,36 +837,36 @@ The standard input stream typically carries data from a user to a program. Progr
 <div id="stdout" class="section level3">
 <h3><span class="header-section-number">3.6.2</span> STDOUT</h3>
 <p>Data that is generated by a program will be written by STDOUT. If the STDOUT is not redirected, it will output the data on to the terminal.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb54-1"><a href="navigating-in-linux-file-system.html#cb54-1"></a><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span></span>
-<span id="cb54-2"><a href="navigating-in-linux-file-system.html#cb54-2"></a><span class="bu">echo</span> <span class="va">$stdout</span></span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb47-1"><a href="navigating-in-linux-file-system.html#cb47-1"></a><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span></span>
+<span id="cb47-2"><a href="navigating-in-linux-file-system.html#cb47-2"></a><span class="bu">echo</span> <span class="va">$stdout</span></span></code></pre></div>
 <pre><code>## Hello world</code></pre>
 <p>The STDOUT can be redirected to a file. See the example below:</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb56-1"><a href="navigating-in-linux-file-system.html#cb56-1"></a><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span></span>
-<span id="cb56-2"><a href="navigating-in-linux-file-system.html#cb56-2"></a><span class="bu">echo</span> <span class="va">$stdout</span> <span class="op">&gt;</span> data/test_output.txt</span>
-<span id="cb56-3"><a href="navigating-in-linux-file-system.html#cb56-3"></a><span class="co"># cat the data</span></span>
-<span id="cb56-4"><a href="navigating-in-linux-file-system.html#cb56-4"></a><span class="fu">cat</span> data/test_output.txt</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb49-1"><a href="navigating-in-linux-file-system.html#cb49-1"></a><span class="va">stdout=</span><span class="st">&quot;Hello world&quot;</span></span>
+<span id="cb49-2"><a href="navigating-in-linux-file-system.html#cb49-2"></a><span class="bu">echo</span> <span class="va">$stdout</span> <span class="op">&gt;</span> data/test_output.txt</span>
+<span id="cb49-3"><a href="navigating-in-linux-file-system.html#cb49-3"></a><span class="co"># cat the data</span></span>
+<span id="cb49-4"><a href="navigating-in-linux-file-system.html#cb49-4"></a><span class="fu">cat</span> data/test_output.txt</span></code></pre></div>
 <pre><code>## Hello world</code></pre>
 </div>
 <div id="stderr" class="section level3">
 <h3><span class="header-section-number">3.6.3</span> STDERR</h3>
 <p>During a program’s execution, some errors may be generated when the program fails at some parts. STDERR will help you write the errors. By default, the STDERR will be outputed onto the terminal.</p>
 <p>Here is an example of STDERR</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb58-1"><a href="navigating-in-linux-file-system.html#cb58-1"></a><span class="fu">ls</span> NOTAFILE</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb51-1"><a href="navigating-in-linux-file-system.html#cb51-1"></a><span class="fu">ls</span> NOTAFILE</span></code></pre></div>
 <pre><code>## ls: cannot access &#39;NOTAFILE&#39;: No such file or directory</code></pre>
 </div>
 </div>
 <div id="find-disk-usage-of-files-and-directories" class="section level2">
 <h2><span class="header-section-number">3.7</span> Find Disk Usage of Files and Directories</h2>
 <p>The Linux <code>du</code> (short for Disk Usage) is a standard Unix/Linux command, used to check the information of disk usage of files and directories on a machine. The <code>du</code> command has many parameter options that can be used to get the results in many formats. The du command also displays the files and directory sizes in a recursively manner.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb60-1"><a href="navigating-in-linux-file-system.html#cb60-1"></a><span class="fu">du</span> data/ESP6500-African_American.vcf.gz</span>
-<span id="cb60-2"><a href="navigating-in-linux-file-system.html#cb60-2"></a><span class="fu">du</span> -h data/ESP6500-African_American.vcf.gz</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb53-1"><a href="navigating-in-linux-file-system.html#cb53-1"></a><span class="fu">du</span> data/ESP6500-African_American.vcf.gz</span>
+<span id="cb53-2"><a href="navigating-in-linux-file-system.html#cb53-2"></a><span class="fu">du</span> -h data/ESP6500-African_American.vcf.gz</span></code></pre></div>
 <pre><code>## 27388    data/ESP6500-African_American.vcf.gz
 ## 27M  data/ESP6500-African_American.vcf.gz</code></pre>
 <p>To get the summary of a grand total disk usage size of an directory use the option “-s” as follows.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb62-1"><a href="navigating-in-linux-file-system.html#cb62-1"></a><span class="fu">du</span> -sh data/</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb55-1"><a href="navigating-in-linux-file-system.html#cb55-1"></a><span class="fu">du</span> -sh data/</span></code></pre></div>
 <pre><code>## 38M  data/</code></pre>
 <p>Using “-a” flag with “du” command displays the disk usage of all the files and directories.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb64-1"><a href="navigating-in-linux-file-system.html#cb64-1"></a><span class="fu">du</span> -ah data/</span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb57-1"><a href="navigating-in-linux-file-system.html#cb57-1"></a><span class="fu">du</span> -ah data/</span></code></pre></div>
 <pre><code>## 4.0K data/PYL10_ARATH.fasta
 ## 4.0K data/test_ref2.fa
 ## 4.0K data/test_ref.fa
@@ -1000,14 +900,14 @@ The standard input stream typically carries data from a user to a program. Progr
 <div id="linux-md5sum-command" class="section level3">
 <h3><span class="header-section-number">3.8.1</span> Linux <code>md5sum</code> Command</h3>
 <p><code>md5sum</code> is used to verify the integrity of files, as virtually any change to a file will cause its MD5 hash to change. Most commonly, md5sum is used to verify that a file has not changed as a result of a faulty file transfer, a disk error or non-malicious meddling. The md5sum program is included in most Unix-like operating systems.</p>
-<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb66-1"><a href="navigating-in-linux-file-system.html#cb66-1"></a><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd is: &quot;</span></span>
-<span id="cb66-2"><a href="navigating-in-linux-file-system.html#cb66-2"></a><span class="ex">md5sum</span> index.Rmd</span>
-<span id="cb66-3"><a href="navigating-in-linux-file-system.html#cb66-3"></a><span class="fu">cp</span> index.Rmd index.Rmd_bak</span>
-<span id="cb66-4"><a href="navigating-in-linux-file-system.html#cb66-4"></a><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd_bak is: &quot;</span></span>
-<span id="cb66-5"><a href="navigating-in-linux-file-system.html#cb66-5"></a><span class="ex">md5sum</span> index.Rmd_bak </span>
-<span id="cb66-6"><a href="navigating-in-linux-file-system.html#cb66-6"></a><span class="bu">echo</span> <span class="st">&quot;The MD5 value of new index.Rmd_bak is: &quot;</span></span>
-<span id="cb66-7"><a href="navigating-in-linux-file-system.html#cb66-7"></a><span class="fu">head</span> index.Rmd <span class="op">&gt;</span> index.Rmd_bak</span>
-<span id="cb66-8"><a href="navigating-in-linux-file-system.html#cb66-8"></a><span class="ex">md5sum</span> index.Rmd_bak </span></code></pre></div>
+<pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb59-1"><a href="navigating-in-linux-file-system.html#cb59-1"></a><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd is: &quot;</span></span>
+<span id="cb59-2"><a href="navigating-in-linux-file-system.html#cb59-2"></a><span class="ex">md5sum</span> index.Rmd</span>
+<span id="cb59-3"><a href="navigating-in-linux-file-system.html#cb59-3"></a><span class="fu">cp</span> index.Rmd index.Rmd_bak</span>
+<span id="cb59-4"><a href="navigating-in-linux-file-system.html#cb59-4"></a><span class="bu">echo</span> <span class="st">&quot;The MD5 value of index.Rmd_bak is: &quot;</span></span>
+<span id="cb59-5"><a href="navigating-in-linux-file-system.html#cb59-5"></a><span class="ex">md5sum</span> index.Rmd_bak </span>
+<span id="cb59-6"><a href="navigating-in-linux-file-system.html#cb59-6"></a><span class="bu">echo</span> <span class="st">&quot;The MD5 value of new index.Rmd_bak is: &quot;</span></span>
+<span id="cb59-7"><a href="navigating-in-linux-file-system.html#cb59-7"></a><span class="fu">head</span> index.Rmd <span class="op">&gt;</span> index.Rmd_bak</span>
+<span id="cb59-8"><a href="navigating-in-linux-file-system.html#cb59-8"></a><span class="ex">md5sum</span> index.Rmd_bak </span></code></pre></div>
 <pre><code>## The MD5 value of index.Rmd is: 
 ## 26a37c04bf744e73878138fa1c447dab  index.Rmd
 ## The MD5 value of index.Rmd_bak is: 
